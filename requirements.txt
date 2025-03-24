@@ -8,5 +8,7 @@ requests
 html5lib
 yfinance
 playwright
+fastapi
+uvicorn
 
 
