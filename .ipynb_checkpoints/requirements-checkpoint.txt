@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+beautifulsoup4
+requests
+html5lib
+yfinance
+playwright
+nest_asyncio
+
