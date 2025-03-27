@@ -13,19 +13,18 @@ def connect_to_db(db_path):
 def get_list_actif(conn, table_hist_actif):
     """ Récupérer la liste des indices qui ont des historiques (on peut utiliser la table infos_indices mais pas sûr qu'il ait des historique dans la liste des indices de cette table (en l'occurence sir car table fait à partir des tikers infos_indices) """
     #return pd.read_sql(f"SELECT DISTINCT Ticker_Yahoo_Finance FROM '{table_hist_actif}'", conn)["Ticker_Yahoo_Finance"].tolist()
-    df = pd.read_sql(f"SELECT DISTINCT Ticker_Yahoo_Finance FROM '{table_hist_actif}'", conn)
-    return df["Ticker_Yahoo_Finance"].tolist()
-
+    df = pd.read_sql(f"SELECT DISTINCT Short_Name FROM '{table_hist_actif}'", conn)
+    return df["Short_Name"].tolist()
 
 
 def get_infos_actif(conn, table_infos_actif):
     """ Récupérer les informations sur l'actif """
-    return pd.read_sql(f"SELECT Ticker_Yahoo_Finance, Nom_Indice, Pays FROM '{table_infos_actif}'", conn)
+    return pd.read_sql(f"SELECT * FROM '{table_infos_actif}'", conn)
 
 
-def get_hist_actif_for_graph(conn, table_hist_actif, actif):
+def get_prix_date(conn, table_hist_actif, actif):
     """ Récupérer les données de l'actif pour le graphique """
-    df = pd.read_sql(f"SELECT Date, Close FROM {table_hist_actif} WHERE Ticker_Yahoo_Finance = '{actif}' ORDER BY Date", conn)
+    df = pd.read_sql(f"SELECT Date, Close FROM {table_hist_actif} WHERE Short_Name = '{actif}' ORDER BY Date", conn)
     if not df.empty:
         df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
         df = df.set_index("Date").resample("W").last().reset_index()
@@ -53,4 +52,38 @@ def style_rendement(df, periods):
         color = 'green' if float(val) > 0 else ('red' if float(val) < 0 else 'black')
         return f'color: {color}'  
     return df.style.applymap(color_rendement, subset=[f"{p} mois" for p in periods])
+
+
+
+
+
+# Mapping des indices vers les fichiers correspondants
+mapping_indices = {
+    "CAC 40": "composition_france",
+    "DAX                           P": "composition_allemagne",
+    "FTSE MIB Index": "composition_italie",
+    "IBEX 35...": "composition_espagne",
+    "BEL 20": "composition_belgique",
+    "AEX-Index": "composition_paysbas",
+    "FTSE 100": "composition_angleterre",
+    "S&P 500": "composition_sp500",
+    "NASDAQ 100": "composition_nasdaq100",
+    "Dow Jones Industrial Average": "composition_dowjones",
+    "OMX Helsinki 25": "composition_finlande",
+    "OMX Stockholm 30 Index": "composition_suede",
+    "OMX Copenhagen 25 Index": "composition_danemark",
+    "EURO STOXX 50                 I": "composition_europe50",
+    "Nikkei 225": "composition_japon",
+}
+
+def get_composition_indice(conn, selected_indice):
+    """ Récupère la composition de l'indice depuis la base de données """
+    try:
+        table_name = mapping_indices.get(selected_indice)
+        query = f"SELECT * FROM {table_name}"
+        df_composition = pd.read_sql(query, conn)
+        return df_composition
+    except Exception as e:
+        print(f"⚠️ Erreur lors de la récupération de la table '{selected_indice}': {e}")
+
 

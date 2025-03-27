@@ -4,7 +4,13 @@ import pandas as pd
 from fastapi import FastAPI
 import requests
 import plotly.graph_objects as go
+from fastapi import FastAPI
+from urllib.parse import unquote
 from fastapi.middleware.cors import CORSMiddleware
+
+"""
+uvicorn def_app:app --reload
+"""
 
 
 """ Les guillemets autour de '{}', n'est pas nécessaire dans la requête SQL mais pour s'aasurer qu'il n'y ait aucune erreur due à des noms de tables ayant des caractères spéciaux ou des espaces, c'est une bonne pratique."""
@@ -38,30 +44,33 @@ def get_list_actif(conn, table_hist_actif):
 '''
 
 
-@app.get("/indices")
-def get_list_actif(table_hist_actif: str = "historique_indices"):
+@app.get("/liste_indices")
+def get_liste_indices():
     """ Récupérer la liste des indices qui ont des historiques """
     conn = connect_to_db()
-    df = pd.read_sql(f"SELECT DISTINCT Ticker_Yahoo_Finance FROM {table_hist_actif}", conn)
+    df = pd.read_sql(f"SELECT DISTINCT Short_Name FROM historique_indices", conn)
     conn.close()
-    return df["Ticker_Yahoo_Finance"].tolist()
+    return df["Short_Name"].tolist()
 
 
-
-def get_infos_actif(table_infos_actif):
+@app.get("/infos_indices")
+def get_infos_indices():
     """ Récupérer les informations sur l'actif """
     conn = connect_to_db()
-    df = pd.read_sql(f"SELECT Ticker_Yahoo_Finance, Nom_Indice, Pays FROM {table_infos_actif}", conn)
+    df = pd.read_sql(f"SELECT Short_Name, Nom_Indice, Pays FROM infos_indices", conn)
     conn.close()
     return df
 
 
 
-@app.get("/historique")
-def get_hist_actif_for_graph(table_hist_actif: str = "historique_indices", actif: str = ""):
+@app.get("/historique_indices/{encoded_indice}", summary="Voir 'les Short_Name_Indice' dans le endpoint '/liste_indices'")
+def get_hist_actif_for_graph(encoded_indice: str):
     """ Récupérer les données de l'actif pour le graphique """
+    # Décoder l'indice
+    decoded_indice = unquote_plus(encoded_indice)
+    
     conn = connect_to_db()
-    df = pd.read_sql(f"SELECT Date, Close FROM {table_hist_actif} WHERE Ticker_Yahoo_Finance = ?", conn, params=(actif,))
+    df = pd.read_sql(f"SELECT Date, Close FROM historique_indices WHERE Short_Name = ?", conn, params=(decoded_indice,))
     conn.close()
     if not df.empty:
         df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
@@ -76,11 +85,11 @@ def get_historique(type_actif: str, actif: str):
     if type_actif == "indices":
         table = "historique_indices"
     elif type_actif == "entreprises":
-        table = "historique_entreprises"
+        table = "historique_stocks"
     else:
         return {"error": "Type d'actif inconnu"}
     df = pd.read_sql("SELECT Date, Close FROM {} WHERE Ticker_Yahoo_Finance = ?".format(table), conn, params=(actif,))
-    return df.to_dict(orient="records")
+    return df
 '''
 
 
