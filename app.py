@@ -2,42 +2,34 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
-import os
+from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()`
 from def_app import connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 
 
 
-############################################### PRESENTATION GENERALE DE STREAMLIT ###############################################
+############################################### MISE EN PLACE DU CSS ###############################################
 
-
-# Charger le CSS
+# Chargement du fichier CSS
 with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
-# Afficher l'image avec la bonne URL
+# CSS pour centrer image
 image_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/images/indices.jpeg"
-
-# Convertir le chemin en une URL utilisable avec `st.markdown()`
-from base64 import b64encode
 
 with open(image_path, "rb") as img_file:
     encoded = b64encode(img_file.read()).decode()
 
-st.markdown(f'<img src="data:image/jpeg;base64,{encoded}" class="center-image">', unsafe_allow_html=True)
+# CSS image
+st.markdown(f"""
+<div class="main-container"><img src="data:image/jpeg;base64,{encoded}" class="center-image"></div>""", unsafe_allow_html=True)
 
 
 
+####################################### MISE EN PLACE DU SQUELETTE STREAMLIT  #######################################
 
-
-
-
-
-
-
-
-
-# Titre principal
-st.title("📊 LES INDICES BOURSIERS")
+# CSS titre principal
+#st.title("📊 LES INDICES BOURSIERS")
+st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>""", unsafe_allow_html=True)
 
 # Menu de navigation dans la barre latérale
 st.sidebar.title("Navigation")
@@ -46,7 +38,8 @@ selected_page = st.sidebar.radio("Choisissez une page", menu_options)
 
 
 
-########################################### CONNEXION .db ET RECUPERATION DATAS DE .db PROPRE AUX INDICES ###########################################
+####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
+
 # Connexion à la base SQLite
 db_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/sql/data_indices_stocks.db"
 conn = connect_to_db(db_path)
@@ -59,14 +52,21 @@ table_infos_actif = "infos_indices"
 liste_indices = get_list_actif(conn, table_hist_actif)
 df_infos_indices = get_infos_actif(conn, table_infos_actif)
 
-# Indice par défaut pour grpah et tableau 
+# Indice par défaut pour graph et tableau 
 indice_default = "S&P 500"
+
 
 
 ############################################### GRAPHIQUE ###############################################
 
-# Sous-titre  pour la partie graph
-st.header("📈 Graphiques des indices")
+
+# CSS sous titre
+#st.header("📈 Graphiques des indices")
+st.markdown(f"""
+<div class="main-container">
+    <h2>📈 Graphiques des indices</h2>
+</div>
+""", unsafe_allow_html=True)
 
 # st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index
@@ -77,7 +77,7 @@ df = get_prix_date(conn, table_hist_actif, selected_indice)
 
 # S'il y a des données dans les colonnes, graphique, sinon message d'erreur.
 if not df.empty:
-    fig = go.Figure(go.Scatter(x=df["Date"], y=df["Close"], mode='lines', name=selected_indice))
+    fig = go.Figure(go.Scatter(x=df["Date"], y=df["Close"], mode='lines', name=selected_indice, line=dict(color='#6DBE8C', width=2)))
     fig.update_layout(title=f"Évolution de {selected_indice} - Clôture hebdomadaire", xaxis_title="Date", yaxis_title="Prix de clôture")
     st.plotly_chart(fig)
 else:
@@ -87,8 +87,9 @@ else:
 
 ############################################### TABLEAU RENDEMENT ###############################################
 
-# Sous-titre  pour la partie tableau rdt
-st.header("📈 Rendements des indices (%)")
+# CSS sous titre
+#st.header("📈 Rendements des indices (%)")
+st.markdown(f"""<div class="main-container"><h2>📈 Rendements des indices (%)</h2></div>""", unsafe_allow_html=True)
 
 # st.multiselect permet de choisir plusieurs options. 
 default_indices = indice_default 
@@ -150,8 +151,9 @@ st.dataframe(styled_df)
 
 ############################################### COMPOSITION INDICE ###############################################
 
-# Sous-titre  pour la partie graph
-st.header("🗂 Composition des indices")
+# CSS sous titre
+#st.header("🗂 Composition des indices")
+st.markdown(f"""<div class="main-container"><h2>🗂 Composition des indices</h2></div>""", unsafe_allow_html=True)
 
 # st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index

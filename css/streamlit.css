@@ -1,6 +1,34 @@
+/* Reset Streamlit */
+html, body, #root, .main-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Image centrée */
 .center-image {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px; /* Ajuste si nécessaire */
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styles texte */
+.main-container h1 {
+    color: #00B388;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    width: fit-content;
+    border: 2px solid #A4F6D2;
+    border-radius: 10px;
+}
+
+.main-container h2 {
+    padding: 8px;
+    margin: 15px auto;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid #00B388;
 }
