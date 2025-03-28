@@ -84,6 +84,6 @@ def get_composition_indice(conn, selected_indice):
         df_composition = pd.read_sql(query, conn)
         return df_composition
     except Exception as e:
-        print(f"⚠️ Erreur lors de la récupération de la table '{selected_indice}': {e}")
+        print(f"Erreur lors de la récupération de la table '{selected_indice}': {e}")
 
 

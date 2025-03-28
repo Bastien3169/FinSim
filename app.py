@@ -2,14 +2,42 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
+import os
 from def_app import connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 
 
 
 ############################################### PRESENTATION GENERALE DE STREAMLIT ###############################################
 
+
+# Charger le CSS
+with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
+    st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
+
+# Afficher l'image avec la bonne URL
+image_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/images/indices.jpeg"
+
+# Convertir le chemin en une URL utilisable avec `st.markdown()`
+from base64 import b64encode
+
+with open(image_path, "rb") as img_file:
+    encoded = b64encode(img_file.read()).decode()
+
+st.markdown(f'<img src="data:image/jpeg;base64,{encoded}" class="center-image">', unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
 # Titre principal
-st.title("📊 Application de Finance")
+st.title("📊 LES INDICES BOURSIERS")
 
 # Menu de navigation dans la barre latérale
 st.sidebar.title("Navigation")
@@ -38,7 +66,7 @@ indice_default = "S&P 500"
 ############################################### GRAPHIQUE ###############################################
 
 # Sous-titre  pour la partie graph
-st.subheader("📈 Graphiques des indices")
+st.header("📈 Graphiques des indices")
 
 # st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index
@@ -60,11 +88,11 @@ else:
 ############################################### TABLEAU RENDEMENT ###############################################
 
 # Sous-titre  pour la partie tableau rdt
-st.subheader("📈 Rendements des indices (%)")
+st.header("📈 Rendements des indices (%)")
 
 # st.multiselect permet de choisir plusieurs options. 
 default_indices = indice_default 
-indice_selectionner_pour_tableau = st.multiselect("Ajoutez des indices au tableau", liste_indices, default= [default_indices]) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif sur le tableau. "default= [default_indices]" entre [] car attend une liste.
+indice_selectionner_pour_tableau = st.multiselect("Ajoutez des indices au tableau pour comparer", liste_indices, default= [default_indices]) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif sur le tableau. "default= [default_indices]" entre [] car attend une liste.
 
 # st.session_state : dictionnaire persistant de Streamlit. Stock et conserve interactions de l'utilisateur pour ne pas avoir à recharger la page.
 if "rendement_data" not in st.session_state: 
@@ -123,7 +151,7 @@ st.dataframe(styled_df)
 ############################################### COMPOSITION INDICE ###############################################
 
 # Sous-titre  pour la partie graph
-st.subheader("🗂 Composition des indices")
+st.header("🗂 Composition des indices")
 
 # st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index
