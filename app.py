@@ -2,12 +2,16 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
-from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()`
-from def_app import connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
+from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()` pour les photos
+from def_app import *
+#connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
+#import stocks_app  # Import du fichier contenant le code des stocks
+#import indices_app  # Si tu as aussi du code pour les indices
+#import etf_app  # Si tu as du code pour les ETF
+#import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
+import con_user_app
 
-
-
-############################################### MISE EN PLACE DU CSS ###############################################
+############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
 with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
@@ -33,10 +37,20 @@ st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>
 
 # Menu de navigation dans la barre latérale
 st.sidebar.title("Navigation")
-menu_options = ["Datas indices", "Datas stocks", "Data ETF", "DCA VS LumpSum"]
+menu_options = ["Datas indices", "Datas stocks", "Data ETF", "DCA VS LumpSum", "Connexion"]
 selected_page = st.sidebar.radio("Choisissez une page", menu_options)
 
 
+# Charger le bon fichier selon la sélection
+if selected_page == "Datas stocks":
+    stocks_app.show()
+elif selected_page == "Data ETF":
+    etf_app.show()
+elif selected_page == "DCA VS LumpSum":
+    lp_dca_app.show()
+elif selected_page == "Connexion":
+    st.empty()
+    con_user_app.show()
 
 ####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
 
@@ -58,7 +72,6 @@ indice_default = "S&P 500"
 
 
 ############################################### GRAPHIQUE ###############################################
-
 
 # CSS sous titre
 #st.header("📈 Graphiques des indices")

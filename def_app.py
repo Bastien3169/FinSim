@@ -1,9 +1,12 @@
 # functions.py
 import sqlite3
 import pandas as pd
-import plotly.graph_objects as go
+import hashlib
 
 """ Les guillemets autour de '{}', n'est pas nécessaire dans la requête SQL mais pour s'aasurer qu'il n'y ait aucune erreur due à des noms de tables ayant des caractères spéciaux ou des espaces, c'est une bonne pratique."""
+
+
+####################################### CONNEXION BD POUR DATAS ET HIST ACTIFS  #######################################
 
 def connect_to_db(db_path):
     """ Connexion à la base de données SQLite """
@@ -29,31 +32,6 @@ def get_prix_date(conn, table_hist_actif, actif):
         df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
         df = df.set_index("Date").resample("W").last().reset_index()
     return df
-
-
-def calculate_rendement(df, periods):
-    """ Calculer les rendements pour chaque période """
-    rendement = {}
-    for period_months in periods:
-        start_date = df["Date"].max() - pd.DateOffset(months=period_months)
-        df_period = df[df["Date"] >= start_date]
-        if len(df_period) > 1:  # Si on a plus d'une donnée dans la période
-            start_close = df_period.iloc[0]["Close"]
-            end_close = df_period.iloc[-1]["Close"]
-            rendement[f"{period_months} mois"] = "{:.2f}".format((end_close - start_close) / start_close * 100) # arrondie 2 chif
-        else:
-            rendement[f"{period_months} mois"] = None
-    return rendement
-
-
-def style_rendement(df, periods):
-    """ Appliquer un style de couleur sur les rendements """
-    def color_rendement(val):
-        color = 'green' if float(val) > 0 else ('red' if float(val) < 0 else 'black')
-        return f'color: {color}'  
-    return df.style.applymap(color_rendement, subset=[f"{p} mois" for p in periods])
-
-
 
 
 
@@ -85,5 +63,36 @@ def get_composition_indice(conn, selected_indice):
         return df_composition
     except Exception as e:
         print(f"Erreur lors de la récupération de la table '{selected_indice}': {e}")
+
+
+####################################### CALCUL RENDEMENTS ACTIFS #######################################
+
+def calculate_rendement(df, periods):
+    """ Calculer les rendements pour chaque période """
+    rendement = {}
+    for period_months in periods:
+        start_date = df["Date"].max() - pd.DateOffset(months=period_months)
+        df_period = df[df["Date"] >= start_date]
+        if len(df_period) > 1:  # Si on a plus d'une donnée dans la période
+            start_close = df_period.iloc[0]["Close"]
+            end_close = df_period.iloc[-1]["Close"]
+            rendement[f"{period_months} mois"] = "{:.2f}".format((end_close - start_close) / start_close * 100) # arrondie 2 chif
+        else:
+            rendement[f"{period_months} mois"] = None
+    return rendement
+
+
+
+####################################### STYLE DU TABLEAU DE RENDEMENT #######################################
+
+def style_rendement(df, periods):
+    """ Appliquer un style de couleur sur les rendements """
+    def color_rendement(val):
+        color = 'green' if float(val) > 0 else ('red' if float(val) < 0 else 'black')
+        return f'color: {color}'  
+    return df.style.applymap(color_rendement, subset=[f"{p} mois" for p in periods])
+
+
+
 
 
