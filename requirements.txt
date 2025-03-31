@@ -10,5 +10,5 @@ yfinance
 playwright
 fastapi
 uvicorn
-
+bcrypt
 
