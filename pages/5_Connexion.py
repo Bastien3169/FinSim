@@ -4,7 +4,7 @@ import hashlib
 from def_app import *
 
 
-####################################### STREAMLIT SQUELLETE #######################################
+####################################### STREAMLIT INTERFACE #######################################
 
 # Chargement du fichier CSS
 with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:

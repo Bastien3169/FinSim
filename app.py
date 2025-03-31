@@ -12,8 +12,8 @@ import indices_app  # Si tu as aussi du code pour les indices
 import con_user_app
 
 
-st.set_page_config(page_title="Finance Project Dashboard", page_icon="💹", layout="wide")
-
+st.set_page_config(page_title="Finance Project Dashboard", page_icon="📊", layout="wide")
+    
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
@@ -42,5 +42,4 @@ st.markdown(f"""<div class="main-container"><h1>FINANCE PROJECT</h1></div>""", u
 #st.sidebar.title("Navigation")
 #menu_options = ["Présentation","Datas indices", "Datas stocks", "Data ETF", "DCA VS LumpSum", "Connexion"]
 #selected_page = st.sidebar.radio("Choisissez une page", menu_options)
-
 
