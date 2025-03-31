@@ -17,11 +17,11 @@ st.set_page_config(page_title="Finance Project Dashboard", page_icon="📊", lay
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
-with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
+with open("css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS pour centrer image
-image_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/images/indices.jpeg"
+image_path = "images/indices.jpeg"
 
 with open(image_path, "rb") as img_file:
     encoded = b64encode(img_file.read()).decode()
