@@ -16,7 +16,7 @@ import con_user_app
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
-with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
+with open("css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS titre principal
@@ -26,7 +26,7 @@ st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>
 ####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
 
 # Connexion à la base SQLite
-db_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/sql/data_indices_stocks.db"
+db_path = "sql/data_indices_stocks.db"
 conn = connect_to_db(db_path)
 
 # Mise en place des paramètre pour les fonctions des requêtes SQL
