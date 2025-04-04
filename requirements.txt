@@ -11,4 +11,6 @@ playwright
 fastapi
 uvicorn
 bcrypt
+selenium
+webdriver-manager
 
