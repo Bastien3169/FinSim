@@ -1,7 +1,9 @@
 import pandas as pd
 import yfinance as yf
 import time
+import os
 from scraping_tickers import all_tickers_yf  # Import de ta fonction scraping
+
 
 def get_stock_data(tickers, indice_name, Ticker_Yahoo_Indice, file_path):
     
@@ -79,20 +81,24 @@ def get_stock_data(tickers, indice_name, Ticker_Yahoo_Indice, file_path):
 if __name__ == "__main__":
     tickers_yf = all_tickers_yf() #Appel de la fonction
     
-    df_cac40 = get_stock_data(tickers_yf["CAC40"], "CAC 40", "^FCHI", "composition_france.csv")
-    df_dax40 = get_stock_data(tickers_yf["DAX40"], "DAX", "^GDAXI", "composition_dax.csv")
-    df_italie40 = get_stock_data(tickers_yf["Italie40"], "FTSE MIB Index", "FTSEMIB.MI", "composition_italie.csv")
-    df_espagne35 = get_stock_data(tickers_yf["Espagne35"], "IBEX 35", "^IBEX", "composition_espagne.csv")
-    df_angleterre = get_stock_data(tickers_yf["Angleterre100"], "FTSE 100", "^FTSE", "composition_angleterre.csv")
-    df_nasdaq100 = get_stock_data(tickers_yf["NASDAQ100"], "NASDAQ 100", "^NDX", "composition_nasdaq100.csv")
-    df_dowjones = get_stock_data(tickers_yf["Dow Jones"], "Dow Jones 30", "^DJI", "composition_dowjones.csv")
-    df_belgique = get_stock_data(tickers_yf["Belgique20"], "BEL 20", "^BFX", "composition_belgique.csv")
-    df_pays_bas = get_stock_data(tickers_yf["Paysbas25"], "AEX-Index", "^AEX", "composition_paysbas.csv")
-    df_finlande = get_stock_data(tickers_yf["Finlande25"], "OMX Helsinki 25", "^OMXH25", "composition_finlande.csv")
-    df_suede = get_stock_data(tickers_yf["Suède30"], "OMX Stockholm 30", "^OMXS30", "composition_suede.csv")
-    df_danemark = get_stock_data(tickers_yf["Danemark25"], "OMX Copenhagen 25", "^OMXC25", "composition_danemark.csv")
-    df_stoxx50 = get_stock_data(tickers_yf["STOXX50"], "STOXX 50", "^STOXX50E", "composition_europe50.csv")
-    df_sp500 = get_stock_data(tickers_yf["SP500"], "S&P 500", "^GSPC", "composition_sp500.csv")
-    df_japon225 = get_stock_data(tickers_yf["Japon225"], "Nikkei 225", "^N225", "composition_japon.csv")
+    # Définir une seule fois le chemin relatif vers le dossier des CSV
+    base_csv_path = "ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv"
+    
+    # Appels avec jointure automatique du chemin
+    df_cac40 = get_stock_data(tickers_yf["CAC40"], "CAC 40", "^FCHI", os.path.join(base_csv_path, "composition_france.csv"))
+    df_dax40 = get_stock_data(tickers_yf["DAX40"], "DAX", "^GDAXI", os.path.join(base_csv_path, "composition_dax.csv"))
+    df_italie40 = get_stock_data(tickers_yf["Italie40"], "FTSE MIB Index", "FTSEMIB.MI", os.path.join(base_csv_path, "composition_italie.csv"))
+    df_espagne35 = get_stock_data(tickers_yf["Espagne35"], "IBEX 35", "^IBEX", os.path.join(base_csv_path, "composition_espagne.csv"))
+    df_angleterre = get_stock_data(tickers_yf["Angleterre100"], "FTSE 100", "^FTSE", os.path.join(base_csv_path, "composition_angleterre.csv"))
+    df_nasdaq100 = get_stock_data(tickers_yf["NASDAQ100"], "NASDAQ 100", "^NDX", os.path.join(base_csv_path, "composition_nasdaq100.csv"))
+    df_dowjones = get_stock_data(tickers_yf["Dow Jones"], "Dow Jones 30", "^DJI", os.path.join(base_csv_path, "composition_dowjones.csv"))
+    df_belgique = get_stock_data(tickers_yf["Belgique20"], "BEL 20", "^BFX", os.path.join(base_csv_path, "composition_belgique.csv"))
+    df_pays_bas = get_stock_data(tickers_yf["Paysbas25"], "AEX-Index", "^AEX", os.path.join(base_csv_path, "composition_paysbas.csv"))
+    df_finlande = get_stock_data(tickers_yf["Finlande25"], "OMX Helsinki 25", "^OMXH25", os.path.join(base_csv_path, "composition_finlande.csv"))
+    df_suede = get_stock_data(tickers_yf["Suède30"], "OMX Stockholm 30", "^OMXS30", os.path.join(base_csv_path, "composition_suede.csv"))
+    df_danemark = get_stock_data(tickers_yf["Danemark25"], "OMX Copenhagen 25", "^OMXC25", os.path.join(base_csv_path, "composition_danemark.csv"))
+    df_stoxx50 = get_stock_data(tickers_yf["STOXX50"], "STOXX 50", "^STOXX50E", os.path.join(base_csv_path, "composition_europe50.csv"))
+    df_sp500 = get_stock_data(tickers_yf["SP500"], "S&P 500", "^GSPC", os.path.join(base_csv_path, "composition_sp500.csv"))
+    df_japon225 = get_stock_data(tickers_yf["Japon225"], "Nikkei 225", "^N225", os.path.join(base_csv_path, "composition_japon.csv"))
 
     
