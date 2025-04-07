@@ -1,0 +1,31 @@
+Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
+Apple Inc.,AAPL,AAPL,17.52,Technology,Dow Jones 30,^DJI,United States,NMS,30,2829863354368
+Microsoft Corporation,MSFT,MSFT,16.56,Technology,Dow Jones 30,^DJI,United States,NMS,30,2675043205120
+NVIDIA Corporation,NVDA,NVDA,14.25,Technology,Dow Jones 30,^DJI,United States,NMS,30,2301163732992
+"Amazon.com, Inc.",AMZN,AMZN,11.22,Consumer Cyclical,Dow Jones 30,^DJI,United States,NMS,30,1812206583808
+Walmart Inc.,WMT,WMT,4.13,Consumer Defensive,Dow Jones 30,^DJI,United States,NYQ,30,666921795584
+Visa Inc.,V,V,3.74,Financial Services,Dow Jones 30,^DJI,United States,NYQ,30,604030894080
+JP Morgan Chase & Co.,JPM,JPM,3.64,Financial Services,Dow Jones 30,^DJI,United States,NYQ,30,587966054400
+UnitedHealth Group Incorporated,UNH,UNH,2.97,Healthcare,Dow Jones 30,^DJI,United States,NYQ,30,480269533184
+Procter & Gamble Company (The),PG,PG,2.38,Consumer Defensive,Dow Jones 30,^DJI,United States,NYQ,30,383969165312
+Johnson & Johnson,JNJ,JNJ,2.29,Healthcare,Dow Jones 30,^DJI,United States,NYQ,30,369285431296
+"Home Depot, Inc. (The)",HD,HD,2.18,Consumer Cyclical,Dow Jones 30,^DJI,United States,NYQ,30,351787909120
+Coca-Cola Company (The),KO,KO,1.86,Consumer Defensive,Dow Jones 30,^DJI,United States,NYQ,30,300948652032
+Chevron Corporation,CVX,CVX,1.56,Energy,Dow Jones 30,^DJI,United States,NYQ,30,252258779136
+"Salesforce, Inc.",CRM,CRM,1.43,Technology,Dow Jones 30,^DJI,United States,NYQ,30,231370358784
+"Cisco Systems, Inc.",CSCO,CSCO,1.34,Technology,Dow Jones 30,^DJI,United States,NMS,30,216975933440
+McDonald's Corporation,MCD,MCD,1.33,Consumer Cyclical,Dow Jones 30,^DJI,United States,NYQ,30,214416883712
+International Business Machines,IBM,IBM,1.31,Technology,Dow Jones 30,^DJI,United States,NYQ,30,210934005760
+"Merck & Company, Inc.",MRK,MRK,1.27,Healthcare,Dow Jones 30,^DJI,United States,NYQ,30,205796491264
+Verizon Communications Inc.,VZ,VZ,1.12,Communication Services,Dow Jones 30,^DJI,United States,NYQ,30,181143388160
+American Express Company,AXP,AXP,1.01,Financial Services,Dow Jones 30,^DJI,United States,NYQ,30,163835379712
+Amgen Inc.,AMGN,AMGN,0.98,Healthcare,Dow Jones 30,^DJI,United States,NMS,30,158147788800
+Walt Disney Company (The),DIS,DIS,0.93,Communication Services,Dow Jones 30,^DJI,United States,NYQ,30,151004692480
+"Goldman Sachs Group, Inc. (The)",GS,GS,0.91,Financial Services,Dow Jones 30,^DJI,United States,NYQ,30,146323046400
+"Caterpillar, Inc.",CAT,CAT,0.85,Industrials,Dow Jones 30,^DJI,United States,NYQ,30,137682649088
+Honeywell International Inc.,HON,HON,0.77,Industrials,Dow Jones 30,^DJI,United States,NMS,30,124128026624
+Boeing Company (The),BA,BA,0.64,Industrials,Dow Jones 30,^DJI,United States,NYQ,30,102771269632
+"Nike, Inc.",NKE,NKE,0.52,Consumer Cyclical,Dow Jones 30,^DJI,United States,NYQ,30,84500430848
+Sherwin-Williams Company (The),SHW,SHW,0.52,Basic Materials,Dow Jones 30,^DJI,United States,NYQ,30,83516407808
+3M Company,MMM,MMM,0.42,Industrials,Dow Jones 30,^DJI,United States,NYQ,30,68444852224
+"The Travelers Companies, Inc.",TRV,TRV,0.34,Financial Services,Dow Jones 30,^DJI,United States,NYQ,30,54926884864

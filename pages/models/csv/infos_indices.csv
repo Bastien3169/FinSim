@@ -1,0 +1,16 @@
+Nom_Indice,Ticker,Ticker_Yahoo_Finance,Short_Name,Pays,Place_Boursiere,Nombres_Entreprises,Devise
+CAC40,PX1,^FCHI,CAC 40,France,PAR,40,EUR
+DAX40,DAX,^GDAXI,DAX                           P,Germany,GER,40,EUR
+FTSE MIB40,FTSEMIB,FTSEMIB.MI,FTSE MIB Index,Italy,MIL,40,EUR
+IBEX35,INDI,^IBEX,IBEX 35...,Spain,MCE,35,EUR
+BEL20,BEL20,^BFX,BEL 20,Belgium,BRU,20,EUR
+AEX25,AEX,^AEX,AEX-Index,Netherlands,AMS,25,EUR
+FTSE100,UKX,^FTSE,FTSE 100,United Kingdom,FGI,100,GBP
+SP500,GSPC,^GSPC,S&P 500,United States,SNP,500,USD
+NASDAQ100,NDX,^NDX,NASDAQ 100,United States,NIM,100,USD
+DowJones30,DJI,^DJI,Dow Jones Industrial Average,United States,DJI,30,USD
+OMX Helsinki 25,OMCH25,^OMXH25,OMX Helsinki 25,Finland,STO,25,EUR
+OMX Stockholm 30,OMXS30,^OMX,OMX Stockholm 30 Index,Sweden,STO,30,SEK
+OMX Copenhagen 25,OMXC25,^OMXC25,OMX Copenhagen 25 Index,Danemark,NIM,25,DKK
+STOXX50,SX5E,^STOXX50E,EURO STOXX 50                 I,Europe,ZRH,50,EUR
+NIKKEI225,NI225,^N225,Nikkei 225,Japan,OSA,225,JPY

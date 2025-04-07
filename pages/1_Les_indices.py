@@ -6,10 +6,10 @@ from base64 import b64encode # Convertir le chemin en une URL utilisable avec `s
 from def_app import *
 #connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 #import stocks_app  # Import du fichier contenant le code des stocks
-import indices_app  # Si tu as aussi du code pour les indices
+#import indices_app  # Si tu as aussi du code pour les indices
 #import etf_app  # Si tu as du code pour les ETF
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
-import con_user_app
+#import con_user_app
 
 
 

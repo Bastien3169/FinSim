@@ -162,4 +162,3 @@ def convert_format_yfinance(tickers_dict):
 ################################ LANCEMENT ################################
 if __name__ == "__main__":
     tickers_yf = all_tickers_yf()
-    print(tickers_yf)
