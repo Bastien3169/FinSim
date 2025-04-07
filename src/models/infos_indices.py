@@ -5,9 +5,10 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 import html5lib
+import os
 
 
-def infos_indices():
+def infos_indices(dossier_csv):
     
     indices = {
     "Nom_Indice": ['CAC40', 'DAX40', 'FTSE MIB40', 'IBEX35', 'BEL20', 'AEX25', 'FTSE100', 'SP500', 'NASDAQ100', 'DowJones30', 
@@ -59,8 +60,11 @@ def infos_indices():
         ]
     
     # Enregistrement du fichier .csv
-    df.to_csv("ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/infos_indices.csv", index=False, encoding='utf-8')
+    df.to_csv(os.path.join(dossier_csv, "infos_indices.csv"), index=False, encoding='utf-8')
+    print(f"[✅] Le fichier infos indices a bien été enregistré sous le nom")
+
     
     return df
 
-
+if __name__ == "__main__":
+    infos_indices = infos_indices("csv") #Appel de la fonction

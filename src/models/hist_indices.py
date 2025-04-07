@@ -1,18 +1,12 @@
 import pandas as pd
 import yfinance as yf
+import os
 
 
-def recuperer_et_clean_indices(
-    chemin_tickers="ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/infos_indices.csv",
-    chemin_output="ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/historique_indices.csv"
-):
-    """
-    Récupère les historiques hebdomadaires des indices depuis yfinance,
-    les nettoie et les sauvegarde directement dans un fichier CSV.
-    """
+def recuperer_et_clean_indices(dossier_csv):
 
     # Charger les tickers
-    df_infos = pd.read_csv(chemin_tickers, encoding="utf-8")
+    df_infos = pd.read_csv(os.path.join(dossier_csv, "infos_indices.csv"), encoding="utf-8")
     tickers_yahoo = df_infos["Ticker_Yahoo_Finance"].dropna().unique().tolist()
 
     dfs = []
@@ -30,9 +24,11 @@ def recuperer_et_clean_indices(
             dfs.append(hist)
           
         except Exception as e:
-            print(f"Erreur de récupération pour {ticker}: {e}")
+            print(f"Erreur de récupération pour {i}: {e}")
 
-        return pd.DataFrame()
+    
+    if not dfs:
+        return pd.DataFrame()  # ← En dehors de la boucle maintenant
 
     # Fusion de tous les historiques
     df = pd.concat(dfs)
@@ -45,9 +41,9 @@ def recuperer_et_clean_indices(
     df = df.drop(columns=["Open", "High", "Low", "Volume", "Dividends", "Stock Splits"], errors="ignore")
 
     # Convertir la colonne "Date" en format datetime et reformater en "JJ-MM-AAAA"
-    df["Date"] = pd.to_datetime(df["Date"], errors="coerce", utc=True).strftime("%d-%m-%Y")
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce", utc=True).dt.strftime("%d-%m-%Y")
 
-    # Ajouter le ticker simplifié en fusionnant sur "Ticker_Yahoo_Finance"
+    df.rename(columns={"Ticker": "Ticker_Yahoo_Finance"}, inplace=True)
     df = df.merge(df_infos[["Ticker_Yahoo_Finance", "Ticker"]], on="Ticker_Yahoo_Finance", how="left")
 
     # Arrondir la colonne "Close"
@@ -57,7 +53,10 @@ def recuperer_et_clean_indices(
     df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance", "Short_Name"]]
 
     # Sauvegarde
-    df.to_csv(chemin_output, index=False, encoding="utf-8")
-    print(f"✅ Données récupérées et nettoyées enregistrées dans : {chemin_output}")
+    df.to_csv(os.path.join(dossier_csv, "historique_indices.csv"), index=False, encoding="utf-8")
+    print(f"[✅] Le fichier historique indices a bien été enregistré sous le nom")
     
     return df
+
+if __name__ == "__main__":
+    recuperer_et_clean_indices = recuperer_et_clean_indices("csv") #Appel de la fonction

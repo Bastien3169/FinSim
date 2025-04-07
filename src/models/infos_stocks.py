@@ -3,10 +3,10 @@ import glob
 import pandas as pd
 
 
-def infos_stocks()
+def infos_stocks(dossier_csv) :
     # Chemin des fichiers CSV
-    fichiers_csv = glob.glob("ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/*.csv")
-    
+    fichiers_csv = glob.glob(os.path.join(dossier_csv, "composition_*.csv"))
+
     # Liste pour stocker les DataFrames
     dfs = []
     
@@ -22,10 +22,15 @@ def infos_stocks()
     df_final = df_concat.drop_duplicates(subset=['Ticker'])
     
     # Enlever les colonnes qui ne ne veullent plus rien dire ici
-    df = df.drop(columns=["Ponderation", "Nom_Indice", "Ticker_Indice_Yahoo", "Nombres_Entreprises"])
+    df_final = df_final.drop(columns=["Ponderation", "Nom_Indice", "Ticker_Indice_Yahoo", "Nombres_Entreprises"])
     
     # Sauvegarde du fichier fusionné sans doublons
-    df_final.to_csv("ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/infos_stocks_concat.csv", index=False, encoding="utf-8")
-    
+    df_final.to_csv(os.path.join(dossier_csv, "infos_stocks.csv"), index=False, encoding="utf-8")
+
+    print(f"[✅] Le fichier infos stocks a bien été enregistré sous le nom")
+
     # Affichage du DataFrame final
     return df_final
+
+if __name__ == "__main__":
+    infos_stocks = infos_stocks("csv") #Appel de la fonction

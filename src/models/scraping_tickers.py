@@ -31,6 +31,8 @@ def all_tickers_yf():
     # Normalisation des tickers en format Yahoo Finance
     all_tickers_yf = convert_format_yfinance(all_tickers)
 
+    
+    print(f"[✅] Le fichier scraping a bien été enregistré")
     return all_tickers_yf
 
 
@@ -137,11 +139,16 @@ def convert_format_yfinance(tickers_dict):
     tickers_yf = {}  # Nouveau dictionnaire pour stocker les tickers normalisés
 
     for indice, tickers in tickers_dict.items():
+        # Ne rien modifier pour STOXX50 (déjà au bon format)
+        if indice == "STOXX50":
+            tickers_yf[indice] = tickers
+            continue
         # Nettoyage des tickers : suppression des points à la fin et remplacement des autres points par des tirets
         cleaned_tickers = []
         for ticker in tickers:
             ticker = ticker.rstrip('.')  # Supprimer les points à la fin
             ticker = ticker.replace('.', '-')  # Remplacer les points restants par des tirets
+            ticker = ticker.replace('_', '-')  # Remplacer les points restants par des tirets
             cleaned_tickers.append(ticker)
             
         # Ajouter le suffixe pour chaque ticker
@@ -149,7 +156,7 @@ def convert_format_yfinance(tickers_dict):
 
     # Cas particulier pour le CAC40 : ajouter MT.AS
     tickers_yf["CAC40"].append("MT.AS")
-
+    
     return tickers_yf
 
 ################################ LANCEMENT ################################

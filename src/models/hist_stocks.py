@@ -1,17 +1,15 @@
 import pandas as pd
 import yfinance as yf
+import os
 
 
-def recuperer_et_clean_stocks(
-    chemin_tickers="ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/infos_stocks.csv",
-    chemin_output="ProjectFinance_alleger/ProjectFinance_Streamlit/src/modelels/csv/historique_stocks.csv"
-):
+def recuperer_et_clean_stocks(dossier_csv):
 
 
     # Charger le fichier et prendre la liste de tous les tikers yahoo des entreprises avec les tikers les infos hist sur yfinance
-    df_tickers = pd.read_csv(chemin_tickers, encoding="utf-8")
+    df_tickers = pd.read_csv(os.path.join(dossier_csv, "infos_stocks.csv"), encoding="utf-8")
     
-    tickers_yahoo = df["Ticker_Yahoo_Finance"]..dropna().unique().tolist()
+    tickers_yahoo = df_tickers["Ticker_Yahoo_Finance"].dropna().unique().tolist()
     
     # Liste pour stocker les DataFrames
     dfs = []
@@ -21,8 +19,8 @@ def recuperer_et_clean_stocks(
             # Récupération des données historiques
             hist = yf.Ticker(i).history(period="max", interval="1wk")
     
-            # Ajouter les colonnes 'Ticker' et 'ShortName'
-            hist['Ticker'] = i
+            # Ajouter les colonnes 'Ticker_Yahoo_Finance'
+            hist['Ticker_Yahoo_Finance'] = i
     
             # Ajouter le DataFrame historique dans la liste
             dfs.append(hist)
@@ -34,8 +32,7 @@ def recuperer_et_clean_stocks(
     df = pd.concat(dfs)
     df.reset_index(inplace=True)
     
-
-    
+  
 ############################################ NETTOYAGE DATAFRAME ############################################
 
     # Supprimer colonnes inutiles
@@ -49,12 +46,18 @@ def recuperer_et_clean_stocks(
     
     # Arrondir la colonne "Close"
     df["Close"] = df["Close"].round(4)
-    
+
+    # Jointure avec le fichier original pour ajouter la colonne 'ShortName'
+    df = df.merge(df_tickers[["Ticker_Yahoo_Finance", "Nom_Entreprise"]], on="Ticker_Yahoo_Finance", how="left")
+
     # Réorganiser les colonnes dans l'ordre souhaité
-    df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance"]]
+    df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance", "Nom_Entreprise"]]
     
     # Enregistrer le fichier modifié
-    df.to_csv(chemin_output, index=False, encoding="utf-8")
-    print(f"✅ Données récupérées et nettoyées enregistrées dans : {chemin_output}")
+    df.to_csv(os.path.join(dossier_csv, "historique_stocks.csv"), index=False, encoding="utf-8")
+    print(f"[✅] Le fichier historique stocks a bien été enregistré sous le nom")
     
     return df
+
+if __name__ == "__main__":
+    recuperer_et_clean_stocks = recuperer_et_clean_stocks("csv") #Appel de la fonction
