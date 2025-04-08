@@ -18,7 +18,7 @@ import con_user_app
 st.empty()
 
 # Chargement du fichier CSS
-with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
+with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS titre principal

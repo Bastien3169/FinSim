@@ -1,0 +1,26 @@
+Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
+ASML HOLDING,ASML,ASML.AS,19.48,Technology,AEX-Index,^AEX,Netherlands,AMS,25,221857349632
+SHELL PLC,SHELL,SHELL.AS,15.86,Energy,AEX-Index,^AEX,United Kingdom,AMS,25,180656504832
+UNILEVER PLC,UNA,UNA.AS,11.7,Consumer Defensive,AEX-Index,^AEX,United Kingdom,AMS,25,133292302336
+PROSUS,PRX,PRX.AS,7.97,Communication Services,AEX-Index,^AEX,Netherlands,AMS,25,90773995520
+RELX,REN,REN.AS,6.95,Industrials,AEX-Index,^AEX,United Kingdom,AMS,25,79139799040
+ING GROEP N.V.,INGA,INGA.AS,4.42,Financial Services,AEX-Index,^AEX,Netherlands,AMS,25,50392096768
+UNIVERSAL MUSIC GROUP,UMG,UMG.AS,3.82,Communication Services,AEX-Index,^AEX,Netherlands,AMS,25,43568181248
+HEINEKEN,HEIA,HEIA.AS,3.58,Consumer Defensive,AEX-Index,^AEX,Netherlands,AMS,25,40792502272
+ADYEN,ADYEN,ADYEN.AS,3.54,Technology,AEX-Index,^AEX,Netherlands,AMS,25,40283570176
+WOLTERS KLUWER,WKL,WKL.AS,2.77,Industrials,AEX-Index,^AEX,Netherlands,AMS,25,31580010496
+KONINKLIJKE AHOLD DELHAIZE N.V.,AD,AD.AS,2.68,Consumer Defensive,AEX-Index,^AEX,Netherlands,AMS,25,30544273408
+EXOR,EXO,EXO.AS,2.38,Industrials,AEX-Index,^AEX,Netherlands,AMS,25,27160188928
+DSM FIRMENICH AG,DSFIR,DSFIR.AS,1.99,Basic Materials,AEX-Index,^AEX,Switzerland,AMS,25,22654857216
+KON.PHILIPS N.V.,PHIA,PHIA.AS,1.73,Healthcare,AEX-Index,^AEX,Netherlands,AMS,25,19664345088
+ARCELORMITTAL SA,MT,MT.AS,1.63,Basic Materials,AEX-Index,^AEX,Luxembourg,AMS,25,18544312320
+ASM International N.V.,ASM,ASM.AS,1.61,Technology,AEX-Index,^AEX,Netherlands,AMS,25,18362830848
+KPN KON,KPN,KPN.AS,1.32,Communication Services,AEX-Index,^AEX,Netherlands,AMS,25,15028487168
+ABN AMRO BANK N.V.,ABN,ABN.AS,1.31,Financial Services,AEX-Index,^AEX,Netherlands,AMS,25,14957033472
+NN GROUP,NN,NN.AS,1.11,Financial Services,AEX-Index,^AEX,Netherlands,AMS,25,12610483200
+ASR NEDERLAND,ASRNL,ASRNL.AS,0.9,Financial Services,AEX-Index,^AEX,Netherlands,AMS,25,10239013888
+AKZO NOBEL,AKZA,AKZA.AS,0.78,Basic Materials,AEX-Index,^AEX,Netherlands,AMS,25,8880049152
+AEGON,AGN,AGN.AS,0.75,Financial Services,AEX-Index,^AEX,Netherlands,AMS,25,8506350592
+BE Semiconductor Industries N.V,BESI,BESI.AS,0.6,Technology,AEX-Index,^AEX,Netherlands,AMS,25,6792499712
+IMCD,IMCD,IMCD.AS,0.61,Basic Materials,AEX-Index,^AEX,Netherlands,AMS,25,6980610560
+Randstad N.V.,RAND,RAND.AS,0.52,Industrials,AEX-Index,^AEX,Netherlands,AMS,25,5868882432

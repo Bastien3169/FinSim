@@ -12,11 +12,11 @@ from base64 import b64encode # Convertir le chemin en une URL utilisable avec `s
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
-with open("css/streamlit.css") as css:
+with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS pour centrer image
-image_path = "images/indices.jpeg"
+image_path = "src/assets/images/indices.jpeg"
 
 with open(image_path, "rb") as img_file:
     encoded = b64encode(img_file.read()).decode()

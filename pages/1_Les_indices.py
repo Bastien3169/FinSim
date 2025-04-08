@@ -3,7 +3,7 @@ import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
 from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()` pour les photos
-from def_app import *
+from src.controllers.connexion_db_datas import *
 #connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 #import stocks_app  # Import du fichier contenant le code des stocks
 #import indices_app  # Si tu as aussi du code pour les indices
@@ -16,7 +16,7 @@ from def_app import *
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 
 # Chargement du fichier CSS
-with open("css/streamlit.css") as css:
+with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS titre principal
@@ -26,7 +26,7 @@ st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>
 ####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
 
 # Connexion à la base SQLite
-db_path = "sql/data_indices_stocks.db"
+db_path = "data.db"
 conn = connect_to_db(db_path)
 
 # Mise en place des paramètre pour les fonctions des requêtes SQL
@@ -46,11 +46,7 @@ indice_default = "S&P 500"
 
 # CSS sous titre
 #st.header("📈 Graphiques des indices")
-st.markdown(f"""
-<div class="main-container">
-    <h2>📈 Graphiques des indices</h2>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h2>📈 Graphiques des indices</h2></div>""", unsafe_allow_html=True)
 
 # st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index

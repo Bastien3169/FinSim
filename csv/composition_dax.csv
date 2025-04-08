@@ -1,0 +1,41 @@
+Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
+SAP SE                        I,SAP,SAP.DE,14.26,Technology,DAX,^GDAXI,Germany,GER,40,258283012096
+DEUTSCHE TELEKOM AG           N,DTE,DTE.DE,8.48,Communication Services,DAX,^GDAXI,Germany,GER,40,153530466304
+SIEMENS AG                    N,SIE,SIE.DE,7.64,Industrials,DAX,^GDAXI,Germany,GER,40,138316136448
+Allianz SE                    v,ALV,ALV.DE,6.73,Financial Services,DAX,^GDAXI,Germany,GER,40,121950404608
+Airbus SE                     A,AIR,AIR.DE,6.4,Industrials,DAX,^GDAXI,Netherlands,GER,40,115835756544
+MUENCHENER RUECKVERS.-GES. AG V,MUV2,MUV2.DE,3.77,Financial Services,DAX,^GDAXI,Germany,GER,40,68304838656
+RHEINMETALL AG                I,RHM,RHM.DE,2.98,Industrials,DAX,^GDAXI,Germany,GER,40,54036000768
+MERCK KGAA                    I,MRK,MRK.DE,2.71,Healthcare,DAX,^GDAXI,Germany,GER,40,48999477248
+Siemens Healthineers AG       N,SHL,SHL.DE,2.67,Healthcare,DAX,^GDAXI,Germany,GER,40,48397238272
+DEUTSCHE BOERSE AG            N,DB1,DB1.DE,2.51,Financial Services,DAX,^GDAXI,Germany,GER,40,45485056000
+Mercedes-Benz Group AG        N,MBG,MBG.DE,2.61,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,47225626624
+VOLKSWAGEN AG                 V,VOW3,VOW3.DE,2.41,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,43643523072
+BAYERISCHE MOTOREN WERKE AG   S,BMW,BMW.DE,2.29,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,41512591360
+DEUTSCHE POST AG              N,DHL,DHL.DE,2.14,Industrials,DAX,^GDAXI,Germany,GER,40,38828912640
+Dr. Ing. h.c. F. Porsche AG   I,P911,P911.DE,2.15,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,39009017856
+Siemens Energy AG             N,ENR,ENR.DE,2.12,Industrials,DAX,^GDAXI,Germany,GER,40,38371868672
+BASF SE                       N,BAS,BAS.DE,2.01,Basic Materials,DAX,^GDAXI,Germany,GER,40,36316717056
+E.ON SE                       N,EOAN,EOAN.DE,1.96,Utilities,DAX,^GDAXI,Germany,GER,40,35524825088
+DEUTSCHE BANK AG              N,DBK,DBK.DE,1.94,Financial Services,DAX,^GDAXI,Germany,GER,40,35073597440
+adidas AG                     N,ADS,ADS.DE,1.84,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,33272606720
+INFINEON TECHNOLOGIES AG      N,IFX,IFX.DE,1.8,Technology,DAX,^GDAXI,Germany,GER,40,32621910016
+HANNOVER RUECK SE NA O.N.,HNR1,HNR1.DE,1.64,Financial Services,DAX,^GDAXI,Germany,GER,40,29618624512
+Henkel AG & Co. KGaA          I,HEN3,HEN3.DE,1.5,Consumer Defensive,DAX,^GDAXI,Germany,GER,40,27098013696
+Heidelberg Materials AG       I,HEI,HEI.DE,1.41,Basic Materials,DAX,^GDAXI,Germany,GER,40,25622693888
+BEIERSDORF AG                 I,BEI,BEI.DE,1.39,Consumer Defensive,DAX,^GDAXI,Germany,GER,40,25178540032
+Daimler Truck Holding AG      N,DTG,DTG.DE,1.42,Industrials,DAX,^GDAXI,Germany,GER,40,25681274880
+Commerzbank AG                I,CBK,CBK.DE,1.31,Financial Services,DAX,^GDAXI,Germany,GER,40,23740882944
+RWE AG                        I,RWE,RWE.DE,1.28,Utilities,DAX,^GDAXI,Germany,GER,40,23150395392
+Vonovia SE                    N,VNA,VNA.DE,1.18,Real Estate,DAX,^GDAXI,Germany,GER,40,21328349184
+Fresenius SE & Co. KGaA       I,FRE,FRE.DE,1.12,Healthcare,DAX,^GDAXI,Germany,GER,40,20344119296
+Bayer AG                      N,BAYN,BAYN.DE,1.08,Healthcare,DAX,^GDAXI,Germany,GER,40,19483432960
+MTU Aero Engines AG           N,MTX,MTX.DE,0.8,Industrials,DAX,^GDAXI,Germany,GER,40,14425191424
+Symrise AG                    I,SY1,SY1.DE,0.7,Basic Materials,DAX,^GDAXI,Germany,GER,40,12688501760
+Fresenius Medical Care AG     I,FME,FME.DE,0.68,Healthcare,DAX,^GDAXI,Germany,GER,40,12376160256
+CONTINENTAL AG                I,CON,CON.DE,0.65,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,11756352512
+SARTORIUS AG                  V,SRT3,SRT3.DE,0.61,Healthcare,DAX,^GDAXI,Germany,GER,40,10976171008
+Porsche Automobil Holding SE  I,PAH3,PAH3.DE,0.54,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,9861250048
+Brenntag SE                   N,BNR,BNR.DE,0.44,Basic Materials,DAX,^GDAXI,Germany,GER,40,7883420160
+Zalando SE                    I,ZAL,ZAL.DE,0.42,Consumer Cyclical,DAX,^GDAXI,Germany,GER,40,7623042560
+Qiagen N.V.                   A,QIA,QIA.DE,0.43,Healthcare,DAX,^GDAXI,Netherlands,GER,40,7811512832

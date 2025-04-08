@@ -7,7 +7,7 @@ import bcrypt
 ####################################### CONNEXION BD POUR ENREGISTREMENT USER #######################################
 
 # Connexion à la base de données
-conn = sqlite3.connect("sql/user.db", check_same_thread=False)
+conn = sqlite3.connect("user.db", check_same_thread=False)
 cursor = conn.cursor()
 cursor.execute(
     """CREATE TABLE IF NOT EXISTS users (
@@ -54,7 +54,7 @@ def logout():
 ####################################### STREAMLIT INTERFACE #######################################
 
 # Chargement du fichier CSS
-with open("css/streamlit.css") as css:
+with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS titre et sous-titre
