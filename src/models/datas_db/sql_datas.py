@@ -80,7 +80,7 @@ def creation_db(db_path):
         Close REAL,
         Ticker TEXT,
         Ticker_Yahoo_Finance TEXT,
-        Nom_Entreprise TEXT,
+        Short_Name TEXT,
         FOREIGN KEY (Ticker_Yahoo_Finance) REFERENCES infos_stocks(Ticker_Yahoo_Finance)
     )
     ''')

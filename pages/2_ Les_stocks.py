@@ -3,19 +3,17 @@ import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
 from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()` pour les photos
-from def_app import *
+from src.controllers.connexion_db_datas import *
 #connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 #import stocks_app  # Import du fichier contenant le code des stocks
-import indices_app  # Si tu as aussi du code pour les indices
+#import indices_app  # Si tu as aussi du code pour les indices
 #import etf_app  # Si tu as du code pour les ETF
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
-import con_user_app
+#import con_user_app
 
 
 
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
-# 📌 Créer un espace vide pour afficher la page sélectionnée
-st.empty()
 
 # Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
@@ -23,24 +21,24 @@ with open("src/assets/css/streamlit.css") as css:
 
 # CSS titre principal
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>LES ENTREPRISES</h1></div>""", unsafe_allow_html=True)
 
 ####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
 
 # Connexion à la base SQLite
-db_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/sql/data_indices_stocks.db"
+db_path = "data.db"
 conn = connect_to_db(db_path)
 
 # Mise en place des paramètre pour les fonctions des requêtes SQL
-table_hist_actif = "historique_indices"
-table_infos_actif = "infos_indices"
+table_hist_actif = "historique_stocks"
+table_infos_actif = "infos_stocks"
 
 # Récupérer la liste des indices et leurs infos
 liste_indices = get_list_actif(conn, table_hist_actif)
 df_infos_indices = get_infos_actif(conn, table_infos_actif)
 
 # Indice par défaut pour graph et tableau 
-indice_default = "S&P 500"
+indice_default = "Apple Inc."
 
 
 
@@ -48,15 +46,10 @@ indice_default = "S&P 500"
 
 # CSS sous titre
 #st.header("📈 Graphiques des indices")
-st.markdown(f"""
-<div class="main-container">
-    <h2>📈 Graphiques des indices</h2>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h2>📈 Graphiques des entreprises</h2></div>""", unsafe_allow_html=True)
 
-# st.selectbox permet de choisir une seule option.
 default_index = indice_default # "index=indices.index(default_index)" attent un int pour index
-selected_indice = st.selectbox("Choisissez un indice pour le graphique", liste_indices, index=liste_indices.index(default_index)) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif pour visualisation graph.
+selected_indice = st.selectbox("Choisissez une entreprise pour le graphique", liste_indices, index=liste_indices.index(default_index)) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif pour visualisation graph.
 
 # Récupération des données "Dates" et "Close" de la base de donnée pour le graphique en dataframe
 df = get_prix_date(conn, table_hist_actif, selected_indice)
@@ -75,11 +68,11 @@ else:
 
 # CSS sous titre
 #st.header("📈 Rendements des indices (%)")
-st.markdown(f"""<div class="main-container"><h2>💯 Rendements des indices (%)</h2></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h2>💯 Rendements des entreprise (%)</h2></div>""", unsafe_allow_html=True)
 
 # st.multiselect permet de choisir plusieurs options. 
 default_indices = indice_default 
-indice_selectionner_pour_tableau = st.multiselect("Ajoutez des indices au tableau pour comparer", liste_indices, default= [default_indices]) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif sur le tableau. "default= [default_indices]" entre [] car attend une liste.
+indice_selectionner_pour_tableau = st.multiselect("Ajoutez une entreprise au tableau pour comparer", liste_indices, default= [default_indices]) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif sur le tableau. "default= [default_indices]" entre [] car attend une liste.
 
 # st.session_state : dictionnaire persistant de Streamlit. Stock et conserve interactions de l'utilisateur pour ne pas avoir à recharger la page.
 if "rendement_data" not in st.session_state: 
@@ -104,15 +97,13 @@ for i in indices_a_ajouter:
     df_prix_date = get_prix_date(conn, table_hist_actif, i) # On crée le df avec en colonne "Date" et "Close" pour chaque indice selectionnés ds "indices_to_add"
     if not df.empty:
         df_rendement = calculate_rendement(df_prix_date, periods)
-        df_info = df_infos_indices[df_infos_indices["Short_Name"] == i]  # Filtres les infos sur l'indice
+        df_info = df_infos_indices[df_infos_indices["Nom_Entreprise"] == i]  # Filtres les infos sur l'indice
         
         if not df_info.empty:
             df_rendement["Pays"] = df_info.iloc[0]["Pays"]
             df_rendement["Ticker"] = df_info.iloc[0]["Ticker"]
             df_rendement["Ticker_Yahoo_Finance"] = df_info.iloc[0]["Ticker_Yahoo_Finance"]
             df_rendement["Place_Boursiere"] = df_info.iloc[0]["Place_Boursiere"]
-            df_rendement["Nombres_Entreprises"] = df_info.iloc[0]["Nombres_Entreprises"]
-            df_rendement["Devise"] = df_info.iloc[0]["Devise"]
         else:
             df_rendement["Pays"] = "Inconnu"
 
@@ -125,35 +116,13 @@ for i in indices_a_ajouter:
 
 # Réorganiser les colonnes (sans la colonne "Ticker_Yahoo_Finance")
 # Réorganiser les colonnes en mettant "Pays" avant les rendements
-st.session_state.rendement_data = st.session_state.rendement_data[["Pays"] + [f"{p} mois" for p in periods] + ["Ticker", "Ticker_Yahoo_Finance", "Place_Boursiere", "Nombres_Entreprises", "Devise"]]
+st.session_state.rendement_data = st.session_state.rendement_data[["Pays"] + [f"{p} mois" for p in periods] + ["Ticker", "Ticker_Yahoo_Finance", "Place_Boursiere"]]
 
 # Appliquer la mise en forme et le style sur les rendements
 styled_df = style_rendement(st.session_state.rendement_data, periods)
 
 # Afficher le tableau avec les rendements stylisés
 st.dataframe(styled_df)
-
-
-
-############################################### COMPOSITION INDICE ###############################################
-
-# CSS sous titre
-#st.header("🗂 Composition des indices")
-st.markdown(f"""<div class="main-container"><h2>🗂 Composition des indices</h2></div>""", unsafe_allow_html=True)
-
-# st.selectbox permet de choisir une seule option.
-default_index = indice_default # "index=indices.index(default_index)" attent un int pour index
-selected_indice = st.selectbox("Choisissez un indice pour voir sa composition", liste_indices, index=liste_indices.index(default_index)) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif pour visualisation graph.
-
-# Afficher la composition de l'indice sélectionné
-if selected_indice:
-    df_composition_indice = get_composition_indice(conn, selected_indice)
-    
-    if not df_composition_indice.empty:
-        st.write(f"Composition de l'indice {selected_indice}:")
-        st.dataframe(df_composition_indice)  # Affiche la composition sous forme de tableau
-    else:
-        st.write(f"Pas de données disponibles pour l'indice {selected_indice}.")
 
 
 conn.close()

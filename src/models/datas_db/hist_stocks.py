@@ -51,7 +51,7 @@ def recuperer_et_clean_stocks(dossier_csv):
     df = df.merge(df_tickers[["Ticker_Yahoo_Finance", "Nom_Entreprise"]], on="Ticker_Yahoo_Finance", how="left")
 
     # Réorganiser les colonnes dans l'ordre souhaité
-    df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance", "Nom_Entreprise"]]
+    df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance", "Short_Name"]]
     
     # Enregistrer le fichier modifié
     df.to_csv(os.path.join(dossier_csv, "historique_stocks.csv"), index=False, encoding="utf-8")

@@ -34,7 +34,6 @@ def get_prix_date(conn, table_hist_actif, actif):
     return df
 
 
-
 # Mapping des indices vers les fichiers correspondants
 mapping_indices = {
     "CAC 40": "composition_france",
