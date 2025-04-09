@@ -13,4 +13,6 @@ uvicorn
 bcrypt
 selenium
 webdriver-manager
+streamlit-authenticator
+
 

@@ -53,4 +53,4 @@ if st.button("Cliquez ici pour mettre à jour la base de données"):
         
     except Exception as e:
         st.error(f"❌ Erreur : {e}")
-        progress_bar.progress(0)  # Réinitialise en cas d'erreur
+        progress_bar.progress(0)  # Réinitialise en cas d'erreur# Configuration des utilisateurs (remplace par une base de 
