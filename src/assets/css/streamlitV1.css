@@ -16,11 +16,11 @@ p {
 
 /* Image centrée */
 .center-image {
-    display: block !important;
-    margin: 20px auto !important;
-    width: 350px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Styles texte */
@@ -33,12 +33,8 @@ p {
     width: fit-content;
     border: 2px solid #A4F6D2;
     border-radius: 10px;
-}
+    padding-left: 30px;  /* Ajout padding à cause de l'icône cadenas */
 
-
-/* Cache l'élément des div h1 qui est à droite */
-span[data-testid="stHeaderActionElements"] {
-display: none !important;
 }
 
 .main-container h2 {
@@ -47,6 +43,7 @@ display: none !important;
     font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid #00B388;
 }
+
 
 .stButton>button {
     background-color: #0f1116;
@@ -61,6 +58,7 @@ display: none !important;
     background-color: #00B388;  
     color: black !important;    /* Couleur du texte moins blanche, couleur gris foncé */
     border-color: #00B388;
+
 }
 
 /* Sidebar par défaut (desktop) */
@@ -68,22 +66,12 @@ section[data-testid="stSidebar"] {
     width: 200px !important;
     min-width: 200px !important;
     max-width: 200px !important;
-    transition: none;
+    transition: width 0.3s ease;
 }
 
 section[data-testid="stSidebar"] a span {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
 }
-
-/* Span des écriture ds sidebar */
-.st-emotion-cache-1dj0hjr.e1tphpha6 {
-    color: #00B388;  /* Couleur verte */
-    display: block;  /* Assure que le span se comporte comme un bloc */
-    text-align: center;  /* Centre le texte horizontalement */
-    width: 100%;  /* Prend toute la largeur disponible */
-}
-
-
 
 /* Réduire l'espace de l'en-tête de la sidebar */
 div[data-testid="stSidebarHeader"] {
@@ -104,6 +92,7 @@ div.st-emotion-cache-1y9tyez {
     z-index: 9999;    /* S'assurer qu'elle soit au-dessus des autres éléments */
 }
 
+
 /* ========= RESPONSIVE ========= */
 
 /* Responsiveness pour les écrans petits (max-width: 768px) */
@@ -113,7 +102,7 @@ div.st-emotion-cache-1y9tyez {
     header {
         visibility: hidden;  /* Cacher l'en-tête sur les petits écrans */
     }
-
+    
     /* Réduire la largeur de la sidebar */
     section[data-testid="stSidebar"] {
         width: 120px !important;
@@ -138,33 +127,25 @@ div.st-emotion-cache-1y9tyez {
     }
 
     .main-container h1 {
-        font-size: 1.5rem !important;  /* Utilisation de rem pour plus de flexibilité */
-        padding-left: 10px;
+        font-size: 20px;
     }
 
     .main-container h2 {
-        font-size: 1.2rem !important;
+        font-size: 18px;
     }
 
     p {
-        font-size: 0.7rem !important;
-        padding: 6px !important;
+        font-size: 10px;
+        padding: 6px;
     }
 
     .stButton > button {
-        padding: 8px 16px !important;
-        font-size: 0.7rem !important;
+        padding: 8px 16px;
+        font-size: 10px;
     }
-    
-    /* Cache l'élément des div h1 qui est à droite */
-    span[data-testid="stHeaderActionElements"] {
-    display: none;
-    }
-}
 
     .center-image {
-        width: 40% !important;  /* Réduire la largeur à 60% sur petits écrans */
-
+        width: 80%;
     }
 
     .navitem, .settingsNav {
@@ -173,3 +154,7 @@ div.st-emotion-cache-1y9tyez {
         text-align: center;
     }
 }
+
+}
+
+

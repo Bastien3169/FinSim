@@ -1,11 +1,9 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
-from st_aggrid import AgGrid, GridOptionsBuilder
 import plotly.graph_objects as go
 from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()` pour les photos
 from def_app import *
-
 #connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 #import stocks_app  # Import du fichier contenant le code des stocks
 #import indices_app  # Si tu as aussi du code pour les indices
@@ -131,14 +129,7 @@ st.session_state.rendement_data = st.session_state.rendement_data[["Pays"] + [f"
 styled_df = style_rendement(st.session_state.rendement_data, periods)
 
 # Afficher le tableau avec les rendements stylisés
-# Configurer les options de la grille
-gb = GridOptionsBuilder.from_dataframe(st.session_state.rendement_data)
-gb.configure_pagination()
-gb.configure_default_column(editable=True, filterable=True)
-grid_options = gb.build()
-
-# Affichage du tableau interactif avec AgGrid
-AgGrid(st.session_state.rendement_data, gridOptions=grid_options)
+st.dataframe(styled_df)
 
 
 

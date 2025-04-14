@@ -3,6 +3,7 @@ pandas
 numpy
 matplotlib
 plotly
+seaborn
 beautifulsoup4
 requests
 html5lib
@@ -14,5 +15,7 @@ bcrypt
 selenium
 webdriver-manager
 streamlit-authenticator
+python-dateutil
+
 
 
