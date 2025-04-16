@@ -11,23 +11,20 @@ import indices_app  # Si tu as aussi du code pour les indices
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
 import con_user_app
 
-
+st.set_page_config(layout="wide", page_title="Les ETF", page_icon="🏛️")
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
-# 📌 Créer un espace vide pour afficher la page sélectionnée
-st.empty()
-
 # Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # CSS titre principal
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>LES ETF</h1></div>""", unsafe_allow_html=True)
 
 ####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
 
 # Connexion à la base SQLite
-db_path = "/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/sql/data_indices_stocks.db"
+db_path = "data.db"
 conn = connect_to_db(db_path)
 
 # Mise en place des paramètre pour les fonctions des requêtes SQL
@@ -156,3 +153,6 @@ if selected_indice:
 
 
 conn.close()
+
+############################################### FOOTER ###############################################
+st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

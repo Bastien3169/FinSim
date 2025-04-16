@@ -11,6 +11,7 @@ from base64 import b64encode # Convertir le chemin en une URL utilisable avec `s
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
 #import con_user_app
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
+st.set_page_config(layout="wide", page_title="Accueil", page_icon="🏛️")
 
 # Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
@@ -34,11 +35,11 @@ st.markdown(f"""
 
 # CSS titre principal
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>FINANCE PROJECT</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>PROJET FINANCE</h1></div>""", unsafe_allow_html=True)
 
-st.markdown(f"""<div class="main-container"><p>Le projet consiste à développer une application Streamlit pour la gestion et l'analyse de données financières, principalement axée sur les indices boursiers et les actions. L'objectif est de collecter des données financières à partir de différentes sources, telles que des fichiers CSV et des API comme yfinance, et de les organiser dans une base de données relationnelle SQLite. Cette base contient des informations sur les indices (nom, ticker, pays, etc.), les entreprises (nom, secteur, capitalisation, etc.), et l'historique des prix. L'application permet aux utilisateurs de s'inscrire, se connecter et consulter ces données sous forme de graphiques et de tableaux. En plus de la gestion des utilisateurs, l'application permet de mettre à jour la base de données via un processus en plusieurs étapes, en scrappant les tickers, récupérant les données historiques des indices et entreprises, et nettoyant ces données avant leur insertion dans la base de données. Le projet inclut également une interface utilisateur conviviale, avec des fonctionnalités de session et de gestion d'erreurs pour assurer une expérience fluide.</p></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><p>
+Le projet consiste à développer une application Streamlit pour la gestion et l'analyse de données financières, principalement axée sur les indices boursiers et les actions. L'objectif est de collecter des données financières à partir de différentes sources, telles que des fichiers CSV et des API comme yfinance, et de les organiser dans une base de données relationnelle SQLite. Cette base contient des informations sur les indices (nom, ticker, pays, etc.), les entreprises (nom, secteur, capitalisation, etc.), et l'historique des prix. L'application permet aux utilisateurs de s'inscrire, se connecter et consulter ces données sous forme de graphiques et de tableaux. En plus de la gestion des utilisateurs, l'application permet de mettre à jour la base de données via un processus en plusieurs étapes, en scrappant les tickers, récupérant les données historiques des indices et entreprises, et nettoyant ces données avant leur insertion dans la base de données. Le projet inclut également une interface utilisateur conviviale, avec des fonctionnalités de session et de gestion d'erreurs pour assurer une expérience fluide.
+</p></div>""", unsafe_allow_html=True)
 
-# Menu de navigation dans la barre latérale
-#st.sidebar.title("Navigation")
-#menu_options = ["Présentation","Datas indices", "Datas stocks", "Data ETF", "DCA VS LumpSum", "Connexion"]
-#selected_page = st.sidebar.radio("Choisissez une page", menu_options)
+# Footer en bas de page
+st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

@@ -14,6 +14,7 @@ from src.controllers.connexion_db_datas import *
 
 
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
+st.set_page_config(layout="wide", page_title="Les stocks", page_icon="🏛️")
 
 # Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
@@ -126,3 +127,5 @@ st.dataframe(styled_df)
 
 
 conn.close()
+############################################### FOOTER ###############################################
+st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

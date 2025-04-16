@@ -14,7 +14,7 @@ from dateutil.relativedelta import relativedelta
 
 ################################### CALCUL DES RENDEMENTS LP ET DCA ###################################
 
-def calcul_rendement(duree_invest = 1 , somme_investie = 10000, mois_dca = 6, ticker = "^GSPC"):
+def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC"):
     
 #=============================== On prépare les variables ===============================  
     # Somme à investir par mois
@@ -133,7 +133,7 @@ def calcul_rendements_durations(durees, mois_dca_list, somme_investie, ticker):
 
 
 
-df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 5, 10, 15], somme_investie=100000, ticker="^GSPC")
+df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 18, 24], somme_investie=100000, ticker="^GSPC")
 
 
 
@@ -167,7 +167,7 @@ def calcul_multiple_rendements(durees, mois_dca_list, somme_investie, ticker):
     return df_resultat
 
 
-df = calcul_multiple_rendements(durees = [25, 20, 15, 10,5], mois_dca_list = [6, 12, 24, 48], somme_investie  = 10000, ticker = "^GSPC")
+df = calcul_multiple_rendements(durees = [25, 20, 15, 10,5], mois_dca_list = [3, 6, 12, 18, 24], somme_investie  = 100000, ticker = "^GSPC")
 
 
 
@@ -235,7 +235,7 @@ graphe_barre(df_resultats)
 
 ################################### GRAPH LINE ###################################
 
-def graphe_line(df, somme_investie=10000):
+def graphe_line(df, somme_investie=100000):
     import plotly.graph_objects as go
     fig = go.Figure()
     
@@ -350,5 +350,5 @@ def graphe_line(df, somme_investie=10000):
     fig.show()
     return fig
 
-graphe_line(df, somme_investie=10000)
+graphe_line(df, somme_investie=100000)
 

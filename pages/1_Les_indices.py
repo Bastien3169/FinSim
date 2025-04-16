@@ -12,9 +12,8 @@ from src.controllers.connexion_db_datas import *
 #import con_user_app
 
 
-
+st.set_page_config(layout="wide", page_title="Les indices", page_icon="🏛️")
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
-
 # Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
@@ -23,8 +22,7 @@ with open("src/assets/css/streamlit.css") as css:
 #st.title("📊 LES INDICES BOURSIERS")
 st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>""", unsafe_allow_html=True)
 
-####################################### CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT #######################################
-
+################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
 # Connexion à la base SQLite
 db_path = "data.db"
 conn = connect_to_db(db_path)
@@ -39,7 +37,6 @@ df_infos_indices = get_infos_actif(conn, table_infos_actif)
 
 # Indice par défaut pour graph et tableau 
 indice_default = "S&P 500"
-
 
 
 ############################################### GRAPHIQUE ###############################################
@@ -151,3 +148,6 @@ if selected_indice:
 
 
 conn.close()
+
+############################################### F ###############################################
+st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

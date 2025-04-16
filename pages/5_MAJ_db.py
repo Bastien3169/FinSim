@@ -5,19 +5,19 @@ from datetime import datetime
 from src.models.users_db.models_db_users import *
 
 
-########################################## INITIALISE LA BASE DE DONNEE "users.db" ##########################################
+
+st.set_page_config(layout="centered", page_title="MAJ BDD", page_icon="🏛️")
+
+######################################## INITIALISE LA BASE DE DONNEE "users.db" ########################################
 
 init_db(db_path)
-
 
 ########################################## INTERFACE CSS PRINCIPALE ##########################################
 
 with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
-st.markdown("""<div class="main-container"><h1>MISE À JOUR BASE DE DONNÉE</h1></div>""", 
-            unsafe_allow_html=True)
-
+st.markdown(f"""<div class="main-container"><h1>MISE À JOUR BASE DE DONNÉE</h1></div>""", unsafe_allow_html=True)
 
 
 # ===================================== VISIBLE SI CONNECTE ==================================== #
@@ -26,7 +26,6 @@ if "user" in st.session_state:
     logout()
 
     # CSS titre et sous-titre
-    st.markdown(f"""<div class="main-container"><h1>MISE A JOUR BASE DE DONNEE</h1></div>""", unsafe_allow_html=True)
     st.markdown(f"""<div class="main-container"><h2>🔄 Mise à jour</h2></div>""", unsafe_allow_html=True)
     st.markdown(f"""<div class="main-container"><p>La mise à jour peut prendre entre 20 et 30 minutes</p></div>""", unsafe_allow_html=True)
 
@@ -69,7 +68,7 @@ if "user" in st.session_state:
             
         except Exception as e:
             st.error(f"❌ Erreur : {e}")
-            progress_bar.progress(0)  # Réinitialise en cas d'erreur Configuration des utilisateurs (remplace par une base de 
+            progress_bar.progress(0)  # Réinitialise en cas d'erreur Configuration des utilisateurs
 
 
 # ===================================== VISIBLE SI PAS CONNECTE ==================================== #
@@ -110,3 +109,7 @@ else:
            
     
     st.markdown("""</div>""", unsafe_allow_html=True)
+
+
+############################################### FOOTER ###############################################
+st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

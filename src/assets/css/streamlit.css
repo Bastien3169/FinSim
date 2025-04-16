@@ -30,7 +30,7 @@ p {
     margin: 20px auto;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    width: fit-content;
+    width: 600px;
     border: 2px solid #A4F6D2;
     border-radius: 10px;
 }
@@ -104,6 +104,20 @@ div.st-emotion-cache-1y9tyez {
     z-index: 9999;    /* S'assurer qu'elle soit au-dessus des autres éléments */
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 12px;
+    border-top: 1px solid #333;
+}
+
+
 /* ========= RESPONSIVE ========= */
 
 /* Responsiveness pour les écrans petits (max-width: 768px) */
@@ -113,6 +127,11 @@ div.st-emotion-cache-1y9tyez {
     header {
         visibility: hidden;  /* Cacher l'en-tête sur les petits écrans */
     }
+
+    .footer {
+        display: none;  /* Cacher footer sur les petits écrans */
+    }
+    
 
     /* Réduire la largeur de la sidebar */
     section[data-testid="stSidebar"] {
@@ -140,10 +159,12 @@ div.st-emotion-cache-1y9tyez {
     .main-container h1 {
         font-size: 1.5rem !important;  /* Utilisation de rem pour plus de flexibilité */
         padding-left: 10px;
+        width: 300px;
     }
 
     .main-container h2 {
         font-size: 1.2rem !important;
+        text-align: center;
     }
 
     p {
@@ -173,3 +194,4 @@ div.st-emotion-cache-1y9tyez {
         text-align: center;
     }
 }
+
