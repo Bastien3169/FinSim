@@ -48,6 +48,14 @@ display: none !important;
     border-bottom: 2px solid #00B388;
 }
 
+.main-container h3 {
+    padding: 8px;
+    margin: 10px auto;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid #00B388;
+}
+
+
 .stButton>button {
     background-color: #0f1116;
     color: white;
@@ -167,6 +175,12 @@ div.st-emotion-cache-1y9tyez {
         text-align: center;
     }
 
+    .main-container h3 {
+    font-size: 1.2rem !important;
+    text-align: center;
+    }
+
+
     p {
         font-size: 0.7rem !important;
         padding: 6px !important;
@@ -181,7 +195,6 @@ div.st-emotion-cache-1y9tyez {
     span[data-testid="stHeaderActionElements"] {
     display: none;
     }
-}
 
     .center-image {
         width: 40% !important;  /* Réduire la largeur à 60% sur petits écrans */
@@ -193,5 +206,10 @@ div.st-emotion-cache-1y9tyez {
         margin-bottom: 10px;
         text-align: center;
     }
-}
+
+    /* Centrer les boutons secondaires */
+    button[data-testid="stBaseButton-secondary"] {
+    display: block;
+    margin: 20px auto;
+    }
 

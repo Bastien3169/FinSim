@@ -8,11 +8,9 @@ import plotly.graph_objects as go
 import plotly.colors as pc
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from src.controllers.connexion_db_datas import *
 
 
-
-
-################################### CALCUL DES RENDEMENTS LP ET DCA ###################################
 
 def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC"):
     
@@ -24,17 +22,27 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1)) # +1 pour s'assurer d'avoir un mois entier
     date_fin = datetime.now()
 
+    # Connexion à la base SQLite
+    db_path = "data.db"
+    conn = connect_to_db(db_path)
+    
+    # Mise en place des paramètre pour les fonctions des requêtes SQL
+    table_hist_actif = "historique_indices"
+    actif = "S&P 500" 
+    
+    # Récupérer la liste des indices et leurs infos
+    data_financiere = get_prix_date(conn, table_hist_actif, actif)
     # Télécharger les données financières pour la période
-    data_financiere = yf.download(ticker, start=date_debut, end=date_fin, interval="1mo", auto_adjust=True)
+    data_financiere = get_prix_date(conn, table_hist_actif, actif)
+    data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) & (data_financiere['Date'] <= date_fin)]
 
     
-#=============================== On clean le df ===============================
+#=============================== On calcul le rendement par mois ===============================
      # Remplace les cases vides par '0'
     if data_financiere.empty:
         return 0, 0
     # Remplace les cases NaN par '0'
     data_financiere = data_financiere.fillna(0)
-
 
     # Rendements mensuels en % (avec colonne 'Close' du df 'data_financiere')
     rendements_mois = data_financiere['Close'].pct_change().dropna()
@@ -42,48 +50,37 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     # Ajout colonne rendemenbt mensuel au df data_financiere
     data_financiere['Rendement du mois'] = rendements_mois
 
-    
-#=============================== On enlève le multi-index du df ===============================
-    # Liste des colonnes à garder (niveau 'Price')
-    colonnes_a_garder = ['Close', 'Rendement du mois']
-    
-    # Sélectionne uniquement ces colonnes dans une copie
-    df_rendement = data_financiere.loc[:, data_financiere.columns.get_level_values(0).isin(colonnes_a_garder)].copy().dropna()
-    
-    # Aplatir les colonnes : transformer MultiIndex en noms simples
-    df_rendement.columns = df_rendement.columns.get_level_values(0)
-
 #=============================== On calcul le DCA et le LumpSum ===============================
-    colonne_rendement = df_rendement['Rendement du mois']
-
     # Calcul du rendement DCA
     rendements_dca = []
     portefeuille_dca = 0
+    
     # Investissement mensuel pendant la période DCA
-    for i in range(min(mois_dca, len(colonne_rendement))):
-        portefeuille_dca += somme_par_mois * (1 + colonne_rendement.iloc[i])
-        rendements_dca.append(portefeuille_dca)
+    for i in range(min(mois_dca, len(rendements_mois))):
+        portefeuille_dca += somme_par_mois * (1 + rendements_mois.iloc[i])
+        rendements_dca.append(round(portefeuille_dca, 2))
    
     # Croissance après la période DCA
-    for i in range(mois_dca, len(colonne_rendement)):
-        portefeuille_dca *= (1 + colonne_rendement.iloc[i])
-        rendements_dca.append(portefeuille_dca)
+    for i in range(mois_dca, len(rendements_mois)):
+        portefeuille_dca *= (1 + rendements_mois.iloc[i])
+        rendements_dca.append(round(portefeuille_dca, 2))
 
     # Calcul du rendement LP
     rendements_lumpsum = []
     portefeuille_lumpsum = somme_investie
-    for i in range(len(colonne_rendement)):
-        portefeuille_lumpsum *= (1 + colonne_rendement.iloc[i])
-        rendements_lumpsum.append(portefeuille_lumpsum)
+    for i in range(len(rendements_mois)):
+        portefeuille_lumpsum *= (1 + rendements_mois.iloc[i])
+        rendements_lumpsum.append(round(portefeuille_lumpsum, 1))
     
     # On aligne la taille avec df_rendement, car pct_change() enlève le premier mois
     data_financiere = data_financiere.iloc[1:]  # on enlève le premier mois (NaN dans pct_change)
     data_financiere['Rendement LS'] = rendements_lumpsum
     data_financiere['Rendement DCA'] = rendements_dca
 
-    #display(data_financiere)
-
     return data_financiere
+
+df = calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC")
+
 
 ################################### DF POUR GRAPHIQUE BAR ###################################
 
@@ -133,7 +130,7 @@ def calcul_rendements_durations(durees, mois_dca_list, somme_investie, ticker):
 
 
 
-df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 18, 24], somme_investie=100000, ticker="^GSPC")
+df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="^GSPC")
 
 
 
@@ -157,18 +154,10 @@ def calcul_multiple_rendements(durees, mois_dca_list, somme_investie, ticker):
 
     df_resultat = pd.concat(resultats)
 
-    # Supression des colonnes inutiles
-    colonnes_a_supprimer = ['Open', 'High', 'Low', 'Volume']
-    df_resultat = df_resultat.reset_index()
-    df_resultat = df_resultat.drop(columns=colonnes_a_supprimer)
-    df_resultat = df_resultat.round(4)
-    #df_resultat.to_csv("rendement_comparatif.csv", index=False)
-
     return df_resultat
 
 
-df = calcul_multiple_rendements(durees = [25, 20, 15, 10,5], mois_dca_list = [3, 6, 12, 18, 24], somme_investie  = 100000, ticker = "^GSPC")
-
+df = calcul_multiple_rendements(durees = [25, 20, 15, 10, 5], mois_dca_list = [3, 6, 12, 24], somme_investie  = 100000, ticker = "^GSPC")
 
 
 
@@ -227,9 +216,6 @@ def graphe_barre(df_resultats):
 
     fig.show()
     return fig
-
-
-graphe_barre(df_resultats)
 
 
 
@@ -349,6 +335,4 @@ def graphe_line(df, somme_investie=100000):
     
     fig.show()
     return fig
-
-graphe_line(df, somme_investie=100000)
 

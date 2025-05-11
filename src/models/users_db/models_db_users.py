@@ -5,7 +5,7 @@ import streamlit as st
 from datetime import datetime
 
 db_path = 'user.db'
-########################################## INITIALISE LA BASE DE DONNEE "users.db" ##########################################
+####################################### INITIALISE LA BASE DE DONNEE "users.db" #######################################
 
 def init_db(db_path):
     conn = sqlite3.connect(db_path)

@@ -23,6 +23,7 @@ with open("src/assets/css/streamlit.css") as css:
 st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>""", unsafe_allow_html=True)
 
 ################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
+
 # Connexion à la base SQLite
 db_path = "data.db"
 conn = connect_to_db(db_path)

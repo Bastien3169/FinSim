@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from src.controllers.LP_VS_DCA import *
+from src.controllers.connexion_db_datas import *
 
 
 st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
@@ -21,6 +22,22 @@ with open("src/assets/css/streamlit.css") as css:
 st.markdown(f"""<div class="main-container"><h1>LUMP SUM VS DCA</h1></div>""", unsafe_allow_html=True)
 st.markdown(f"""<div class="main-container"><h2>🏛️ Simulation DCA vs Lump Sum</h2></div>""", unsafe_allow_html=True)
 
+
+################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
+# Connexion à la base SQLite
+db_path = "data.db"
+conn = connect_to_db(db_path)
+
+# Mise en place des paramètre pour les fonctions des requêtes SQL
+table_hist_actif = "historique_indices"
+actif = "S&P 500" 
+
+# Récupérer la liste des indices et leurs infos
+data_financiere = get_prix_date(conn, table_hist_actif, actif)
+
+
+################################## STREAMLIT ##################################
+
 # Paramètres utilisateur
 ticker = st.text_input("Ticker Yahoo Finance", value="^GSPC")
 somme_investie = st.number_input("Montant à investir (€)", value=100000, step=1000)
@@ -29,7 +46,7 @@ durees_input = st.text_input("⏳ Durées d'investissement (en années)", "5,10,
 durees = [int(annee.strip()) for annee in durees_input.split(",")]
 
 # Mois de DCA : saisie de l'utilisateur
-mois_dca_list_input = st.text_input("📆 Mois de DCA", "6,12,24,48")  # Format : 6,12,24,...
+mois_dca_list_input = st.text_input("📆 Mois de DCA", "6,12,24")  # Format : 6,12,24,...
 mois_dca_list = [int(mois.strip()) for mois in mois_dca_list_input.split(",")]
 
 if st.button("Lancer la simulation"):
@@ -39,17 +56,17 @@ if st.button("Lancer la simulation"):
         st.success("Calcul terminé.")
         
 
-        st.markdown(f"""<div class="main-container"><h2>📈 Les montants finaux obtenus en fonction de la durée de vos placements — DCA vs LS</h2></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="main-container"><h3>📈 Les montants finaux obtenus en fonction de la durée de vos placements</h3></div>""", unsafe_allow_html=True)
         fig = graphe_barre(df_resultats)
         st.plotly_chart(fig, use_container_width=True)
 
 
-        st.markdown(f"""<div class="main-container"><h2>📈 Les évolutions de vos placements en fonctions du temps - DCA vs LS</h2></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="main-container"><h3>📈 Les évolutions de vos placements en fonctions du temps</h3></div>""", unsafe_allow_html=True)
         fig = graphe_line(df, somme_investie)
         st.plotly_chart(fig, use_container_width=True)
 
         
-        st.markdown(f"""<div class="main-container"><h2>📈 Tableaux des rendements comparatifs DCA vs Lump Sum</h2></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="main-container"><h3>📋 Tableaux des rendements comparatifs DCA vs Lump Sum</h3></div>""", unsafe_allow_html=True)
         st.write("Tableau des montants finaux obtenus en fonction de la durée du placement — DCA vs LS")
         st.dataframe(df_resultats.head(10), use_container_width=True)
         st.write("Tableau des évolutions de vos placements en fonction du temps  — DCA vs LS")
@@ -61,17 +78,17 @@ else:
     df = calcul_multiple_rendements(durees = [25, 20, 15, 10,5], mois_dca_list = [6, 12, 18, 24], somme_investie  = 100000, ticker = "^GSPC")
     
     
-    st.markdown(f"""<div class="main-container"><h2>📈 Exemple: Montant final obtenu en fonction de la durée du placement — DCA vs LS</h2></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="main-container"><h3>📈 Exemple: Montant final obtenu en fonction de la durée du placement</h3></div>""", unsafe_allow_html=True)
     fig = graphe_barre(df_resultats)
     st.plotly_chart(fig, use_container_width=True)
     
     
-    st.markdown(f"""<div class="main-container"><h2>📈 Exemple : Evolution du placement en fonction du temps - DCA vs LS</h2></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="main-container"><h3>📈 Exemple : Evolution du placement en fonction du temps</h3></div>""", unsafe_allow_html=True)
     fig = graphe_line(df, somme_investie)
     st.plotly_chart(fig, use_container_width=True)
     
     
-    st.markdown(f"""<div class="main-container"><h2>📈 Exemple : Tableau rendement comparatif DCA vs Lump Sum</h2></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="main-container"><h3>📋 Exemple : Tableau des rendements comparatifs DCA vs LS</h3></div>""", unsafe_allow_html=True)
     st.dataframe(df_resultats)
 
 
