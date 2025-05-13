@@ -191,7 +191,7 @@ class AdminManager:
     def get_user_by_email(self, email):
         with sqlite3.connect(self.db_path) as conn:
             c = conn.cursor()
-            c.execute("SELECT * FROM users WHERE email = ?", (email,))
+            c.execute("SELECT id, username, email, role, registration_date FROM users WHERE email = ?", (email,))
             return c.fetchone()  # Récupère l'utilisateur par son email
 
      

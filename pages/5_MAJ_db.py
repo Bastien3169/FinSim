@@ -88,7 +88,7 @@ else:
             if error_msg:
                 st.error(error_msg)
             else:
-                st.session_state.user = username
+                st.session_state['user'] = username
                 st.success(f"Connexion réussie. Bienvenue {username} ! Tu peux à présent te connecter.")
                 st.rerun()
         
