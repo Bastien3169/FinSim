@@ -198,9 +198,8 @@ if st.session_state.get('role') == 'admin':
                 st.session_state[f"editing_{email}"] = True   
 
         
-        if st.session_state.get(f"editing_{email}", False):    
-
-            with st.container():
+        if st.session_state.get(f"editing_{email}", False):                
+            with st.expander("CLIQUER POUR DEPLIER ET MODIFIER"):
                 
                 # Changer rôle utilisateur (user ou admin)
                 st.markdown(f"""<div class="main-container"><h3>Modifications user</h3></div>""", unsafe_allow_html=True)
@@ -226,9 +225,6 @@ if st.session_state.get('role') == 'admin':
                     st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
                     st.session_state[f"editing_{email}"] = False
                     st.rerun()
-    
-                st.markdown("""</div>""", unsafe_allow_html=True)
-            st.markdown("""<div class="modif_user">""", unsafe_allow_html=True)
 
 ############################################### FOOTER ###############################################
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

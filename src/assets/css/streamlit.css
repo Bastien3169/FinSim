@@ -5,17 +5,6 @@ html, body, #root, .main-container {
     width: 100%;
 }
 
-.modif_user {
-    border: 3px solid #00B388; /* Bordure verte */
-    padding: 20px; /* Espace intérieur */
-    border-radius: 10px; /* Coins arrondis */
-    margin-top: 20px; /* Espace au-dessus */
-    margin-bottom: 20px; /* Espace en dessous */
-     /* Solution clé pour la hauteur */
-    display: flow-root; /* Contient tous les éléments enfants */
-    overflow: visible; /* Permet au contenu de déborder si nécessaire */
-}
-
 p {
     font-weight: 600;  /* Rendre le texte plus épais (plus gras) */
     text-align: justify;  /* Alignement justifié du texte */
