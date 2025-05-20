@@ -214,7 +214,7 @@ def graphe_barre(df_resultats):
         )
     )
 
-    fig.show()
+    #fig.show()
     return fig
 
 
@@ -333,6 +333,6 @@ def graphe_line(df, somme_investie=100000):
         ]
     )
     
-    fig.show()
+    #fig.show()
     return fig
 

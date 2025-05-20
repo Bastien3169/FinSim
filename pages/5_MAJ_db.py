@@ -2,34 +2,75 @@ import sqlite3
 import hashlib
 import streamlit as st
 from datetime import datetime
-from src.models.users_db.models_db_users import *
+from src.models.datas_db.main_db_datas import *
+from src.models.users_db.models_db_users_test import AuthManager, AdminManager
 
 
+st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
 
-st.set_page_config(layout="centered", page_title="MAJ BDD", page_icon="🏛️")
-
-######################################## INITIALISE LA BASE DE DONNEE "users.db" ########################################
-
-init_db(db_path)
-
-########################################## INTERFACE CSS PRINCIPALE ##########################################
-
+############################################ MISE EN PLACE DU CSS + TITRE DE PAGE ############################################
+# Chargement du fichier CSS
 with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
-st.markdown(f"""<div class="main-container"><h1>MISE À JOUR BASE DE DONNÉE</h1></div>""", unsafe_allow_html=True)
+#st.title("📊 LES INDICES BOURSIERS")
+st.markdown(f"""<div class="main-container"><h1>MISE À JOUR DES BASES DE DONNÉES : 👑 ADMINISTRATEUR</h1></div>""", unsafe_allow_html=True)
 
 
-# ===================================== VISIBLE SI CONNECTE ==================================== #
-if "user" in st.session_state:
-    st.success(f"Bienvenue, {st.session_state.user} !")
-    logout()
+auth_manager = AuthManager() # Instanciation de la classe AuthManager
+admin_manager = AdminManager()  # Instanciation de la classe AdminManager
 
-    # CSS titre et sous-titre
-    st.markdown(f"""<div class="main-container"><h2>🔄 Mise à jour</h2></div>""", unsafe_allow_html=True)
-    st.markdown(f"""<div class="main-container"><p>La mise à jour peut prendre entre 20 et 30 minutes</p></div>""", unsafe_allow_html=True)
+################################## CREATION ADMIN VIA BOUTON QUI DISPARAIT SI ADMIN EXISTE##################################
+user = auth_manager.get_current_user()
+admin_exists = False
 
+# On cherche 'admin' dans la table
+for i in admin_manager.get_all_users():
+    if i[1] == 'admin':  # Si on trouve un admin
+        admin_exists = True
+        break  # On sort de la boucle dès qu'on trouve un admin
+
+# Si 'admin' existe, message ok
+if admin_exists:
+    st.success("👑 L'utilisateur admin existe déjà.")
+# Si 'admin' existe pas, création bouton unique pour créer admin
+else:
+    st.warning("Aucun compte administrateur détecté.")
+    if st.button("Créer l'utilisateur admin initial"):
+        admin_manager.create_admin_user('admin', 'jolie.mountain@gmail.com', 'Admin#1')
+        st.success("👑 Admin créé avec succès")
+        st.rerun()
+
+
+################################## VISIBLE SI PAS ADMIN ##################################
+if user is None or user.get("role") != "admin":
+    st.warning("Accès réservé aux administrateurs.")
+    email = st.text_input("Votre email admin")
+    password = st.text_input("Mot de passe admin", type="password")
     
+    if st.button("Se connecter"):
+        result = auth_manager.login(email, password)
+        if "✅" in result:  # Si connexion réussie
+            # Vérifier que l'utilisateur est bien admin
+            current_user = auth_manager.get_current_user()
+            if current_user and current_user.get("role") == "admin":
+                st.success(f"Connexion réussie, bienvenue admin !")
+                st.rerun()
+            else:
+                auth_manager.logout()  # Déconnecte si pas admin
+                st.error("Accès refusé : vous n'êtes pas administrateur")
+        else:
+            st.error(result)  # Affiche l'erreur de connexion
+
+
+################################## VISIBLE SI ADMIN CONNECTE ##################################
+if user and user.get("role") == "admin":
+
+################################## BDD DATAS ##################################
+    #init_db(db_path)
+    st.markdown(f"""<div class="main-container"><h2>🔄 Mise à jours BDD datas</h2></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="main-container"><p>La mise à jour peut prendre entre 20 et 30 minutes</p></div>""", unsafe_allow_html=True)
+  
     if st.button("Cliquez ici pour mettre à jour la base de données"):
         progress_bar = st.progress(0)
         
@@ -71,45 +112,138 @@ if "user" in st.session_state:
             progress_bar.progress(0)  # Réinitialise en cas d'erreur Configuration des utilisateurs
 
 
-# ===================================== VISIBLE SI PAS CONNECTE ==================================== #
     
-else:
-    st.markdown("""<div class="auth-container">""", unsafe_allow_html=True)
-    st.error("Connecte-toi ou inscris-toi pour mettre à jour la base de données ! ✅")
+################################## BDD USER ##################################
     
-    choice = st.radio("Connexion ou Inscription ?", ["Connexion", "Inscription"],horizontal=True)
+    st.markdown(f"""<div class="main-container"><h2>📝 Modifications BDD users</h2></div>""", unsafe_allow_html=True)
+    
+#--------------------------- Trouver un utilisateur par email ---------------------------#
+    st.markdown(f"""<div class="main-container"><h3>Rechercher un utilisateur par email</h3></div>""", unsafe_allow_html=True)
+    search_email = st.text_input("Rechercher un utilisateur par email")
 
-    # Conncexion user
-    if choice == "Connexion":
-        username = st.text_input("Nom d'utilisateur")
-        password = st.text_input("Mot de passe", type="password")
-        if st.button("Se connecter"):
-            error_msg = login(username, password, db_path)
-            if error_msg:
-                st.error(error_msg)
-            else:
-                st.session_state['user'] = username
-                st.success(f"Connexion réussie. Bienvenue {username} ! Tu peux à présent te connecter.")
-                st.rerun()
+    # Bouton pour valider la recherche
+    if st.button("Valider la recherche", key="valider_recherche"):
+        # Si un email est saisi, on effectue la recherche
+        if search_email:
+            # Utiliser la méthode get_user_by_email pour obtenir l'utilisateur correspondant
+            user = admin_manager.get_user_by_email(search_email)
+            
+            # Si un utilisateur est trouvé
+            if user:
+                id, username, email, role, registration_date = user
+                col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 3, 1, 2, 2, 2])
+                with col1:
+                    st.write(id)
+                with col2:
+                    st.write(username)
+                with col3:
+                    st.write(email)
+                with col4:
+                    st.write(role)
+                with col5:
+                    st.write(registration_date)
+                with col6:
+                    if st.button("Supprimer", key=f"btn_supprimer_rech_{email}"):
+                        admin_manager.delete_user(email)
+                        st.success(f"Utilisateur {username} supprimé.")
+                        st.rerun()
+                with col7:
+                    if st.button("Modifier", key=f"btn_modifier_rech_{email}"):
+                        st.session_state[f"editing_{email}"] = True   
         
-    # Inscription user
-    if choice == "Inscription":
-        username = st.text_input("Nom d'utilisateur")
-        password = st.text_input("Mot de passe", type="password")
-        confirm_password = st.text_input("Confirmez le mot de passe", type="password")
-        if st.button("S'inscrire"):
-            if password == confirm_password:
-                result = register(username, password, db_path)
-                if result.startswith("✅"):
-                    st.success(result)
-                else:
-                    st.error(result)
+                if st.session_state.get(f"editing_{email}", False):
+                    st.markdown(f"""<div class="main-container"><h3>Modifications user</h3></div>""", unsafe_allow_html=True)
+                    new_username = st.text_input("Nouveau nom d'utilisateur", value=username)
+                    new_role = st.radio("Nouveau rôle", ['admin', 'user'], index=0 if role == 'admin' else 1)
+        
+                    # Réinitialisation d'un mdp par '0000'
+                    st.markdown(f"""<div class="main-container"><h3>Réinitialiser le mot de passe</h3></div>""", unsafe_allow_html=True)
+                    if st.button("Réinitialiser le mot de passe", key=f"reset_rech_{id}"):
+                        # Demander un nouveau mot de passe via un champ de texte
+                        new_password = st.text_input("Nouveau mot de passe", type='password', max_chars=20)
+                        
+                        if new_password:
+                            admin_manager.update_user(email=email, password=new_password)
+                            st.success(f"Mot de passe de {username} réinitialisé à {new_password}.")
+                            st.rerun()
+                        else:
+                            st.warning("Veuillez entrer un mot de passe.")
+        
+                    # Valider les modifications
+                    st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
+                    if st.button("Valider les modifications", key=f"submit_rech_{email}"):
+                        admin_manager.update_user(email=email, username=new_username, role=new_role)
+                        st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
+                        st.session_state[f"editing_{email}"] = False
+                        st.rerun()
             else:
-                st.error("❌ Les mots de passe ne correspondent pas")
-           
+                st.warning("Aucun utilisateur trouvé avec cet email.")
     
-    st.markdown("""</div>""", unsafe_allow_html=True)
 
+#--------------------------- Afficher les utilisateurs inscris et modifier un utilisateur ---------------------------#
+    
+    # D'abord afficher les en-têtes de colonnes 
+    headers = ["ID", "Username", "Email", "Rôle", "Date d'inscription", "Actions"]
+    cols = st.columns([1, 1, 3, 1, 2, 4])
+    for i, header in enumerate(headers):
+        with cols[i]:
+            st.markdown(
+            f"""<div style="color: #00B388; font-weight: bold; display: flex; justify-content: center; 
+            align-items: center; height: 100%;">{header}</div>""",unsafe_allow_html=True
+            )
+    
+    # Afficher tableau des utilisateurs
+    for user in admin_manager.get_all_users():
+        id, username, email, role, registration_date = user
+        col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 3, 1, 2, 2, 2])
+        with col1:
+            st.write(id)
+        with col2:
+            st.write(username)
+        with col3:
+            st.write(email)
+        with col4:
+            st.write(role)
+        with col5:
+            st.write(registration_date)
+        with col6:
+            if st.button("Supprimer", key=f"btn_supprimer_{email}", help="Supprimer", use_container_width=True):
+                admin_manager.delete_user(email)
+                st.success(f"Utilisateur {username} supprimé.")
+                st.rerun()
+        with col7:
+            if st.button("Modifier", key=f"btn_modifier_{email}", help="Modifier", use_container_width=True):
+                st.session_state[f"editing_{email}"] = True   
+    
+
+        
+        if st.session_state.get(f"editing_{email}", False):                
+            with st.expander("CLIQUER POUR DEPLIER ET MODIFIER"):
+                
+                # Changer rôle utilisateur (user ou admin)
+                st.markdown(f"""<div class="main-container"><h3>Modifications user</h3></div>""", unsafe_allow_html=True)
+                new_username = st.text_input("Nouveau nom d'utilisateur", value=username)
+                new_role = st.radio("Nouveau rôle", ['admin', 'user'], index=0 if role == 'admin' else 1)
+    
+                # Réinitialisation d'un mdp par '0000'
+                st.markdown(f"""<div class="main-container"><h3>Réinitialiser le mot de passe</h3></div>""", unsafe_allow_html=True)
+                if st.button("Réinitialiser le mot de passe", key=f"reset_{id}"):
+                    # Demander un nouveau mot de passe via un champ de texte
+                    new_password = st.text_input("Nouveau mot de passe", type='password', max_chars=20)    
+                    if new_password:
+                        admin_manager.update_user(email=email, password=new_password)
+                        st.success(f"Mot de passe de {username} réinitialisé à {new_password}.")
+                        st.rerun()
+                    else:
+                        st.warning("Veuillez entrer un mot de passe.")
+    
+                #définit l'index par défaut. Si rôle ="admin", l'index = 0 (le premier élément, "admin"), sinon = 1 (le second élément, "user").
+                st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
+                if st.button("Valider les modifications", key=f"submit_{email}"):
+                    admin_manager.update_user(email=email, username=new_username, role=new_role)
+                    st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
+                    st.session_state[f"editing_{email}"] = False
+                    st.rerun()
 
 ############################################### FOOTER ###############################################
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

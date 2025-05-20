@@ -60,7 +60,7 @@ display: none !important;
 .stButton>button {
     background-color: #0f1116;
     color: white;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     border-radius: 5px;
     cursor: pointer;
     border-color: #00B388;
@@ -213,4 +213,5 @@ div.st-emotion-cache-1y9tyez {
     display: block;
     margin: 20px auto;
     }
+
 
