@@ -12,7 +12,7 @@ from src.controllers.connexion_db_datas import *
 
 
 
-def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC"):
+def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "S&P 500"):
     
 #=============================== On prépare les variables ===============================  
     # Somme à investir par mois
@@ -28,7 +28,7 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     
     # Mise en place des paramètre pour les fonctions des requêtes SQL
     table_hist_actif = "historique_indices"
-    actif = "S&P 500" 
+    actif = ticker 
     
     # Récupérer la liste des indices et leurs infos
     data_financiere = get_prix_date(conn, table_hist_actif, actif)
@@ -130,7 +130,7 @@ def calcul_rendements_durations(durees, mois_dca_list, somme_investie, ticker):
 
 
 
-df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="^GSPC")
+df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="S&P 500")
 
 
 
@@ -157,7 +157,7 @@ def calcul_multiple_rendements(durees, mois_dca_list, somme_investie, ticker):
     return df_resultat
 
 
-df = calcul_multiple_rendements(durees = [25, 20, 15, 10, 5], mois_dca_list = [3, 6, 12, 24], somme_investie  = 100000, ticker = "^GSPC")
+df = calcul_multiple_rendements(durees = [25, 20, 15, 10, 5], mois_dca_list = [3, 6, 12, 24], somme_investie  = 100000, ticker = "S&P 500")
 
 
 
