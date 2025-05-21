@@ -9,6 +9,7 @@ from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit as st
 
 
+
 ############################################# CLASS AUTHMANAGER #############################################
 class AuthManager:
 
@@ -193,9 +194,11 @@ class AdminManager:
         self.init_db()
 
     def init_db(self):
-        with sqlite3.connect(self.db_path) as conn: # Avec "with", fermeture automatique et donc pas besoin de "conn.close()"
+        # Avec "with", fermeture automatique et donc pas besoin de "conn.close()"
+        with sqlite3.connect(self.db_path) as conn:
             c = conn.cursor()
-            
+
+            # Création table users
             c.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -208,6 +211,7 @@ class AdminManager:
             ''')
             conn.commit()
 
+            # Création table session
             c.execute('''
                 CREATE TABLE IF NOT EXISTS sessions (
                     session_id TEXT PRIMARY KEY,

@@ -14,7 +14,7 @@ with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>MISE À JOUR DES BASES DE DONNÉES : 👑 ADMINISTRATEUR</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>👑 ADMINISTRATEUR : MISE À JOUR DES BASES DE DONNÉES</h1></div>""", unsafe_allow_html=True)
 
 
 auth_manager = AuthManager() # Instanciation de la classe AuthManager
@@ -45,22 +45,24 @@ else:
 ################################## VISIBLE SI PAS ADMIN ##################################
 if user is None or user.get("role") != "admin":
     st.warning("Accès réservé aux administrateurs.")
-    email = st.text_input("Votre email admin")
-    password = st.text_input("Mot de passe admin", type="password")
+    
+    email = st.text_input("Email administrateur")
+    password = st.text_input("Mot de passe", type="password")
     
     if st.button("Se connecter"):
-        result = auth_manager.login(email, password)
-        if "✅" in result:  # Si connexion réussie
-            # Vérifier que l'utilisateur est bien admin
+        success, message = auth_manager.login(email, password)
+        
+        if success:
             current_user = auth_manager.get_current_user()
+            
             if current_user and current_user.get("role") == "admin":
-                st.success(f"Connexion réussie, bienvenue admin !")
+                st.success("✅ Connexion réussie, bienvenue administrateur !")
                 st.rerun()
             else:
-                auth_manager.logout()  # Déconnecte si pas admin
-                st.error("Accès refusé : vous n'êtes pas administrateur")
+                auth_manager.logout()
+                st.error("❌ Accès refusé : vous n'avez pas les droits administrateur.")
         else:
-            st.error(result)  # Affiche l'erreur de connexion
+            st.error(message)
 
 
 ################################## VISIBLE SI ADMIN CONNECTE ##################################
@@ -181,21 +183,19 @@ if user and user.get("role") == "admin":
     
 
 #--------------------------- Afficher les utilisateurs inscris et modifier un utilisateur ---------------------------#
-    
+
     # D'abord afficher les en-têtes de colonnes 
-    headers = ["ID", "Username", "Email", "Rôle", "Date d'inscription", "Actions"]
-    cols = st.columns([1, 1, 3, 1, 2, 4])
+    headers = ["🆔 ID", "👤 Username", "📧 Email", "🔐 Rôle", "🗓️ Date d'inscription", "Actions"]
+    cols = st.columns([1, 2, 3, 1, 2, 4])
     for i, header in enumerate(headers):
         with cols[i]:
-            st.markdown(
-            f"""<div style="color: #00B388; font-weight: bold; display: flex; justify-content: center; 
-            align-items: center; height: 100%;">{header}</div>""",unsafe_allow_html=True
-            )
+            st.markdown(f"""<div style="color: #00B388; font-weight: bold; display: flex; justify-content: flex-start; 
+            ">{header}</div>""",unsafe_allow_html=True)
     
     # Afficher tableau des utilisateurs
     for user in admin_manager.get_all_users():
         id, username, email, role, registration_date = user
-        col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 3, 1, 2, 2, 2])
+        col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 3, 1, 2, 2, 2])
         with col1:
             st.write(id)
         with col2:
@@ -237,13 +237,96 @@ if user and user.get("role") == "admin":
                     else:
                         st.warning("Veuillez entrer un mot de passe.")
     
-                #définit l'index par défaut. Si rôle ="admin", l'index = 0 (le premier élément, "admin"), sinon = 1 (le second élément, "user").
+                # Valider les modifs
                 st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
                 if st.button("Valider les modifications", key=f"submit_{email}"):
                     admin_manager.update_user(email=email, username=new_username, role=new_role)
                     st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
                     st.session_state[f"editing_{email}"] = False
                     st.rerun()
+
+
+#--------------------------- Version mobile ---------------------------#
+
+    st.subheader("📱 Gestion des utilisateurs (mode mobile)")
+    
+    if st.checkbox("💡 Activer l'affichage mobile"):
+    
+        # Récupération des utilisateurs
+        users = admin_manager.get_all_users()
+    
+        if not users:
+            st.info("Aucun utilisateur enregistré.")
+        else:
+            # Barre de recherche
+            search_query = st.text_input("🔍 Rechercher un utilisateur (nom ou email)").lower()
+    
+            # Filtrage
+            filtered_users = [u for u in users if search_query in u[1].lower() or search_query in u[2].lower()]
+    
+            if not filtered_users:
+                st.warning("Aucun utilisateur ne correspond à la recherche.")
+            else:
+                # Initialisation de l'index
+                if "user_index" not in st.session_state:
+                    st.session_state.user_index = 0
+    
+                max_index = len(filtered_users) - 1
+                index = st.session_state.user_index
+    
+                # Flèches de navigation
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col1:
+                    if st.button("⬅️", disabled=index == 0):
+                        st.session_state.user_index = max(index - 1, 0)
+                        st.rerun()
+                with col3:
+                    if st.button("➡️", disabled=index == max_index):
+                        st.session_state.user_index = min(index + 1, max_index)
+                        st.rerun()
+                with col2:
+                    st.write(f"👤 Utilisateur {index + 1} sur {len(filtered_users)}")
+    
+                # Données utilisateur affiché
+                id, username, email, role, registration_date = filtered_users[st.session_state.user_index]
+    
+                st.markdown("---")
+                st.write(f"**🆔 ID :** {id}")
+                st.write(f"**👤 Nom d'utilisateur :** `{username}`")
+                st.write(f"**📧 Email :** `{email}`")
+                st.write(f"**🔐 Rôle :** `{role}`")
+                st.write(f"**🗓️ Date d'inscription :** {registration_date}")
+    
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("🗑️ Supprimer", key=f"btn_suppr_mobile_{email}"):
+                        admin_manager.delete_user(email)
+                        st.success(f"Utilisateur {username} supprimé.")
+                        st.session_state.user_index = 0
+                        st.rerun()
+    
+                with col2:
+                    if st.button("✏️ Modifier", key=f"btn_modif_mobile_{email}"):
+                        st.session_state[f"editing_{email}"] = True
+                        st.info(f"Mode édition activé pour {username}.")
+    
+                # Formulaire de modification
+                if st.session_state.get(f"editing_{email}", False):
+                    st.markdown("🔧 **Modification de l'utilisateur**")
+    
+                    new_username = st.text_input("Nouveau nom d'utilisateur", value=username, key=f"edit_username_{email}")
+                    new_role = st.selectbox("Nouveau rôle", ["user", "admin"], index=["user", "admin"].index(role), key=f"edit_role_{email}")
+    
+                    if st.button("✅ Enregistrer", key=f"save_modif_{email}"):
+                        admin_manager.update_user(email=email, new_username=new_username, new_role=new_role)
+                        st.success("Modifications enregistrées avec succès.")
+                        st.session_state[f"editing_{email}"] = False
+                        st.rerun()
+    
+                    if st.button("❌ Annuler", key=f"cancel_modif_{email}"):
+                        st.session_state[f"editing_{email}"] = False
+                        st.info("Modification annulée.")
+
 
 ############################################### FOOTER ###############################################
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)
