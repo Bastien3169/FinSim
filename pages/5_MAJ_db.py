@@ -221,7 +221,9 @@ if user and user.get("role") == "admin":
             with col7:
                 if st.button("Modifier", key=f"btn_modifier_{email}"):
                     st.session_state[f"editing_{email}"] = True
-    
+
+
+            # MODIFICATIONS USERS !!!
             if st.session_state.get(f"editing_{email}", False):
                 with st.expander("CLIQUER POUR DEPLIER ET MODIFIER", expanded=True):
                     
@@ -300,7 +302,9 @@ if user and user.get("role") == "admin":
                 with col2:
                     if st.button("Modifier", key=f"btn_modifier_{email}"):
                         st.session_state[f"editing_{email}"] = True
-        
+
+
+                # MODIFICATIONS USERS !!!
                 if st.session_state.get(f"editing_{email}", False):
                     with st.expander("CLIQUER POUR DEPLIER ET MODIFIER", expanded=True):
                         
