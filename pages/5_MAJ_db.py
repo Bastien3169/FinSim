@@ -1,5 +1,6 @@
 import sqlite3
 import hashlib
+import pandas as pd
 import streamlit as st
 from datetime import datetime
 from src.models.datas_db.main_db_datas import *
@@ -14,7 +15,7 @@ with open("src/assets/css/streamlit.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>👑 ADMINISTRATEUR : MISE À JOUR DES BASES DE DONNÉES</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>👑 ADMINISTRATEUR : MISE À JOUR DES BDD</h1></div>""", unsafe_allow_html=True)
 
 
 auth_manager = AuthManager() # Instanciation de la classe AuthManager
@@ -118,22 +119,29 @@ if user and user.get("role") == "admin":
 ################################## BDD USER ##################################
     
     st.markdown(f"""<div class="main-container"><h2>📝 Modifications BDD users</h2></div>""", unsafe_allow_html=True)
-    
-#--------------------------- Trouver un utilisateur par email ---------------------------#
-    st.markdown(f"""<div class="main-container"><h3>Rechercher un utilisateur par email</h3></div>""", unsafe_allow_html=True)
-    search_email = st.text_input("Rechercher un utilisateur par email")
+
+#--------------------------- Trouver un utilisateur par email ou username ---------------------------#
+    search = st.text_input("Rechercher un utilisateur par email ou username")
 
     # Bouton pour valider la recherche
     if st.button("Valider la recherche", key="valider_recherche"):
         # Si un email est saisi, on effectue la recherche
-        if search_email:
+        if search:
             # Utiliser la méthode get_user_by_email pour obtenir l'utilisateur correspondant
-            user = admin_manager.get_user_by_email(search_email)
+            user = admin_manager.get_user_by_email_username(search)
             
             # Si un utilisateur est trouvé
             if user:
+
+                # Affichage de l'en-tête du tableau
+                headers = ["🆔 ID", "👤 Username", "📧 Email", "🔐 Rôle", "🗓️ Date d'inscription", "🗑️ Supprimer", "✏️ Modifier"]
+                col_h1, col_h2, col_h3, col_h4, col_h5, col_h6, col_h7 = st.columns([1, 2, 3, 1, 2, 2, 2])
+                for col, header in zip([col_h1, col_h2, col_h3, col_h4, col_h5, col_h6, col_h7], headers):
+                    with col:
+                        st.markdown(f"<b style='color: #00B388;'>{header}</b>",unsafe_allow_html=True)
+                
                 id, username, email, role, registration_date = user
-                col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 3, 1, 2, 2, 2])
+                col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 3, 1, 2, 2, 2])
                 with col1:
                     st.write(id)
                 with col2:
@@ -182,79 +190,81 @@ if user and user.get("role") == "admin":
                 st.warning("Aucun utilisateur trouvé avec cet email.")
     
 
-#--------------------------- Afficher les utilisateurs inscris et modifier un utilisateur ---------------------------#
+#--------------------------- Version Desktop ---------------------------#
+    mobile_mode = st.checkbox("💡 Activer l'affichage mobile")
 
-    # D'abord afficher les en-têtes de colonnes 
-    headers = ["🆔 ID", "👤 Username", "📧 Email", "🔐 Rôle", "🗓️ Date d'inscription", "Actions"]
-    cols = st.columns([1, 2, 3, 1, 2, 4])
-    for i, header in enumerate(headers):
-        with cols[i]:
-            st.markdown(f"""<div style="color: #00B388; font-weight: bold; display: flex; justify-content: flex-start; 
-            ">{header}</div>""",unsafe_allow_html=True)
+    if not mobile_mode:
+        headers = ["🆔 ID", "👤 Username", "📧 Email", "🔐 Rôle", "🗓️ Date d'inscription", "🗑️ Supprimer", "✏️ Modifier"]
+        cols = st.columns([1, 2, 3, 1, 2, 2, 2])
+        for i, header in enumerate(headers):
+            with cols[i]:
+                st.markdown(f"<b style='color: #00B388;'>{header}</b>",unsafe_allow_html=True)
     
-    # Afficher tableau des utilisateurs
-    for user in admin_manager.get_all_users():
-        id, username, email, role, registration_date = user
-        col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 3, 1, 2, 2, 2])
-        with col1:
-            st.write(id)
-        with col2:
-            st.write(username)
-        with col3:
-            st.write(email)
-        with col4:
-            st.write(role)
-        with col5:
-            st.write(registration_date)
-        with col6:
-            if st.button("Supprimer", key=f"btn_supprimer_{email}", help="Supprimer", use_container_width=True):
-                admin_manager.delete_user(email)
-                st.success(f"Utilisateur {username} supprimé.")
-                st.rerun()
-        with col7:
-            if st.button("Modifier", key=f"btn_modifier_{email}", help="Modifier", use_container_width=True):
-                st.session_state[f"editing_{email}"] = True   
+        for user in admin_manager.get_all_users():
+            id, username, email, role, registration_date = user
+            col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 3, 1, 2, 2, 2])
+            with col1:
+                st.write(id)
+            with col2:
+                st.write(username)
+            with col3:
+                st.write(email)
+            with col4:
+                st.write(role)
+            with col5:
+                st.write(registration_date)
+            with col6:
+                if st.button("Supprimer", key=f"btn_supprimer_{email}"):
+                    admin_manager.delete_user(email)
+                    st.success(f"Utilisateur {username} supprimé.")
+                    st.experimental_rerun()
+            with col7:
+                if st.button("Modifier", key=f"btn_modifier_{email}"):
+                    st.session_state[f"editing_{email}"] = True
     
+            if st.session_state.get(f"editing_{email}", False):
+                with st.expander("CLIQUER POUR DEPLIER ET MODIFIER", expanded=True):
+                    
+                    # Changer nom utilisateur
+                    st.markdown(f"""<div class="main-container"><h3>Modifier nom d'utilisateur</h3></div>""", unsafe_allow_html=True)
+                    new_username = st.text_input("", value=username)
 
+                    # Changer rôle utilisateur
+                    st.markdown(f"""<div class="main-container"><h3>Modifier rôle utilisateur</h3></div>""", unsafe_allow_html=True)
+                    new_role = st.radio("", ['admin', 'user'], index=0 if role == 'admin' else 1)
         
-        if st.session_state.get(f"editing_{email}", False):                
-            with st.expander("CLIQUER POUR DEPLIER ET MODIFIER"):
-                
-                # Changer rôle utilisateur (user ou admin)
-                st.markdown(f"""<div class="main-container"><h3>Modifications user</h3></div>""", unsafe_allow_html=True)
-                new_username = st.text_input("Nouveau nom d'utilisateur", value=username)
-                new_role = st.radio("Nouveau rôle", ['admin', 'user'], index=0 if role == 'admin' else 1)
-    
-                # Réinitialisation d'un mdp par '0000'
-                st.markdown(f"""<div class="main-container"><h3>Réinitialiser le mot de passe</h3></div>""", unsafe_allow_html=True)
-                if st.button("Réinitialiser le mot de passe", key=f"reset_{id}"):
-                    # Demander un nouveau mot de passe via un champ de texte
-                    new_password = st.text_input("Nouveau mot de passe", type='password', max_chars=20)    
-                    if new_password:
-                        admin_manager.update_user(email=email, password=new_password)
-                        st.success(f"Mot de passe de {username} réinitialisé à {new_password}.")
+                    # Réinitialisation d'un mdp par '0000'
+                    st.markdown(f"""<div class="main-container"><h3>Réinitialiser le mot de passe</h3></div>""", unsafe_allow_html=True)
+                    if st.button("Réinitialiser le mot de passe", key=f"reset_{id}"):
+                        # Demander un nouveau mot de passe via un champ de texte
+                        new_password = st.text_input("Nouveau mot de passe", type='password', max_chars=20)    
+                        if new_password:
+                            admin_manager.update_user(email=email, password=new_password)
+                            st.success(f"Mot de passe de {username} réinitialisé à {new_password}.")
+                            st.rerun()
+                        else:
+                            st.warning("Veuillez entrer un mot de passe.")
+        
+                    # Valider les modifs
+                    st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
+                    if st.button("Valider les modifications", key=f"submit_{email}"):
+                        admin_manager.update_user(email=email, username=new_username, role=new_role)
+                        st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
+                        st.session_state[f"editing_{email}"] = False
                         st.rerun()
-                    else:
-                        st.warning("Veuillez entrer un mot de passe.")
-    
-                # Valider les modifs
-                st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
-                if st.button("Valider les modifications", key=f"submit_{email}"):
-                    admin_manager.update_user(email=email, username=new_username, role=new_role)
-                    st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
-                    st.session_state[f"editing_{email}"] = False
-                    st.rerun()
 
 
 #--------------------------- Version mobile ---------------------------#
-
-    st.subheader("📱 Gestion des utilisateurs (mode mobile)")
-    
-    if st.checkbox("💡 Activer l'affichage mobile"):
-    
+ 
+    else:
+        st.markdown("### Mode mobile activé")
         # Récupération des utilisateurs
         users = admin_manager.get_all_users()
-    
+
+        df = pd.DataFrame(users)
+        # Affichage avec st.dataframe()
+        st.dataframe(df, use_container_width=True)
+        
         if not users:
             st.info("Aucun utilisateur enregistré.")
         else:
@@ -271,22 +281,6 @@ if user and user.get("role") == "admin":
                 if "user_index" not in st.session_state:
                     st.session_state.user_index = 0
     
-                max_index = len(filtered_users) - 1
-                index = st.session_state.user_index
-    
-                # Flèches de navigation
-                col1, col2, col3 = st.columns([1, 2, 1])
-                with col1:
-                    if st.button("⬅️", disabled=index == 0):
-                        st.session_state.user_index = max(index - 1, 0)
-                        st.rerun()
-                with col3:
-                    if st.button("➡️", disabled=index == max_index):
-                        st.session_state.user_index = min(index + 1, max_index)
-                        st.rerun()
-                with col2:
-                    st.write(f"👤 Utilisateur {index + 1} sur {len(filtered_users)}")
-    
                 # Données utilisateur affiché
                 id, username, email, role, registration_date = filtered_users[st.session_state.user_index]
     
@@ -299,34 +293,45 @@ if user and user.get("role") == "admin":
     
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("🗑️ Supprimer", key=f"btn_suppr_mobile_{email}"):
+                    if st.button("Supprimer", key=f"btn_supprimer_{email}"):
                         admin_manager.delete_user(email)
                         st.success(f"Utilisateur {username} supprimé.")
-                        st.session_state.user_index = 0
-                        st.rerun()
-    
+                        st.experimental_rerun()
                 with col2:
-                    if st.button("✏️ Modifier", key=f"btn_modif_mobile_{email}"):
+                    if st.button("Modifier", key=f"btn_modifier_{email}"):
                         st.session_state[f"editing_{email}"] = True
-                        st.info(f"Mode édition activé pour {username}.")
-    
-                # Formulaire de modification
+        
                 if st.session_state.get(f"editing_{email}", False):
-                    st.markdown("🔧 **Modification de l'utilisateur**")
+                    with st.expander("CLIQUER POUR DEPLIER ET MODIFIER", expanded=True):
+                        
+                        # Changer nom utilisateur
+                        st.markdown(f"""<div class="main-container"><h3>Modifier nom d'utilisateur</h3></div>""", unsafe_allow_html=True)
+                        new_username = st.text_input("", value=username)
     
-                    new_username = st.text_input("Nouveau nom d'utilisateur", value=username, key=f"edit_username_{email}")
-                    new_role = st.selectbox("Nouveau rôle", ["user", "admin"], index=["user", "admin"].index(role), key=f"edit_role_{email}")
-    
-                    if st.button("✅ Enregistrer", key=f"save_modif_{email}"):
-                        admin_manager.update_user(email=email, new_username=new_username, new_role=new_role)
-                        st.success("Modifications enregistrées avec succès.")
-                        st.session_state[f"editing_{email}"] = False
-                        st.rerun()
-    
-                    if st.button("❌ Annuler", key=f"cancel_modif_{email}"):
-                        st.session_state[f"editing_{email}"] = False
-                        st.info("Modification annulée.")
-
+                        # Changer rôle utilisateur
+                        st.markdown(f"""<div class="main-container"><h3>Modifier rôle utilisateur</h3></div>""", unsafe_allow_html=True)
+                        new_role = st.radio("", ['admin', 'user'], index=0 if role == 'admin' else 1)
+            
+                        # Réinitialisation d'un mdp par '0000'
+                        st.markdown(f"""<div class="main-container"><h3>Réinitialiser le mot de passe</h3></div>""", unsafe_allow_html=True)
+                        if st.button("Réinitialiser le mot de passe", key=f"reset_{id}"):
+                            # Demander un nouveau mot de passe via un champ de texte
+                            new_password = st.text_input("Nouveau mot de passe", type='password', max_chars=20)    
+                            if new_password:
+                                admin_manager.update_user(email=email, password=new_password)
+                                st.success(f"Mot de passe de {username} réinitialisé à {new_password}.")
+                                st.rerun()
+                            else:
+                                st.warning("Veuillez entrer un mot de passe.")
+            
+                        # Valider les modifs
+                        st.markdown(f"""<div class="main-container"><h3>Valider les modifications</h3></div>""", unsafe_allow_html=True)
+                        if st.button("Valider les modifications", key=f"submit_{email}"):
+                            admin_manager.update_user(email=email, username=new_username, role=new_role)
+                            st.success(f"✅ Utilisateur {new_username} modifié avec succès.")
+                            st.session_state[f"editing_{email}"] = False
+                            st.rerun()
+        
 
 ############################################### FOOTER ###############################################
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

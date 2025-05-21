@@ -280,10 +280,10 @@ class AdminManager:
 
     
 #--------------------------- Trouver un utilisateur par email ---------------------------#
-    def get_user_by_email(self, email):
+    def get_user_by_email_username(self, search):
         with sqlite3.connect(self.db_path) as conn:
             c = conn.cursor()
-            c.execute("SELECT id, username, email, role, registration_date FROM users WHERE email = ?", (email,))
+            c.execute("SELECT id, username, email, role, registration_date FROM users WHERE email = ? OR username = ?", (search, search))
             return c.fetchone()  # Récupère l'utilisateur par son email
 
      
