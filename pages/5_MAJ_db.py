@@ -194,15 +194,15 @@ if user and user.get("role") == "admin":
     mobile_mode = st.checkbox("💡 Activer l'affichage mobile")
 
     if not mobile_mode:
-        headers = ["🆔 ID", "👤 Username", "📧 Email", "🔐 Rôle", "🗓️ Date d'inscription", "🗑️ Supprimer", "✏️ Modifier"]
-        cols = st.columns([1, 2, 3, 1, 2, 2, 2])
+        headers = ["🆔 ID", "👤 User", "📧 Email", "🔐 Rôle", "🗓️ Date inscription", "🗑️ Delete", "✏️ Modifier"]
+        cols = st.columns([1, 1, 2, 1, 2, 1, 1])
         for i, header in enumerate(headers):
             with cols[i]:
                 st.markdown(f"<b style='color: #00B388;'>{header}</b>",unsafe_allow_html=True)
     
         for user in admin_manager.get_all_users():
             id, username, email, role, registration_date = user
-            col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 3, 1, 2, 2, 2])
+            col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 2, 1, 2, 1, 1])
             with col1:
                 st.write(id)
             with col2:
@@ -214,12 +214,12 @@ if user and user.get("role") == "admin":
             with col5:
                 st.write(registration_date)
             with col6:
-                if st.button("Supprimer", key=f"btn_supprimer_{email}"):
+                if st.button("🗑️", key=f"btn_supprimer_{email}"):
                     admin_manager.delete_user(email)
                     st.success(f"Utilisateur {username} supprimé.")
                     st.experimental_rerun()
             with col7:
-                if st.button("Modifier", key=f"btn_modifier_{email}"):
+                if st.button("✏️", key=f"btn_modifier_{email}"):
                     st.session_state[f"editing_{email}"] = True
 
 
