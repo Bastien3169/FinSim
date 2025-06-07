@@ -24,21 +24,15 @@ st.markdown(f"""<div class="main-container"><h1>LES INDICES BOURSIERS</h1></div>
 
 ################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
 
-# Connexion à la base SQLite
-db_path = "data.db"
-conn = connect_to_db(db_path)
+# Création d'une instance de l'objet
+datas_indices = FinanceDatabaseIndice(db_path="data.db")
 
-# Mise en place des paramètre pour les fonctions des requêtes SQL
-table_hist_actif = "historique_indices"
-table_infos_actif = "infos_indices"
-
-# Récupérer la liste des indices et leurs infos
-liste_indices = get_list_actif(conn, table_hist_actif)
-df_infos_indices = get_infos_actif(conn, table_infos_actif)
+# Appel méthodes
+liste_indices = datas_indices.get_list_indices()
+infos_indices = datas_indices.get_infos_indices() 
 
 # Indice par défaut pour graph et tableau 
 indice_default = "S&P 500"
-
 
 ############################################### GRAPHIQUE ###############################################
 
@@ -51,7 +45,7 @@ default_index = indice_default # "index=indices.index(default_index)" attent un 
 selected_indice = st.selectbox("Choisissez un indice pour le graphique", liste_indices, index=liste_indices.index(default_index)) # arg1 : nom liste déroulante / arg2 : liste pour la liste déroulante / arg3 : opt par défaut de l'actif pour visualisation graph.
 
 # Récupération des données "Dates" et "Close" de la base de donnée pour le graphique en dataframe
-df = get_prix_date(conn, table_hist_actif, selected_indice)
+df = datas_indices.get_prix_date(selected_indice)
 
 # S'il y a des données dans les colonnes, graphique, sinon message d'erreur.
 if not df.empty:
@@ -93,20 +87,18 @@ for i in indice_selectionner_pour_tableau:
 # 2. Calculer et ajouter les rendements pour la liste des indices ds "indices_to_add" pas encore présent dans la valeur du dico de "st.session_state.rendement_data" qui est un df. pour chaque indice de la liste "indices_to_add"
 periods = [6, 12, 24, 60, 120, 180]  # Périodes en mois
 for i in indices_a_ajouter:
-    df_prix_date = get_prix_date(conn, table_hist_actif, i) # On crée le df avec en colonne "Date" et "Close" pour chaque indice selectionnés ds "indices_to_add"
+    df_prix_date = datas_indices.get_prix_date(i) # On crée le df avec en colonne "Date" et "Close" pour chaque indice selectionnés ds "indices_to_add"
     if not df.empty:
         df_rendement = calculate_rendement(df_prix_date, periods)
-        df_info = df_infos_indices[df_infos_indices["Short_Name"] == i]  # Filtres les infos sur l'indice
+        df_info = infos_indices[infos_indices["Short_Name_Indice"] == i]  # Filtres les infos sur l'indice
         
         if not df_info.empty:
-            df_rendement["Pays"] = df_info.iloc[0]["Pays"]
-            df_rendement["Ticker"] = df_info.iloc[0]["Ticker"]
-            df_rendement["Ticker_Yahoo_Finance"] = df_info.iloc[0]["Ticker_Yahoo_Finance"]
-            df_rendement["Place_Boursiere"] = df_info.iloc[0]["Place_Boursiere"]
+            df_rendement["Ticker_Indice_Yf"] = df_info.iloc[0]["Ticker_Indice_Yf"]
+            df_rendement["Place_Boursiere_Indice"] = df_info.iloc[0]["Place_Boursiere_Indice"]
             df_rendement["Nombres_Entreprises"] = df_info.iloc[0]["Nombres_Entreprises"]
             df_rendement["Devise"] = df_info.iloc[0]["Devise"]
         else:
-            df_rendement["Pays"] = "Inconnu"
+            df_rendement["Pays_Indice"] = "Inconnu"
 
         # 3. Ajout et écrase st.session_state.rendement_data avec rendement. C'est ici qu'on met en index "Ticker_Yahoo_Finance"
         st.session_state.rendement_data = pd.concat([st.session_state.rendement_data, pd.DataFrame(df_rendement, index=[i])])
@@ -117,7 +109,7 @@ for i in indices_a_ajouter:
 
 # Réorganiser les colonnes (sans la colonne "Ticker_Yahoo_Finance")
 # Réorganiser les colonnes en mettant "Pays" avant les rendements
-st.session_state.rendement_data = st.session_state.rendement_data[["Pays"] + [f"{p} mois" for p in periods] + ["Ticker", "Ticker_Yahoo_Finance", "Place_Boursiere", "Nombres_Entreprises", "Devise"]]
+st.session_state.rendement_data = st.session_state.rendement_data[[f"{p} mois" for p in periods] + ["Ticker_Indice_Yf", "Place_Boursiere_Indice", "Nombres_Entreprises", "Devise"]]
 
 # Appliquer la mise en forme et le style sur les rendements
 styled_df = style_rendement(st.session_state.rendement_data, periods)
@@ -139,7 +131,7 @@ selected_indice = st.selectbox("Choisissez un indice pour voir sa composition", 
 
 # Afficher la composition de l'indice sélectionné
 if selected_indice:
-    df_composition_indice = get_composition_indice(conn, selected_indice)
+    df_composition_indice = datas_indices.get_composition_indice(selected_indice)
     
     if not df_composition_indice.empty:
         st.write(f"Composition de l'indice {selected_indice}:")
@@ -147,8 +139,6 @@ if selected_indice:
     else:
         st.write(f"Pas de données disponibles pour l'indice {selected_indice}.")
 
-
-conn.close()
 
 ############################################### F ###############################################
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)

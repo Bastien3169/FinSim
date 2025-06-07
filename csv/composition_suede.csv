@@ -1,31 +1,31 @@
-Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
-AstraZeneca PLC,AZN,AZN.ST,23.04,Healthcare,OMX Stockholm 30,^OMXS30,United Kingdom,STO,30,2088577400832
-ABB Ltd,ABB,ABB.ST,9.29,Industrials,OMX Stockholm 30,^OMXS30,Switzerland,STO,30,842391093248
-Investor AB ser. B,INVE-B,INVE-B.ST,8.73,Financial Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,791638638592
-Atlas Copco AB ser. A,ATCO-A,ATCO-A.ST,7.12,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,645010096128
-Atlas Copco AB ser. B,ATCO-B,ATCO-B.ST,7.08,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,641255211008
-"Volvo, AB ser. B",VOLV-B,VOLV-B.ST,5.25,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,475700920320
-Nordea Bank Abp,NDA-SE,NDA-SE.ST,4.31,Financial Services,OMX Stockholm 30,^OMXS30,Finland,STO,30,390691782656
-ASSA ABLOY AB ser. B,ASSA-B,ASSA-B.ST,3.19,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,288913883136
-Skandinaviska Enskilda Banken s,SEB-A,SEB-A.ST,2.89,Financial Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,262350241792
-Hexagon AB ser. B,HEXA-B,HEXA-B.ST,2.67,Technology,OMX Stockholm 30,^OMXS30,Sweden,STO,30,241594187776
-"Ericsson, Telefonab. L M ser. B",ERIC-B,ERIC-B.ST,2.54,Technology,OMX Stockholm 30,^OMXS30,Sweden,STO,30,230012272640
-Sandvik AB,SAND,SAND.ST,2.44,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,220772646912
-Swedbank AB ser A,SWED-A,SWED-A.ST,2.44,Financial Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,221580820480
-"Hennes & Mauritz AB, H & M ser.",HM-B,HM-B.ST,2.18,Consumer Cyclical,OMX Stockholm 30,^OMXS30,Sweden,STO,30,197191827456
-Svenska Handelsbanken ser. A,SHB-A,SHB-A.ST,2.23,Financial Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,202492510208
-SAAB AB ser. B,SAAB-B,SAAB-B.ST,2.19,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,198506840064
-Essity AB ser. B,ESSITY-B,ESSITY-B.ST,2.08,Consumer Defensive,OMX Stockholm 30,^OMXS30,Sweden,STO,30,188665315328
-Alfa Laval AB,ALFA,ALFA.ST,1.74,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,157394534400
-Evolution AB,EVO,EVO.ST,1.64,Consumer Cyclical,OMX Stockholm 30,^OMXS30,Sweden,STO,30,148398522368
-Telia Company AB,TELIA,TELIA.ST,1.47,Communication Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,132787355648
-Tele2 AB ser. B,TEL2-B,TEL2-B.ST,0.96,Communication Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,86954385408
-Svenska Cellulosa AB SCA ser. B,SCA-B,SCA-B.ST,0.94,Basic Materials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,85544542208
-Boliden AB,BOL,BOL.ST,0.87,Basic Materials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,78492680192
-"SKF, AB ser. B",SKF-B,SKF-B.ST,0.83,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,75390312448
-NIBE Industrier AB ser. B,NIBE-B,NIBE-B.ST,0.71,Industrials,OMX Stockholm 30,^OMXS30,Sweden,STO,30,64514240512
-Getinge AB ser. B,GETI-B,GETI-B.ST,0.55,Healthcare,OMX Stockholm 30,^OMXS30,Sweden,STO,30,49503244288
-"Electrolux, AB ser. B",ELUX-B,ELUX-B.ST,0.21,Consumer Cyclical,OMX Stockholm 30,^OMXS30,Sweden,STO,30,18718052352
-Kinnevik AB ser. B,KINV-B,KINV-B.ST,0.2,Financial Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,18062129152
-Sinch AB,SINCH,SINCH.ST,0.16,Communication Services,OMX Stockholm 30,^OMXS30,Sweden,STO,30,14395457536
-Samhällsbyggnadsbo. i Norden A,SBB-B,SBB-B.ST,0.06,Real Estate,OMX Stockholm 30,^OMXS30,Sweden,STO,30,5657808896
+Short_Name_Stocks,Ticker_Stocks_Yf,Ticker_Stocks,Secteur_Activite,Pays_Stocks,Place_Boursiere,Capitalisation_Boursiere,Nom_Indice,Ticker_Indice_Yf,Nombres_Entreprises,Ponderation
+AstraZeneca PLC,AZN.ST,AZN,Healthcare,United Kingdom,STO,2160231579648,OMX Stockholm 30,^OMXS30,30,21.17
+ABB Ltd,ABB.ST,ABB,Industrials,Switzerland,STO,1008710909952,OMX Stockholm 30,^OMXS30,30,9.88
+Investor AB ser. B,INVE-B.ST,INVE-B,Financial Services,Sweden,STO,863827460096,OMX Stockholm 30,^OMXS30,30,8.46
+Atlas Copco AB ser. B,ATCO-B.ST,ATCO-B,Industrials,Sweden,STO,730419101696,OMX Stockholm 30,^OMXS30,30,7.16
+Atlas Copco AB ser. A,ATCO-A.ST,ATCO-A,Industrials,Sweden,STO,733985570816,OMX Stockholm 30,^OMXS30,30,7.19
+"Volvo, AB ser. B",VOLV-B.ST,VOLV-B,Industrials,Sweden,STO,528126640128,OMX Stockholm 30,^OMXS30,30,5.17
+Nordea Bank Abp,NDA-SE.ST,NDA-SE,Financial Services,Finland,STO,481054588928,OMX Stockholm 30,^OMXS30,30,4.71
+Skandinaviska Enskilda Banken s,SEB-A.ST,SEB-A,Financial Services,Sweden,STO,320341934080,OMX Stockholm 30,^OMXS30,30,3.14
+ASSA ABLOY AB ser. B,ASSA-B.ST,ASSA-B,Industrials,Sweden,STO,337566040064,OMX Stockholm 30,^OMXS30,30,3.31
+Swedbank AB ser A,SWED-A.ST,SWED-A,Financial Services,Sweden,STO,288880852992,OMX Stockholm 30,^OMXS30,30,2.83
+"Ericsson, Telefonab. L M ser. B",ERIC-B.ST,ERIC-B,Technology,Sweden,STO,275057311744,OMX Stockholm 30,^OMXS30,30,2.7
+SAAB AB ser. B,SAAB-B.ST,SAAB-B,Industrials,Sweden,STO,261673304064,OMX Stockholm 30,^OMXS30,30,2.56
+Sandvik AB,SAND.ST,SAND,Industrials,Sweden,STO,266056122368,OMX Stockholm 30,^OMXS30,30,2.61
+Svenska Handelsbanken ser. A,SHB-A.ST,SHB-A,Financial Services,Sweden,STO,255876743168,OMX Stockholm 30,^OMXS30,30,2.51
+Hexagon AB ser. B,HEXA-B.ST,HEXA-B,Technology,Sweden,STO,260492230656,OMX Stockholm 30,^OMXS30,30,2.55
+"Hennes & Mauritz AB, H & M ser.",HM-B.ST,HM-B,Consumer Cyclical,Sweden,STO,219815133184,OMX Stockholm 30,^OMXS30,30,2.15
+Essity AB ser. B,ESSITY-B.ST,ESSITY-B,Consumer Defensive,Sweden,STO,191196397568,OMX Stockholm 30,^OMXS30,30,1.87
+Alfa Laval AB,ALFA.ST,ALFA,Industrials,Sweden,STO,170496983040,OMX Stockholm 30,^OMXS30,30,1.67
+Telia Company AB,TELIA.ST,TELIA,Communication Services,Sweden,STO,145684676608,OMX Stockholm 30,^OMXS30,30,1.43
+Evolution AB,EVO.ST,EVO,Consumer Cyclical,Sweden,STO,132848271360,OMX Stockholm 30,^OMXS30,30,1.3
+Tele2 AB ser. B,TEL2-B.ST,TEL2-B,Communication Services,Sweden,STO,99333283840,OMX Stockholm 30,^OMXS30,30,0.97
+"SKF, AB ser. B",SKF-B.ST,SKF-B,Industrials,Sweden,STO,95759138816,OMX Stockholm 30,^OMXS30,30,0.94
+Svenska Cellulosa AB SCA ser. B,SCA-B.ST,SCA-B,Basic Materials,Sweden,STO,88016625664,OMX Stockholm 30,^OMXS30,30,0.86
+Boliden AB,BOL.ST,BOL,Basic Materials,Sweden,STO,86731145216,OMX Stockholm 30,^OMXS30,30,0.85
+NIBE Industrier AB ser. B,NIBE-B.ST,NIBE-B,Industrials,Sweden,STO,79271870464,OMX Stockholm 30,^OMXS30,30,0.78
+Getinge AB ser. B,GETI-B.ST,GETI-B,Healthcare,Sweden,STO,50197790720,OMX Stockholm 30,^OMXS30,30,0.49
+Kinnevik AB ser. B,KINV-B.ST,KINV-B,Financial Services,Sweden,STO,23524220928,OMX Stockholm 30,^OMXS30,30,0.23
+Sinch AB,SINCH.ST,SINCH,Communication Services,Sweden,STO,22298073088,OMX Stockholm 30,^OMXS30,30,0.22
+"Electrolux, AB ser. B",ELUX-B.ST,ELUX-B,Consumer Cyclical,Sweden,STO,16476328960,OMX Stockholm 30,^OMXS30,30,0.16
+Samhällsbyggnadsbo. i Norden A,SBB-B.ST,SBB-B,Real Estate,Sweden,STO,11441321984,OMX Stockholm 30,^OMXS30,30,0.11

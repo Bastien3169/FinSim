@@ -34,15 +34,12 @@ if user:
         st.rerun()
     
 ################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
-    # Connexion à la base SQLite
-    db_path = "data.db"
-    conn = connect_to_db(db_path)
     
-    # Mise en place des paramètre pour les fonctions des requêtes SQL
-    table_hist_actif = "historique_indices"
-
-    # Récupérer la liste des indices et leurs infos
-    liste_indices = get_list_actif(conn, table_hist_actif)
+    # Création d'une instance de l'objet
+    datas_indices = FinanceDatabaseIndice(db_path="data.db")
+    
+    # Appel méthodes
+    liste_indices = datas_indices.get_list_indices()
 
     
 ################################## STREAMLIT ##################################
@@ -64,7 +61,7 @@ if user:
     mois_dca_list = [int(mois.strip()) for mois in mois_dca_list_input.split(",")]
 
     # Prend l'hist des prix du ticker
-    data_financiere = get_prix_date(conn, table_hist_actif, ticker)
+    data_financiere = datas_indices.get_prix_date(ticker)
     
     if st.button("Lancer la simulation"):
         with st.spinner("Calcul en cours..."):

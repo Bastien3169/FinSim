@@ -3,39 +3,48 @@ import yfinance as yf
 import os
 
 
-def recuperer_et_clean_indices(dossier_csv):
+def recuperer_et_clean_indices(csv_bdd):
 
     # Charger les tickers
-    df_infos = pd.read_csv(os.path.join(dossier_csv, "infos_indices.csv"), encoding="utf-8")
-    tickers_yahoo = df_infos["Ticker_Yahoo_Finance"].dropna().unique().tolist()
+    df_infos = pd.read_csv(os.path.join(csv_bdd, "indices_infos.csv"), encoding="utf-8")
+    tickers_yahoo = df_infos["Ticker_Indice_Yf"].dropna().unique().tolist()
 
     dfs = []
 
     for i in tickers_yahoo:
         try:
+            # Crée un objet ticker
+            ticker = yf.Ticker(i)
+
             # Récupération des données historiques
-            hist = yf.Ticker(i).history(period="max", interval="1wk")
-    
-            # Ajouter les colonnes 'Ticker' et 'ShortName'
-            hist['Ticker'] = i
-            hist['Short_Name'] = yf.Ticker(i).info.get("shortName", "N/A")
-    
-            # Ajouter le DataFrame historique dans la liste
+            hist = ticker.history(period="max", interval="1wk")
+        
+            # Ajoute la colonne "Short_Name_Indice"
+            hist['Short_Name_Indice'] = ticker.info.get("shortName", "N/A")
+        
+            if hist.empty:
+                print(f"⚠️ Historique vide pour {i}.")
+                continue
+
+            hist['Ticker_Indice_Yf'] = i
             dfs.append(hist)
-          
+              
         except Exception as e:
             print(f"Erreur de récupération pour {i}: {e}")
+            continue  # Passe au suivant même en cas d'erreur
 
-    
+    # Si aucun historique n'a été récupéré, crée un DataFrame vide avec les bonnes colonnes
     if not dfs:
-        return pd.DataFrame()  # ← En dehors de la boucle maintenant
+        print("❌ Aucun historique récupéré, création d'un fichier CSV vide.")
+        df = pd.DataFrame(columns=["Date", "Close", "Ticker_Indice_Yf", "Short_Name_Indice"])
+        df.to_csv(os.path.join(csv_bdd, "historique_indices.csv"), index=False, encoding="utf-8")
+        return df
 
     # Fusion de tous les historiques
     df = pd.concat(dfs)
     df.reset_index(inplace=True)
 
-    
-############################################ NETTOYAGE DATAFRAME ############################################
+    ############################################ NETTOYAGE DATAFRAME ############################################
     
     # Supprimer colonnes inutiles
     df = df.drop(columns=["Open", "High", "Low", "Volume", "Dividends", "Stock Splits"], errors="ignore")
@@ -43,20 +52,18 @@ def recuperer_et_clean_indices(dossier_csv):
     # Convertir la colonne "Date" en format datetime et reformater en "JJ-MM-AAAA"
     df["Date"] = pd.to_datetime(df["Date"], errors="coerce", utc=True).dt.strftime("%d-%m-%Y")
 
-    df.rename(columns={"Ticker": "Ticker_Yahoo_Finance"}, inplace=True)
-    df = df.merge(df_infos[["Ticker_Yahoo_Finance", "Ticker"]], on="Ticker_Yahoo_Finance", how="left")
 
     # Arrondir la colonne "Close"
     df["Close"] = df["Close"].round(4)
 
     # Réorganiser les colonnes dans l'ordre souhaité
-    df = df[["Date", "Close", "Ticker", "Ticker_Yahoo_Finance", "Short_Name"]]
+    df = df[["Date", "Close", "Ticker_Indice_Yf", "Short_Name_Indice"]]
 
     # Sauvegarde
-    df.to_csv(os.path.join(dossier_csv, "historique_indices.csv"), index=False, encoding="utf-8")
-    print(f"[✅] Le fichier historique indices a bien été enregistré sous le nom")
+    df.to_csv(os.path.join(csv_bdd, "historique_indices.csv"), index=False, encoding="utf-8")
+    print(f"✅ Données récupérées et nettoyées enregistrées dans dossier")
     
     return df
 
 if __name__ == "__main__":
-    recuperer_et_clean_indices = recuperer_et_clean_indices("csv") #Appel de la fonction
+    recuperer_et_clean_indices = recuperer_et_clean_indices(csv_bdd = "csv/csv_bdd/")

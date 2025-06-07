@@ -3,7 +3,7 @@ import hashlib
 import pandas as pd
 import streamlit as st
 from datetime import datetime
-from src.models.datas_db.main_db_datas import *
+from src.models.datas_db.main_db_datas import * 
 from src.models.users_db.models_db_users_test import AuthManager, AdminManager
 
 
@@ -85,27 +85,27 @@ if user and user.get("role") == "admin":
             
             # Étape 2/6
             progress_bar.progress(34)
-            infos_stocks.infos_stocks(dossier_csv)
+            infos_stocks.infos_stocks(dossier_csv, csv_bdd) 
             st.write("✅ Étape 2 terminée - Informations des entreprises enregistrées")
             
             # Étape 3/6
             progress_bar.progress(50)
-            infos_indices.infos_indices(dossier_csv)
+            infos_indices.infos_indices(dossier_csv, csv_bdd)
             st.write("✅ Étape 3 terminée - Informations des indices enregistrées")
             
             # Étape 4/6
             progress_bar.progress(67)
-            hist_indices.recuperer_et_clean_indices(dossier_csv)
+            hist_indices.recuperer_et_clean_indices(csv_bdd)
             st.write("✅ Étape 4 terminée - Historique des indices enregistré")
             
             # Étape 5/6
             progress_bar.progress(83)
-            hist_stocks.recuperer_et_clean_stocks(dossier_csv)
+            hist_stocks.recuperer_et_clean_stocks(csv_bdd)
             st.write("✅ Étape 5 terminée - Historique des entreprise enregistré")
             
             # Étape 6/6
             progress_bar.progress(100)
-            sql_datas.main_creation_db(dossier_csv, db_path)
+            sql_datas.main_creation_db(csv_bdd, db_path)
             st.write("✅ Étape 6 terminée - Base de donnée enregistrée")
             
             st.success("✅ ✅ Base de données mise à jour avec succès !")

@@ -1,101 +1,101 @@
-Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
-Apple Inc.,AAPL,AAPL,11.46,Technology,NASDAQ 100,^NDX,United States,NMS,100,2725910413312
-Microsoft Corporation,MSFT,MSFT,11.18,Technology,NASDAQ 100,^NDX,United States,NMS,100,2660323819520
-NVIDIA Corporation,NVDA,NVDA,10.01,Technology,NASDAQ 100,^NDX,United States,NMS,100,2382415790080
-"Amazon.com, Inc.",AMZN,AMZN,7.81,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,1857352761344
-Alphabet Inc.,GOOG,GOOG,7.59,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,1804774277120
-Alphabet Inc.,GOOGL,GOOGL,7.57,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,1800739880960
-"Meta Platforms, Inc.",META,META,5.5,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,1308001959936
-"Tesla, Inc.",TSLA,TSLA,3.15,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,750381891584
-Broadcom Inc.,AVGO,AVGO,3.05,Technology,NASDAQ 100,^NDX,United States,NMS,100,724758560768
-Costco Wholesale Corporation,COST,COST,1.69,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,402921848832
-"Netflix, Inc.",NFLX,NFLX,1.56,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,371220348928
-"T-Mobile US, Inc.",TMUS,TMUS,1.18,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,281632997376
-ASML Holding N.V. - New York Re,ASML,ASML,1.06,Technology,NASDAQ 100,^NDX,Netherlands,NMS,100,252354609152
-"Cisco Systems, Inc.",CSCO,CSCO,0.91,Technology,NASDAQ 100,^NDX,United States,NMS,100,216458756096
-Astrazeneca PLC,AZN,AZN,0.93,Healthcare,NASDAQ 100,^NDX,United Kingdom,NMS,100,221382033408
-Linde plc,LIN,LIN,0.85,Basic Materials,NASDAQ 100,^NDX,United Kingdom,NMS,100,201394290688
-"Pepsico, Inc.",PEP,PEP,0.83,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,196357881856
-Palantir Technologies Inc.,PLTR,PLTR,0.77,Technology,NASDAQ 100,^NDX,United States,NMS,100,182562799616
-"Intuitive Surgical, Inc.",ISRG,ISRG,0.7,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,166103449600
-Amgen Inc.,AMGN,AMGN,0.65,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,155622916096
-Intuit Inc.,INTU,INTU,0.65,Technology,NASDAQ 100,^NDX,United States,NMS,100,155503558656
-Adobe Inc.,ADBE,ADBE,0.61,Technology,NASDAQ 100,^NDX,United States,NMS,100,145206345728
-PDD Holdings Inc.,PDD,PDD,0.58,Consumer Cyclical,NASDAQ 100,^NDX,Ireland,NMS,100,138890903552
-QUALCOMM Incorporated,QCOM,QCOM,0.6,Technology,NASDAQ 100,^NDX,United States,NMS,100,143470313472
-Texas Instruments Incorporated,TXN,TXN,0.59,Technology,NASDAQ 100,^NDX,United States,NMS,100,140127371264
-Booking Holdings Inc. Common St,BKNG,BKNG,0.59,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,139290034176
-"Advanced Micro Devices, Inc.",AMD,AMD,0.57,Technology,NASDAQ 100,^NDX,United States,NMS,100,135884054528
-"Gilead Sciences, Inc.",GILD,GILD,0.55,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,131544391680
-Comcast Corporation,CMCSA,CMCSA,0.53,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,126550736896
-Vertex Pharmaceuticals Incorpor,VRTX,VRTX,0.51,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,122000351232
-Honeywell International Inc.,HON,HON,0.51,Industrials,NASDAQ 100,^NDX,United States,NMS,100,121833816064
-"Automatic Data Processing, Inc.",ADP,ADP,0.48,Technology,NASDAQ 100,^NDX,United States,NMS,100,114420269056
-"Applied Materials, Inc.",AMAT,AMAT,0.45,Technology,NASDAQ 100,^NDX,United States,NMS,100,107932794880
-"Palo Alto Networks, Inc.",PANW,PANW,0.42,Technology,NASDAQ 100,^NDX,United States,NMS,100,100930519040
-Arm Holdings plc,ARM,ARM,0.39,Technology,NASDAQ 100,^NDX,United Kingdom,NMS,100,93416013824
-"MercadoLibre, Inc.",MELI,MELI,0.38,Consumer Cyclical,NASDAQ 100,^NDX,Uruguay,NMS,100,90988142592
-Starbucks Corporation,SBUX,SBUX,0.38,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,90874396672
-Intel Corporation,INTC,INTC,0.36,Technology,NASDAQ 100,^NDX,United States,NMS,100,85336743936
-"Analog Devices, Inc.",ADI,ADI,0.36,Technology,NASDAQ 100,^NDX,United States,NMS,100,84980523008
-"Mondelez International, Inc.",MDLZ,MDLZ,0.35,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,84376969216
-"CrowdStrike Holdings, Inc.",CRWD,CRWD,0.34,Technology,NASDAQ 100,^NDX,United States,NMS,100,80400080896
-KLA Corporation,KLAC,KLAC,0.34,Technology,NASDAQ 100,^NDX,United States,NMS,100,80346136576
-Lam Research Corporation,LRCX,LRCX,0.34,Technology,NASDAQ 100,^NDX,United States,NMS,100,79843655680
-Applovin Corporation,APP,APP,0.33,Technology,NASDAQ 100,^NDX,United States,NMS,100,78945050624
-Cintas Corporation,CTAS,CTAS,0.32,Industrials,NASDAQ 100,^NDX,United States,NMS,100,76937576448
-"Micron Technology, Inc.",MU,MU,0.32,Technology,NASDAQ 100,^NDX,United States,NMS,100,76408266752
-"O'Reilly Automotive, Inc.",ORLY,ORLY,0.32,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,76349669376
-"DoorDash, Inc.",DASH,DASH,0.29,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,69861965824
-MicroStrategy Incorporated,MSTR,MSTR,0.29,Technology,NASDAQ 100,^NDX,United States,NMS,100,69838938112
-"Fortinet, Inc.",FTNT,FTNT,0.28,Technology,NASDAQ 100,^NDX,United States,NMS,100,67669712896
-"Airbnb, Inc.",ABNB,ABNB,0.28,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,66048446464
-"Cadence Design Systems, Inc.",CDNS,CDNS,0.27,Technology,NASDAQ 100,^NDX,United States,NMS,100,64140099584
-"Regeneron Pharmaceuticals, Inc.",REGN,REGN,0.26,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,62619176960
-"Synopsys, Inc.",SNPS,SNPS,0.25,Technology,NASDAQ 100,^NDX,United States,NMS,100,58894757888
-Marriott International,MAR,MAR,0.25,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,58753581056
-"PayPal Holdings, Inc.",PYPL,PYPL,0.24,Financial Services,NASDAQ 100,^NDX,United States,NMS,100,57900331008
-"Workday, Inc.",WDAY,WDAY,0.24,Technology,NASDAQ 100,^NDX,United States,NMS,100,57275121664
-"Roper Technologies, Inc.",ROP,ROP,0.24,Technology,NASDAQ 100,^NDX,United States,NMS,100,57186803712
-Constellation Energy Corporatio,CEG,CEG,0.24,Utilities,NASDAQ 100,^NDX,United States,NMS,100,56330006528
-Monster Beverage Corporation,MNST,MNST,0.23,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,55577108480
-American Electric Power Company,AEP,AEP,0.23,Utilities,NASDAQ 100,^NDX,United States,NMS,100,54237159424
-"Charter Communications, Inc.",CHTR,CHTR,0.2,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,47275040768
-"Copart, Inc.",CPRT,CPRT,0.22,Industrials,NASDAQ 100,^NDX,United States,NMS,100,52381564928
-"Autodesk, Inc.",ADSK,ADSK,0.22,Technology,NASDAQ 100,^NDX,United States,NMS,100,51891060736
-CSX Corporation,CSX,CSX,0.21,Industrials,NASDAQ 100,^NDX,United States,NMS,100,51057876992
-"Paychex, Inc.",PAYX,PAYX,0.21,Technology,NASDAQ 100,^NDX,United States,NMS,100,50603237376
-Atlassian Corporation,TEAM,TEAM,0.21,Technology,NASDAQ 100,^NDX,Australia,NMS,100,48891822080
-PACCAR Inc.,PCAR,PCAR,0.19,Industrials,NASDAQ 100,^NDX,United States,NMS,100,46267772928
-Keurig Dr Pepper Inc.,KDP,KDP,0.19,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,45586796544
-Exelon Corporation,EXC,EXC,0.19,Utilities,NASDAQ 100,^NDX,United States,NMS,100,45116338176
-"Marvell Technology, Inc.",MRVL,MRVL,0.19,Technology,NASDAQ 100,^NDX,United States,NMS,100,44169265152
-"Ross Stores, Inc.",ROST,ROST,0.18,Consumer Cyclical,NASDAQ 100,^NDX,United States,NMS,100,42049626112
-NXP Semiconductors N.V.,NXPI,NXPI,0.17,Technology,NASDAQ 100,^NDX,Netherlands,NMS,100,41413607424
-Fastenal Company,FAST,FAST,0.17,Industrials,NASDAQ 100,^NDX,United States,NMS,100,41380225024
-"Verisk Analytics, Inc.",VRSK,VRSK,0.16,Industrials,NASDAQ 100,^NDX,United States,NMS,100,39009353728
-Xcel Energy Inc.,XEL,XEL,0.16,Utilities,NASDAQ 100,^NDX,United States,NMS,100,38529523712
-"Axon Enterprise, Inc.",AXON,AXON,0.16,Industrials,NASDAQ 100,^NDX,United States,NMS,100,39028789248
-Coca-Cola Europacific Partners ,CCEP,CCEP,0.17,Consumer Defensive,NASDAQ 100,^NDX,United Kingdom,NMS,100,41226694656
-"Diamondback Energy, Inc.",FANG,FANG,0.15,Energy,NASDAQ 100,^NDX,United States,NMS,100,36044087296
-Baker Hughes Company,BKR,BKR,0.15,Energy,NASDAQ 100,^NDX,United States,NMS,100,35365396480
-Electronic Arts Inc.,EA,EA,0.15,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,35084394496
-"Take-Two Interactive Software, ",TTWO,TTWO,0.15,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,34863255552
-The Kraft Heinz Company,KHC,KHC,0.14,Consumer Defensive,NASDAQ 100,^NDX,United States,NMS,100,34047705088
-Cognizant Technology Solutions ,CTSH,CTSH,0.14,Technology,NASDAQ 100,^NDX,United States,NMS,100,33327224832
-lululemon athletica inc.,LULU,LULU,0.13,Consumer Cyclical,NASDAQ 100,^NDX,Canada,NMS,100,31968804864
-"Old Dominion Freight Line, Inc.",ODFL,ODFL,0.14,Industrials,NASDAQ 100,^NDX,United States,NMS,100,32181438464
-"CoStar Group, Inc.",CSGP,CSGP,0.13,Real Estate,NASDAQ 100,^NDX,United States,NMS,100,31948548096
-"IDEXX Laboratories, Inc.",IDXX,IDXX,0.13,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,30712969216
-"Datadog, Inc.",DDOG,DDOG,0.13,Technology,NASDAQ 100,^NDX,United States,NMS,100,30231783424
-GE HealthCare Technologies Inc.,GEHC,GEHC,0.12,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,27890604032
-"Zscaler, Inc.",ZS,ZS,0.12,Technology,NASDAQ 100,^NDX,United States,NMS,100,27859007488
-"ANSYS, Inc.",ANSS,ANSS,0.1,Technology,NASDAQ 100,^NDX,United States,NMS,100,24909764608
-"DexCom, Inc.",DXCM,DXCM,0.1,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,24165556224
-"The Trade Desk, Inc.",TTD,TTD,0.1,Technology,NASDAQ 100,^NDX,United States,NGM,100,22988763136
-Microchip Technology Incorporat,MCHP,MCHP,0.09,Technology,NASDAQ 100,^NDX,United States,NMS,100,20485525504
-"Warner Bros. Discovery, Inc. - ",WBD,WBD,0.08,Communication Services,NASDAQ 100,^NDX,United States,NMS,100,19859007488
-CDW Corporation,CDW,CDW,0.08,Technology,NASDAQ 100,^NDX,United States,NMS,100,19502821376
-GlobalFoundries Inc.,GFS,GFS,0.07,Technology,NASDAQ 100,^NDX,United States,NMS,100,17809328128
-Biogen Inc.,BIIB,BIIB,0.07,Healthcare,NASDAQ 100,^NDX,United States,NMS,100,17446436864
-ON Semiconductor Corporation,ON,ON,0.06,Technology,NASDAQ 100,^NDX,United States,NMS,100,14805479424
+Short_Name_Stocks,Ticker_Stocks_Yf,Ticker_Stocks,Secteur_Activite,Pays_Stocks,Place_Boursiere,Capitalisation_Boursiere,Nom_Indice,Ticker_Indice_Yf,Nombres_Entreprises,Ponderation
+NVIDIA Corporation,NVDA,NVDA,Technology,United States,NMS,3444016939008,NASDAQ 100,^NDX,100,11.65
+Microsoft Corporation,MSFT,MSFT,Technology,United States,NMS,3441043177472,NASDAQ 100,^NDX,100,11.64
+Apple Inc.,AAPL,AAPL,Technology,United States,NMS,3036000026624,NASDAQ 100,^NDX,100,10.27
+"Amazon.com, Inc.",AMZN,AMZN,Consumer Cyclical,United States,NMS,2183899643904,NASDAQ 100,^NDX,100,7.38
+Alphabet Inc.,GOOGL,GOOGL,Communication Services,United States,NMS,2024903147520,NASDAQ 100,^NDX,100,6.85
+Alphabet Inc.,GOOG,GOOG,Communication Services,United States,NMS,2024896987136,NASDAQ 100,^NDX,100,6.85
+"Meta Platforms, Inc.",META,META,Communication Services,United States,NMS,1676681019392,NASDAQ 100,^NDX,100,5.67
+Broadcom Inc.,AVGO,AVGO,Technology,United States,NMS,1207695835136,NASDAQ 100,^NDX,100,4.08
+"Tesla, Inc.",TSLA,TSLA,Consumer Cyclical,United States,NMS,1108879867904,NASDAQ 100,^NDX,100,3.75
+"Netflix, Inc.",NFLX,NFLX,Communication Services,United States,NMS,518319931392,NASDAQ 100,^NDX,100,1.75
+Costco Wholesale Corporation,COST,COST,Consumer Defensive,United States,NMS,468174209024,NASDAQ 100,^NDX,100,1.58
+Palantir Technologies Inc.,PLTR,PLTR,Technology,United States,NMS,314269204480,NASDAQ 100,^NDX,100,1.06
+ASML Holding N.V. - New York Re,ASML,ASML,Technology,Netherlands,NMS,293818695680,NASDAQ 100,^NDX,100,0.99
+"T-Mobile US, Inc.",TMUS,TMUS,Communication Services,United States,NMS,276913553408,NASDAQ 100,^NDX,100,0.94
+"Cisco Systems, Inc.",CSCO,CSCO,Technology,United States,NMS,254865604608,NASDAQ 100,^NDX,100,0.86
+Astrazeneca PLC,AZN,AZN,Healthcare,United Kingdom,NMS,222672879616,NASDAQ 100,^NDX,100,0.75
+Linde plc,LIN,LIN,Basic Materials,United Kingdom,NMS,222096998400,NASDAQ 100,^NDX,100,0.75
+Intuit Inc.,INTU,INTU,Technology,United States,NMS,213299609600,NASDAQ 100,^NDX,100,0.72
+"Intuitive Surgical, Inc.",ISRG,ISRG,Healthcare,United States,NMS,197792956416,NASDAQ 100,^NDX,100,0.67
+"Advanced Micro Devices, Inc.",AMD,AMD,Technology,United States,NMS,190206443520,NASDAQ 100,^NDX,100,0.64
+"Pepsico, Inc.",PEP,PEP,Consumer Defensive,United States,NMS,180776894464,NASDAQ 100,^NDX,100,0.61
+Booking Holdings Inc. Common St,BKNG,BKNG,Consumer Cyclical,United States,NMS,178160418816,NASDAQ 100,^NDX,100,0.6
+Adobe Inc.,ADBE,ADBE,Technology,United States,NMS,175803236352,NASDAQ 100,^NDX,100,0.59
+Texas Instruments Incorporated,TXN,TXN,Technology,United States,NMS,170865410048,NASDAQ 100,^NDX,100,0.58
+QUALCOMM Incorporated,QCOM,QCOM,Technology,United States,NMS,163536125952,NASDAQ 100,^NDX,100,0.55
+Amgen Inc.,AMGN,AMGN,Healthcare,United States,NMS,155703525376,NASDAQ 100,^NDX,100,0.53
+Honeywell International Inc.,HON,HON,Industrials,United States,NMS,145871405056,NASDAQ 100,^NDX,100,0.49
+PDD Holdings Inc.,PDD,PDD,Consumer Cyclical,Ireland,NMS,139594186752,NASDAQ 100,^NDX,100,0.47
+Shopify Inc.,SHOP,SHOP,Technology,Canada,NMS,136372871168,NASDAQ 100,^NDX,100,0.46
+Arm Holdings plc,ARM,ARM,Technology,United Kingdom,NMS,136411504640,NASDAQ 100,^NDX,100,0.46
+"Gilead Sciences, Inc.",GILD,GILD,Healthcare,United States,NMS,135998865408,NASDAQ 100,^NDX,100,0.46
+Applovin Corporation,APP,APP,Communication Services,United States,NMS,134850609152,NASDAQ 100,^NDX,100,0.46
+"Automatic Data Processing, Inc.",ADP,ADP,Technology,United States,NMS,132546035712,NASDAQ 100,^NDX,100,0.45
+"MercadoLibre, Inc.",MELI,MELI,Consumer Cyclical,Uruguay,NMS,131927818240,NASDAQ 100,^NDX,100,0.45
+"Palo Alto Networks, Inc.",PANW,PANW,Technology,United States,NMS,131439616000,NASDAQ 100,^NDX,100,0.44
+"Applied Materials, Inc.",AMAT,AMAT,Technology,United States,NMS,129796030464,NASDAQ 100,^NDX,100,0.44
+Comcast Corporation,CMCSA,CMCSA,Communication Services,United States,NMS,129410048000,NASDAQ 100,^NDX,100,0.44
+"CrowdStrike Holdings, Inc.",CRWD,CRWD,Technology,United States,NMS,121737412608,NASDAQ 100,^NDX,100,0.41
+Vertex Pharmaceuticals Incorpor,VRTX,VRTX,Healthcare,United States,NMS,114654724096,NASDAQ 100,^NDX,100,0.39
+"Micron Technology, Inc.",MU,MU,Technology,United States,NMS,114271535104,NASDAQ 100,^NDX,100,0.39
+"Analog Devices, Inc.",ADI,ADI,Technology,United States,NMS,108395446272,NASDAQ 100,^NDX,100,0.37
+"Charter Communications, Inc.",CHTR,CHTR,Communication Services,United States,NMS,53982765056,NASDAQ 100,^NDX,100,0.18
+Lam Research Corporation,LRCX,LRCX,Technology,United States,NMS,107011186688,NASDAQ 100,^NDX,100,0.36
+MicroStrategy Incorporated,MSTR,MSTR,Technology,United States,NMS,107501363200,NASDAQ 100,^NDX,100,0.36
+KLA Corporation,KLAC,KLAC,Technology,United States,NMS,102591242240,NASDAQ 100,^NDX,100,0.35
+Starbucks Corporation,SBUX,SBUX,Consumer Cyclical,United States,NMS,98412240896,NASDAQ 100,^NDX,100,0.33
+Constellation Energy Corporatio,CEG,CEG,Utilities,United States,NMS,98108923904,NASDAQ 100,^NDX,100,0.33
+Cintas Corporation,CTAS,CTAS,Industrials,United States,NMS,91893850112,NASDAQ 100,^NDX,100,0.31
+"DoorDash, Inc.",DASH,DASH,Consumer Cyclical,United States,NMS,90554089472,NASDAQ 100,^NDX,100,0.31
+Intel Corporation,INTC,INTC,Technology,United States,NMS,88504983552,NASDAQ 100,^NDX,100,0.3
+"Mondelez International, Inc.",MDLZ,MDLZ,Consumer Defensive,United States,NMS,86804733952,NASDAQ 100,^NDX,100,0.29
+"Airbnb, Inc.",ABNB,ABNB,Consumer Cyclical,United States,NMS,82027601920,NASDAQ 100,^NDX,100,0.28
+"Cadence Design Systems, Inc.",CDNS,CDNS,Technology,United States,NMS,80091398144,NASDAQ 100,^NDX,100,0.27
+"Fortinet, Inc.",FTNT,FTNT,Technology,United States,NMS,78745993216,NASDAQ 100,^NDX,100,0.27
+"O'Reilly Automotive, Inc.",ORLY,ORLY,Consumer Cyclical,United States,NMS,78193582080,NASDAQ 100,^NDX,100,0.26
+Marriott International,MAR,MAR,Consumer Cyclical,United States,NMS,72418099200,NASDAQ 100,^NDX,100,0.24
+"Synopsys, Inc.",SNPS,SNPS,Technology,United States,NMS,72345362432,NASDAQ 100,^NDX,100,0.24
+"PayPal Holdings, Inc.",PYPL,PYPL,Financial Services,United States,NMS,69370781696,NASDAQ 100,^NDX,100,0.23
+"Workday, Inc.",WDAY,WDAY,Technology,United States,NMS,66947588096,NASDAQ 100,^NDX,100,0.23
+"Autodesk, Inc.",ADSK,ADSK,Technology,United States,NMS,64080801792,NASDAQ 100,^NDX,100,0.22
+Monster Beverage Corporation,MNST,MNST,Consumer Defensive,United States,NMS,62405992448,NASDAQ 100,^NDX,100,0.21
+"Roper Technologies, Inc.",ROP,ROP,Technology,United States,NMS,61054541824,NASDAQ 100,^NDX,100,0.21
+CSX Corporation,CSX,CSX,Industrials,United States,NMS,59850604544,NASDAQ 100,^NDX,100,0.2
+"Axon Enterprise, Inc.",AXON,AXON,Industrials,United States,NMS,59094208512,NASDAQ 100,^NDX,100,0.2
+"Paychex, Inc.",PAYX,PAYX,Technology,United States,NMS,57000226816,NASDAQ 100,^NDX,100,0.19
+Atlassian Corporation,TEAM,TEAM,Technology,Australia,NMS,55359889408,NASDAQ 100,^NDX,100,0.19
+American Electric Power Company,AEP,AEP,Utilities,United States,NMS,54931271680,NASDAQ 100,^NDX,100,0.19
+"Marvell Technology, Inc.",MRVL,MRVL,Technology,United States,NMS,53766791168,NASDAQ 100,^NDX,100,0.18
+"Regeneron Pharmaceuticals, Inc.",REGN,REGN,Healthcare,United States,NMS,52671803392,NASDAQ 100,^NDX,100,0.18
+NXP Semiconductors N.V.,NXPI,NXPI,Technology,Netherlands,NMS,50263064576,NASDAQ 100,^NDX,100,0.17
+"Copart, Inc.",CPRT,CPRT,Industrials,United States,NMS,49280401408,NASDAQ 100,^NDX,100,0.17
+PACCAR Inc.,PCAR,PCAR,Industrials,United States,NMS,49115164672,NASDAQ 100,^NDX,100,0.17
+"Ross Stores, Inc.",ROST,ROST,Consumer Cyclical,United States,NMS,47361957888,NASDAQ 100,^NDX,100,0.16
+Fastenal Company,FAST,FAST,Industrials,United States,NMS,47254810624,NASDAQ 100,^NDX,100,0.16
+"Zscaler, Inc.",ZS,ZS,Technology,United States,NMS,45934989312,NASDAQ 100,^NDX,100,0.16
+Keurig Dr Pepper Inc.,KDP,KDP,Consumer Defensive,United States,NMS,44575793152,NASDAQ 100,^NDX,100,0.15
+"Verisk Analytics, Inc.",VRSK,VRSK,Industrials,United States,NMS,44414570496,NASDAQ 100,^NDX,100,0.15
+Exelon Corporation,EXC,EXC,Utilities,United States,NMS,43874607104,NASDAQ 100,^NDX,100,0.15
+"IDEXX Laboratories, Inc.",IDXX,IDXX,Healthcare,United States,NMS,42288250880,NASDAQ 100,^NDX,100,0.14
+lululemon athletica inc.,LULU,LULU,Consumer Cyclical,Canada,NMS,40241446912,NASDAQ 100,^NDX,100,0.14
+Coca-Cola Europacific Partners ,CCEP,CCEP,Consumer Defensive,United Kingdom,NMS,41609986048,NASDAQ 100,^NDX,100,0.14
+"Diamondback Energy, Inc.",FANG,FANG,Energy,United States,NMS,41569660928,NASDAQ 100,^NDX,100,0.14
+"Datadog, Inc.",DDOG,DDOG,Technology,United States,NMS,40979587072,NASDAQ 100,^NDX,100,0.14
+"Take-Two Interactive Software, ",TTWO,TTWO,Communication Services,United States,NMS,41999998976,NASDAQ 100,^NDX,100,0.14
+Xcel Energy Inc.,XEL,XEL,Utilities,United States,NMS,39986843648,NASDAQ 100,^NDX,100,0.14
+Cognizant Technology Solutions ,CTSH,CTSH,Technology,United States,NMS,39593103360,NASDAQ 100,^NDX,100,0.13
+Baker Hughes Company,BKR,BKR,Energy,United States,NMS,37192757248,NASDAQ 100,^NDX,100,0.13
+Electronic Arts Inc.,EA,EA,Communication Services,United States,NMS,36672020480,NASDAQ 100,^NDX,100,0.12
+"The Trade Desk, Inc.",TTD,TTD,Communication Services,United States,NGM,36563062784,NASDAQ 100,^NDX,100,0.12
+"Old Dominion Freight Line, Inc.",ODFL,ODFL,Industrials,United States,NMS,34452312064,NASDAQ 100,^NDX,100,0.12
+Microchip Technology Incorporat,MCHP,MCHP,Technology,United States,NMS,34435231744,NASDAQ 100,^NDX,100,0.12
+"DexCom, Inc.",DXCM,DXCM,Healthcare,United States,NMS,34030966784,NASDAQ 100,^NDX,100,0.12
+GE HealthCare Technologies Inc.,GEHC,GEHC,Healthcare,United States,NMS,32583098368,NASDAQ 100,^NDX,100,0.11
+"CoStar Group, Inc.",CSGP,CSGP,Real Estate,United States,NMS,31932628992,NASDAQ 100,^NDX,100,0.11
+The Kraft Heinz Company,KHC,KHC,Consumer Defensive,United States,NMS,31707037696,NASDAQ 100,^NDX,100,0.11
+"ANSYS, Inc.",ANSS,ANSS,Technology,United States,NMS,29442222080,NASDAQ 100,^NDX,100,0.1
+"Warner Bros. Discovery, Inc. - ",WBD,WBD,Communication Services,United States,NMS,24592254976,NASDAQ 100,^NDX,100,0.08
+CDW Corporation,CDW,CDW,Technology,United States,NMS,23617705984,NASDAQ 100,^NDX,100,0.08
+GlobalFoundries Inc.,GFS,GFS,Technology,United States,NMS,20453042176,NASDAQ 100,^NDX,100,0.07
+ON Semiconductor Corporation,ON,ON,Technology,United States,NMS,19795212288,NASDAQ 100,^NDX,100,0.07

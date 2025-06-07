@@ -1,4 +1,0 @@
-- Faire un register admin
-- Faire un formulaire d'inscription ?
-- Faire unîtest
-- Faire maquette ?

@@ -3,62 +3,41 @@ import glob
 import sqlite3
 import pandas as pd
 
+
+#=========================== Création bdd ===========================#
 def creation_db(db_path):
-    """
-    Crée la base de données et les tables nécessaires.
-    """
+    
     # Connexion à la base de données SQLite
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # Création des tables
+    # Création des tables infos
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS infos_indices (
-        Nom_Indice TEXT,  
-        Ticker TEXT,  
-        Ticker_Yahoo_Finance TEXT PRIMARY KEY,  -- (clé primaire)
-        Short_Name TEXT,
-        Pays TEXT,
-        Place_Boursiere TEXT,
-        Nombres_Entreprises INTEGER,
-        Devise TEXT  
-    )
-    ''')
-
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS infos_stocks (
-        Nom_Entreprise TEXT,  
-        Ticker TEXT,  
-        Ticker_Yahoo_Finance TEXT PRIMARY KEY,  -- (clé primaire)
+    CREATE TABLE IF NOT EXISTS stocks_infos_par_indice (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Short_Name_Stocks TEXT,
+        Ticker_Stocks_Yf TEXT,
+        Ticker_Stocks TEXT,
         Secteur_Activite TEXT,
-        Pays TEXT,
+        Pays_Stocks TEXT,
         Place_Boursiere TEXT,
-        Capitalisation_Boursiere REAL
+        Capitalisation_Boursiere REAL,
+        Ticker_Indice_Yf TEXT,
+        Ponderation TEXT,
+        FOREIGN KEY (Ticker_Indice_Yf) REFERENCES indices_infos(Ticker_Indice_Yf)
     )
     ''')
 
-    # Création des tables pour chaque indice (ex: SP500, NASDAQ, etc.)
-    for i in glob.glob(os.path.join(dossier_csv, "composition_*.csv")):
-        # Extraction du nom de la table à partir du nom du fichier
-        nom_table = os.path.basename(i).replace('.csv', '')
-        
-        cursor.execute(f'''
-        CREATE TABLE IF NOT EXISTS {nom_table} (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nom_Entreprise TEXT,
-            Ticker TEXT,
-            Ticker_Yahoo_Finance TEXT,
-            Ponderation REAL,
-            Secteur_Activite TEXT,
-            Nom_Indice TEXT,
-            Ticker_Indice_Yahoo TEXT,
-            Pays TEXT,
-            Place_Boursiere TEXT,
-            Nombres_Entreprises INTEGER,
-            Capitalisation_Boursiere REAL,
-            FOREIGN KEY (Ticker_Yahoo_Finance) REFERENCES infos_stocks(Ticker_Yahoo_Finance)
-        )
-        ''')
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS indices_infos (
+        Short_Name_Indice TEXT,
+        Ticker_Indice_Yf TEXT PRIMARY KEY,  -- (clé primaire),
+        Nom_Indice TEXT,
+        Devise TEXT,
+        Place_Boursiere_Indice TEXT,
+        Nombres_Entreprises INTEGER
+    )
+    ''')
 
     # Création des tables historiques
     cursor.execute('''
@@ -66,10 +45,8 @@ def creation_db(db_path):
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         Date TEXT,
         Close REAL,
-        Ticker TEXT,
-        Ticker_Yahoo_Finance TEXT,
-        Short_Name TEXT,
-        FOREIGN KEY (Ticker_Yahoo_Finance) REFERENCES infos_indices(Ticker_Yahoo_Finance)
+        Ticker_Indice_Yf TEXT,
+        Short_Name_Indice
     )
     ''')
 
@@ -78,10 +55,8 @@ def creation_db(db_path):
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         Date TEXT,
         Close REAL,
-        Ticker TEXT,
-        Ticker_Yahoo_Finance TEXT,
-        Short_Name TEXT,
-        FOREIGN KEY (Ticker_Yahoo_Finance) REFERENCES infos_stocks(Ticker_Yahoo_Finance)
+        Ticker_Stocks_Yf TEXT,
+        Short_Name_Stocks
     )
     ''')
 
@@ -93,15 +68,16 @@ def creation_db(db_path):
 
     print("[✅] Tables créées avec succès.")
 
-def import_csv_compo_indices(dossier_csv, db_path):
-    """
-    Importe tous les fichiers CSV du dossier vers la base de données SQLite.
-    """
+
+
+#=========================== Impor fichiers csv ===========================#
+def import_csv_compo_indices(csv_bdd, db_path):
+    
     # Connexion à la base de données SQLite
     conn = sqlite3.connect(db_path)
     
     # Parcours des fichiers CSV dans le dossier et sous-dossiers
-    for i in glob.glob(os.path.join(dossier_csv, "*.csv"), recursive=True):
+    for i in glob.glob(os.path.join(csv_bdd, "*.csv"), recursive=True):
         try:
             # Lecture du fichier CSV
             df = pd.read_csv(i)
@@ -121,12 +97,15 @@ def import_csv_compo_indices(dossier_csv, db_path):
     
     print("[✅] Importation des CSV dans la base de données terminée.")
 
-def main_creation_db(dossier_csv, db_path):
+
+#=========================== Fichier main pour création ===========================#
+def main_creation_db(csv_bdd, db_path):
+    
     # Étape 1: Créer la base de données et les tables
     creation_db(db_path)
 
     # Étape 2: Importer les fichiers CSV dans la base de données
-    import_csv_compo_indices(dossier_csv, db_path)
+    import_csv_compo_indices(csv_bdd, db_path)
 
 if __name__ == "__main__":
-    main_creation_db("csv", "csv/data.db")
+    main_creation_db(csv_bdd = "csv/csv_bdd", db_path = "data.db")

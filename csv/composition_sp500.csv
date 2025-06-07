@@ -1,504 +1,504 @@
-Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
-Apple Inc.,AAPL,AAPL,5.76,Technology,S&P 500,^GSPC,United States,NMS,503,2725910413312.0
-Microsoft Corporation,MSFT,MSFT,5.62,Technology,S&P 500,^GSPC,United States,NMS,503,2660323819520.0
-NVIDIA Corporation,NVDA,NVDA,5.03,Technology,S&P 500,^GSPC,United States,NMS,503,2382415790080.0
-"Amazon.com, Inc.",AMZN,AMZN,3.92,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,1857352761344.0
-Alphabet Inc.,GOOG,GOOG,3.81,Communication Services,S&P 500,^GSPC,United States,NMS,503,1804774277120.0
-Alphabet Inc.,GOOGL,GOOGL,3.8,Communication Services,S&P 500,^GSPC,United States,NMS,503,1800739880960.0
-"Meta Platforms, Inc.",META,META,2.76,Communication Services,S&P 500,^GSPC,United States,NMS,503,1308001959936.0
-Berkshire Hathaway Inc. New,BRK-B,BRK-B,2.24,Financial Services,S&P 500,^GSPC,United States,NYQ,503,1059122774016.0
-"Tesla, Inc.",TSLA,TSLA,1.59,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,750381891584.0
-Broadcom Inc.,AVGO,AVGO,1.53,Technology,S&P 500,^GSPC,United States,NMS,503,724758560768.0
-Eli Lilly and Company,LLY,LLY,1.37,Healthcare,S&P 500,^GSPC,United States,NYQ,503,649901572096.0
-Walmart Inc.,WMT,WMT,1.42,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,672052543488.0
-Visa Inc.,V,V,1.27,Financial Services,S&P 500,^GSPC,United States,NYQ,503,602468450304.0
-JP Morgan Chase & Co.,JPM,JPM,1.27,Financial Services,S&P 500,^GSPC,United States,NYQ,503,599597842432.0
-UnitedHealth Group Incorporated,UNH,UNH,1.01,Healthcare,S&P 500,^GSPC,United States,NYQ,503,479949389824.0
-Exxon Mobil Corporation,XOM,XOM,0.94,Energy,S&P 500,^GSPC,United States,NYQ,503,446671093760.0
-Mastercard Incorporated,MA,MA,0.94,Financial Services,S&P 500,^GSPC,United States,NYQ,503,442652459008.0
-Costco Wholesale Corporation,COST,COST,0.85,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,402921848832.0
-Procter & Gamble Company (The),PG,PG,0.79,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,375715299328.0
-"Netflix, Inc.",NFLX,NFLX,0.78,Communication Services,S&P 500,^GSPC,United States,NMS,503,371220348928.0
-Johnson & Johnson,JNJ,JNJ,0.77,Healthcare,S&P 500,^GSPC,United States,NYQ,503,362971627520.0
-Oracle Corporation,ORCL,ORCL,0.75,Technology,S&P 500,^GSPC,United States,NYQ,503,356585897984.0
-"Home Depot, Inc. (The)",HD,HD,0.72,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,339471892480.0
-AbbVie Inc.,ABBV,ABBV,0.7,Healthcare,S&P 500,^GSPC,United States,NYQ,503,330003218432.0
-Coca-Cola Company (The),KO,KO,0.62,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,294235078656.0
-"T-Mobile US, Inc.",TMUS,TMUS,0.6,Communication Services,S&P 500,^GSPC,United States,NMS,503,281632997376.0
-Bank of America Corporation,BAC,BAC,0.57,Financial Services,S&P 500,^GSPC,United States,NYQ,503,270507638784.0
-Chevron Corporation,CVX,CVX,0.52,Energy,S&P 500,^GSPC,United States,NYQ,503,246748086272.0
-Philip Morris International Inc,PM,PM,0.5,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,235387977728.0
-"Salesforce, Inc.",CRM,CRM,0.5,Technology,S&P 500,^GSPC,United States,NYQ,503,234685808640.0
-Abbott Laboratories,ABT,ABT,0.46,Healthcare,S&P 500,^GSPC,United States,NYQ,503,216547196928.0
-"Cisco Systems, Inc.",CSCO,CSCO,0.46,Technology,S&P 500,^GSPC,United States,NMS,503,216458756096.0
-McDonald's Corporation,MCD,MCD,0.45,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,214259712000.0
-International Business Machines,IBM,IBM,0.44,Technology,S&P 500,^GSPC,United States,NYQ,503,209357668352.0
-"Merck & Company, Inc.",MRK,MRK,0.43,Healthcare,S&P 500,^GSPC,United States,NYQ,503,205063929856.0
-Wells Fargo & Company,WFC,WFC,0.43,Financial Services,S&P 500,^GSPC,United States,NYQ,503,202994991104.0
-Linde plc,LIN,LIN,0.43,Basic Materials,S&P 500,^GSPC,United Kingdom,NMS,503,201394290688.0
-"Pepsico, Inc.",PEP,PEP,0.41,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,196357881856.0
-AT&T Inc.,T,T,0.41,Communication Services,S&P 500,^GSPC,United States,NYQ,503,192590577664.0
-Palantir Technologies Inc.,PLTR,PLTR,0.39,Technology,S&P 500,^GSPC,United States,NMS,503,182562799616.0
-GE Aerospace,GE,GE,0.38,Industrials,S&P 500,^GSPC,United States,NYQ,503,178865455104.0
-Verizon Communications Inc.,VZ,VZ,0.38,Communication Services,S&P 500,^GSPC,United States,NYQ,503,179249037312.0
-Accenture plc,ACN,ACN,0.38,Technology,S&P 500,^GSPC,Ireland,NYQ,503,178367397888.0
-"Intuitive Surgical, Inc.",ISRG,ISRG,0.35,Healthcare,S&P 500,^GSPC,United States,NMS,503,166103449600.0
-Thermo Fisher Scientific Inc,TMO,TMO,0.35,Healthcare,S&P 500,^GSPC,United States,NYQ,503,165191270400.0
-American Express Company,AXP,AXP,0.35,Financial Services,S&P 500,^GSPC,United States,NYQ,503,164256055296.0
-Morgan Stanley,MS,MS,0.34,Financial Services,S&P 500,^GSPC,United States,NYQ,503,162769829888.0
-RTX Corporation,RTX,RTX,0.33,Industrials,S&P 500,^GSPC,United States,NYQ,503,156632760320.0
-Amgen Inc.,AMGN,AMGN,0.33,Healthcare,S&P 500,^GSPC,United States,NMS,503,155622916096.0
-Intuit Inc.,INTU,INTU,0.33,Technology,S&P 500,^GSPC,United States,NMS,503,155503558656.0
-"ServiceNow, Inc.",NOW,NOW,0.32,Technology,S&P 500,^GSPC,United States,NYQ,503,151871193088.0
-Blackstone Inc.,BX,BX,0.32,Financial Services,S&P 500,^GSPC,United States,NYQ,503,151905959936.0
-Walt Disney Company (The),DIS,DIS,0.32,Communication Services,S&P 500,^GSPC,United States,NYQ,503,150588915712.0
-Progressive Corporation (The),PGR,PGR,0.32,Financial Services,S&P 500,^GSPC,United States,NYQ,503,149648474112.0
-Adobe Inc.,ADBE,ADBE,0.31,Technology,S&P 500,^GSPC,United States,NMS,503,145206345728.0
-"Goldman Sachs Group, Inc. (The)",GS,GS,0.31,Financial Services,S&P 500,^GSPC,United States,NYQ,503,144675864576.0
-QUALCOMM Incorporated,QCOM,QCOM,0.3,Technology,S&P 500,^GSPC,United States,NMS,503,143470313472.0
-Texas Instruments Incorporated,TXN,TXN,0.3,Technology,S&P 500,^GSPC,United States,NMS,503,140127371264.0
-Booking Holdings Inc. Common St,BKNG,BKNG,0.29,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,139290034176.0
-S&P Global Inc.,SPGI,SPGI,0.28,Financial Services,S&P 500,^GSPC,United States,NYQ,503,134422224896.0
-"Uber Technologies, Inc.",UBER,UBER,0.29,Technology,S&P 500,^GSPC,United States,NYQ,503,137270304768.0
-"Advanced Micro Devices, Inc.",AMD,AMD,0.29,Technology,S&P 500,^GSPC,United States,NMS,503,135884054528.0
-Boston Scientific Corporation,BSX,BSX,0.29,Healthcare,S&P 500,^GSPC,United States,NYQ,503,135394066432.0
-"NextEra Energy, Inc.",NEE,NEE,0.28,Utilities,S&P 500,^GSPC,United States,NYQ,503,133931204608.0
-"Caterpillar, Inc.",CAT,CAT,0.28,Industrials,S&P 500,^GSPC,United States,NYQ,503,133849636864.0
-"TJX Companies, Inc. (The)",TJX,TJX,0.28,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,133080121344.0
-Stryker Corporation,SYK,SYK,0.28,Healthcare,S&P 500,^GSPC,United States,NYQ,503,131812474880.0
-"Gilead Sciences, Inc.",GILD,GILD,0.28,Healthcare,S&P 500,^GSPC,United States,NMS,503,131544391680.0
-Charles Schwab Corporation (The,SCHW,SCHW,0.27,Financial Services,S&P 500,^GSPC,United States,NYQ,503,127187042304.0
-Danaher Corporation,DHR,DHR,0.27,Healthcare,S&P 500,^GSPC,United States,NYQ,503,129224572928.0
-"Pfizer, Inc.",PFE,PFE,0.27,Healthcare,S&P 500,^GSPC,United States,NYQ,503,128344907776.0
-"BlackRock, Inc.",BLK,BLK,0.27,Financial Services,S&P 500,^GSPC,United States,NYQ,503,126919319552.0
-Comcast Corporation,CMCSA,CMCSA,0.27,Communication Services,S&P 500,^GSPC,United States,NMS,503,126550736896.0
-Union Pacific Corporation,UNP,UNP,0.27,Industrials,S&P 500,^GSPC,United States,NYQ,503,125838802944.0
-Vertex Pharmaceuticals Incorpor,VRTX,VRTX,0.26,Healthcare,S&P 500,^GSPC,United States,NMS,503,122000351232.0
-Honeywell International Inc.,HON,HON,0.26,Industrials,S&P 500,^GSPC,United States,NMS,503,121833816064.0
-"Lowe's Companies, Inc.",LOW,LOW,0.26,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,121422839808.0
-Deere & Company,DE,DE,0.24,Industrials,S&P 500,^GSPC,United States,NYQ,503,114903121920.0
-"Automatic Data Processing, Inc.",ADP,ADP,0.24,Technology,S&P 500,^GSPC,United States,NMS,503,114420269056.0
-Bristol-Myers Squibb Company,BMY,BMY,0.24,Healthcare,S&P 500,^GSPC,United States,NYQ,503,112298401792.0
-"Fiserv, Inc.",FI,FI,0.23,Technology,S&P 500,^GSPC,United States,NYQ,503,110843428864.0
-"Citigroup, Inc.",C,C,0.23,Financial Services,S&P 500,^GSPC,United States,NYQ,503,110765113344.0
-"Marsh & McLennan Companies, Inc",MMC,MMC,0.23,Financial Services,S&P 500,^GSPC,United States,NYQ,503,110282121216.0
-Chubb Limited,CB,CB,0.23,Financial Services,S&P 500,^GSPC,Switzerland,NYQ,503,109915906048.0
-ConocoPhillips,COP,COP,0.23,Energy,S&P 500,^GSPC,United States,NYQ,503,108301443072.0
-"Applied Materials, Inc.",AMAT,AMAT,0.23,Technology,S&P 500,^GSPC,United States,NMS,503,107932794880.0
-Medtronic plc.,MDT,MDT,0.23,Healthcare,S&P 500,^GSPC,Ireland,NYQ,503,106643202048.0
-Boeing Company (The),BA,BA,0.22,Industrials,S&P 500,^GSPC,United States,NYQ,503,104479236096.0
-American Tower Corporation (REI,AMT,AMT,0.21,Real Estate,S&P 500,^GSPC,United States,NYQ,503,99891699712.0
-Lockheed Martin Corporation,LMT,LMT,0.21,Industrials,S&P 500,^GSPC,United States,NYQ,503,101058740224.0
-"Palo Alto Networks, Inc.",PANW,PANW,0.21,Technology,S&P 500,^GSPC,United States,NMS,503,100930519040.0
-"Eaton Corporation, PLC",ETN,ETN,0.21,Industrials,S&P 500,^GSPC,Ireland,NYQ,503,98902081536.0
-"Elevance Health, Inc.",ELV,ELV,0.2,Healthcare,S&P 500,^GSPC,United States,NYQ,503,95793405952.0
-Southern Company (The),SO,SO,0.2,Utilities,S&P 500,^GSPC,United States,NYQ,503,95662899200.0
-"Altria Group, Inc.",MO,MO,0.2,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,93861683200.0
-"Prologis, Inc.",PLD,PLD,0.19,Real Estate,S&P 500,^GSPC,United States,NYQ,503,87617863680.0
-Welltower Inc.,WELL,WELL,0.19,Real Estate,S&P 500,^GSPC,United States,NYQ,503,90006765568.0
-CME Group Inc.,CME,CME,0.19,Financial Services,S&P 500,^GSPC,United States,NMS,503,90949861376.0
-Starbucks Corporation,SBUX,SBUX,0.19,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,90874396672.0
-Duke Energy Corporation (Holdin,DUK,DUK,0.19,Utilities,S&P 500,^GSPC,United States,NYQ,503,90802790400.0
-Intercontinental Exchange Inc.,ICE,ICE,0.19,Financial Services,S&P 500,^GSPC,United States,NYQ,503,88846106624.0
-"Waste Management, Inc.",WM,WM,0.19,Industrials,S&P 500,^GSPC,United States,NYQ,503,88738340864.0
-KKR & Co. Inc.,KKR,KKR,0.19,Financial Services,S&P 500,^GSPC,United States,NYQ,503,90011770880.0
-"Arista Networks, Inc.",ANET,ANET,0.18,Technology,S&P 500,^GSPC,United States,NYQ,503,85970550784.0
-The Cigna Group,CI,CI,0.18,Healthcare,S&P 500,^GSPC,United States,NYQ,503,85504753664.0
-Intel Corporation,INTC,INTC,0.18,Technology,S&P 500,^GSPC,United States,NMS,503,85336743936.0
-"Analog Devices, Inc.",ADI,ADI,0.18,Technology,S&P 500,^GSPC,United States,NMS,503,84980523008.0
-"Mondelez International, Inc.",MDLZ,MDLZ,0.18,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,84376969216.0
-McKesson Corporation,MCK,MCK,0.18,Healthcare,S&P 500,^GSPC,United States,NYQ,503,82962046976.0
-"Nike, Inc.",NKE,NKE,0.17,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,82079809536.0
-Sherwin-Williams Company (The),SHW,SHW,0.17,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,81189945344.0
-"HCA Healthcare, Inc.",HCA,HCA,0.17,Healthcare,S&P 500,^GSPC,United States,NYQ,503,81155899392.0
-"United Parcel Service, Inc.",UPS,UPS,0.17,Industrials,S&P 500,^GSPC,United States,NYQ,503,80990158848.0
-CVS Health Corporation,CVS,CVS,0.17,Healthcare,S&P 500,^GSPC,United States,NYQ,503,80502079488.0
-"CrowdStrike Holdings, Inc.",CRWD,CRWD,0.17,Technology,S&P 500,^GSPC,United States,NMS,503,80400080896.0
-KLA Corporation,KLAC,KLAC,0.17,Technology,S&P 500,^GSPC,United States,NMS,503,80346136576.0
-Lam Research Corporation,LRCX,LRCX,0.17,Technology,S&P 500,^GSPC,United States,NMS,503,79843655680.0
-Arthur J. Gallagher & Co.,AJG,AJG,0.17,Financial Services,S&P 500,^GSPC,United States,NYQ,503,79497781248.0
-GE Vernova Inc.,GEV,GEV,0.17,Utilities,S&P 500,^GSPC,United States,NYQ,503,78196088832.0
-Aon plc,AON,AON,0.17,Financial Services,S&P 500,^GSPC,Ireland,NYQ,503,78699962368.0
-Cintas Corporation,CTAS,CTAS,0.16,Industrials,S&P 500,^GSPC,United States,NMS,503,76937576448.0
-"Micron Technology, Inc.",MU,MU,0.16,Technology,S&P 500,^GSPC,United States,NMS,503,76408266752.0
-"O'Reilly Automotive, Inc.",ORLY,ORLY,0.16,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,76349669376.0
-"Equinix, Inc.",EQIX,EQIX,0.15,Real Estate,S&P 500,^GSPC,United States,NMS,503,72779030528.0
-Amphenol Corporation,APH,APH,0.16,Technology,S&P 500,^GSPC,United States,NYQ,503,73797402624.0
-Colgate-Palmolive Company,CL,CL,0.15,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,72340586496.0
-"Republic Services, Inc.",RSG,RSG,0.15,Industrials,S&P 500,^GSPC,United States,NYQ,503,72115970048.0
-Moody's Corporation,MCO,MCO,0.15,Financial Services,S&P 500,^GSPC,United States,NYQ,503,71595819008.0
-Trane Technologies plc,TT,TT,0.15,Industrials,S&P 500,^GSPC,Ireland,NYQ,503,70914088960.0
-Transdigm Group Incorporated,TDG,TDG,0.15,Industrials,S&P 500,^GSPC,United States,NYQ,503,70080512000.0
-"DoorDash, Inc.",DASH,DASH,0.15,Communication Services,S&P 500,^GSPC,United States,NMS,503,69861965824.0
-Northrop Grumman Corporation,NOC,NOC,0.15,Industrials,S&P 500,^GSPC,United States,NYQ,503,69710151680.0
-3M Company,MMM,MMM,0.15,Industrials,S&P 500,^GSPC,United States,NYQ,503,69329330176.0
-Parker-Hannifin Corporation,PH,PH,0.14,Industrials,S&P 500,^GSPC,United States,NYQ,503,68457914368.0
-"Fortinet, Inc.",FTNT,FTNT,0.14,Technology,S&P 500,^GSPC,United States,NMS,503,67669712896.0
-"Motorola Solutions, Inc.",MSI,MSI,0.14,Technology,S&P 500,^GSPC,United States,NYQ,503,67306528768.0
-"Airbnb, Inc.",ABNB,ABNB,0.14,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,66048446464.0
-"Williams Companies, Inc. (The)",WMB,WMB,0.14,Energy,S&P 500,^GSPC,United States,NYQ,503,66954846208.0
-Zoetis Inc.,ZTS,ZTS,0.14,Healthcare,S&P 500,^GSPC,United States,NYQ,503,66765791232.0
-General Dynamics Corporation,GD,GD,0.14,Industrials,S&P 500,^GSPC,United States,NYQ,503,66472853504.0
-Ecolab Inc.,ECL,ECL,0.14,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,65329188864.0
-Illinois Tool Works Inc.,ITW,ITW,0.14,Industrials,S&P 500,^GSPC,United States,NYQ,503,65053913088.0
-"Cadence Design Systems, Inc.",CDNS,CDNS,0.14,Technology,S&P 500,^GSPC,United States,NMS,503,64140099584.0
-"Apollo Global Management, Inc. ",APO,APO,0.14,Financial Services,S&P 500,^GSPC,United States,NYQ,503,64099131392.0
-"Chipotle Mexican Grill, Inc.",CMG,CMG,0.13,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,63253716992.0
-"Regeneron Pharmaceuticals, Inc.",REGN,REGN,0.13,Healthcare,S&P 500,^GSPC,United States,NMS,503,62619176960.0
-"PNC Financial Services Group, I",PNC,PNC,0.13,Financial Services,S&P 500,^GSPC,United States,NYQ,503,60474560512.0
-"EOG Resources, Inc.",EOG,EOG,0.13,Energy,S&P 500,^GSPC,United States,NYQ,503,60134842368.0
-Capital One Financial Corporati,COF,COF,0.13,Financial Services,S&P 500,^GSPC,United States,NYQ,503,59232268288.0
-"Synopsys, Inc.",SNPS,SNPS,0.12,Technology,S&P 500,^GSPC,United States,NMS,503,58894757888.0
-"Becton, Dickinson and Company",BDX,BDX,0.12,Healthcare,S&P 500,^GSPC,United States,NYQ,503,58885648384.0
-Marriott International,MAR,MAR,0.12,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,58753581056.0
-"AutoZone, Inc.",AZO,AZO,0.12,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,58188775424.0
-"PayPal Holdings, Inc.",PYPL,PYPL,0.12,Financial Services,S&P 500,^GSPC,United States,NMS,503,57900331008.0
-"Air Products and Chemicals, Inc",APD,APD,0.12,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,57643532288.0
-U.S. Bancorp,USB,USB,0.12,Financial Services,S&P 500,^GSPC,United States,NYQ,503,57334767616.0
-"Workday, Inc.",WDAY,WDAY,0.12,Technology,S&P 500,^GSPC,United States,NMS,503,57275121664.0
-"Roper Technologies, Inc.",ROP,ROP,0.12,Technology,S&P 500,^GSPC,United States,NMS,503,57186803712.0
-"Kinder Morgan, Inc.",KMI,KMI,0.12,Energy,S&P 500,^GSPC,United States,NYQ,503,56371126272.0
-Constellation Energy Corporatio,CEG,CEG,0.12,Utilities,S&P 500,^GSPC,United States,NMS,503,56330006528.0
-Monster Beverage Corporation,MNST,MNST,0.12,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,55577108480.0
-Emerson Electric Company,EMR,EMR,0.12,Industrials,S&P 500,^GSPC,United States,NYQ,503,54681387008.0
-AFLAC Incorporated,AFL,AFL,0.12,Financial Services,S&P 500,^GSPC,United States,NYQ,503,54581497856.0
-American Electric Power Company,AEP,AEP,0.11,Utilities,S&P 500,^GSPC,United States,NMS,503,54237159424.0
-"Cencora, Inc.",COR,COR,0.11,Healthcare,S&P 500,^GSPC,United States,NYQ,503,53185839104.0
-The Bank of New York Mellon Cor,BK,BK,0.11,Financial Services,S&P 500,^GSPC,United States,NYQ,503,53194690560.0
-"The Travelers Companies, Inc.",TRV,TRV,0.11,Financial Services,S&P 500,^GSPC,United States,NYQ,503,53015576576.0
-"Charter Communications, Inc.",CHTR,CHTR,0.1,Communication Services,S&P 500,^GSPC,United States,NMS,503,47275040768.0
-"Copart, Inc.",CPRT,CPRT,0.11,Industrials,S&P 500,^GSPC,United States,NMS,503,52381564928.0
-Dell Technologies Inc.,DELL,DELL,0.11,Technology,S&P 500,^GSPC,United States,NYQ,503,52338077696.0
-"Autodesk, Inc.",ADSK,ADSK,0.11,Technology,S&P 500,^GSPC,United States,NMS,503,51891060736.0
-CSX Corporation,CSX,CSX,0.11,Industrials,S&P 500,^GSPC,United States,NMS,503,51057876992.0
-"Paychex, Inc.",PAYX,PAYX,0.11,Technology,S&P 500,^GSPC,United States,NMS,503,50603237376.0
-Newmont Corporation,NEM,NEM,0.11,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,50568884224.0
-"ONEOK, Inc.",OKE,OKE,0.11,Energy,S&P 500,^GSPC,United States,NYQ,503,50538168320.0
-Public Storage,PSA,PSA,0.1,Real Estate,S&P 500,^GSPC,United States,NYQ,503,48360710144.0
-Realty Income Corporation,O,O,0.1,Real Estate,S&P 500,^GSPC,United States,NYQ,503,47201333248.0
-FedEx Corporation,FDX,FDX,0.1,Industrials,S&P 500,^GSPC,United States,NYQ,503,49172901888.0
-Carrier Global Corporation,CARR,CARR,0.1,Industrials,S&P 500,^GSPC,United States,NYQ,503,49100439552.0
-Hilton Worldwide Holdings Inc.,HLT,HLT,0.1,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,49115467776.0
-Royal Caribbean Cruises Ltd.,RCL,RCL,0.1,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,48322109440.0
-Allstate Corporation (The),ALL,ALL,0.1,Financial Services,S&P 500,^GSPC,United States,NYQ,503,47845142528.0
-"Simon Property Group, Inc.",SPG,SPG,0.11,Real Estate,S&P 500,^GSPC,United States,NYQ,503,54034309120.0
-Johnson Controls International ,JCI,JCI,0.1,Industrials,S&P 500,^GSPC,Ireland,NYQ,503,47549812736.0
-"MetLife, Inc.",MET,MET,0.1,Financial Services,S&P 500,^GSPC,United States,NYQ,503,47236349952.0
-Norfolk Southern Corporation,NSC,NSC,0.1,Industrials,S&P 500,^GSPC,United States,NYQ,503,47068606464.0
-Howmet Aerospace Inc.,HWM,HWM,0.1,Industrials,S&P 500,^GSPC,United States,NYQ,503,46893563904.0
-"Digital Realty Trust, Inc.",DLR,DLR,0.1,Real Estate,S&P 500,^GSPC,United States,NYQ,503,46847606784.0
-PACCAR Inc.,PCAR,PCAR,0.1,Industrials,S&P 500,^GSPC,United States,NMS,503,46267772928.0
-"American International Group, I",AIG,AIG,0.1,Financial Services,S&P 500,^GSPC,United States,NYQ,503,45277433856.0
-Truist Financial Corporation,TFC,TFC,0.1,Financial Services,S&P 500,^GSPC,United States,NYQ,503,45871403008.0
-Keurig Dr Pepper Inc.,KDP,KDP,0.1,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,45586796544.0
-Exelon Corporation,EXC,EXC,0.1,Utilities,S&P 500,^GSPC,United States,NMS,503,45116338176.0
-Schlumberger N.V.,SLB,SLB,0.1,Energy,S&P 500,^GSPC,United States,NYQ,503,45065756672.0
-Kimberly-Clark Corporation,KMB,KMB,0.09,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,44620455936.0
-"W.W. Grainger, Inc.",GWW,GWW,0.09,Industrials,S&P 500,^GSPC,United States,NYQ,503,44503146496.0
-Crown Castle Inc.,CCI,CCI,0.09,Real Estate,S&P 500,^GSPC,United States,NYQ,503,42763677696.0
-Kroger Company (The),KR,KR,0.09,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,43923017728.0
-"Freeport-McMoRan, Inc.",FCX,FCX,0.09,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,43643813888.0
-"Dominion Energy, Inc.",D,D,0.09,Utilities,S&P 500,^GSPC,United States,NYQ,503,43318087680.0
-General Motors Company,GM,GM,0.09,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,43312435200.0
-Target Corporation,TGT,TGT,0.09,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,42997260288.0
-"Ross Stores, Inc.",ROST,ROST,0.09,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,42049626112.0
-Fair Isaac Corporation,FICO,FICO,0.09,Technology,S&P 500,^GSPC,United States,NYQ,503,41875402752.0
-DBA Sempra,SRE,SRE,0.09,Utilities,S&P 500,^GSPC,United States,NYQ,503,41663762432.0
-Kenvue Inc.,KVUE,KVUE,0.09,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,41607692288.0
-NXP Semiconductors N.V.,NXPI,NXPI,0.09,Technology,S&P 500,^GSPC,Netherlands,NMS,503,41413607424.0
-Fastenal Company,FAST,FAST,0.09,Industrials,S&P 500,^GSPC,United States,NMS,503,41380225024.0
-"Ameriprise Financial, Inc.",AMP,AMP,0.09,Financial Services,S&P 500,^GSPC,United States,NYQ,503,41003601920.0
-"Yum! Brands, Inc.",YUM,YUM,0.09,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,40450252800.0
-Edwards Lifesciences Corporatio,EW,EW,0.09,Healthcare,S&P 500,^GSPC,United States,NYQ,503,40417095680.0
-Hess Corporation,HES,HES,0.09,Energy,S&P 500,^GSPC,United States,NYQ,503,40259850240.0
-Phillips 66,PSX,PSX,0.08,Energy,S&P 500,^GSPC,United States,NYQ,503,39379546112.0
-MSCI Inc.,MSCI,MSCI,0.08,Financial Services,S&P 500,^GSPC,United States,NYQ,503,39309864960.0
-"Verisk Analytics, Inc.",VRSK,VRSK,0.08,Industrials,S&P 500,^GSPC,United States,NMS,503,39009353728.0
-"Nasdaq, Inc.",NDAQ,NDAQ,0.08,Financial Services,S&P 500,^GSPC,United States,NMS,503,38960324608.0
-Xcel Energy Inc.,XEL,XEL,0.08,Utilities,S&P 500,^GSPC,United States,NMS,503,38529523712.0
-"Axon Enterprise, Inc.",AXON,AXON,0.08,Industrials,S&P 500,^GSPC,United States,NMS,503,39028789248.0
-Public Service Enterprise Group,PEG,PEG,0.08,Utilities,S&P 500,^GSPC,United States,NYQ,503,38454009856.0
-"D.R. Horton, Inc.",DHI,DHI,0.08,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,38759350272.0
-Cummins Inc.,CMI,CMI,0.08,Industrials,S&P 500,^GSPC,United States,NYQ,503,37971615744.0
-"Consolidated Edison, Inc.",ED,ED,0.08,Utilities,S&P 500,^GSPC,United States,NYQ,503,37213790208.0
-Discover Financial Services,DFS,DFS,0.08,Financial Services,S&P 500,^GSPC,United States,NYQ,503,37962162176.0
-"Corteva, Inc.",CTVA,CTVA,0.08,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,37955141632.0
-Marathon Petroleum Corporation,MPC,MPC,0.08,Energy,S&P 500,^GSPC,United States,NYQ,503,37900865536.0
-"L3Harris Technologies, Inc.",LHX,LHX,0.08,Industrials,S&P 500,^GSPC,United States,NYQ,503,37582622720.0
-TE Connectivity plc,TEL,TEL,0.08,Technology,S&P 500,^GSPC,Ireland,NYQ,503,36846596096.0
-Ford Motor Company,F,F,0.08,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,36743319552.0
-"United Rentals, Inc.",URI,URI,0.08,Industrials,S&P 500,^GSPC,United States,NYQ,503,36637585408.0
-Otis Worldwide Corporation,OTIS,OTIS,0.08,Industrials,S&P 500,^GSPC,United States,NYQ,503,36463886336.0
-Occidental Petroleum Corporatio,OXY,OXY,0.08,Energy,S&P 500,^GSPC,United States,NYQ,503,36416589824.0
-Fidelity National Information S,FIS,FIS,0.08,Technology,S&P 500,^GSPC,United States,NYQ,503,36389838848.0
-"Quanta Services, Inc.",PWR,PWR,0.08,Industrials,S&P 500,^GSPC,United States,NYQ,503,36338147328.0
-"Diamondback Energy, Inc.",FANG,FANG,0.08,Energy,S&P 500,^GSPC,United States,NMS,503,36044087296.0
-"Targa Resources, Inc.",TRGP,TRGP,0.08,Energy,S&P 500,^GSPC,United States,NYQ,503,35962445824.0
-"AMETEK, Inc.",AME,AME,0.07,Industrials,S&P 500,^GSPC,United States,NYQ,503,35380441088.0
-Baker Hughes Company,BKR,BKR,0.07,Energy,S&P 500,^GSPC,United States,NMS,503,35365396480.0
-Pacific Gas & Electric Co.,PCG,PCG,0.07,Utilities,S&P 500,^GSPC,United States,NYQ,503,35272765440.0
-CBRE Group Inc,CBRE,CBRE,0.07,Real Estate,S&P 500,^GSPC,United States,NYQ,503,35149332480.0
-Electronic Arts Inc.,EA,EA,0.07,Communication Services,S&P 500,^GSPC,United States,NMS,503,35084394496.0
-Vistra Corp.,VST,VST,0.07,Utilities,S&P 500,^GSPC,United States,NYQ,503,34930720768.0
-"Take-Two Interactive Software, ",TTWO,TTWO,0.07,Communication Services,S&P 500,^GSPC,United States,NMS,503,34863255552.0
-Garmin Ltd.,GRMN,GRMN,0.07,Technology,S&P 500,^GSPC,Switzerland,NYQ,503,34798186496.0
-Entergy Corporation,ETR,ETR,0.07,Utilities,S&P 500,^GSPC,United States,NYQ,503,34177447936.0
-The Kraft Heinz Company,KHC,KHC,0.07,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,34047705088.0
-Sysco Corporation,SYY,SYY,0.07,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,33981917184.0
-Corning Incorporated,GLW,GLW,0.07,Technology,S&P 500,^GSPC,United States,NYQ,503,33936939008.0
-"Prudential Financial, Inc.",PRU,PRU,0.07,Financial Services,S&P 500,^GSPC,United States,NYQ,503,33947019264.0
-Valero Energy Corporation,VLO,VLO,0.07,Energy,S&P 500,^GSPC,United States,NYQ,503,33543553024.0
-Cognizant Technology Solutions ,CTSH,CTSH,0.07,Technology,S&P 500,^GSPC,United States,NMS,503,33327224832.0
-lululemon athletica inc.,LULU,LULU,0.07,Consumer Cyclical,S&P 500,^GSPC,Canada,NMS,503,31968804864.0
-The Hershey Company,HSY,HSY,0.07,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,32936747008.0
-"WEC Energy Group, Inc.",WEC,WEC,0.07,Utilities,S&P 500,^GSPC,United States,NYQ,503,32795183104.0
-VICI Properties Inc.,VICI,VICI,0.07,Real Estate,S&P 500,^GSPC,United States,NYQ,503,31447392256.0
-"Brown & Brown, Inc.",BRO,BRO,0.07,Financial Services,S&P 500,^GSPC,United States,NYQ,503,32294375424.0
-"Old Dominion Freight Line, Inc.",ODFL,ODFL,0.07,Industrials,S&P 500,^GSPC,United States,NMS,503,32181438464.0
-"General Mills, Inc.",GIS,GIS,0.07,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,32105848832.0
-"CoStar Group, Inc.",CSGP,CSGP,0.07,Real Estate,S&P 500,^GSPC,United States,NMS,503,31948548096.0
-Arch Capital Group Ltd.,ACGL,ACGL,0.07,Financial Services,S&P 500,^GSPC,Bermuda,NMS,503,31932102656.0
-"The Hartford Insurance Group, I",HIG,HIG,0.07,Financial Services,S&P 500,^GSPC,United States,NYQ,503,31344056320.0
-ResMed Inc.,RMD,RMD,0.07,Healthcare,S&P 500,^GSPC,United States,NYQ,503,31282673664.0
-"Constellation Brands, Inc.",STZ,STZ,0.07,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,31196678144.0
-Humana Inc.,HUM,HUM,0.06,Healthcare,S&P 500,^GSPC,United States,NYQ,503,30741714944.0
-"IDEXX Laboratories, Inc.",IDXX,IDXX,0.06,Healthcare,S&P 500,^GSPC,United States,NMS,503,30712969216.0
-Centene Corporation,CNC,CNC,0.06,Healthcare,S&P 500,^GSPC,United States,NYQ,503,30433280000.0
-"Cardinal Health, Inc.",CAH,CAH,0.06,Healthcare,S&P 500,^GSPC,United States,NYQ,503,30360266752.0
-Vulcan Materials Company (Holdi,VMC,VMC,0.06,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,30189041664.0
-Willis Towers Watson Public Lim,WTW,WTW,0.06,Financial Services,S&P 500,^GSPC,United Kingdom,NMS,503,29914615808.0
-"Agilent Technologies, Inc.",A,A,0.06,Healthcare,S&P 500,^GSPC,United States,NYQ,503,29533818880.0
-"Ventas, Inc.",VTR,VTR,0.06,Real Estate,S&P 500,^GSPC,United States,NYQ,503,28082704384.0
-"Gartner, Inc.",IT,IT,0.06,Technology,S&P 500,^GSPC,United States,NYQ,503,29388339200.0
-Extra Space Storage Inc,EXR,EXR,0.06,Real Estate,S&P 500,^GSPC,United States,NYQ,503,29332629504.0
-eBay Inc.,EBAY,EBAY,0.06,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,28514539520.0
-EQT Corporation,EQT,EQT,0.06,Energy,S&P 500,^GSPC,United States,NYQ,503,28264935424.0
-Kellanova,K,K,0.06,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,28183433216.0
-Lennar Corporation,LEN,LEN,0.06,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,28133664768.0
-"Martin Marietta Materials, Inc.",MLM,MLM,0.06,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,28037111808.0
-GE HealthCare Technologies Inc.,GEHC,GEHC,0.06,Healthcare,S&P 500,^GSPC,United States,NMS,503,27890604032.0
-"American Water Works Company, I",AWK,AWK,0.06,Utilities,S&P 500,^GSPC,United States,NYQ,503,27761766400.0
-Westinghouse Air Brake Technolo,WAB,WAB,0.06,Industrials,S&P 500,^GSPC,United States,NYQ,503,27595876352.0
-"Live Nation Entertainment, Inc.",LYV,LYV,0.06,Communication Services,S&P 500,^GSPC,United States,NYQ,503,27555602432.0
-Ingersoll Rand Inc.,IR,IR,0.06,Industrials,S&P 500,^GSPC,United States,NYQ,503,27385460736.0
-"AvalonBay Communities, Inc.",AVB,AVB,0.06,Real Estate,S&P 500,^GSPC,United States,NYQ,503,26880688128.0
-"IQVIA Holdings, Inc.",IQV,IQV,0.06,Healthcare,S&P 500,^GSPC,United States,NYQ,503,26977957888.0
-DTE Energy Company,DTE,DTE,0.06,Utilities,S&P 500,^GSPC,United States,NYQ,503,26551926784.0
-Texas Pacific Land Corporation,TPL,TPL,0.06,Energy,S&P 500,^GSPC,United States,NYQ,503,26522390528.0
-Tractor Supply Company,TSCO,TSCO,0.06,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,26235199488.0
-"Equifax, Inc.",EFX,EFX,0.06,Industrials,S&P 500,^GSPC,United States,NYQ,503,26044303360.0
-M&T Bank Corporation,MTB,MTB,0.05,Financial Services,S&P 500,^GSPC,United States,NYQ,503,25900316672.0
-"Broadridge Financial Solutions,",BR,BR,0.05,Technology,S&P 500,^GSPC,United States,NYQ,503,25772265472.0
-"Rockwell Automation, Inc.",ROK,ROK,0.05,Industrials,S&P 500,^GSPC,United States,NYQ,503,25737674752.0
-"Raymond James Financial, Inc.",RJF,RJF,0.05,Financial Services,S&P 500,^GSPC,United States,NYQ,503,25601456128.0
-Ameren Corporation,AEE,AEE,0.05,Utilities,S&P 500,^GSPC,United States,NYQ,503,25486706688.0
-"Church & Dwight Company, Inc.",CHD,CHD,0.05,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,25238581248.0
-Xylem Inc.,XYL,XYL,0.05,Industrials,S&P 500,^GSPC,United States,NYQ,503,25232857088.0
-"ANSYS, Inc.",ANSS,ANSS,0.05,Technology,S&P 500,^GSPC,United States,NMS,503,24909764608.0
-PPL Corporation,PPL,PPL,0.05,Utilities,S&P 500,^GSPC,United States,NYQ,503,24773023744.0
-"Rollins, Inc.",ROL,ROL,0.05,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,24714622976.0
-International Paper Company,IP,IP,0.05,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,24672925696.0
-W.R. Berkley Corporation,WRB,WRB,0.05,Financial Services,S&P 500,^GSPC,United States,NYQ,503,24376645632.0
-Nucor Corporation,NUE,NUE,0.05,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,24199784448.0
-Equity Residential,EQR,EQR,0.05,Real Estate,S&P 500,^GSPC,United States,NYQ,503,24468389888.0
-"DuPont de Nemours, Inc.",DD,DD,0.05,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,24180813824.0
-"TKO Group Holdings, Inc.",TKO,TKO,0.02,Communication Services,S&P 500,^GSPC,United States,NYQ,503,11513764864.0
-"Delta Air Lines, Inc.",DAL,DAL,0.05,Industrials,S&P 500,^GSPC,United States,NYQ,503,24087922688.0
-"DexCom, Inc.",DXCM,DXCM,0.05,Healthcare,S&P 500,^GSPC,United States,NMS,503,24165556224.0
-SBA Communications Corporation,SBAC,SBAC,0.05,Real Estate,S&P 500,^GSPC,United States,NMS,503,23075883008.0
-"Monolithic Power Systems, Inc.",MPWR,MPWR,0.05,Technology,S&P 500,^GSPC,United States,NMS,503,23388284928.0
-Expand Energy Corporation,EXE,EXE,0.05,Energy,S&P 500,^GSPC,United States,NMS,503,23283961856.0
-"CenterPoint Energy, Inc (Holdin",CNP,CNP,0.05,Utilities,S&P 500,^GSPC,United States,NYQ,503,23171807232.0
-"Tyler Technologies, Inc.",TYL,TYL,0.05,Technology,S&P 500,^GSPC,United States,NYQ,503,23063324672.0
-Atmos Energy Corporation,ATO,ATO,0.05,Utilities,S&P 500,^GSPC,United States,NYQ,503,23025082368.0
-GoDaddy Inc.,GDDY,GDDY,0.05,Technology,S&P 500,^GSPC,United States,NYQ,503,22967521280.0
-Fifth Third Bancorp,FITB,FITB,0.05,Financial Services,S&P 500,^GSPC,United States,NMS,503,22643296256.0
-Las Vegas Sands Corp.,LVS,LVS,0.05,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,22682757120.0
-Iron Mountain Incorporated (Del,IRM,IRM,0.05,Real Estate,S&P 500,^GSPC,United States,NYQ,503,22773739520.0
-Keysight Technologies Inc.,KEYS,KEYS,0.05,Technology,S&P 500,^GSPC,United States,NYQ,503,22446422016.0
-FirstEnergy Corp.,FE,FE,0.05,Utilities,S&P 500,^GSPC,United States,NYQ,503,22340546560.0
-"VeriSign, Inc.",VRSN,VRSN,0.05,Technology,S&P 500,^GSPC,United States,NMS,503,22182754304.0
-"Darden Restaurants, Inc.",DRI,DRI,0.05,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,22115573760.0
-Non disponible,HPQ,HPQ,,Non disponible,S&P 500,^GSPC,Non disponible,Non disponible,503,
-Non disponible,STT,STT,,Non disponible,S&P 500,^GSPC,Non disponible,Non disponible,503,
-"PPG Industries, Inc.",PPG,PPG,0.05,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,22000687104.0
-Fortive Corporation,FTV,FTV,0.05,Technology,S&P 500,^GSPC,United States,NYQ,503,21999747072.0
-"Cboe Global Markets, Inc.",CBOE,CBOE,0.05,Financial Services,S&P 500,^GSPC,United States,BTS,503,21703657472.0
-Veralto Corp,VLTO,VLTO,0.05,Industrials,S&P 500,^GSPC,United States,NYQ,503,21607809024.0
-"Mettler-Toledo International, I",MTD,MTD,0.05,Healthcare,S&P 500,^GSPC,United States,NYQ,503,21511038976.0
-Carnival Corporation,CCL,CCL,0.05,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,22260350976.0
-CMS Energy Corporation,CMS,CMS,0.04,Utilities,S&P 500,^GSPC,United States,NYQ,503,21219219456.0
-Fox Corporation,FOXA,FOXA,0.04,Communication Services,S&P 500,^GSPC,United States,NMS,503,21092790272.0
-Fox Corporation,FOX,FOX,0.04,Communication Services,S&P 500,^GSPC,United States,NMS,503,21040824320.0
-"NVR, Inc.",NVR,NVR,0.04,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,20921741312.0
-STERIS plc (Ireland),STE,STE,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,20903839744.0
-"Zimmer Biomet Holdings, Inc.",ZBH,ZBH,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,20869765120.0
-Dover Corporation,DOV,DOV,0.04,Industrials,S&P 500,^GSPC,United States,NYQ,503,20760780800.0
-Edison International,EIX,EIX,0.04,Utilities,S&P 500,^GSPC,United States,NYQ,503,20644986880.0
-Archer-Daniels-Midland Company,ADM,ADM,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,20637104128.0
-Teledyne Technologies Incorpora,TDY,TDY,0.04,Technology,S&P 500,^GSPC,United States,NYQ,503,20510228480.0
-Smurfit WestRock plc,SW,SW,0.04,Consumer Cyclical,S&P 500,^GSPC,Ireland,NYQ,503,20571074560.0
-Microchip Technology Incorporat,MCHP,MCHP,0.04,Technology,S&P 500,^GSPC,United States,NMS,503,20485525504.0
-Eversource Energy (D/B/A),ES,ES,0.04,Utilities,S&P 500,^GSPC,United States,NYQ,503,20395075584.0
-"Tyson Foods, Inc.",TSN,TSN,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,20741175296.0
-Global Payments Inc.,GPN,GPN,0.04,Industrials,S&P 500,^GSPC,United States,NYQ,503,20292145152.0
-"Corpay, Inc.",CPAY,CPAY,0.04,Technology,S&P 500,^GSPC,United States,NYQ,503,20252346368.0
-Dollar General Corporation,DG,DG,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,20239523840.0
-Invitation Homes Inc.,INVH,INVH,0.04,Real Estate,S&P 500,^GSPC,United States,NYQ,503,19269042176.0
-"Warner Bros. Discovery, Inc. - ",WBD,WBD,0.04,Communication Services,S&P 500,^GSPC,United States,NMS,503,19859007488.0
-"McCormick & Company, Incorporat",MKC,MKC,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,19829483520.0
-Cincinnati Financial Corporatio,CINF,CINF,0.04,Financial Services,S&P 500,^GSPC,United States,NMS,503,19821127680.0
-"Super Micro Computer, Inc.",SMCI,SMCI,0.04,Technology,S&P 500,^GSPC,United States,NMS,503,19584874496.0
-CDW Corporation,CDW,CDW,0.04,Technology,S&P 500,^GSPC,United States,NMS,503,19502821376.0
-"PulteGroup, Inc.",PHM,PHM,0.04,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,19380381696.0
-Dow Inc.,DOW,DOW,0.04,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,19422623744.0
-Waters Corporation,WAT,WAT,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,19356069888.0
-"United Airlines Holdings, Inc.",UAL,UAL,0.04,Industrials,S&P 500,^GSPC,United States,NMS,503,19237771264.0
-Coterra Energy Inc.,CTRA,CTRA,0.04,Energy,S&P 500,^GSPC,United States,NYQ,503,19132964864.0
-Weyerhaeuser Company,WY,WY,0.04,Real Estate,S&P 500,^GSPC,United States,NYQ,503,18494631936.0
-"Estee Lauder Companies, Inc. (T",EL,EL,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,19046909952.0
-Labcorp Holdings Inc.,LH,LH,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,18706950144.0
-"Lennox International, Inc.",LII,LII,0.04,Industrials,S&P 500,^GSPC,United States,NYQ,503,18652657664.0
-Molina Healthcare Inc,MOH,MOH,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,18618753024.0
-Devon Energy Corporation,DVN,DVN,0.04,Energy,S&P 500,^GSPC,United States,NYQ,503,18555129856.0
-Huntington Bancshares Incorpora,HBAN,HBAN,0.04,Financial Services,S&P 500,^GSPC,United States,NMS,503,18566131712.0
-LyondellBasell Industries NV,LYB,LYB,0.04,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,18307043328.0
-Quest Diagnostics Incorporated,DGX,DGX,0.04,Healthcare,S&P 500,^GSPC,United States,NYQ,503,18234793984.0
-"T. Rowe Price Group, Inc.",TROW,TROW,0.04,Financial Services,S&P 500,^GSPC,United States,NMS,503,18148282368.0
-International Flavors & Fragran,IFF,IFF,0.04,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,18083022848.0
-"Expedia Group, Inc.",EXPE,EXPE,0.04,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,18016786432.0
-Insulet Corporation,PODD,PODD,0.04,Healthcare,S&P 500,^GSPC,United States,NMS,503,17994033152.0
-"Williams-Sonoma, Inc.",WSM,WSM,0.04,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,17919920128.0
-Mid-America Apartment Communiti,MAA,MAA,0.04,Real Estate,S&P 500,^GSPC,United States,NYQ,503,18081583104.0
-"NRG Energy, Inc.",NRG,NRG,0.04,Utilities,S&P 500,^GSPC,United States,NYQ,503,17767909376.0
-Erie Indemnity Company,ERIE,ERIE,0.04,Financial Services,S&P 500,^GSPC,United States,NMS,503,19925065728.0
-Hewlett Packard Enterprise Comp,HPE,HPE,0.04,Technology,S&P 500,^GSPC,United States,NYQ,503,17510021120.0
-NiSource Inc,NI,NI,0.04,Utilities,S&P 500,^GSPC,United States,NYQ,503,17487681536.0
-Biogen Inc.,BIIB,BIIB,0.04,Healthcare,S&P 500,^GSPC,United States,NMS,503,17446436864.0
-"Essex Property Trust, Inc.",ESS,ESS,0.04,Real Estate,S&P 500,^GSPC,United States,NYQ,503,18102286336.0
-Synchrony Financial,SYF,SYF,0.04,Financial Services,S&P 500,^GSPC,United States,NYQ,503,17419888640.0
-Halliburton Company,HAL,HAL,0.04,Energy,S&P 500,^GSPC,United States,NYQ,503,17230999552.0
-Clorox Company (The),CLX,CLX,0.04,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,17111090176.0
-"Leidos Holdings, Inc.",LDOS,LDOS,0.04,Technology,S&P 500,^GSPC,United States,NYQ,503,17039639552.0
-Loews Corporation,L,L,0.04,Financial Services,S&P 500,^GSPC,United States,NYQ,503,17014563840.0
-Hubbell Inc,HUBB,HUBB,0.04,Industrials,S&P 500,^GSPC,United States,NYQ,503,16976875520.0
-Regions Financial Corporation,RF,RF,0.04,Financial Services,S&P 500,^GSPC,United States,NYQ,503,16914086912.0
-PTC Inc.,PTC,PTC,0.04,Technology,S&P 500,^GSPC,United States,NMS,503,16808059904.0
-Northern Trust Corporation,NTRS,NTRS,0.04,Financial Services,S&P 500,^GSPC,United States,NMS,503,16670105600.0
-"Steel Dynamics, Inc.",STLD,STLD,0.04,Basic Materials,S&P 500,^GSPC,United States,NMS,503,16644561920.0
-Hormel Foods Corporation,HRL,HRL,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,16519388160.0
-Snap-On Incorporated,SNA,SNA,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,16289879040.0
-Packaging Corporation of Americ,PKG,PKG,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,16280582144.0
-Principal Financial Group Inc,PFG,PFG,0.03,Financial Services,S&P 500,^GSPC,United States,NMS,503,16162162688.0
-Deckers Outdoor Corporation,DECK,DECK,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,16107773952.0
-"NetApp, Inc.",NTAP,NTAP,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,15905474560.0
-"Dollar Tree, Inc.",DLTR,DLTR,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,15666646016.0
-Camden Property Trust,CPT,CPT,0.02,Real Estate,S&P 500,^GSPC,United States,NYQ,503,11755731968.0
-"Everest Group, Ltd.",EG,EG,0.03,Financial Services,S&P 500,^GSPC,Bermuda,NYQ,503,14015408128.0
-"Ulta Beauty, Inc.",ULTA,ULTA,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,15537986560.0
-Brown Forman Inc,BF-B,BF-B,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,15437920256.0
-FactSet Research Systems Inc.,FDS,FDS,0.03,Financial Services,S&P 500,^GSPC,United States,NYQ,503,15424206848.0
-Southwest Airlines Company,LUV,LUV,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,15385479168.0
-Alliant Energy Corporation,LNT,LNT,0.03,Utilities,S&P 500,^GSPC,United States,NMS,503,15363573760.0
-Genuine Parts Company,GPC,GPC,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,15313205248.0
-"Citizens Financial Group, Inc.",CFG,CFG,0.03,Financial Services,S&P 500,^GSPC,United States,NYQ,503,15229749248.0
-Domino's Pizza Inc,DPZ,DPZ,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,14973041664.0
-"Evergy, Inc.",EVRG,EVRG,0.03,Utilities,S&P 500,^GSPC,United States,NMS,503,14803636224.0
-KeyCorp,KEY,KEY,0.03,Financial Services,S&P 500,^GSPC,United States,NYQ,503,14803176448.0
-ON Semiconductor Corporation,ON,ON,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,14805479424.0
-Baxter International Inc.,BAX,BAX,0.03,Healthcare,S&P 500,^GSPC,United States,NYQ,503,14690143232.0
-"The Cooper Companies, Inc.",COO,COO,0.03,Healthcare,S&P 500,^GSPC,United States,NMS,503,14658846720.0
-Gen Digital Inc.,GEN,GEN,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,14612496384.0
-"West Pharmaceutical Services, I",WST,WST,0.03,Healthcare,S&P 500,^GSPC,United States,NYQ,503,14564810752.0
-Expeditors International of Was,EXPD,EXPD,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,14555404288.0
-Seagate Technology Holdings PLC,STX,STX,0.03,Technology,S&P 500,^GSPC,Singapore,NMS,503,14535803904.0
-News Corporation,NWS,NWS,0.03,Communication Services,S&P 500,^GSPC,United States,NMS,503,14363142144.0
-News Corporation,NWSA,NWSA,0.03,Communication Services,S&P 500,^GSPC,United States,NMS,503,14219841536.0
-Alexandria Real Estate Equities,ARE,ARE,0.03,Real Estate,S&P 500,^GSPC,United States,NYQ,503,13460273152.0
-Omnicom Group Inc.,OMC,OMC,0.03,Communication Services,S&P 500,^GSPC,United States,NYQ,503,14065013760.0
-"F5, Inc.",FFIV,FFIV,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,14037181440.0
-"First Solar, Inc.",FSLR,FSLR,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,13923412992.0
-Trimble Inc.,TRMB,TRMB,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,13769268224.0
-"Hologic, Inc.",HOLX,HOLX,0.03,Healthcare,S&P 500,^GSPC,United States,NMS,503,13830048768.0
-Jacobs Solutions Inc.,J,J,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,13609736192.0
-"Builders FirstSource, Inc.",BLDR,BLDR,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,13510673408.0
-"UDR, Inc.",UDR,UDR,0.03,Real Estate,S&P 500,^GSPC,United States,NYQ,503,14766236672.0
-Ball Corporation,BALL,BALL,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,13319817216.0
-Jabil Inc.,JBL,JBL,0.03,Technology,S&P 500,^GSPC,United States,NYQ,503,13284404224.0
-"J.B. Hunt Transport Services, I",JBHT,JBHT,0.03,Industrials,S&P 500,^GSPC,United States,NMS,503,13208056832.0
-"Healthpeak Properties, Inc.",DOC,DOC,0.03,Real Estate,S&P 500,^GSPC,United States,NYQ,503,12714446848.0
-Avery Dennison Corporation,AVY,AVY,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,13130466304.0
-Kimco Realty Corporation (HC),KIM,KIM,0.03,Real Estate,S&P 500,^GSPC,United States,NYQ,503,12992021504.0
-"Tapestry, Inc.",TPR,TPR,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,13039876096.0
-"Best Buy Co., Inc.",BBY,BBY,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,12942185472.0
-Masco Corporation,MAS,MAS,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,12922483712.0
-Amcor plc,AMCR,AMCR,0.03,Consumer Cyclical,S&P 500,^GSPC,Switzerland,NYQ,503,12892433408.0
-Pentair plc.,PNR,PNR,0.03,Industrials,S&P 500,^GSPC,United Kingdom,NYQ,503,12790123520.0
-Regency Centers Corporation,REG,REG,0.03,Real Estate,S&P 500,^GSPC,United States,NMS,503,12334358528.0
-"ConAgra Brands, Inc.",CAG,CAG,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,12406637568.0
-"Jack Henry & Associates, Inc.",JKHY,JKHY,0.03,Technology,S&P 500,^GSPC,United States,NMS,503,12345954304.0
-IDEX Corporation,IEX,IEX,0.03,Industrials,S&P 500,^GSPC,United States,NYQ,503,12308399104.0
-Molson Coors Beverage Company,TAP,TAP,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,12232557568.0
-The J.M. Smucker Company,SJM,SJM,0.03,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,12028313600.0
-"CF Industries Holdings, Inc.",CF,CF,0.03,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,11992283136.0
-Ralph Lauren Corporation,RL,RL,0.03,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,11930990592.0
-Aptiv PLC,APTV,APTV,0.03,Consumer Cyclical,S&P 500,^GSPC,Switzerland,NYQ,503,11926602752.0
-DaVita Inc.,DVA,DVA,0.02,Healthcare,S&P 500,^GSPC,United States,NYQ,503,11728799744.0
-"Teradyne, Inc.",TER,TER,0.02,Technology,S&P 500,^GSPC,United States,NMS,503,11719900160.0
-Incyte Corporation,INCY,INCY,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,11667562496.0
-"Revvity, Inc.",RVTY,RVTY,0.02,Healthcare,S&P 500,^GSPC,United States,NYQ,503,11553336320.0
-Pool Corporation,POOL,POOL,0.02,Industrials,S&P 500,^GSPC,United States,NMS,503,11431631872.0
-Zebra Technologies Corporation,ZBRA,ZBRA,0.02,Technology,S&P 500,^GSPC,United States,NMS,503,11430016000.0
-"Juniper Networks, Inc.",JNPR,JNPR,0.02,Technology,S&P 500,^GSPC,United States,NYQ,503,11375107072.0
-The Campbell's Company,CPB,CPB,0.02,Consumer Defensive,S&P 500,^GSPC,United States,NMS,503,11357753344.0
-CarMax Inc,KMX,KMX,0.02,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,11344288768.0
-Solventum Corporation,SOLV,SOLV,0.02,Healthcare,S&P 500,^GSPC,United States,NYQ,503,11300556800.0
-"Paycom Software, Inc.",PAYC,PAYC,0.02,Technology,S&P 500,^GSPC,United States,NYQ,503,11118468096.0
-"Align Technology, Inc.",ALGN,ALGN,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,11286192128.0
-"Universal Health Services, Inc.",UHS,UHS,0.02,Healthcare,S&P 500,^GSPC,United States,NYQ,503,11193347072.0
-Textron Inc.,TXT,TXT,0.02,Industrials,S&P 500,^GSPC,United States,NYQ,503,11095226368.0
-Western Digital Corporation,WDC,WDC,0.02,Technology,S&P 500,^GSPC,United States,NMS,503,10838196224.0
-Pinnacle West Capital Corporati,PNW,PNW,0.02,Utilities,S&P 500,^GSPC,United States,NYQ,503,10673652736.0
-"C.H. Robinson Worldwide, Inc.",CHRW,CHRW,0.02,Industrials,S&P 500,^GSPC,United States,NMS,503,10542301184.0
-Allegion plc,ALLE,ALLE,0.02,Industrials,S&P 500,^GSPC,Ireland,NYQ,503,10422154240.0
-"Akamai Technologies, Inc.",AKAM,AKAM,0.02,Technology,S&P 500,^GSPC,United States,NMS,503,10363937792.0
-LKQ Corporation,LKQ,LKQ,0.02,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,10215428096.0
-"Moderna, Inc.",MRNA,MRNA,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,9913013248.0
-Nordson Corporation,NDSN,NDSN,0.02,Industrials,S&P 500,^GSPC,United States,NMS,503,9720518656.0
-Bunge Limited,BG,BG,0.02,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,9624260608.0
-"BXP, Inc.",BXP,BXP,0.02,Real Estate,S&P 500,^GSPC,United States,NYQ,503,10321789952.0
-Globe Life Inc.,GL,GL,0.02,Financial Services,S&P 500,^GSPC,United States,NYQ,503,9517149184.0
-"Walgreens Boots Alliance, Inc.",WBA,WBA,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,9261312000.0
-"Assurant, Inc.",AIZ,AIZ,0.02,Financial Services,S&P 500,^GSPC,United States,NYQ,503,9214158848.0
-"Host Hotels & Resorts, Inc.",HST,HST,0.02,Real Estate,S&P 500,^GSPC,United States,NMS,503,9148251136.0
-"Stanley Black & Decker, Inc.",SWK,SWK,0.02,Industrials,S&P 500,^GSPC,United States,NYQ,503,9159467008.0
-Viatris Inc.,VTRS,VTRS,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,9083980800.0
-"Franklin Resources, Inc.",BEN,BEN,0.02,Financial Services,S&P 500,^GSPC,United States,NYQ,503,8863465472.0
-A.O. Smith Corporation,AOS,AOS,0.02,Industrials,S&P 500,^GSPC,United States,NYQ,503,8703597568.0
-"Interpublic Group of Companies,",IPG,IPG,0.02,Communication Services,S&P 500,^GSPC,United States,NYQ,503,8675268608.0
-Eastman Chemical Company,EMN,EMN,0.02,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,8503629312.0
-Bio-Techne Corp,TECH,TECH,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,8269583360.0
-"EPAM Systems, Inc.",EPAM,EPAM,0.02,Technology,S&P 500,^GSPC,United States,NYQ,503,8245929984.0
-"Skyworks Solutions, Inc.",SWKS,SWKS,0.02,Technology,S&P 500,^GSPC,United States,NMS,503,8197834240.0
-"Dayforce, Inc.",DAY,DAY,0.02,Technology,S&P 500,^GSPC,United States,NYQ,503,8109345280.0
-"Henry Schein, Inc.",HSIC,HSIC,0.02,Healthcare,S&P 500,^GSPC,United States,NMS,503,7985822720.0
-"Lamb Weston Holdings, Inc.",LW,LW,0.02,Consumer Defensive,S&P 500,^GSPC,United States,NYQ,503,7978698752.0
-"MarketAxess Holdings, Inc.",MKTX,MKTX,0.02,Financial Services,S&P 500,^GSPC,United States,NMS,503,7837170176.0
-Paramount Global,PARA,PARA,0.02,Communication Services,S&P 500,^GSPC,United States,NMS,503,7741127168.0
-Federal Realty Investment Trust,FRT,FRT,0.02,Real Estate,S&P 500,^GSPC,United States,NYQ,503,7478643712.0
-The AES Corporation,AES,AES,0.02,Utilities,S&P 500,^GSPC,United States,NYQ,503,7610221056.0
-Mosaic Company (The),MOS,MOS,0.02,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,7470252544.0
-MGM Resorts International,MGM,MGM,0.02,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,7509991424.0
-"Hasbro, Inc.",HAS,HAS,0.02,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,7450499072.0
-"Enphase Energy, Inc.",ENPH,ENPH,0.02,Technology,S&P 500,^GSPC,United States,NGM,503,7386582528.0
-"Wynn Resorts, Limited",WYNN,WYNN,0.02,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,7211924480.0
-"Huntington Ingalls Industries, ",HII,HII,0.02,Industrials,S&P 500,^GSPC,United States,NYQ,503,7192277504.0
-"Match Group, Inc.",MTCH,MTCH,0.01,Communication Services,S&P 500,^GSPC,United States,NMS,503,6974447616.0
-Albemarle Corporation,ALB,ALB,0.01,Basic Materials,S&P 500,^GSPC,United States,NYQ,503,6835523072.0
-Norwegian Cruise Line Holdings ,NCLH,NCLH,0.01,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,6819147264.0
-Generac Holdlings Inc.,GNRC,GNRC,0.01,Industrials,S&P 500,^GSPC,United States,NYQ,503,6596289024.0
-Charles River Laboratories Inte,CRL,CRL,0.01,Healthcare,S&P 500,^GSPC,United States,NYQ,503,6584942080.0
-"Mohawk Industries, Inc.",MHK,MHK,0.01,Consumer Cyclical,S&P 500,^GSPC,United States,NYQ,503,6393908736.0
-Invesco Ltd,IVZ,IVZ,0.01,Financial Services,S&P 500,^GSPC,United States,NYQ,503,5691995648.0
-APA Corporation,APA,APA,0.01,Energy,S&P 500,^GSPC,United States,NMS,503,5446397440.0
-"Caesars Entertainment, Inc.",CZR,CZR,0.01,Consumer Cyclical,S&P 500,^GSPC,United States,NMS,503,5035308544.0
+Short_Name_Stocks,Ticker_Stocks_Yf,Ticker_Stocks,Secteur_Activite,Pays_Stocks,Place_Boursiere,Capitalisation_Boursiere,Nom_Indice,Ticker_Indice_Yf,Nombres_Entreprises,Ponderation
+NVIDIA Corporation,NVDA,NVDA,Technology,United States,NMS,3444016939008,S&P 500,^GSPC,503,6.18
+Microsoft Corporation,MSFT,MSFT,Technology,United States,NMS,3441043177472,S&P 500,^GSPC,503,6.18
+Apple Inc.,AAPL,AAPL,Technology,United States,NMS,3036000026624,S&P 500,^GSPC,503,5.45
+"Amazon.com, Inc.",AMZN,AMZN,Consumer Cyclical,United States,NMS,2183899643904,S&P 500,^GSPC,503,3.92
+Alphabet Inc.,GOOGL,GOOGL,Communication Services,United States,NMS,2024903147520,S&P 500,^GSPC,503,3.63
+Alphabet Inc.,GOOG,GOOG,Communication Services,United States,NMS,2024896987136,S&P 500,^GSPC,503,3.63
+"Meta Platforms, Inc.",META,META,Communication Services,United States,NMS,1676681019392,S&P 500,^GSPC,503,3.01
+Broadcom Inc.,AVGO,AVGO,Technology,United States,NMS,1207695835136,S&P 500,^GSPC,503,2.17
+"Tesla, Inc.",TSLA,TSLA,Consumer Cyclical,United States,NMS,1108879867904,S&P 500,^GSPC,503,1.99
+Berkshire Hathaway Inc. New,BRK-B,BRK-B,Financial Services,United States,NYQ,1073689919488,S&P 500,^GSPC,503,1.93
+Walmart Inc.,WMT,WMT,Consumer Defensive,United States,NYQ,799929008128,S&P 500,^GSPC,503,1.44
+JP Morgan Chase & Co.,JPM,JPM,Financial Services,United States,NYQ,739988275200,S&P 500,^GSPC,503,1.33
+Eli Lilly and Company,LLY,LLY,Healthcare,United States,NYQ,674002239488,S&P 500,^GSPC,503,1.21
+Visa Inc.,V,V,Financial Services,United States,NYQ,700867018752,S&P 500,^GSPC,503,1.26
+Mastercard Incorporated,MA,MA,Financial Services,United States,NYQ,528476438528,S&P 500,^GSPC,503,0.95
+"Netflix, Inc.",NFLX,NFLX,Communication Services,United States,NMS,518319931392,S&P 500,^GSPC,503,0.93
+Oracle Corporation,ORCL,ORCL,Technology,United States,NYQ,474307428352,S&P 500,^GSPC,503,0.85
+Costco Wholesale Corporation,COST,COST,Consumer Defensive,United States,NMS,468174209024,S&P 500,^GSPC,503,0.84
+Exxon Mobil Corporation,XOM,XOM,Energy,United States,NYQ,447340675072,S&P 500,^GSPC,503,0.8
+Procter & Gamble Company (The),PG,PG,Consumer Defensive,United States,NYQ,391186481152,S&P 500,^GSPC,503,0.7
+Johnson & Johnson,JNJ,JNJ,Healthcare,United States,NYQ,371545341952,S&P 500,^GSPC,503,0.67
+"Home Depot, Inc. (The)",HD,HD,Consumer Cyclical,United States,NYQ,371187712000,S&P 500,^GSPC,503,0.67
+Bank of America Corporation,BAC,BAC,Financial Services,United States,NYQ,336298442752,S&P 500,^GSPC,503,0.6
+AbbVie Inc.,ABBV,ABBV,Healthcare,United States,NYQ,330758389760,S&P 500,^GSPC,503,0.59
+Palantir Technologies Inc.,PLTR,PLTR,Technology,United States,NMS,314269204480,S&P 500,^GSPC,503,0.56
+Coca-Cola Company (The),KO,KO,Consumer Defensive,United States,NYQ,306291867648,S&P 500,^GSPC,503,0.55
+Philip Morris International Inc,PM,PM,Consumer Defensive,United States,NYQ,283862532096,S&P 500,^GSPC,503,0.51
+"T-Mobile US, Inc.",TMUS,TMUS,Communication Services,United States,NMS,276913553408,S&P 500,^GSPC,503,0.5
+UnitedHealth Group Incorporated,UNH,UNH,Healthcare,United States,NYQ,273248698368,S&P 500,^GSPC,503,0.49
+GE Aerospace,GE,GE,Industrials,United States,NYQ,265392472064,S&P 500,^GSPC,503,0.48
+"Cisco Systems, Inc.",CSCO,CSCO,Technology,United States,NMS,254865604608,S&P 500,^GSPC,503,0.46
+"Salesforce, Inc.",CRM,CRM,Technology,United States,NYQ,252833316864,S&P 500,^GSPC,503,0.45
+International Business Machines,IBM,IBM,Technology,United States,NYQ,246476095488,S&P 500,^GSPC,503,0.44
+Wells Fargo & Company,WFC,WFC,Financial Services,United States,NYQ,246178725888,S&P 500,^GSPC,503,0.44
+Chevron Corporation,CVX,CVX,Energy,United States,NYQ,241732698112,S&P 500,^GSPC,503,0.43
+Abbott Laboratories,ABT,ABT,Healthcare,United States,NYQ,232634023936,S&P 500,^GSPC,503,0.42
+McDonald's Corporation,MCD,MCD,Consumer Cyclical,United States,NYQ,223369183232,S&P 500,^GSPC,503,0.4
+Linde plc,LIN,LIN,Basic Materials,United Kingdom,NMS,222096998400,S&P 500,^GSPC,503,0.4
+Intuit Inc.,INTU,INTU,Technology,United States,NMS,213299609600,S&P 500,^GSPC,503,0.38
+"ServiceNow, Inc.",NOW,NOW,Technology,United States,NYQ,209405820928,S&P 500,^GSPC,503,0.38
+American Express Company,AXP,AXP,Financial Services,United States,NYQ,208348168192,S&P 500,^GSPC,503,0.37
+Morgan Stanley,MS,MS,Financial Services,United States,NYQ,206443888640,S&P 500,^GSPC,503,0.37
+Walt Disney Company (The),DIS,DIS,Communication Services,United States,NYQ,204224397312,S&P 500,^GSPC,503,0.37
+AT&T Inc.,T,T,Communication Services,United States,NYQ,201332686848,S&P 500,^GSPC,503,0.36
+"Intuitive Surgical, Inc.",ISRG,ISRG,Healthcare,United States,NMS,197792956416,S&P 500,^GSPC,503,0.36
+Accenture plc,ACN,ACN,Technology,Ireland,NYQ,195883532288,S&P 500,^GSPC,503,0.35
+"Merck & Company, Inc.",MRK,MRK,Healthcare,United States,NYQ,193700855808,S&P 500,^GSPC,503,0.35
+"Advanced Micro Devices, Inc.",AMD,AMD,Technology,United States,NMS,190206443520,S&P 500,^GSPC,503,0.34
+"Goldman Sachs Group, Inc. (The)",GS,GS,Financial Services,United States,NYQ,185279807488,S&P 500,^GSPC,503,0.33
+Verizon Communications Inc.,VZ,VZ,Communication Services,United States,NYQ,184798248960,S&P 500,^GSPC,503,0.33
+RTX Corporation,RTX,RTX,Industrials,United States,NYQ,183693115392,S&P 500,^GSPC,503,0.33
+"Pepsico, Inc.",PEP,PEP,Consumer Defensive,United States,NMS,180776894464,S&P 500,^GSPC,503,0.32
+Booking Holdings Inc. Common St,BKNG,BKNG,Consumer Cyclical,United States,NMS,178160418816,S&P 500,^GSPC,503,0.32
+Adobe Inc.,ADBE,ADBE,Technology,United States,NMS,175803236352,S&P 500,^GSPC,503,0.32
+"Uber Technologies, Inc.",UBER,UBER,Technology,United States,NYQ,172584255488,S&P 500,^GSPC,503,0.31
+Texas Instruments Incorporated,TXN,TXN,Technology,United States,NMS,170865410048,S&P 500,^GSPC,503,0.31
+Blackstone Inc.,BX,BX,Financial Services,United States,NYQ,168651096064,S&P 500,^GSPC,503,0.3
+Progressive Corporation (The),PGR,PGR,Financial Services,United States,NYQ,168392851456,S&P 500,^GSPC,503,0.3
+"Caterpillar, Inc.",CAT,CAT,Industrials,United States,NYQ,164328062976,S&P 500,^GSPC,503,0.29
+QUALCOMM Incorporated,QCOM,QCOM,Technology,United States,NMS,163536125952,S&P 500,^GSPC,503,0.29
+Boeing Company (The),BA,BA,Industrials,United States,NYQ,160927498240,S&P 500,^GSPC,503,0.29
+Charles Schwab Corporation (The,SCHW,SCHW,Financial Services,United States,NYQ,159893356544,S&P 500,^GSPC,503,0.29
+S&P Global Inc.,SPGI,SPGI,Financial Services,United States,NYQ,157113696256,S&P 500,^GSPC,503,0.28
+Amgen Inc.,AMGN,AMGN,Healthcare,United States,NMS,155703525376,S&P 500,^GSPC,503,0.28
+Boston Scientific Corporation,BSX,BSX,Healthcare,United States,NYQ,152531288064,S&P 500,^GSPC,503,0.27
+"BlackRock, Inc.",BLK,BLK,Financial Services,United States,NYQ,152157470720,S&P 500,^GSPC,503,0.27
+Thermo Fisher Scientific Inc,TMO,TMO,Healthcare,United States,NYQ,150971187200,S&P 500,^GSPC,503,0.27
+"NextEra Energy, Inc.",NEE,NEE,Utilities,United States,NYQ,146059788288,S&P 500,^GSPC,503,0.26
+Honeywell International Inc.,HON,HON,Industrials,United States,NMS,145871405056,S&P 500,^GSPC,503,0.26
+Stryker Corporation,SYK,SYK,Healthcare,United States,NYQ,145608687616,S&P 500,^GSPC,503,0.26
+"Citigroup, Inc.",C,C,Financial Services,United States,NYQ,142937374720,S&P 500,^GSPC,503,0.26
+"TJX Companies, Inc. (The)",TJX,TJX,Consumer Cyclical,United States,NYQ,143044689920,S&P 500,^GSPC,503,0.26
+Deere & Company,DE,DE,Industrials,United States,NYQ,138974887936,S&P 500,^GSPC,503,0.25
+Danaher Corporation,DHR,DHR,Healthcare,United States,NYQ,137451585536,S&P 500,^GSPC,503,0.25
+"Gilead Sciences, Inc.",GILD,GILD,Healthcare,United States,NMS,135998865408,S&P 500,^GSPC,503,0.24
+GE Vernova Inc.,GEV,GEV,Industrials,United States,NYQ,134548774912,S&P 500,^GSPC,503,0.24
+"Pfizer, Inc.",PFE,PFE,Healthcare,United States,NYQ,132753391616,S&P 500,^GSPC,503,0.24
+"Automatic Data Processing, Inc.",ADP,ADP,Technology,United States,NMS,132546035712,S&P 500,^GSPC,503,0.24
+Union Pacific Corporation,UNP,UNP,Industrials,United States,NYQ,132508221440,S&P 500,^GSPC,503,0.24
+"Palo Alto Networks, Inc.",PANW,PANW,Technology,United States,NMS,131439616000,S&P 500,^GSPC,503,0.24
+"Applied Materials, Inc.",AMAT,AMAT,Technology,United States,NMS,129796030464,S&P 500,^GSPC,503,0.23
+Comcast Corporation,CMCSA,CMCSA,Communication Services,United States,NMS,129410048000,S&P 500,^GSPC,503,0.23
+"Lowe's Companies, Inc.",LOW,LOW,Consumer Cyclical,United States,NYQ,128228220928,S&P 500,^GSPC,503,0.23
+"Eaton Corporation, PLC",ETN,ETN,Industrials,Ireland,NYQ,127501189120,S&P 500,^GSPC,503,0.23
+Capital One Financial Corporati,COF,COF,Financial Services,United States,NYQ,125230194688,S&P 500,^GSPC,503,0.22
+"CrowdStrike Holdings, Inc.",CRWD,CRWD,Technology,United States,NMS,121737412608,S&P 500,^GSPC,503,0.22
+Chubb Limited,CB,CB,Financial Services,Switzerland,NYQ,118785712128,S&P 500,^GSPC,503,0.21
+"Arista Networks, Inc.",ANET,ANET,Technology,United States,NYQ,118684442624,S&P 500,^GSPC,503,0.21
+"Marsh & McLennan Companies, Inc",MMC,MMC,Financial Services,United States,NYQ,115722100736,S&P 500,^GSPC,503,0.21
+Vertex Pharmaceuticals Incorpor,VRTX,VRTX,Healthcare,United States,NMS,114654724096,S&P 500,^GSPC,503,0.21
+"Micron Technology, Inc.",MU,MU,Technology,United States,NMS,114271535104,S&P 500,^GSPC,503,0.21
+Lockheed Martin Corporation,LMT,LMT,Industrials,United States,NYQ,112501915648,S&P 500,^GSPC,503,0.2
+ConocoPhillips,COP,COP,Energy,United States,NYQ,110978465792,S&P 500,^GSPC,503,0.2
+Amphenol Corporation,APH,APH,Technology,United States,NYQ,110896128000,S&P 500,^GSPC,503,0.2
+Medtronic plc.,MDT,MDT,Healthcare,Ireland,NYQ,109656293376,S&P 500,^GSPC,503,0.2
+"Analog Devices, Inc.",ADI,ADI,Technology,United States,NMS,108395446272,S&P 500,^GSPC,503,0.19
+"Charter Communications, Inc.",CHTR,CHTR,Communication Services,United States,NMS,53982765056,S&P 500,^GSPC,503,0.1
+KKR & Co. Inc.,KKR,KKR,Financial Services,United States,NYQ,111469305856,S&P 500,^GSPC,503,0.2
+Lam Research Corporation,LRCX,LRCX,Technology,United States,NMS,107011186688,S&P 500,^GSPC,503,0.19
+"Prologis, Inc.",PLD,PLD,Real Estate,United States,NYQ,101162491904,S&P 500,^GSPC,503,0.18
+Intercontinental Exchange Inc.,ICE,ICE,Financial Services,United States,NYQ,102874079232,S&P 500,^GSPC,503,0.18
+KLA Corporation,KLAC,KLAC,Technology,United States,NMS,102591242240,S&P 500,^GSPC,503,0.18
+CME Group Inc.,CME,CME,Financial Services,United States,NMS,101732950016,S&P 500,^GSPC,503,0.18
+"Altria Group, Inc.",MO,MO,Consumer Defensive,United States,NYQ,101690245120,S&P 500,^GSPC,503,0.18
+American Tower Corporation (REI,AMT,AMT,Real Estate,United States,NYQ,99895967744,S&P 500,^GSPC,503,0.18
+Welltower Inc.,WELL,WELL,Real Estate,United States,NYQ,99531489280,S&P 500,^GSPC,503,0.18
+Southern Company (The),SO,SO,Utilities,United States,NYQ,98566012928,S&P 500,^GSPC,503,0.18
+Starbucks Corporation,SBUX,SBUX,Consumer Cyclical,United States,NMS,98412240896,S&P 500,^GSPC,503,0.18
+Constellation Energy Corporatio,CEG,CEG,Utilities,United States,NMS,98108923904,S&P 500,^GSPC,503,0.18
+Bristol-Myers Squibb Company,BMY,BMY,Healthcare,United States,NYQ,97866997760,S&P 500,^GSPC,503,0.18
+"Waste Management, Inc.",WM,WM,Industrials,United States,NYQ,96654376960,S&P 500,^GSPC,503,0.17
+Trane Technologies plc,TT,TT,Industrials,Ireland,NYQ,96511041536,S&P 500,^GSPC,503,0.17
+"HCA Healthcare, Inc.",HCA,HCA,Healthcare,United States,NYQ,92154273792,S&P 500,^GSPC,503,0.17
+"Nike, Inc.",NKE,NKE,Consumer Cyclical,United States,NYQ,92057493504,S&P 500,^GSPC,503,0.17
+Cintas Corporation,CTAS,CTAS,Industrials,United States,NMS,91893850112,S&P 500,^GSPC,503,0.16
+Duke Energy Corporation (Holdin,DUK,DUK,Utilities,United States,NYQ,90729218048,S&P 500,^GSPC,503,0.16
+"DoorDash, Inc.",DASH,DASH,Consumer Cyclical,United States,NMS,90554089472,S&P 500,^GSPC,503,0.16
+"Fiserv, Inc.",FI,FI,Technology,United States,NYQ,89879289856,S&P 500,^GSPC,503,0.16
+Sherwin-Williams Company (The),SHW,SHW,Basic Materials,United States,NYQ,89655009280,S&P 500,^GSPC,503,0.16
+McKesson Corporation,MCK,MCK,Healthcare,United States,NYQ,89359998976,S&P 500,^GSPC,503,0.16
+Intel Corporation,INTC,INTC,Technology,United States,NMS,88504983552,S&P 500,^GSPC,503,0.16
+Arthur J. Gallagher & Co.,AJG,AJG,Financial Services,United States,NYQ,88402296832,S&P 500,^GSPC,503,0.16
+"Equinix, Inc.",EQIX,EQIX,Real Estate,United States,NMS,87532355584,S&P 500,^GSPC,503,0.16
+"Mondelez International, Inc.",MDLZ,MDLZ,Consumer Defensive,United States,NMS,86804733952,S&P 500,^GSPC,503,0.16
+Moody's Corporation,MCO,MCO,Financial Services,United States,NYQ,86742712320,S&P 500,^GSPC,503,0.16
+"Ventas, Inc.",VTR,VTR,Real Estate,United States,NYQ,28544598016,S&P 500,^GSPC,503,0.05
+"Elevance Health, Inc.",ELV,ELV,Healthcare,United States,NYQ,85620326400,S&P 500,^GSPC,503,0.15
+Parker-Hannifin Corporation,PH,PH,Industrials,United States,NYQ,84935319552,S&P 500,^GSPC,503,0.15
+The Cigna Group,CI,CI,Healthcare,United States,NYQ,83260465152,S&P 500,^GSPC,503,0.15
+"Airbnb, Inc.",ABNB,ABNB,Consumer Cyclical,United States,NMS,82027601920,S&P 500,^GSPC,503,0.15
+"United Parcel Service, Inc.",UPS,UPS,Industrials,United States,NYQ,83053953024,S&P 500,^GSPC,503,0.15
+Transdigm Group Incorporated,TDG,TDG,Industrials,United States,NYQ,81776484352,S&P 500,^GSPC,503,0.15
+Aon plc,AON,AON,Financial Services,Ireland,NYQ,80865214464,S&P 500,^GSPC,503,0.15
+CVS Health Corporation,CVS,CVS,Healthcare,United States,NYQ,80442621952,S&P 500,^GSPC,503,0.14
+"Republic Services, Inc.",RSG,RSG,Industrials,United States,NYQ,80142974976,S&P 500,^GSPC,503,0.14
+"Cadence Design Systems, Inc.",CDNS,CDNS,Technology,United States,NMS,80091398144,S&P 500,^GSPC,503,0.14
+3M Company,MMM,MMM,Industrials,United States,NYQ,79720751104,S&P 500,^GSPC,503,0.14
+"Fortinet, Inc.",FTNT,FTNT,Technology,United States,NMS,78745993216,S&P 500,^GSPC,503,0.14
+"O'Reilly Automotive, Inc.",ORLY,ORLY,Consumer Cyclical,United States,NMS,78193582080,S&P 500,^GSPC,503,0.14
+Dell Technologies Inc.,DELL,DELL,Technology,United States,NYQ,76481191936,S&P 500,^GSPC,503,0.14
+Zoetis Inc.,ZTS,ZTS,Healthcare,United States,NYQ,75818926080,S&P 500,^GSPC,503,0.14
+Ecolab Inc.,ECL,ECL,Basic Materials,United States,NYQ,75250024448,S&P 500,^GSPC,503,0.14
+"Apollo Global Management, Inc. ",APO,APO,Financial Services,United States,NYQ,74922868736,S&P 500,^GSPC,503,0.13
+"Williams Companies, Inc. (The)",WMB,WMB,Energy,United States,NYQ,74615922688,S&P 500,^GSPC,503,0.13
+General Dynamics Corporation,GD,GD,Industrials,United States,NYQ,74088030208,S&P 500,^GSPC,503,0.13
+Colgate-Palmolive Company,CL,CL,Consumer Defensive,United States,NYQ,73440256000,S&P 500,^GSPC,503,0.13
+Royal Caribbean Cruises Ltd.,RCL,RCL,Consumer Cyclical,United States,NYQ,72441348096,S&P 500,^GSPC,503,0.13
+Marriott International,MAR,MAR,Consumer Cyclical,United States,NMS,72418099200,S&P 500,^GSPC,503,0.13
+"Synopsys, Inc.",SNPS,SNPS,Technology,United States,NMS,72345362432,S&P 500,^GSPC,503,0.13
+Illinois Tool Works Inc.,ITW,ITW,Industrials,United States,NYQ,71950950400,S&P 500,^GSPC,503,0.13
+"Motorola Solutions, Inc.",MSI,MSI,Technology,United States,NYQ,70473605120,S&P 500,^GSPC,503,0.13
+Northrop Grumman Corporation,NOC,NOC,Industrials,United States,NYQ,70268526592,S&P 500,^GSPC,503,0.13
+"PNC Financial Services Group, I",PNC,PNC,Financial Services,United States,NYQ,69742419968,S&P 500,^GSPC,503,0.13
+Howmet Aerospace Inc.,HWM,HWM,Industrials,United States,NYQ,69678170112,S&P 500,^GSPC,503,0.13
+"PayPal Holdings, Inc.",PYPL,PYPL,Financial Services,United States,NMS,69370781696,S&P 500,^GSPC,503,0.12
+U.S. Bancorp,USB,USB,Financial Services,United States,NYQ,69145370624,S&P 500,^GSPC,503,0.12
+Emerson Electric Company,EMR,EMR,Industrials,United States,NYQ,67719372800,S&P 500,^GSPC,503,0.12
+"Chipotle Mexican Grill, Inc.",CMG,CMG,Consumer Cyclical,United States,NYQ,67462316032,S&P 500,^GSPC,503,0.12
+"Workday, Inc.",WDAY,WDAY,Technology,United States,NMS,66947588096,S&P 500,^GSPC,503,0.12
+Johnson Controls International ,JCI,JCI,Industrials,Ireland,NYQ,66581192704,S&P 500,^GSPC,503,0.12
+"Coinbase Global, Inc.",COIN,COIN,Financial Services,United States,NMS,65945669632,S&P 500,^GSPC,503,0.12
+"Autodesk, Inc.",ADSK,ADSK,Technology,United States,NMS,64080801792,S&P 500,^GSPC,503,0.12
+The Bank of New York Mellon Cor,BK,BK,Financial Services,United States,NYQ,63902564352,S&P 500,^GSPC,503,0.11
+"Kinder Morgan, Inc.",KMI,KMI,Energy,United States,NYQ,63482306560,S&P 500,^GSPC,503,0.11
+"Air Products and Chemicals, Inc",APD,APD,Basic Materials,United States,NYQ,63044493312,S&P 500,^GSPC,503,0.11
+"AutoZone, Inc.",AZO,AZO,Consumer Cyclical,United States,NYQ,62681550848,S&P 500,^GSPC,503,0.11
+"The Travelers Companies, Inc.",TRV,TRV,Financial Services,United States,NYQ,62548901888,S&P 500,^GSPC,503,0.11
+Monster Beverage Corporation,MNST,MNST,Consumer Defensive,United States,NMS,62405992448,S&P 500,^GSPC,503,0.11
+Newmont Corporation,NEM,NEM,Basic Materials,United States,NYQ,61593415680,S&P 500,^GSPC,503,0.11
+"EOG Resources, Inc.",EOG,EOG,Energy,United States,NYQ,61575688192,S&P 500,^GSPC,503,0.11
+"Roper Technologies, Inc.",ROP,ROP,Technology,United States,NMS,61054541824,S&P 500,^GSPC,503,0.11
+Carrier Global Corporation,CARR,CARR,Industrials,United States,NYQ,60697550848,S&P 500,^GSPC,503,0.11
+CSX Corporation,CSX,CSX,Industrials,United States,NMS,59850604544,S&P 500,^GSPC,503,0.11
+Vistra Corp.,VST,VST,Utilities,United States,NYQ,59722432512,S&P 500,^GSPC,503,0.11
+Hilton Worldwide Holdings Inc.,HLT,HLT,Consumer Cyclical,United States,NYQ,59686469632,S&P 500,^GSPC,503,0.11
+"Axon Enterprise, Inc.",AXON,AXON,Industrials,United States,NMS,59094208512,S&P 500,^GSPC,503,0.11
+"Digital Realty Trust, Inc.",DLR,DLR,Real Estate,United States,NYQ,59617316864,S&P 500,^GSPC,503,0.11
+"Freeport-McMoRan, Inc.",FCX,FCX,Basic Materials,United States,NYQ,57792688128,S&P 500,^GSPC,503,0.1
+"Paychex, Inc.",PAYX,PAYX,Technology,United States,NMS,57000226816,S&P 500,^GSPC,503,0.1
+"Cencora, Inc.",COR,COR,Healthcare,United States,NYQ,56509095936,S&P 500,^GSPC,503,0.1
+AFLAC Incorporated,AFL,AFL,Financial Services,United States,NYQ,56264925184,S&P 500,^GSPC,503,0.1
+Allstate Corporation (The),ALL,ALL,Financial Services,United States,NYQ,55945449472,S&P 500,^GSPC,503,0.1
+Norfolk Southern Corporation,NSC,NSC,Industrials,United States,NYQ,55905603584,S&P 500,^GSPC,503,0.1
+American Electric Power Company,AEP,AEP,Utilities,United States,NMS,54931271680,S&P 500,^GSPC,503,0.1
+"MetLife, Inc.",MET,MET,Financial Services,United States,NYQ,53247356928,S&P 500,^GSPC,503,0.1
+Public Storage,PSA,PSA,Real Estate,United States,NYQ,53209976832,S&P 500,^GSPC,503,0.1
+"Quanta Services, Inc.",PWR,PWR,Industrials,United States,NYQ,52831461376,S&P 500,^GSPC,503,0.09
+"Simon Property Group, Inc.",SPG,SPG,Real Estate,United States,NYQ,61013549056,S&P 500,^GSPC,503,0.11
+"Regeneron Pharmaceuticals, Inc.",REGN,REGN,Healthcare,United States,NMS,52671803392,S&P 500,^GSPC,503,0.09
+FedEx Corporation,FDX,FDX,Industrials,United States,NYQ,52659068928,S&P 500,^GSPC,503,0.09
+"W.W. Grainger, Inc.",GWW,GWW,Industrials,United States,NYQ,52268572672,S&P 500,^GSPC,503,0.09
+"ONEOK, Inc.",OKE,OKE,Energy,United States,NYQ,51994365952,S&P 500,^GSPC,503,0.09
+Truist Financial Corporation,TFC,TFC,Financial Services,United States,NYQ,51883970560,S&P 500,^GSPC,503,0.09
+DBA Sempra,SRE,SRE,Utilities,United States,NYQ,50732302336,S&P 500,^GSPC,503,0.09
+Realty Income Corporation,O,O,Real Estate,United States,NYQ,50581508096,S&P 500,^GSPC,503,0.09
+NXP Semiconductors N.V.,NXPI,NXPI,Technology,Netherlands,NMS,50263064576,S&P 500,^GSPC,503,0.09
+Marathon Petroleum Corporation,MPC,MPC,Energy,United States,NYQ,49759453184,S&P 500,^GSPC,503,0.09
+"American International Group, I",AIG,AIG,Financial Services,United States,NYQ,49305030656,S&P 500,^GSPC,503,0.09
+"Copart, Inc.",CPRT,CPRT,Industrials,United States,NMS,49280401408,S&P 500,^GSPC,503,0.09
+PACCAR Inc.,PCAR,PCAR,Industrials,United States,NMS,49115164672,S&P 500,^GSPC,503,0.09
+"Becton, Dickinson and Company",BDX,BDX,Healthcare,United States,NYQ,48912351232,S&P 500,^GSPC,503,0.09
+"Ameriprise Financial, Inc.",AMP,AMP,Financial Services,United States,NYQ,48872099840,S&P 500,^GSPC,503,0.09
+"Corteva, Inc.",CTVA,CTVA,Basic Materials,United States,NYQ,48563683328,S&P 500,^GSPC,503,0.09
+"Dominion Energy, Inc.",D,D,Utilities,United States,NYQ,48344719360,S&P 500,^GSPC,503,0.09
+"Nasdaq, Inc.",NDAQ,NDAQ,Financial Services,United States,NMS,48117161984,S&P 500,^GSPC,503,0.09
+TE Connectivity plc,TEL,TEL,Technology,Ireland,NYQ,48019853312,S&P 500,^GSPC,503,0.09
+"Ross Stores, Inc.",ROST,ROST,Consumer Cyclical,United States,NMS,47361957888,S&P 500,^GSPC,503,0.09
+Fastenal Company,FAST,FAST,Industrials,United States,NMS,47254810624,S&P 500,^GSPC,503,0.08
+Phillips 66,PSX,PSX,Energy,United States,NYQ,47250468864,S&P 500,^GSPC,503,0.08
+General Motors Company,GM,GM,Consumer Cyclical,United States,NYQ,47168004096,S&P 500,^GSPC,503,0.08
+Schlumberger N.V.,SLB,SLB,Energy,United States,NYQ,46081245184,S&P 500,^GSPC,503,0.08
+Kimberly-Clark Corporation,KMB,KMB,Consumer Defensive,United States,NMS,46288330752,S&P 500,^GSPC,503,0.08
+"United Rentals, Inc.",URI,URI,Industrials,United States,NYQ,45687148544,S&P 500,^GSPC,503,0.08
+Edwards Lifesciences Corporatio,EW,EW,Healthcare,United States,NYQ,45590552576,S&P 500,^GSPC,503,0.08
+"L3Harris Technologies, Inc.",LHX,LHX,Industrials,United States,NYQ,45463396352,S&P 500,^GSPC,503,0.08
+Cummins Inc.,CMI,CMI,Industrials,United States,NYQ,44697366528,S&P 500,^GSPC,503,0.08
+Kroger Company (The),KR,KR,Consumer Defensive,United States,NYQ,44665421824,S&P 500,^GSPC,503,0.08
+Keurig Dr Pepper Inc.,KDP,KDP,Consumer Defensive,United States,NMS,44575793152,S&P 500,^GSPC,503,0.08
+"Verisk Analytics, Inc.",VRSK,VRSK,Industrials,United States,NMS,44414570496,S&P 500,^GSPC,503,0.08
+Exelon Corporation,EXC,EXC,Utilities,United States,NMS,43874607104,S&P 500,^GSPC,503,0.08
+MSCI Inc.,MSCI,MSCI,Financial Services,United States,NYQ,43823992832,S&P 500,^GSPC,503,0.08
+Target Corporation,TGT,TGT,Consumer Defensive,United States,NYQ,43519176704,S&P 500,^GSPC,503,0.08
+Corning Incorporated,GLW,GLW,Technology,United States,NYQ,43491594240,S&P 500,^GSPC,503,0.08
+Crown Castle Inc.,CCI,CCI,Real Estate,United States,NYQ,43484938240,S&P 500,^GSPC,503,0.08
+Kenvue Inc.,KVUE,KVUE,Consumer Defensive,United States,NYQ,42641199104,S&P 500,^GSPC,503,0.08
+Fair Isaac Corporation,FICO,FICO,Technology,United States,NYQ,42392289280,S&P 500,^GSPC,503,0.08
+"IDEXX Laboratories, Inc.",IDXX,IDXX,Healthcare,United States,NMS,42288250880,S&P 500,^GSPC,503,0.08
+Fidelity National Information S,FIS,FIS,Technology,United States,NYQ,42105155584,S&P 500,^GSPC,503,0.08
+Hess Corporation,HES,HES,Energy,United States,NYQ,42048487424,S&P 500,^GSPC,503,0.08
+Occidental Petroleum Corporatio,OXY,OXY,Energy,United States,NYQ,42012635136,S&P 500,^GSPC,503,0.08
+lululemon athletica inc.,LULU,LULU,Consumer Cyclical,Canada,NMS,40241446912,S&P 500,^GSPC,503,0.07
+"Diamondback Energy, Inc.",FANG,FANG,Energy,United States,NMS,41569660928,S&P 500,^GSPC,503,0.07
+Public Service Enterprise Group,PEG,PEG,Utilities,United States,NYQ,41072525312,S&P 500,^GSPC,503,0.07
+"AMETEK, Inc.",AME,AME,Industrials,United States,NYQ,41029509120,S&P 500,^GSPC,503,0.07
+Valero Energy Corporation,VLO,VLO,Energy,United States,NYQ,41014325248,S&P 500,^GSPC,503,0.07
+"Take-Two Interactive Software, ",TTWO,TTWO,Communication Services,United States,NMS,41999998976,S&P 500,^GSPC,503,0.08
+Ford Motor Company,F,F,Consumer Cyclical,United States,NYQ,40521039872,S&P 500,^GSPC,503,0.07
+"Yum! Brands, Inc.",YUM,YUM,Consumer Cyclical,United States,NYQ,40018620416,S&P 500,^GSPC,503,0.07
+Xcel Energy Inc.,XEL,XEL,Utilities,United States,NMS,39986843648,S&P 500,^GSPC,503,0.07
+Cognizant Technology Solutions ,CTSH,CTSH,Technology,United States,NMS,39593103360,S&P 500,^GSPC,503,0.07
+Garmin Ltd.,GRMN,GRMN,Technology,Switzerland,NYQ,39374630912,S&P 500,^GSPC,503,0.07
+Otis Worldwide Corporation,OTIS,OTIS,Industrials,United States,NYQ,37450899456,S&P 500,^GSPC,503,0.07
+CBRE Group Inc,CBRE,CBRE,Real Estate,United States,NYQ,37245239296,S&P 500,^GSPC,503,0.07
+"Consolidated Edison, Inc.",ED,ED,Utilities,United States,NYQ,37196959744,S&P 500,^GSPC,503,0.07
+Baker Hughes Company,BKR,BKR,Energy,United States,NMS,37192757248,S&P 500,^GSPC,503,0.07
+"Cardinal Health, Inc.",CAH,CAH,Healthcare,United States,NYQ,37109497856,S&P 500,^GSPC,503,0.07
+"Prudential Financial, Inc.",PRU,PRU,Financial Services,United States,NYQ,36965412864,S&P 500,^GSPC,503,0.07
+"The Hartford Insurance Group, I",HIG,HIG,Financial Services,United States,NYQ,36930551808,S&P 500,^GSPC,503,0.07
+Electronic Arts Inc.,EA,EA,Communication Services,United States,NMS,36672020480,S&P 500,^GSPC,503,0.07
+"D.R. Horton, Inc.",DHI,DHI,Consumer Cyclical,United States,NYQ,36354871296,S&P 500,^GSPC,503,0.07
+Pacific Gas & Electric Co.,PCG,PCG,Utilities,United States,NYQ,36349632512,S&P 500,^GSPC,503,0.07
+ResMed Inc.,RMD,RMD,Healthcare,United States,NYQ,36224204800,S&P 500,^GSPC,503,0.07
+Arch Capital Group Ltd.,ACGL,ACGL,Financial Services,Bermuda,NMS,35909025792,S&P 500,^GSPC,503,0.06
+"Targa Resources, Inc.",TRGP,TRGP,Energy,United States,NYQ,35778592768,S&P 500,^GSPC,503,0.06
+Entergy Corporation,ETR,ETR,Utilities,United States,NYQ,37014560768,S&P 500,^GSPC,503,0.07
+Sysco Corporation,SYY,SYY,Consumer Defensive,United States,NYQ,35692290048,S&P 500,^GSPC,503,0.06
+"Rockwell Automation, Inc.",ROK,ROK,Industrials,United States,NYQ,35688140800,S&P 500,^GSPC,503,0.06
+eBay Inc.,EBAY,EBAY,Consumer Cyclical,United States,NMS,35001102336,S&P 500,^GSPC,503,0.06
+Vulcan Materials Company (Holdi,VMC,VMC,Basic Materials,United States,NYQ,34999635968,S&P 500,^GSPC,503,0.06
+Westinghouse Air Brake Technolo,WAB,WAB,Industrials,United States,NYQ,34837831680,S&P 500,^GSPC,503,0.06
+"Old Dominion Freight Line, Inc.",ODFL,ODFL,Industrials,United States,NMS,34452312064,S&P 500,^GSPC,503,0.06
+Microchip Technology Incorporat,MCHP,MCHP,Technology,United States,NMS,34435231744,S&P 500,^GSPC,503,0.06
+"WEC Energy Group, Inc.",WEC,WEC,Utilities,United States,NYQ,34265419776,S&P 500,^GSPC,503,0.06
+"DexCom, Inc.",DXCM,DXCM,Healthcare,United States,NMS,34030966784,S&P 500,^GSPC,503,0.06
+EQT Corporation,EQT,EQT,Energy,United States,NYQ,33912162304,S&P 500,^GSPC,503,0.06
+VICI Properties Inc.,VICI,VICI,Real Estate,United States,NYQ,33539975168,S&P 500,^GSPC,503,0.06
+"Gartner, Inc.",IT,IT,Technology,United States,NYQ,33267402752,S&P 500,^GSPC,503,0.06
+Ingersoll Rand Inc.,IR,IR,Industrials,United States,NYQ,33063792640,S&P 500,^GSPC,503,0.06
+The Hershey Company,HSY,HSY,Consumer Defensive,United States,NYQ,33040660480,S&P 500,^GSPC,503,0.06
+"Martin Marietta Materials, Inc.",MLM,MLM,Basic Materials,United States,NYQ,32888096768,S&P 500,^GSPC,503,0.06
+"Monolithic Power Systems, Inc.",MPWR,MPWR,Technology,United States,NMS,32834189312,S&P 500,^GSPC,503,0.06
+"Equifax, Inc.",EFX,EFX,Industrials,United States,NYQ,32722710528,S&P 500,^GSPC,503,0.06
+GE HealthCare Technologies Inc.,GEHC,GEHC,Healthcare,United States,NMS,32583098368,S&P 500,^GSPC,503,0.06
+"TKO Group Holdings, Inc.",TKO,TKO,Communication Services,United States,NYQ,13333835776,S&P 500,^GSPC,503,0.02
+"Brown & Brown, Inc.",BRO,BRO,Financial Services,United States,NYQ,32274313216,S&P 500,^GSPC,503,0.06
+"Agilent Technologies, Inc.",A,A,Healthcare,United States,NYQ,32031168512,S&P 500,^GSPC,503,0.06
+"CoStar Group, Inc.",CSGP,CSGP,Real Estate,United States,NMS,31932628992,S&P 500,^GSPC,503,0.06
+"Delta Air Lines, Inc.",DAL,DAL,Industrials,United States,NYQ,31883698176,S&P 500,^GSPC,503,0.06
+Extra Space Storage Inc,EXR,EXR,Real Estate,United States,NYQ,33219237888,S&P 500,^GSPC,503,0.06
+The Kraft Heinz Company,KHC,KHC,Consumer Defensive,United States,NMS,31707037696,S&P 500,^GSPC,503,0.06
+"Live Nation Entertainment, Inc.",LYV,LYV,Communication Services,United States,NYQ,31669325824,S&P 500,^GSPC,503,0.06
+"NRG Energy, Inc.",NRG,NRG,Utilities,United States,NYQ,31484930048,S&P 500,^GSPC,503,0.06
+"Constellation Brands, Inc.",STZ,STZ,Consumer Defensive,United States,NYQ,31455563776,S&P 500,^GSPC,503,0.06
+Willis Towers Watson Public Lim,WTW,WTW,Financial Services,United Kingdom,NMS,31111223296,S&P 500,^GSPC,503,0.06
+Carnival Corporation,CCL,CCL,Consumer Cyclical,United States,NYQ,32421801984,S&P 500,^GSPC,503,0.06
+Xylem Inc.,XYL,XYL,Industrials,United States,NYQ,30942081024,S&P 500,^GSPC,503,0.06
+Las Vegas Sands Corp.,LVS,LVS,Consumer Cyclical,United States,NYQ,29770237952,S&P 500,^GSPC,503,0.05
+"General Mills, Inc.",GIS,GIS,Consumer Defensive,United States,NYQ,29740212224,S&P 500,^GSPC,503,0.05
+Iron Mountain Incorporated (Del,IRM,IRM,Real Estate,United States,NYQ,29492598784,S&P 500,^GSPC,503,0.05
+"Raymond James Financial, Inc.",RJF,RJF,Financial Services,United States,NYQ,29474387968,S&P 500,^GSPC,503,0.05
+"ANSYS, Inc.",ANSS,ANSS,Technology,United States,NMS,29442222080,S&P 500,^GSPC,503,0.05
+M&T Bank Corporation,MTB,MTB,Financial Services,United States,NYQ,29311825920,S&P 500,^GSPC,503,0.05
+"AvalonBay Communities, Inc.",AVB,AVB,Real Estate,United States,NYQ,29037377536,S&P 500,^GSPC,503,0.05
+"Broadridge Financial Solutions,",BR,BR,Technology,United States,NYQ,28662145024,S&P 500,^GSPC,503,0.05
+Kellanova,K,K,Consumer Defensive,United States,NYQ,28396957696,S&P 500,^GSPC,503,0.05
+W.R. Berkley Corporation,WRB,WRB,Financial Services,United States,NYQ,28360654848,S&P 500,^GSPC,503,0.05
+"Rollins, Inc.",ROL,ROL,Consumer Cyclical,United States,NYQ,28274247680,S&P 500,^GSPC,503,0.05
+Nucor Corporation,NUE,NUE,Basic Materials,United States,NYQ,28225462272,S&P 500,^GSPC,503,0.05
+"DuPont de Nemours, Inc.",DD,DD,Basic Materials,United States,NYQ,28223574016,S&P 500,^GSPC,503,0.05
+Humana Inc.,HUM,HUM,Healthcare,United States,NYQ,28172158976,S&P 500,^GSPC,503,0.05
+Expand Energy Corporation,EXE,EXE,Energy,United States,NMS,28133877760,S&P 500,^GSPC,503,0.05
+DTE Energy Company,DTE,DTE,Utilities,United States,NYQ,28130869248,S&P 500,^GSPC,503,0.05
+Lennar Corporation,LEN,LEN,Consumer Cyclical,United States,NYQ,27986667520,S&P 500,^GSPC,503,0.05
+Keysight Technologies Inc.,KEYS,KEYS,Technology,United States,NYQ,27832748032,S&P 500,^GSPC,503,0.05
+State Street Corporation,STT,STT,Financial Services,United States,NYQ,27665508352,S&P 500,^GSPC,503,0.05
+"American Water Works Company, I",AWK,AWK,Utilities,United States,NYQ,27664402432,S&P 500,^GSPC,503,0.05
+Centene Corporation,CNC,CNC,Healthcare,United States,NYQ,27552278528,S&P 500,^GSPC,503,0.05
+Ameren Corporation,AEE,AEE,Utilities,United States,NYQ,26384619520,S&P 500,^GSPC,503,0.05
+"United Airlines Holdings, Inc.",UAL,UAL,Industrials,United States,NMS,26480809984,S&P 500,^GSPC,503,0.05
+Equity Residential,EQR,EQR,Real Estate,United States,NYQ,26981791744,S&P 500,^GSPC,503,0.05
+Seagate Technology Holdings PLC,STX,STX,Technology,Singapore,NMS,26151499776,S&P 500,^GSPC,503,0.05
+Tractor Supply Company,TSCO,TSCO,Consumer Cyclical,United States,NMS,26006456320,S&P 500,^GSPC,503,0.05
+Fifth Third Bancorp,FITB,FITB,Financial Services,United States,NMS,25958762496,S&P 500,^GSPC,503,0.05
+GoDaddy Inc.,GDDY,GDDY,Technology,United States,NYQ,25894342656,S&P 500,^GSPC,503,0.05
+"VeriSign, Inc.",VRSN,VRSN,Technology,United States,NMS,25893865472,S&P 500,^GSPC,503,0.05
+Texas Pacific Land Corporation,TPL,TPL,Energy,United States,NYQ,25892204544,S&P 500,^GSPC,503,0.05
+"Super Micro Computer, Inc.",SMCI,SMCI,Technology,United States,NMS,25776568320,S&P 500,^GSPC,503,0.05
+PPL Corporation,PPL,PPL,Utilities,United States,NYQ,25504608256,S&P 500,^GSPC,503,0.05
+"Darden Restaurants, Inc.",DRI,DRI,Consumer Cyclical,United States,NYQ,25419218944,S&P 500,^GSPC,503,0.05
+"PPG Industries, Inc.",PPG,PPG,Basic Materials,United States,NYQ,25278208000,S&P 500,^GSPC,503,0.05
+International Paper Company,IP,IP,Consumer Cyclical,United States,NYQ,24980322304,S&P 500,^GSPC,503,0.04
+Veralto Corp,VLTO,VLTO,Industrials,United States,NYQ,24875329536,S&P 500,^GSPC,503,0.04
+"Estee Lauder Companies, Inc. (T",EL,EL,Consumer Defensive,United States,NYQ,24797706240,S&P 500,^GSPC,503,0.04
+Dollar General Corporation,DG,DG,Consumer Defensive,United States,NYQ,24759435264,S&P 500,^GSPC,503,0.04
+"Tyler Technologies, Inc.",TYL,TYL,Technology,United States,NYQ,24753319936,S&P 500,^GSPC,503,0.04
+"IQVIA Holdings, Inc.",IQV,IQV,Healthcare,United States,NYQ,24700940288,S&P 500,^GSPC,503,0.04
+SBA Communications Corporation,SBAC,SBAC,Real Estate,United States,NMS,24656478208,S&P 500,^GSPC,503,0.04
+"Warner Bros. Discovery, Inc. - ",WBD,WBD,Communication Services,United States,NMS,24592254976,S&P 500,^GSPC,503,0.04
+Atmos Energy Corporation,ATO,ATO,Utilities,United States,NYQ,24557787136,S&P 500,^GSPC,503,0.04
+Fortive Corporation,FTV,FTV,Technology,United States,NYQ,24519086080,S&P 500,^GSPC,503,0.04
+"Church & Dwight Company, Inc.",CHD,CHD,Consumer Defensive,United States,NYQ,24514412544,S&P 500,^GSPC,503,0.04
+"CenterPoint Energy, Inc (Holdin",CNP,CNP,Utilities,United States,NYQ,24438134784,S&P 500,^GSPC,503,0.04
+Dover Corporation,DOV,DOV,Industrials,United States,NYQ,24400398336,S&P 500,^GSPC,503,0.04
+"Mettler-Toledo International, I",MTD,MTD,Healthcare,United States,NYQ,24242305024,S&P 500,^GSPC,503,0.04
+Eversource Energy (D/B/A),ES,ES,Utilities,United States,NYQ,23971870720,S&P 500,^GSPC,503,0.04
+STERIS plc (Ireland),STE,STE,Healthcare,United States,NYQ,23936933888,S&P 500,^GSPC,503,0.04
+HP Inc.,HPQ,HPQ,Technology,United States,NYQ,23838748672,S&P 500,^GSPC,503,0.04
+FirstEnergy Corp.,FE,FE,Utilities,United States,NYQ,23801913344,S&P 500,^GSPC,503,0.04
+"Cboe Global Markets, Inc.",CBOE,CBOE,Financial Services,United States,BTS,23799171072,S&P 500,^GSPC,503,0.04
+Fox Corporation,FOXA,FOXA,Communication Services,United States,NMS,23778480128,S&P 500,^GSPC,503,0.04
+Fox Corporation,FOX,FOX,Communication Services,United States,NMS,23778500608,S&P 500,^GSPC,503,0.04
+Cincinnati Financial Corporatio,CINF,CINF,Financial Services,United States,NMS,23681617920,S&P 500,^GSPC,503,0.04
+CDW Corporation,CDW,CDW,Technology,United States,NMS,23617705984,S&P 500,^GSPC,503,0.04
+Teledyne Technologies Incorpora,TDY,TDY,Technology,United States,NYQ,23370139648,S&P 500,^GSPC,503,0.04
+Hewlett Packard Enterprise Comp,HPE,HPE,Technology,United States,NYQ,23237230592,S&P 500,^GSPC,503,0.04
+Huntington Bancshares Incorpora,HBAN,HBAN,Financial Services,United States,NMS,23177846784,S&P 500,^GSPC,503,0.04
+"Corpay, Inc.",CPAY,CPAY,Technology,United States,NYQ,22984372224,S&P 500,^GSPC,503,0.04
+Insulet Corporation,PODD,PODD,Healthcare,United States,NMS,22747979776,S&P 500,^GSPC,503,0.04
+Archer-Daniels-Midland Company,ADM,ADM,Consumer Defensive,United States,NYQ,22715674624,S&P 500,^GSPC,503,0.04
+Synchrony Financial,SYF,SYF,Financial Services,United States,NYQ,22466375680,S&P 500,^GSPC,503,0.04
+Smurfit WestRock plc,SW,SW,Consumer Cyclical,Ireland,NYQ,22347376640,S&P 500,^GSPC,503,0.04
+Edison International,EIX,EIX,Utilities,United States,NYQ,21546784768,S&P 500,^GSPC,503,0.04
+"Expedia Group, Inc.",EXPE,EXPE,Consumer Cyclical,United States,NMS,21435142144,S&P 500,^GSPC,503,0.04
+"NetApp, Inc.",NTAP,NTAP,Technology,United States,NMS,21393039360,S&P 500,^GSPC,503,0.04
+"Ulta Beauty, Inc.",ULTA,ULTA,Consumer Cyclical,United States,NMS,21264211968,S&P 500,^GSPC,503,0.04
+CMS Energy Corporation,CMS,CMS,Utilities,United States,NYQ,21213874176,S&P 500,^GSPC,503,0.04
+Amcor plc,AMCR,AMCR,Consumer Cyclical,Switzerland,NYQ,20851195904,S&P 500,^GSPC,503,0.04
+Labcorp Holdings Inc.,LH,LH,Healthcare,United States,NYQ,20967686144,S&P 500,^GSPC,503,0.04
+Northern Trust Corporation,NTRS,NTRS,Financial Services,United States,NMS,20825401344,S&P 500,^GSPC,503,0.04
+Hubbell Inc,HUBB,HUBB,Industrials,United States,NYQ,20819050496,S&P 500,^GSPC,503,0.04
+Waters Corporation,WAT,WAT,Healthcare,United States,NYQ,20791885824,S&P 500,^GSPC,503,0.04
+"NVR, Inc.",NVR,NVR,Consumer Cyclical,United States,NYQ,20668379136,S&P 500,^GSPC,503,0.04
+"T. Rowe Price Group, Inc.",TROW,TROW,Financial Services,United States,NMS,20617170944,S&P 500,^GSPC,503,0.04
+Devon Energy Corporation,DVN,DVN,Energy,United States,NYQ,20553619456,S&P 500,^GSPC,503,0.04
+Invitation Homes Inc.,INVH,INVH,Real Estate,United States,NYQ,20503144448,S&P 500,^GSPC,503,0.04
+"Dollar Tree, Inc.",DLTR,DLTR,Consumer Defensive,United States,NMS,20325515264,S&P 500,^GSPC,503,0.04
+"Steel Dynamics, Inc.",STLD,STLD,Basic Materials,United States,NMS,20314445824,S&P 500,^GSPC,503,0.04
+PTC Inc.,PTC,PTC,Technology,United States,NMS,20165656576,S&P 500,^GSPC,503,0.04
+"Lennox International, Inc.",LII,LII,Industrials,United States,NYQ,19897745408,S&P 500,^GSPC,503,0.04
+"Williams-Sonoma, Inc.",WSM,WSM,Consumer Cyclical,United States,NYQ,19951642624,S&P 500,^GSPC,503,0.04
+ON Semiconductor Corporation,ON,ON,Technology,United States,NMS,19795212288,S&P 500,^GSPC,503,0.04
+"PulteGroup, Inc.",PHM,PHM,Consumer Cyclical,United States,NYQ,19776133120,S&P 500,^GSPC,503,0.04
+"McCormick & Company, Incorporat",MKC,MKC,Consumer Defensive,United States,NYQ,19676282880,S&P 500,^GSPC,503,0.04
+Dow Inc.,DOW,DOW,Basic Materials,United States,NYQ,19643695104,S&P 500,^GSPC,503,0.04
+International Flavors & Fragran,IFF,IFF,Basic Materials,United States,NYQ,19608862720,S&P 500,^GSPC,503,0.04
+"Tyson Foods, Inc.",TSN,TSN,Consumer Defensive,United States,NYQ,19874293760,S&P 500,^GSPC,503,0.04
+Coterra Energy Inc.,CTRA,CTRA,Energy,United States,NYQ,19417360384,S&P 500,^GSPC,503,0.03
+Quest Diagnostics Incorporated,DGX,DGX,Healthcare,United States,NYQ,19378718720,S&P 500,^GSPC,503,0.03
+Regions Financial Corporation,RF,RF,Financial Services,United States,NYQ,19353962496,S&P 500,^GSPC,503,0.03
+Biogen Inc.,BIIB,BIIB,Healthcare,United States,NMS,19318251520,S&P 500,^GSPC,503,0.03
+Loews Corporation,L,L,Financial Services,United States,NYQ,18793046016,S&P 500,^GSPC,503,0.03
+Western Digital Corporation,WDC,WDC,Technology,United States,NMS,18759172096,S&P 500,^GSPC,503,0.03
+Weyerhaeuser Company,WY,WY,Real Estate,United States,NYQ,18755561472,S&P 500,^GSPC,503,0.03
+"Leidos Holdings, Inc.",LDOS,LDOS,Technology,United States,NYQ,18598608896,S&P 500,^GSPC,503,0.03
+Southwest Airlines Company,LUV,LUV,Industrials,United States,NYQ,18577631232,S&P 500,^GSPC,503,0.03
+Jabil Inc.,JBL,JBL,Technology,United States,NYQ,18569611264,S&P 500,^GSPC,503,0.03
+NiSource Inc,NI,NI,Utilities,United States,NYQ,18559819776,S&P 500,^GSPC,503,0.03
+Global Payments Inc.,GPN,GPN,Industrials,United States,NYQ,18481225728,S&P 500,^GSPC,503,0.03
+"Zimmer Biomet Holdings, Inc.",ZBH,ZBH,Healthcare,United States,NYQ,18172338176,S&P 500,^GSPC,503,0.03
+"Essex Property Trust, Inc.",ESS,ESS,Real Estate,United States,NYQ,19391199232,S&P 500,^GSPC,503,0.03
+LyondellBasell Industries NV,LYB,LYB,Basic Materials,United States,NYQ,17901979648,S&P 500,^GSPC,503,0.03
+Gen Digital Inc.,GEN,GEN,Technology,United States,NMS,17887434752,S&P 500,^GSPC,503,0.03
+Mid-America Apartment Communiti,MAA,MAA,Real Estate,United States,NYQ,18308384768,S&P 500,^GSPC,503,0.03
+Genuine Parts Company,GPC,GPC,Consumer Cyclical,United States,NYQ,17730422784,S&P 500,^GSPC,503,0.03
+"Citizens Financial Group, Inc.",CFG,CFG,Financial Services,United States,NYQ,17705889792,S&P 500,^GSPC,503,0.03
+KeyCorp,KEY,KEY,Financial Services,United States,NYQ,17567918080,S&P 500,^GSPC,503,0.03
+Halliburton Company,HAL,HAL,Energy,United States,NYQ,17563977728,S&P 500,^GSPC,503,0.03
+Packaging Corporation of Americ,PKG,PKG,Consumer Cyclical,United States,NYQ,17463318528,S&P 500,^GSPC,503,0.03
+Principal Financial Group Inc,PFG,PFG,Financial Services,United States,NMS,17338931200,S&P 500,^GSPC,503,0.03
+Trimble Inc.,TRMB,TRMB,Technology,United States,NMS,17111460864,S&P 500,^GSPC,503,0.03
+"First Solar, Inc.",FSLR,FSLR,Technology,United States,NMS,17091475456,S&P 500,^GSPC,503,0.03
+Ralph Lauren Corporation,RL,RL,Consumer Cyclical,United States,NYQ,17000454144,S&P 500,^GSPC,503,0.03
+Hormel Foods Corporation,HRL,HRL,Consumer Defensive,United States,NYQ,16964259840,S&P 500,^GSPC,503,0.03
+Erie Indemnity Company,ERIE,ERIE,Financial Services,United States,NMS,18938355712,S&P 500,^GSPC,503,0.03
+Snap-On Incorporated,SNA,SNA,Industrials,United States,NYQ,16789593088,S&P 500,^GSPC,503,0.03
+"F5, Inc.",FFIV,FFIV,Technology,United States,NMS,16692494336,S&P 500,^GSPC,503,0.03
+Camden Property Trust,CPT,CPT,Real Estate,United States,NYQ,12574832640,S&P 500,^GSPC,503,0.02
+News Corporation,NWSA,NWSA,Communication Services,United States,NMS,16638773248,S&P 500,^GSPC,503,0.03
+News Corporation,NWS,NWS,Communication Services,United States,NMS,16638768128,S&P 500,^GSPC,503,0.03
+FactSet Research Systems Inc.,FDS,FDS,Financial Services,United States,NYQ,16488773632,S&P 500,^GSPC,503,0.03
+Pentair plc.,PNR,PNR,Industrials,United Kingdom,NYQ,16393470976,S&P 500,^GSPC,503,0.03
+"Tapestry, Inc.",TPR,TPR,Consumer Cyclical,United States,NYQ,16345202688,S&P 500,^GSPC,503,0.03
+Clorox Company (The),CLX,CLX,Consumer Defensive,United States,NYQ,16033982464,S&P 500,^GSPC,503,0.03
+Molina Healthcare Inc,MOH,MOH,Healthcare,United States,NYQ,15912578048,S&P 500,^GSPC,503,0.03
+Alliant Energy Corporation,LNT,LNT,Utilities,United States,NMS,15910898688,S&P 500,^GSPC,503,0.03
+Domino's Pizza Inc,DPZ,DPZ,Consumer Cyclical,United States,NMS,15906203648,S&P 500,^GSPC,503,0.03
+Deckers Outdoor Corporation,DECK,DECK,Consumer Cyclical,United States,NYQ,15814811648,S&P 500,^GSPC,503,0.03
+Brown Forman Inc,BF-B,BF-B,Consumer Defensive,United States,NYQ,15682126848,S&P 500,^GSPC,503,0.03
+Baxter International Inc.,BAX,BAX,Healthcare,United States,NYQ,15441435648,S&P 500,^GSPC,503,0.03
+Expeditors International of Was,EXPD,EXPD,Industrials,United States,NYQ,15305309184,S&P 500,^GSPC,503,0.03
+"Paycom Software, Inc.",PAYC,PAYC,Technology,United States,NYQ,14777415680,S&P 500,^GSPC,503,0.03
+"Evergy, Inc.",EVRG,EVRG,Utilities,United States,NMS,15188307968,S&P 500,^GSPC,503,0.03
+"West Pharmaceutical Services, I",WST,WST,Healthcare,United States,NYQ,15133514752,S&P 500,^GSPC,503,0.03
+Jacobs Solutions Inc.,J,J,Industrials,United States,NYQ,15120431104,S&P 500,^GSPC,503,0.03
+"CF Industries Holdings, Inc.",CF,CF,Basic Materials,United States,NYQ,14956763136,S&P 500,^GSPC,503,0.03
+"Everest Group, Ltd.",EG,EG,Financial Services,Bermuda,NYQ,14939037696,S&P 500,^GSPC,503,0.03
+Zebra Technologies Corporation,ZBRA,ZBRA,Technology,United States,NMS,14848946176,S&P 500,^GSPC,503,0.03
+Ball Corporation,BALL,BALL,Consumer Cyclical,United States,NYQ,14830765056,S&P 500,^GSPC,503,0.03
+"Best Buy Co., Inc.",BBY,BBY,Consumer Cyclical,United States,NYQ,14784149504,S&P 500,^GSPC,503,0.03
+Aptiv PLC,APTV,APTV,Consumer Cyclical,Switzerland,NYQ,14563959808,S&P 500,^GSPC,503,0.03
+Kimco Realty Corporation (HC),KIM,KIM,Real Estate,United States,NYQ,14240240640,S&P 500,^GSPC,503,0.03
+"Hologic, Inc.",HOLX,HOLX,Healthcare,United States,NMS,14048148480,S&P 500,^GSPC,503,0.03
+Avery Dennison Corporation,AVY,AVY,Consumer Cyclical,United States,NYQ,14044246016,S&P 500,^GSPC,503,0.03
+"J.B. Hunt Transport Services, I",JBHT,JBHT,Industrials,United States,NMS,13949736960,S&P 500,^GSPC,503,0.03
+Omnicom Group Inc.,OMC,OMC,Communication Services,United States,NYQ,13994297344,S&P 500,^GSPC,503,0.03
+IDEX Corporation,IEX,IEX,Industrials,United States,NYQ,13752138752,S&P 500,^GSPC,503,0.02
+"UDR, Inc.",UDR,UDR,Real Estate,United States,NYQ,15490765824,S&P 500,^GSPC,503,0.03
+Textron Inc.,TXT,TXT,Industrials,United States,NYQ,13448350720,S&P 500,^GSPC,503,0.02
+"The Cooper Companies, Inc.",COO,COO,Healthcare,United States,NMS,13349414912,S&P 500,^GSPC,503,0.02
+Masco Corporation,MAS,MAS,Industrials,United States,NYQ,13200750592,S&P 500,^GSPC,503,0.02
+"Jack Henry & Associates, Inc.",JKHY,JKHY,Technology,United States,NMS,13122171904,S&P 500,^GSPC,503,0.02
+"Teradyne, Inc.",TER,TER,Technology,United States,NMS,13066208256,S&P 500,^GSPC,503,0.02
+Regency Centers Corporation,REG,REG,Real Estate,United States,NMS,13064850432,S&P 500,^GSPC,503,0.02
+Incyte Corporation,INCY,INCY,Healthcare,United States,NMS,12990482432,S&P 500,^GSPC,503,0.02
+"Align Technology, Inc.",ALGN,ALGN,Healthcare,United States,NMS,12986377216,S&P 500,^GSPC,503,0.02
+Solventum Corporation,SOLV,SOLV,Healthcare,United States,NYQ,12847944704,S&P 500,^GSPC,503,0.02
+"Healthpeak Properties, Inc.",DOC,DOC,Real Estate,United States,NYQ,11914653696,S&P 500,^GSPC,503,0.02
+"Builders FirstSource, Inc.",BLDR,BLDR,Industrials,United States,NYQ,12178752512,S&P 500,^GSPC,503,0.02
+"Universal Health Services, Inc.",UHS,UHS,Healthcare,United States,NYQ,12166991872,S&P 500,^GSPC,503,0.02
+Alexandria Real Estate Equities,ARE,ARE,Real Estate,United States,NYQ,12161126400,S&P 500,^GSPC,503,0.02
+"Juniper Networks, Inc.",JNPR,JNPR,Technology,United States,NYQ,12021069824,S&P 500,^GSPC,503,0.02
+Nordson Corporation,NDSN,NDSN,Industrials,United States,NMS,11997404160,S&P 500,^GSPC,503,0.02
+The J.M. Smucker Company,SJM,SJM,Consumer Defensive,United States,NYQ,11971912704,S&P 500,^GSPC,503,0.02
+Allegion plc,ALLE,ALLE,Industrials,Ireland,NYQ,11969457152,S&P 500,^GSPC,503,0.02
+Mosaic Company (The),MOS,MOS,Basic Materials,United States,NYQ,11721686016,S&P 500,^GSPC,503,0.02
+Pool Corporation,POOL,POOL,Industrials,United States,NMS,11479694336,S&P 500,^GSPC,503,0.02
+"C.H. Robinson Worldwide, Inc.",CHRW,CHRW,Industrials,United States,NMS,11432607744,S&P 500,^GSPC,503,0.02
+"Akamai Technologies, Inc.",AKAM,AKAM,Technology,United States,NMS,10972681216,S&P 500,^GSPC,503,0.02
+"Franklin Resources, Inc.",BEN,BEN,Financial Services,United States,NYQ,11235638272,S&P 500,^GSPC,503,0.02
+"BXP, Inc.",BXP,BXP,Real Estate,United States,NYQ,12439172096,S&P 500,^GSPC,503,0.02
+"Host Hotels & Resorts, Inc.",HST,HST,Real Estate,United States,NMS,11017764864,S&P 500,^GSPC,503,0.02
+"ConAgra Brands, Inc.",CAG,CAG,Consumer Defensive,United States,NYQ,10826569728,S&P 500,^GSPC,503,0.02
+Pinnacle West Capital Corporati,PNW,PNW,Utilities,United States,NYQ,10793669632,S&P 500,^GSPC,503,0.02
+"Moderna, Inc.",MRNA,MRNA,Healthcare,United States,NMS,10755295232,S&P 500,^GSPC,503,0.02
+"Revvity, Inc.",RVTY,RVTY,Healthcare,United States,NYQ,10729705472,S&P 500,^GSPC,503,0.02
+Molson Coors Beverage Company,TAP,TAP,Consumer Defensive,United States,NYQ,10686980096,S&P 500,^GSPC,503,0.02
+"Skyworks Solutions, Inc.",SWKS,SWKS,Technology,United States,NMS,10663662592,S&P 500,^GSPC,503,0.02
+"Assurant, Inc.",AIZ,AIZ,Financial Services,United States,NYQ,10435548160,S&P 500,^GSPC,503,0.02
+LKQ Corporation,LKQ,LKQ,Consumer Cyclical,United States,NMS,10421434368,S&P 500,^GSPC,503,0.02
+DaVita Inc.,DVA,DVA,Healthcare,United States,NYQ,10277716992,S&P 500,^GSPC,503,0.02
+Bunge Limited,BG,BG,Consumer Defensive,United States,NYQ,10251068416,S&P 500,^GSPC,503,0.02
+Viatris Inc.,VTRS,VTRS,Healthcare,United States,NMS,10222752768,S&P 500,^GSPC,503,0.02
+The Campbell's Company,CPB,CPB,Consumer Defensive,United States,NMS,10215715840,S&P 500,^GSPC,503,0.02
+Globe Life Inc.,GL,GL,Financial Services,United States,NYQ,10136267776,S&P 500,^GSPC,503,0.02
+CarMax Inc,KMX,KMX,Consumer Cyclical,United States,NYQ,10092193792,S&P 500,^GSPC,503,0.02
+"Stanley Black & Decker, Inc.",SWK,SWK,Industrials,United States,NYQ,9949592576,S&P 500,^GSPC,503,0.02
+"EPAM Systems, Inc.",EPAM,EPAM,Technology,United States,NYQ,9867766784,S&P 500,^GSPC,503,0.02
+"Walgreens Boots Alliance, Inc.",WBA,WBA,Healthcare,United States,NMS,9711006720,S&P 500,^GSPC,503,0.02
+"Dayforce, Inc.",DAY,DAY,Technology,United States,NYQ,9423385600,S&P 500,^GSPC,503,0.02
+Eastman Chemical Company,EMN,EMN,Basic Materials,United States,NYQ,9289911296,S&P 500,^GSPC,503,0.02
+"Hasbro, Inc.",HAS,HAS,Consumer Cyclical,United States,NMS,9203672064,S&P 500,^GSPC,503,0.02
+"Wynn Resorts, Limited",WYNN,WYNN,Consumer Cyclical,United States,NMS,9174612992,S&P 500,^GSPC,503,0.02
+A.O. Smith Corporation,AOS,AOS,Industrials,United States,NYQ,9094975488,S&P 500,^GSPC,503,0.02
+"Huntington Ingalls Industries, ",HII,HII,Industrials,United States,NYQ,8944945152,S&P 500,^GSPC,503,0.02
+MGM Resorts International,MGM,MGM,Consumer Cyclical,United States,NYQ,8697881600,S&P 500,^GSPC,503,0.02
+"Henry Schein, Inc.",HSIC,HSIC,Healthcare,United States,NMS,8821602304,S&P 500,^GSPC,503,0.02
+"Interpublic Group of Companies,",IPG,IPG,Communication Services,United States,NYQ,8526089216,S&P 500,^GSPC,503,0.02
+Paramount Global,PARA,PARA,Communication Services,United States,NMS,8523604992,S&P 500,^GSPC,503,0.02
+Federal Realty Investment Trust,FRT,FRT,Real Estate,United States,NYQ,8264612352,S&P 500,^GSPC,503,0.01
+Norwegian Cruise Line Holdings ,NCLH,NCLH,Consumer Cyclical,United States,NYQ,8167632384,S&P 500,^GSPC,503,0.01
+"MarketAxess Holdings, Inc.",MKTX,MKTX,Financial Services,United States,NMS,8053490176,S&P 500,^GSPC,503,0.01
+"Lamb Weston Holdings, Inc.",LW,LW,Consumer Defensive,United States,NYQ,7855927296,S&P 500,^GSPC,503,0.01
+Bio-Techne Corp,TECH,TECH,Healthcare,United States,NMS,7647094272,S&P 500,^GSPC,503,0.01
+Generac Holdlings Inc.,GNRC,GNRC,Industrials,United States,NYQ,7516952064,S&P 500,^GSPC,503,0.01
+"Match Group, Inc.",MTCH,MTCH,Communication Services,United States,NMS,7465874944,S&P 500,^GSPC,503,0.01
+The AES Corporation,AES,AES,Utilities,United States,NYQ,7311449600,S&P 500,^GSPC,503,0.01
+Charles River Laboratories Inte,CRL,CRL,Healthcare,United States,NYQ,6802033664,S&P 500,^GSPC,503,0.01
+Albemarle Corporation,ALB,ALB,Basic Materials,United States,NYQ,6707853312,S&P 500,^GSPC,503,0.01
+APA Corporation,APA,APA,Energy,United States,NMS,6592637952,S&P 500,^GSPC,503,0.01
+Invesco Ltd,IVZ,IVZ,Financial Services,United States,NYQ,6467184128,S&P 500,^GSPC,503,0.01
+"Mohawk Industries, Inc.",MHK,MHK,Consumer Cyclical,United States,NYQ,6289984512,S&P 500,^GSPC,503,0.01
+"Enphase Energy, Inc.",ENPH,ENPH,Technology,United States,NGM,5740306432,S&P 500,^GSPC,503,0.01
+"Caesars Entertainment, Inc.",CZR,CZR,Consumer Cyclical,United States,NMS,5504912896,S&P 500,^GSPC,503,0.01

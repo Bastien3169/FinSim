@@ -1,26 +1,26 @@
-Nom_Entreprise,Ticker,Ticker_Yahoo_Finance,Ponderation,Secteur_Activite,Nom_Indice,Ticker_Indice_Yahoo,Pays,Place_Boursiere,Nombres_Entreprises,Capitalisation_Boursiere
-Nordea Bank Abp,NDA-FI,NDA-FI.HE,17.83,Financial Services,OMX Helsinki 25,^OMXH25,Finland,HEL,25,36051611648.0
-KONE Corporation,KNEBV,KNEBV.HE,12.06,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,24389885952.0
-Nokia Corporation,NOKIA,NOKIA.HE,11.31,Technology,OMX Helsinki 25,^OMXH25,Finland,HEL,25,22866151424.0
-Sampo Plc A,SAMPO,SAMPO.HE,10.69,Financial Services,OMX Helsinki 25,^OMXH25,Finland,HEL,25,21621422080.0
-UPM-Kymmene Corporation,UPM,UPM.HE,5.97,Basic Materials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,12072914944.0
-Fortum Corporation,FORTUM,FORTUM.HE,5.6,Utilities,OMX Helsinki 25,^OMXH25,Finland,HEL,25,11314498560.0
-Wärtsilä Corporation,WRT1V,WRT1V.HE,4.24,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,8570414080.0
-Kesko Corporation B,KESKOB,KESKOB.HE,3.54,Consumer Defensive,OMX Helsinki 25,^OMXH25,Finland,HEL,25,7156765696.0
-Orion Corporation B,ORNBV,ORNBV.HE,3.47,Healthcare,OMX Helsinki 25,^OMXH25,Finland,HEL,25,7014109696.0
-Elisa Corporation,ELISA,ELISA.HE,3.46,Communication Services,OMX Helsinki 25,^OMXH25,Finland,HEL,25,6990624256.0
-Metso Oyj,METSO,METSO.HE,3.27,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,6610499584.0
-Stora Enso Oyj R,STERV,STERV.HE,3.01,Basic Materials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,6077514240.0
-Neste Corporation,NESTE,NESTE.HE,2.82,Energy,OMX Helsinki 25,^OMXH25,Finland,HEL,25,5700162560.0
-Valmet Corporation,VALMT,VALMT.HE,2.0,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,4041611264.0
-Konecranes Plc,KCR,KCR.HE,1.98,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,4008243712.0
-Huhtamäki Oyj,HUH1V,HUH1V.HE,1.54,Consumer Cyclical,OMX Helsinki 25,^OMXH25,Finland,HEL,25,3117549568.0
-Kemira Oyj,KEMIRA,KEMIRA.HE,1.4,Basic Materials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,2824598016.0
-Mandatum Oyj,MANTA,MANTA.HE,1.29,Financial Services,OMX Helsinki 25,^OMXH25,Finland,HEL,25,2604975872.0
-Hiab Oyj,HIAB,HIAB.HE,,,OMX Helsinki 25,^OMXH25,Finland,HEL,25,
-Kojamo Plc,KOJAMO,KOJAMO.HE,1.07,Real Estate,OMX Helsinki 25,^OMXH25,Finland,HEL,25,2160038400.0
-TietoEVRY Corporation,TIETO,TIETO.HE,0.89,Technology,OMX Helsinki 25,^OMXH25,Finland,HEL,25,1797047552.0
-Qt Group Oyj,QTCOM,QTCOM.HE,0.84,Technology,OMX Helsinki 25,^OMXH25,Finland,HEL,25,1692323456.0
-Kalmar Oyj B,KALMAR,KALMAR.HE,0.72,Industrials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,1447339904.0
-Outokumpu Oyj,OUT1V,OUT1V.HE,0.61,Basic Materials,OMX Helsinki 25,^OMXH25,Finland,HEL,25,1230267136.0
-Nokian Tyres Plc,TYRES,TYRES.HE,0.41,Consumer Cyclical,OMX Helsinki 25,^OMXH25,Finland,HEL,25,832045440.0
+Short_Name_Stocks,Ticker_Stocks_Yf,Ticker_Stocks,Secteur_Activite,Pays_Stocks,Place_Boursiere,Capitalisation_Boursiere,Nom_Indice,Ticker_Indice_Yf,Nombres_Entreprises,Ponderation
+Nordea Bank Abp,NDA-FI.HE,NDA-FI,Financial Services,Finland,HEL,44121874432,OMX Helsinki 25,^OMXH25,25,18.28
+KONE Corporation,KNEBV.HE,KNEBV,Industrials,Finland,HEL,28397907968,OMX Helsinki 25,^OMXH25,25,11.77
+Sampo Plc A,SAMPO.HE,SAMPO,Financial Services,Finland,HEL,25222299648,OMX Helsinki 25,^OMXH25,25,10.45
+Nokia Corporation,NOKIA.HE,NOKIA,Technology,Finland,HEL,25406904320,OMX Helsinki 25,^OMXH25,25,10.53
+Fortum Corporation,FORTUM.HE,FORTUM,Utilities,Finland,HEL,13983859712,OMX Helsinki 25,^OMXH25,25,5.79
+UPM-Kymmene Corporation,UPM.HE,UPM,Basic Materials,Finland,HEL,12671596544,OMX Helsinki 25,^OMXH25,25,5.25
+Wärtsilä Corporation,WRT1V.HE,WRT1V,Industrials,Finland,HEL,10747801600,OMX Helsinki 25,^OMXH25,25,4.45
+Metso Oyj,METSO.HE,METSO,Industrials,Finland,HEL,8906708992,OMX Helsinki 25,^OMXH25,25,3.69
+Orion Corporation B,ORNBV.HE,ORNBV,Healthcare,Finland,HEL,8640730112,OMX Helsinki 25,^OMXH25,25,3.58
+Kesko Corporation B,KESKOB.HE,KESKOB,Consumer Defensive,Finland,HEL,8292027392,OMX Helsinki 25,^OMXH25,25,3.44
+Elisa Corporation,ELISA.HE,ELISA,Communication Services,Finland,HEL,7643676672,OMX Helsinki 25,^OMXH25,25,3.17
+Neste Corporation,NESTE.HE,NESTE,Energy,Finland,HEL,7319828480,OMX Helsinki 25,^OMXH25,25,3.03
+Stora Enso Oyj R,STERV.HE,STERV,Basic Materials,Finland,HEL,7003210752,OMX Helsinki 25,^OMXH25,25,2.9
+Konecranes Plc,KCR.HE,KCR,Industrials,Finland,HEL,5390533632,OMX Helsinki 25,^OMXH25,25,2.23
+Valmet Corporation,VALMT.HE,VALMT,Industrials,Finland,HEL,5314516480,OMX Helsinki 25,^OMXH25,25,2.2
+Huhtamäki Oyj,HUH1V.HE,HUH1V,Consumer Cyclical,Finland,HEL,3394665216,OMX Helsinki 25,^OMXH25,25,1.41
+Hiab Oyj,HIAB.HE,HIAB,Industrials,Finland,HEL,3173192192,OMX Helsinki 25,^OMXH25,25,1.31
+Kemira Oyj,KEMIRA.HE,KEMIRA,Basic Materials,Finland,HEL,2951233792,OMX Helsinki 25,^OMXH25,25,1.22
+Mandatum Oyj,MANTA.HE,MANTA,Financial Services,Finland,HEL,2730650112,OMX Helsinki 25,^OMXH25,25,1.13
+Kojamo Plc,KOJAMO.HE,KOJAMO,Real Estate,Finland,HEL,2575240448,OMX Helsinki 25,^OMXH25,25,1.07
+Kalmar Oyj B,KALMAR.HE,KALMAR,Industrials,Finland,HEL,1704038016,OMX Helsinki 25,^OMXH25,25,0.71
+TietoEVRY Corporation,TIETO.HE,TIETO,Technology,Finland,HEL,1912106112,OMX Helsinki 25,^OMXH25,25,0.79
+Outokumpu Oyj,OUT1V.HE,OUT1V,Basic Materials,Finland,HEL,1512290304,OMX Helsinki 25,^OMXH25,25,0.63
+Qt Group Oyj,QTCOM.HE,QTCOM,Technology,Finland,HEL,1430794112,OMX Helsinki 25,^OMXH25,25,0.59
+Nokian Tyres Plc,TYRES.HE,TYRES,Consumer Cyclical,Finland,HEL,885138240,OMX Helsinki 25,^OMXH25,25,0.37

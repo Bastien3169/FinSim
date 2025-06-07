@@ -5,62 +5,93 @@ import hashlib
 """ Les guillemets autour de '{}', n'est pas nécessaire dans la requête SQL mais pour s'aasurer qu'il n'y ait aucune erreur due à des noms de tables ayant des caractères spéciaux ou des espaces, c'est une bonne pratique."""
 
 
-####################################### CONNEXION BD POUR DATAS ET HIST ACTIFS  #######################################
+################################## CONNEXION BD POUR DATAS ET HIST STOCKS  ##################################
 
-def connect_to_db(db_path):
-    """ Connexion à la base de données SQLite """
-    return sqlite3.connect(db_path)
+class FinanceDatabaseStocks:
+#Classe pour gérer les interactions avec la base de données SQLite des actifs financiers.
 
+    # Chemin de la base de données (modifiable à un seul endroit)
+    def __init__(self, db_path="data.db"):
+        self.db_path = db_path
 
-def get_list_actif(conn, table_hist_actif):
-    """ Récupérer la liste des indices qui ont des historiques (on peut utiliser la table infos_indices mais pas sûr qu'il ait des historique dans la liste des indices de cette table (en l'occurence sir car table fait à partir des tikers infos_indices) """
-    #return pd.read_sql(f"SELECT DISTINCT Ticker_Yahoo_Finance FROM '{table_hist_actif}'", conn)["Ticker_Yahoo_Finance"].tolist()
-    df = pd.read_sql(f"SELECT DISTINCT Short_Name FROM '{table_hist_actif}'", conn)
-    return df["Short_Name"].tolist()
-
-
-def get_infos_actif(conn, table_infos_actif):
-    """ Récupérer les informations sur l'actif """
-    return pd.read_sql(f"SELECT * FROM '{table_infos_actif}'", conn)
-
-
-def get_prix_date(conn, table_hist_actif, actif):
-    """ Récupérer les données de l'actif pour le graphique """
-    df = pd.read_sql(f"SELECT Date, Close FROM {table_hist_actif} WHERE Short_Name = '{actif}' ORDER BY Date", conn)
-    if not df.empty:
-        df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
-        df = df.set_index("Date").resample("W").last().reset_index()
-    return df
+    
+    def get_list_stocks(self):
+        #Récupérer la liste des entreprises
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Stocks FROM stocks_infos_par_indice", conn)
+        return df["Short_Name_Stocks"].tolist()
+    
+  
+    def get_infos_stocks(self):
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT * FROM stocks_infos_par_indice", conn)
+        # Supprimer les doublons sur la colonne d'identification de l'entreprise
+        df = df.drop_duplicates(subset=["Short_Name_Stocks"])
+        return df
 
 
-# Mapping des indices vers les fichiers correspondants
-mapping_indices = {
-    "CAC 40": "composition_france",
-    "DAX                           P": "composition_allemagne",
-    "FTSE MIB Index": "composition_italie",
-    "IBEX 35...": "composition_espagne",
-    "BEL 20": "composition_belgique",
-    "AEX-Index": "composition_paysbas",
-    "FTSE 100": "composition_angleterre",
-    "S&P 500": "composition_sp500",
-    "NASDAQ 100": "composition_nasdaq100",
-    "Dow Jones Industrial Average": "composition_dowjones",
-    "OMX Helsinki 25": "composition_finlande",
-    "OMX Stockholm 30 Index": "composition_suede",
-    "OMX Copenhagen 25 Index": "composition_danemark",
-    "EURO STOXX 50                 I": "composition_europe50",
-    "Nikkei 225": "composition_japon",
-}
+    def get_prix_date(self, actif):
+        #Récupérer les données de l'actif pour le graphique
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT Date, Close FROM historique_stocks WHERE Short_Name_Stocks = ? ORDER BY Date"
+            df = pd.read_sql(query, conn, params=(actif,))
+        if not df.empty:
+            df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
+            df = df.set_index("Date").resample("W").last().reset_index()
+        return df
 
-def get_composition_indice(conn, selected_indice):
-    """ Récupère la composition de l'indice depuis la base de données """
-    try:
-        table_name = mapping_indices.get(selected_indice)
-        query = f"SELECT * FROM {table_name}"
-        df_composition = pd.read_sql(query, conn)
-        return df_composition
-    except Exception as e:
-        print(f"Erreur lors de la récupération de la table '{selected_indice}': {e}")
+
+
+################################## CONNEXION BD POUR DATAS ET HIST INDICES  ##################################
+
+class FinanceDatabaseIndice:
+#Classe pour gérer les interactions avec la base de données SQLite des actifs financiers.
+
+    # Chemin de la base de données (modifiable à un seul endroit)
+    def __init__(self, db_path="data.db"):
+        self.db_path = db_path
+        
+
+    def get_list_indices(self):
+        #Récupérer la liste des entreprises
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Indice FROM indices_infos", conn)
+        return df["Short_Name_Indice"].tolist()
+    
+  
+    def get_infos_indices(self):
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT * FROM indices_infos", conn)
+        return df
+
+
+    def get_prix_date(self, selected_indice):
+        #Récupérer les données de l'actif pour le graphique
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT Date, Close FROM historique_indices WHERE Short_Name_Indice = ? ORDER BY Date"
+            df = pd.read_sql(query, conn, params=(selected_indice,))
+        if not df.empty:
+            df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
+            df = df.set_index("Date").resample("W").last().reset_index()
+        return df
+
+    
+    def get_composition_indice(self, selected_indice):
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                query = """
+               SELECT 
+                	s.*
+                FROM stocks_infos_par_indice s
+                JOIN indices_infos i ON s.Ticker_Indice_Yf = i.Ticker_Indice_Yf
+                WHERE i.Short_Name_Indice =  ?
+                ORDER BY s.Short_Name_Stocks
+                """
+                df = pd.read_sql(query, conn, params=(selected_indice,))
+            return df
+        except Exception as e:
+            print(f"Erreur: {e}")
+            return pd.DataFrame()
 
 
 ####################################### CALCUL RENDEMENTS ACTIFS #######################################

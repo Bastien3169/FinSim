@@ -1,70 +1,76 @@
-from bs4 import BeautifulSoup
-import requests
-import time
-import pandas as pd
-import numpy as np
-import yfinance as yf
-import html5lib
 import os
+import glob
+import pandas as pd
+import yfinance as yf
 
+def infos_indices(dossier_csv, csv_bdd):
 
-def infos_indices(dossier_csv):
+    # Créer le chemin complet avec un motif
+    motif_fichiers = os.path.join(dossier_csv, "composition_*.csv")
     
-    indices = {
-    "Nom_Indice": ['CAC40', 'DAX40', 'FTSE MIB40', 'IBEX35', 'BEL20', 'AEX25', 'FTSE100', 'SP500', 'NASDAQ100', 'DowJones30', 
-                   'OMX Helsinki 25', 'OMX Stockholm 30', 'OMX Copenhagen 25', 'STOXX50', 'NIKKEI225'],
-    "Ticker": ['PX1', 'DAX', 'FTSEMIB', 'INDI', 'BEL20', 'AEX', 'UKX', 'GSPC', 'NDX', 'DJI', 'OMCH25', 'OMXS30', 'OMXC25', 'SX5E', 'NI225'],
-    "Ticker_Yahoo_Finance": ['^FCHI', '^GDAXI', 'FTSEMIB.MI', '^IBEX', '^BFX', '^AEX', '^FTSE', '^GSPC', '^NDX', '^DJI', 
-                             '^OMXH25', '^OMX', '^OMXC25', '^STOXX50E', '^N225'],
-    "Pays": ['France', 'Germany', 'Italy', 'Spain', 'Belgium', 'Netherlands', 'United Kingdom', 'United States', 'United States', 
-             'United States', 'Finland', 'Sweden', 'Danemark', 'Europe', 'Japan'],
-    "Nombres_Entreprises": [40, 40, 40, 35, 20, 25, 100, 500, 100, 30, 25, 30, 25, 50, 225],
-    }
-
-    # Création du DataFrame
-    df = pd.DataFrame(indices)
+    # Récupérer les fichiers
+    fichiers_csv = glob.glob(motif_fichiers)
     
+    # Liste pour stocker les DataFrames
+    dfs = []
+    
+    # Chargement des fichiers CSV
+    for fichier in fichiers_csv:
+        df = pd.read_csv(fichier)
+        dfs.append(df)
+    
+    # Concaténation de tous les DataFrames
+    df_concat = pd.concat(dfs, ignore_index=True)
+
+    # Ne garder qu'une seule ligne par indice (avec ses infos associées)
+    df_final = df_concat.drop_duplicates(subset=["Nom_Indice"])
+
+    
+    # Enlever les colonnes qui ne ne veullent plus rien dire ici
+    df = df_final.drop(columns=["Short_Name_Stocks", "Ticker_Stocks_Yf", "Ticker_Stocks", "Secteur_Activite", "Pays_Stocks", "Place_Boursiere", "Capitalisation_Boursiere", "Ponderation"])
+
     # Listes pour stocker les nouvelles informations
-    currencies = []
-    place_boursiere = []
-    short_name = []
+    devise = []
+    place_boursiere_indice = []
+    short_name_indice = []
     
     # Récupération des informations via yfinance
-    for i in df["Ticker_Yahoo_Finance"]:
+    for i in df["Ticker_Indice_Yf"]:
         try:
             info = yf.Ticker(i).info  # Récupération des infos générales
             
             # Extraction des données
-            currency = info.get("currency", "Non disponible")
-            exchange = info.get("exchange", "Non disponible")
-            short_name_entreprise = info.get('shortName', 'Non disponible')
+            devises = info.get("currency", "Non disponible")
+            places_boursieres_indices = info.get("exchange", "Non disponible")
+            shorts_names_indices = info.get('shortName', 'Non disponible')
             
         except Exception as e:
-            currency = "Non disponible"
-            exchange = "Non disponible"
-            short_name_entreprise = "Non disponible"
+            devises = "Non disponible"
+            places_boursieres_indices = "Non disponible"
+            shorts_names_indices = "Non disponible"
             
         # Ajout des valeurs aux listes
-        currencies.append(currency)
-        place_boursiere.append(exchange)
-        short_name.append(short_name_entreprise)
+        devise.append(devises)
+        place_boursiere_indice.append(places_boursieres_indices)
+        short_name_indice.append(shorts_names_indices)
     
     # Ajout des nouvelles colonnes au DataFrame
-    df["Devise"] = currencies
-    df["Place_Boursiere"] = place_boursiere
-    df["Short_Name"] = short_name
+    df["Devise"] = devise
+    df["Place_Boursiere_Indice"] = place_boursiere_indice
+    df["Short_Name_Indice"] = short_name_indice
     
     # Réorganisation des colonnes
     df = df[
-        ["Nom_Indice", 'Ticker', 'Ticker_Yahoo_Finance', "Short_Name", 'Pays', 'Place_Boursiere', 'Nombres_Entreprises', "Devise"]
+        ["Short_Name_Indice", "Ticker_Indice_Yf", 'Nom_Indice', 'Devise', 'Place_Boursiere_Indice', 'Nombres_Entreprises']
         ]
-    
-    # Enregistrement du fichier .csv
-    df.to_csv(os.path.join(dossier_csv, "infos_indices.csv"), index=False, encoding='utf-8')
-    print(f"[✅] Le fichier infos indices a bien été enregistré sous le nom")
+
+    # Sauvegarde du fichier
+    df.to_csv(os.path.join(csv_bdd, "indices_infos.csv"), index=False, encoding="utf-8")
 
     
+    # Affichage du DataFrame final
     return df
 
 if __name__ == "__main__":
-    infos_indices = infos_indices("csv") #Appel de la fonction
+    infos_indices = infos_indices(dossier_csv = "csv/", csv_bdd = "csv/csv_bdd/")
+    display(infos_indices)
