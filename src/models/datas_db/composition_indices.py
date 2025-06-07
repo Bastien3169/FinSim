@@ -2,7 +2,7 @@ import pandas as pd
 import yfinance as yf
 import time
 import os
-import scraping_tickers
+from . import scraping_tickers  # Import de ta fonction scraping
 
 def get_stock_data(tickers_stocks_yf, nom_indice, ticker_indice_yf, file_path):
     

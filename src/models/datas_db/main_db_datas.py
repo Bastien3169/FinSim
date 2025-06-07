@@ -1,14 +1,14 @@
 # main.py
 import os
-import scraping_tickers  # Pour récupérer les tickers
-import composition_indices  # Pour obtenir les infos des entreprises par indice
-import infos_stocks  # Pour concaténer les informations des entreprises et les stocker en CSV
-import infos_indices  # Pour récupérer les infos des indices et les stocker en CSV
-import hist_indices  # Pour récupérer l'historique des prix des indices
-import hist_stocks  # Pour récupérer l'historique des prix des entreprises
-import sql_datas # Pour créer la base de donnée sql
+from . import scraping_tickers  # Pour récupérer les tickers
+from . import composition_indices  # Pour obtenir les infos des entreprises par indice
+from . import infos_stocks  # Pour concaténer les informations des entreprises et les stocker en CSV
+from . import infos_indices  # Pour récupérer les infos des indices et les stocker en CSV
+from . import hist_indices  # Pour récupérer l'historique des prix des indices
+from . import hist_stocks  # Pour récupérer l'historique des prix des entreprises
+from . import sql_datas # Pour créer la base de donnée sql
 
-def main_db_datas(dossier_csv, csv_bdd, db_path):
+def main_db_datas(dossier_csv = "csv", csv_bdd = "csv/csv_bdd", db_path = "datas.bd"):
 
     #scraping_tickers.all_tickers_yf()
 

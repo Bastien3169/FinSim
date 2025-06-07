@@ -73,7 +73,11 @@ if user and user.get("role") == "admin":
     #init_db(db_path)
     st.markdown(f"""<div class="main-container"><h2>🔄 Mise à jours BDD datas</h2></div>""", unsafe_allow_html=True)
     st.markdown(f"""<div class="main-container"><p>La mise à jour peut prendre entre 20 et 30 minutes</p></div>""", unsafe_allow_html=True)
-  
+
+    dossier_csv = "csv"
+    csv_bdd = "csv/csv_bdd"
+    db_path = "datas.bd"
+    
     if st.button("Cliquez ici pour mettre à jour la base de données"):
         progress_bar = st.progress(0)
         
