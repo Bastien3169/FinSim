@@ -27,7 +27,9 @@ def infos_indices(dossier_csv, csv_bdd):
 
     
     # Enlever les colonnes qui ne ne veullent plus rien dire ici
-    df = df_final.drop(columns=["Short_Name_Stocks", "Ticker_Stocks_Yf", "Ticker_Stocks", "Secteur_Activite", "Pays_Stocks", "Place_Boursiere", "Capitalisation_Boursiere", "Ponderation"])
+    df = df_final.drop(columns=["Short_Name_Stocks", "Ticker_Stocks_Yf", "Ticker_Stocks", "Secteur_Activite", 
+                                "Pays_Stocks", "Place_Boursiere", "Capitalisation_Boursiere", "Ponderation"])
+
 
     # Listes pour stocker les nouvelles informations
     devise = []

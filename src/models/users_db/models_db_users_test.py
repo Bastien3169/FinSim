@@ -262,10 +262,8 @@ class AdminManager:
 
             hashed = self.hash_password(password)
             
-            c.execute("""
-                INSERT INTO users (username, email, password, role, registration_date)
-                VALUES (?, ?, ?, ?, ?, ?)
-            """, (username, email, hashed, 'user', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+            c.execute("""INSERT INTO users (username, email, password, role, registration_date)VALUES (?, ?, ?, ?, ?, ?)""",
+                       (username, email, hashed, 'user', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
             
             conn.commit()
             return f"✅ Utilisateur '{username}' créé avec succès"

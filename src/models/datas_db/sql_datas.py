@@ -39,7 +39,6 @@ def creation_db(db_path):
     )
     ''')
 
-    # Création des tables historiques
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS historique_indices (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -65,7 +64,6 @@ def creation_db(db_path):
     
     # Fermer la connexion
     conn.close()
-
     print("[✅] Tables créées avec succès.")
 
 
