@@ -58,6 +58,13 @@ def creation_db(db_path):
         Short_Name_Stocks
     )
     ''')
+    
+    # Création des index pour optimiser les performances
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_hist_indices_date_ticker ON historique_indices(Date, Ticker_Indice_Yf)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_hist_stocks_date_ticker ON historique_stocks(Date, Ticker_Stocks_Yf)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_hist_indices_close ON historique_indices(Close)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_hist_stocks_close ON historique_stocks(Close)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_stocks_infos_ticker ON stocks_infos_par_indice(Ticker_Stocks_Yf)")
 
     # Valider les changements
     conn.commit()

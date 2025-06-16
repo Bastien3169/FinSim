@@ -8,11 +8,11 @@ import plotly.graph_objects as go
 import plotly.colors as pc
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-from src.controllers.connexion_db_datas import *
+from src.models.control_datas.connexion_db_datas import *
 
 
 
-def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC"):
+def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "S&P 500"):
     
 #=============================== On prépare les variables ===============================  
     # Somme à investir par mois
@@ -22,21 +22,17 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1)) # +1 pour s'assurer d'avoir un mois entier
     date_fin = datetime.now()
 
-    # Connexion à la base SQLite
-    db_path = "data.db"
-    conn = connect_to_db(db_path)
+    # Création instance de l'objet
+    datas_indices = FinanceDatabaseIndice(db_path="data.db")
     
-    # Mise en place des paramètre pour les fonctions des requêtes SQL
-    table_hist_actif = "historique_indices"
-    actif = "S&P 500" 
+    # Appel méthodes
+    liste_indices = datas_indices.get_list_indices()
+    infos_indices = datas_indices.get_infos_indices()
+    data_financiere = datas_indices.get_prix_date(ticker)
     
-    # Récupérer la liste des indices et leurs infos
-    data_financiere = get_prix_date(conn, table_hist_actif, actif)
     # Télécharger les données financières pour la période
-    data_financiere = get_prix_date(conn, table_hist_actif, actif)
     data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) & (data_financiere['Date'] <= date_fin)]
-
-    
+ 
 #=============================== On calcul le rendement par mois ===============================
      # Remplace les cases vides par '0'
     if data_financiere.empty:
@@ -130,7 +126,7 @@ def calcul_rendements_durations(durees, mois_dca_list, somme_investie, ticker):
 
 
 
-df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="^GSPC")
+df_resultats = calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="S&P 500")
 
 
 
@@ -157,7 +153,7 @@ def calcul_multiple_rendements(durees, mois_dca_list, somme_investie, ticker):
     return df_resultat
 
 
-df = calcul_multiple_rendements(durees = [25, 20, 15, 10, 5], mois_dca_list = [3, 6, 12, 24], somme_investie  = 100000, ticker = "^GSPC")
+df = calcul_multiple_rendements(durees = [25, 20, 15, 10, 5], mois_dca_list = [3, 6, 12, 24], somme_investie  = 100000, ticker = "S&P 500")
 
 
 

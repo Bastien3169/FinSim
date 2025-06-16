@@ -9,24 +9,11 @@ from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit as st
 
 
-
-############################################# CLASS AUTHMANAGER #############################################
-class AuthManager:
-
-#--------------------------- Attribut : chemin et nom bdd et lancement de "init_db()" --------------------------#
-    def __init__(self, db_path="users.db", cookie_name="session_id", cookie_secret="Toulouse31"):
+############################################# CLASS BDD USERS #############################################
+class BaseDBManager:
+    def __init__(self, db_path="users.db"):
         self.db_path = db_path
-        self.cookie_name = cookie_name
-        # on créé une instance de EncryptedCookieManager et on ne met pas de préfix
-        self.cookies = EncryptedCookieManager(prefix="", password=cookie_secret) 
-        
-        if not self.cookies.ready(): # Si cookie pas dispo (.ready lit via du JS)
-            st.stop()
         self.init_db()
-        self.clean_expired_sessions() # Nettoie la bdd des session expirées à chaque arrivée sur la page
-
-
-#--------------------------- Initialisation bdd users et sessions ---------------------------#
 
     def init_db(self):
         with sqlite3.connect(self.db_path) as conn:
@@ -50,6 +37,22 @@ class AuthManager:
                 )
             ''')
             conn.commit()
+
+
+################################ CLASS AUTHMANAGER AVEC HERITAGE DE class BaseDBManager ################################
+class AuthManager(BaseDBManager):
+
+#--------------------------- Attribut : chemin et nom bdd et lancement de "super().init_db()" --------------------------#
+    def __init__(self, db_path="users.db", cookie_name="session_id", cookie_secret="Toulouse31"):
+        super().__init__(db_path)  # appelle init_db via la classe parente
+        self.cookie_name = cookie_name
+        # on créé une instance de EncryptedCookieManager et on ne met pas de préfix
+        self.cookies = EncryptedCookieManager(prefix="", password=cookie_secret) 
+        
+        if not self.cookies.ready(): # Si cookie pas dispo (.ready lit via du JS)
+            st.stop()
+        self.init_db()
+        self.clean_expired_sessions() # Nettoie la bdd des session expirées à chaque arrivée sur la page
 
 
 #--------------------------- méthode pour effacer les sessions exiprées de la bdd ---------------------------#
@@ -185,90 +188,19 @@ class AuthManager:
 
 
 
-############################################# CLASS ADMINMANAGER #############################################
+################################ CLASS ADMINMANAGER AVEC HERITAGE DE class BaseDBManager ################################
 
-class AdminManager:
-#--------------------------- Initialisation ---------------------------#
+class AdminManager(BaseDBManager):
+#--------------------------- Initialisation et et lancement de "super().init_db()" ---------------------------#
     def __init__(self, db_path="users.db"):
-        self.db_path = db_path
-        self.init_db()
+        super().__init__(db_path) # appelle init_db via la classe parente
 
-    def init_db(self):
-        # Avec "with", fermeture automatique et donc pas besoin de "conn.close()"
-        with sqlite3.connect(self.db_path) as conn:
-            c = conn.cursor()
-
-            # Création table users
-            c.execute('''
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL,
-                email TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL,
-                role TEXT DEFAULT 'user',
-                registration_date TEXT NOT NULL
-                )
-            ''')
-            conn.commit()
-
-            # Création table session
-            c.execute('''
-                CREATE TABLE IF NOT EXISTS sessions (
-                    session_id TEXT PRIMARY KEY,
-                    user_id INTEGER NOT NULL,
-                    expires_at TEXT NOT NULL,
-                    FOREIGN KEY(user_id) REFERENCES users(id)
-                )
-            ''')
-            conn.commit()
-
+   
 #--------------------------- Hachage du mot de passe ---------------------------#
     def hash_password(self, password):
         return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode('utf-8')
 
 
-#--------------------------- Créer l'admin ---------------------------#
-    def create_admin_user(self, username, email, password):
-        with sqlite3.connect(self.db_path) as conn:
-            c = conn.cursor()
-
-            # Vérifie si l'utilisateur existe déjà
-            c.execute("SELECT * FROM users WHERE email = ?", (email,))
-            if c.fetchone():
-                print("❌ Cet utilisateur existe déjà.")
-                return False
-
-            # Hachage mdp
-            hashed = self.hash_password(password)
-
-            # Insertion des infos users
-            c.execute("INSERT INTO users (username, email, password, role, registration_date) VALUES (?, ?, ?, ?, ?)", 
-                      (username, email, hashed, 'admin', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-            
-            # Enregistrement admin
-            conn.commit()
-            return f"✅ Admin '{username}' créé avec succès !"
-
-
-#--------------------------- Créer un utilisateur ---------------------------#
-    def create_user(self, username, email, password, role='user'):
-        
-        with sqlite3.connect(self.db_path) as conn:
-            c = conn.cursor()
-            
-            c.execute("SELECT * FROM users WHERE email = ?", (email,))
-            if c.fetchone():
-                return "❌ Email déjà utilisé"
-
-            hashed = self.hash_password(password)
-            
-            c.execute("""INSERT INTO users (username, email, password, role, registration_date)VALUES (?, ?, ?, ?, ?, ?)""",
-                       (username, email, hashed, 'user', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-            
-            conn.commit()
-            return f"✅ Utilisateur '{username}' créé avec succès"
-
-    
 #--------------------------- Afficher tous les utilisateurs ---------------------------#
     def get_all_users(self):
         with sqlite3.connect(self.db_path) as conn:
@@ -277,7 +209,7 @@ class AdminManager:
             return c.fetchall()
 
     
-#--------------------------- Trouver un utilisateur par email ---------------------------#
+#--------------------------- Trouver un utilisateur par email/username ---------------------------#
     def get_user_by_email_username(self, search):
         with sqlite3.connect(self.db_path) as conn:
             c = conn.cursor()

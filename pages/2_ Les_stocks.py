@@ -3,7 +3,8 @@ import sqlite3
 import pandas as pd
 import plotly.graph_objects as go
 from base64 import b64encode # Convertir le chemin en une URL utilisable avec `st.markdown()` pour les photos
-from src.controllers.connexion_db_datas import *
+from src.models.control_datas.connexion_db_datas import *
+#from src.controllers.connexion_db_datas import *
 #connect_to_db, get_list_actif, get_infos_actif,  get_prix_date, calculate_rendement, style_rendement, get_composition_indice
 #import stocks_app  # Import du fichier contenant le code des stocks
 #import indices_app  # Si tu as aussi du code pour les indices

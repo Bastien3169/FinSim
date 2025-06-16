@@ -10,6 +10,7 @@ import indices_app  # Si tu as aussi du code pour les indices
 #import etf_app  # Si tu as du code pour les ETF
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
 import con_user_app
+from src.models.control_datas.connexion_db_datas import *
 
 st.set_page_config(layout="wide", page_title="Les ETF", page_icon="🏛️")
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
