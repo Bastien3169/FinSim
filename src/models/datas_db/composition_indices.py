@@ -66,8 +66,8 @@ def get_stock_data(tickers_stocks_yf, nom_indice, ticker_indice_yf, file_path):
 
     # Réorganisation des colonnes
     df = df[
-        ['Short_Name_Stocks', 'Ticker_Stocks_Yf', 'Ticker_Stocks', 'Secteur_Activite', 'Pays_Stocks', 'Place_Boursiere', 'Capitalisation_Boursiere',
-         'Nom_Indice', 'Ticker_Indice_Yf', 'Nombres_Entreprises', 'Ponderation']
+        ['Short_Name_Stocks', 'Ticker_Stocks_Yf', 'Ticker_Stocks', 'Secteur_Activite', 'Pays_Stocks', 'Place_Boursiere', 
+         'Capitalisation_Boursiere', 'Nom_Indice', 'Ticker_Indice_Yf', 'Nombres_Entreprises', 'Ponderation']
     ]
 
     # Exportation en CSV

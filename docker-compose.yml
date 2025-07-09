@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./:/app              # monte le code local dans le conteneur (utile pour dev)
+      - sqlite_data:/app/data # volume pour la persistance des données (adapter le chemin de ta BDD)
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+    # volume pour la persistance des données SQLite
+    # le chemin peut être ajusté selon l'emplacement de ta base de données dans le conteneur

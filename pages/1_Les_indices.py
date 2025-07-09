@@ -105,10 +105,7 @@ for i in indices_a_ajouter:
         # 3. Ajout et écrase st.session_state.rendement_data avec rendement. C'est ici qu'on met en index "Ticker_Yahoo_Finance"
         st.session_state.rendement_data = pd.concat([st.session_state.rendement_data, pd.DataFrame(df_rendement, index=[i])])
 
-
-
-######################################### ORGANISATION ET STYLISATION DU TABLEAU RENDEMENT #########################################
-
+######################################### ORGANISATION ET STYLISATION DU TABLEAU RENDEMENT #########################################’’
 # Réorganiser les colonnes (sans la colonne "Ticker_Yahoo_Finance")
 # Réorganiser les colonnes en mettant "Pays" avant les rendements
 st.session_state.rendement_data = st.session_state.rendement_data[[f"{p} mois" for p in periods] + ["Ticker_Indice_Yf", "Place_Boursiere_Indice", "Nombres_Entreprises", "Devise"]]

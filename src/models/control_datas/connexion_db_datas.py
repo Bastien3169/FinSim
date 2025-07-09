@@ -40,8 +40,7 @@ class FinanceDatabaseStocks:
             df = df.set_index("Date").resample("W").last().reset_index()
         return df
 
-
-
+  
 ################################## CONNEXION BD POUR DATAS ET HIST INDICES  ##################################
 
 class FinanceDatabaseIndice:
