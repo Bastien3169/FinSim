@@ -35,11 +35,10 @@ st.markdown(f"""
 
 # CSS titre principal
 #st.title("📊 LES INDICES BOURSIERS")
-st.markdown(f"""<div class="main-container"><h1>COMPARER ET SIMULER LES ACTIFS FINANCIERS</h1></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="main-container"><h1>PROJET FINANCE</h1></div>""", unsafe_allow_html=True)
 
 st.markdown(f"""<div class="main-container"><p>
-Un site permettant de simuler et comparer les performances d’un investissement en DCA (investissement progressif) versus Lump Sum (investissement en une fois). L’outil est conçu pour être accessible à tous, même pour ceux qui découvrent la bourse, les rendements et les différentes stratégies d’investissement. Il permet également de visualiser et comparer facilement différents actifs : actions, indices, cryptomonnaies, etc...<br>
-Bonne visite et bon apprentissage !
+Le projet consiste à développer une application Streamlit pour la gestion et l'analyse de données financières, principalement axée sur les indices boursiers et les actions. L'objectif est de collecter des données financières à partir de différentes sources, telles que des fichiers CSV et des API comme yfinance, et de les organiser dans une base de données relationnelle SQLite. Cette base contient des informations sur les indices (nom, ticker, pays, etc.), les entreprises (nom, secteur, capitalisation, etc.), et l'historique des prix. L'application permet aux utilisateurs de s'inscrire, se connecter et consulter ces données sous forme de graphiques et de tableaux. En plus de la gestion des utilisateurs, l'application permet de mettre à jour la base de données via un processus en plusieurs étapes, en scrappant les tickers, récupérant les données historiques des indices et entreprises, et nettoyant ces données avant leur insertion dans la base de données. Le projet inclut également une interface utilisateur conviviale, avec des fonctionnalités de session et de gestion d'erreurs pour assurer une expérience fluide.
 </p></div>""", unsafe_allow_html=True)
 
 # Footer en bas de page

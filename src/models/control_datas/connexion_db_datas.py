@@ -101,7 +101,7 @@ def calculate_rendement(df, periods):
     for period_months in periods:
         start_date = df["Date"].max() - pd.DateOffset(months=period_months)
         df_period = df[df["Date"] >= start_date]
-        if len(df_period) > 1:  # Si on a plus d'une donnée dans la période
+        if len(df_period) > 1:  # Si on a plus d'une donnée dans la période 
             start_close = df_period.iloc[0]["Close"]
             end_close = df_period.iloc[-1]["Close"]
             rendement[f"{period_months} mois"] = "{:.2f}".format((end_close - start_close) / start_close * 100) # arrondie 2 chif
