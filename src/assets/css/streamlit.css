@@ -5,6 +5,14 @@ html, body, #root, .main-container {
     width: 100%;
 }
 
+
+/* Forcer le mode dark de l'app */
+.stApp {
+    color-scheme: dark !important;
+}
+
+
+/* Police */
 p {
     font-weight: 600;  /* Rendre le texte plus épais (plus gras) */
     text-align: justify;  /* Alignement justifié du texte */
