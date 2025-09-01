@@ -118,7 +118,7 @@ def style_rendement(df, periods):
     def color_rendement(val):
         color = 'green' if float(val) > 0 else ('red' if float(val) < 0 else 'black')
         return f'color: {color}'  
-    return df.style.applymap(color_rendement, subset=[f"{p} mois" for p in periods])
+    return df.style.map(color_rendement, subset=[f"{p} mois" for p in periods])
 
 
 

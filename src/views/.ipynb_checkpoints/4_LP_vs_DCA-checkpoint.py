@@ -13,8 +13,8 @@ import con_user_app
 
 
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
-# Créer un espace vide pour afficher la page sélectionnée
- #st.empty()
+# 📌 Créer un espace vide pour afficher la page sélectionnée
+st.empty()
 
 # Chargement du fichier CSS
 with open("/Users/bastoch/ProjectFinance_alleger/ProjectFinance_Streamlit/css/streamlit.css") as css:
