@@ -7,10 +7,11 @@ html, body, #root, .main-container {
 
 
 /* Forcer le mode dark de l'app */
-.stApp {
+div[data-testid="stApp"] {
     color-scheme: dark !important;
+    background-color: #0e1117 !important;
+    color: #fafafa !important;
 }
-
 
 /* Police */
 p {
