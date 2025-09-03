@@ -3,11 +3,13 @@ import hashlib
 import pandas as pd
 import streamlit as st
 from datetime import datetime
+
+# Doit être mis en premier avec chargement de tte page avec du st.xxxx (comme il peut y en avoir dans les imports de fichier avec %)
+st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
+
 from src.models.datas_db.main_db_datas import *
 from src.models.users_db.models_db_users_test import AuthManager, AdminManager
 
-
-st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
 
 ############################################ MISE EN PLACE DU CSS + TITRE DE PAGE ############################################
 # Chargement du fichier CSS

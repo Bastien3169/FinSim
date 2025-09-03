@@ -7,13 +7,16 @@ import seaborn as sns
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+
+# Doit être mis en premier avec chargement de tte page avec du st.xxxx (comme il peut y en avoir dans les imports de fichier avec %)
+st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
+
 from src.controllers.LP_VS_DCA import *
 #from src.controllers.connexion_db_datas import *
 from src.models.control_datas.connexion_db_datas import *
 from src.models.users_db.models_db_users_test import AuthManager, AdminManager
 
 
-st.set_page_config(layout="wide", page_title="DCA vs Lump Sum", page_icon="🏛️")
 
 ############################################ MISE EN PLACE DU CSS + IMAGE ############################################
 # Chargement du fichier CSS
