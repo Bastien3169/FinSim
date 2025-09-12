@@ -18,7 +18,7 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     # Somme à investir par mois
     somme_par_mois = somme_investie / mois_dca
 
-    # Définir les dates de début et de fin
+    # Définir les dates de début et de fin pour le calcul du rendement
     date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1)) # +1 pour s'assurer d'avoir un mois entier
     date_fin = datetime.now()
 
@@ -30,7 +30,7 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     infos_indices = datas_indices.get_infos_indices()
     data_financiere = datas_indices.get_prix_date(ticker)
     
-    # Télécharger les données financières pour la période
+    # Télécharger les données financières pour la période voulue
     data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) & (data_financiere['Date'] <= date_fin)]
  
 #=============================== On clean et calcul le rendement par mois ===============================
@@ -84,9 +84,8 @@ def calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24
     # Je crée mes listes vides
     annees = []
     lumpsum = []
-    
-    # Je crée une liste vide pour chaque DCA
-    listes_dca = []
+    listes_dca = [] # Je crée une liste vide pour chaque DCA
+
     for mois in mois_dca_list:
         listes_dca.append([])
     
@@ -158,13 +157,13 @@ def graphe_barre(df_resultats):
     # Création graphique vide
     fig = go.Figure()
     
-    # Couleurs graph : Bleu Orange Vert Rouge Violet Marron Rose Gris Jaune Cyan
+    # Couleurs graph 
     mes_couleurs = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
     
-    # Trouver colonnes DCA ds DF
+    # Trouver colonnes DCA ds DF car toutes les colonnes DCA n'ont pas la même durée et donc le même nom (ex : DCA (3 mois), DCA (6 mois)...)
     colonnes_dca = []
     for colonne in df_resultats.columns:
-        if colonne.startswith("DCA"):
+        if colonne.startswith("DCA"): # La colonne DCA commence par "DCA" puis sa durée ex : "DCA (6 mois)". Si on veut toutes les colonnes DCA, on fait startswith
             colonnes_dca.append(colonne)
     
     # Ajouter colonne DCA

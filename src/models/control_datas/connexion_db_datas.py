@@ -76,6 +76,7 @@ class FinanceDatabaseIndice:
 
     
     def get_composition_indice(self, selected_indice):
+        # Récupérer la composition de l'indice sélectionné
         try:
             with sqlite3.connect(self.db_path) as conn:
                 query = """

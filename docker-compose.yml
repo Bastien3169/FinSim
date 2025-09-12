@@ -7,7 +7,7 @@ services:
     ports:
       - "8501:8501"
     volumes:
-      - data_volume:/app/data.db  # bind mount lecture seule pour données statiques
+      - data_volume:/app/data.db  # volume docker pour données statiques
       - user_volume:/app/user.db    # volume docker pour données dynamiques
     restart: unless-stopped # redémarre le conteneur sauf si on l'arrête manuellement
 

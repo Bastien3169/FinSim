@@ -4,7 +4,7 @@ import sqlite3
 import bcrypt
 import re
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone  
 from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit as st
 
@@ -57,7 +57,9 @@ class AuthManager(BaseDBManager):
 
 #--------------------------- méthode pour effacer les sessions exiprées de la bdd ---------------------------#
     def clean_expired_sessions(self):
-        date_now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        date_now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") #  Déprécier, remplecé par la ligne du dessous
+        #date_now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
         with sqlite3.connect(self.db_path) as conn:
             conn.execute("DELETE FROM sessions WHERE expires_at <= ?", (date_now,))
             conn.commit()
