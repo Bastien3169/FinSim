@@ -57,7 +57,7 @@ def calcul_rendement(duree_invest=1, somme_investie=100000, mois_dca=6, ticker="
     #=============================== CORRECTION CRITIQUE : Alignement ===============================
     # data_financiere a N lignes, rendements_mois a N lignes, mais les calculs ont N lignes
     # On doit enlever la première ligne de data_financiere pour l'alignement
-    data_resultats = data_financiere.iloc[1:].copy()  # ⬅️ LIGNE CRITIQUE AJOUTÉE
+    data_resultats = data_financiere.copy()  # ⬅️ LIGNE CRITIQUE AJOUTÉE
     data_resultats['Rendement LS'] = rendements_lumpsum
     data_resultats['Rendement DCA'] = rendements_dca
 
