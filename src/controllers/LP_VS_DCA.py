@@ -14,54 +14,45 @@ from src.models.control_datas.connexion_db_datas import *
 
 def calcul_rendement(duree_invest=1, somme_investie=100000, mois_dca=6, ticker="S&P 500"):
 
-    #=============================== On prépare les variables ===============================
+    #=============================== Variables ===============================
     somme_par_mois = somme_investie / mois_dca
-    date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1))
+    date_debut = datetime.now() - relativedelta(months=(duree_invest * 12))
     date_fin = datetime.now()
 
-    # Création instance de l'objet
     datas_indices = FinanceDatabaseIndice(db_path="data.db")
     data_financiere = datas_indices.get_prix_date(ticker)
-
-    # Filtrer la période
-    data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) & (data_financiere['Date'] <= date_fin)]
+    data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) &
+                                      (data_financiere['Date'] <= date_fin)]
 
     if data_financiere.empty:
         return pd.DataFrame()
 
-    # Nettoyage des données
-    data_financiere = data_financiere.fillna(0)
-
-    # Rendements mensuels - REMPLACER les NaN par 0
+    # Remplace NaN par 0 pour pct_change
     rendements_mois = data_financiere['Close'].pct_change().fillna(0)
     data_financiere['Rendement du mois'] = rendements_mois
 
-    #=============================== Calcul DCA ===============================
+    #=============================== DCA ===============================
     rendements_dca = []
     portefeuille_dca = 0
-
     for i in range(len(rendements_mois)):
         if i < mois_dca:
             portefeuille_dca += somme_par_mois
-        # PLUS BESOIN de vérifier les NaN grâce au fillna(0)
         portefeuille_dca *= (1 + rendements_mois.iloc[i])
         rendements_dca.append(round(portefeuille_dca, 2))
 
-    #=============================== Calcul LumpSum ===============================
+    #=============================== LumpSum ===============================
     rendements_lumpsum = []
     portefeuille_lumpsum = somme_investie
     for i in range(len(rendements_mois)):
         portefeuille_lumpsum *= (1 + rendements_mois.iloc[i])
         rendements_lumpsum.append(round(portefeuille_lumpsum, 2))
 
-    #=============================== CORRECTION CRITIQUE : Alignement ===============================
-    # data_financiere a N lignes, rendements_mois a N lignes, mais les calculs ont N lignes
-    # On doit enlever la première ligne de data_financiere pour l'alignement
-    data_resultats = data_financiere.copy()  # ⬅️ LIGNE CRITIQUE AJOUTÉE
-    data_resultats['Rendement LS'] = rendements_lumpsum
-    data_resultats['Rendement DCA'] = rendements_dca
+    #=============================== Alignement ===============================
+    data_financiere['Rendement LS'] = rendements_lumpsum
+    data_financiere['Rendement DCA'] = rendements_dca
 
-    return data_resultats
+    return data_financiere
+
 
 df = calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC")
 
