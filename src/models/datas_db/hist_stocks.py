@@ -12,7 +12,7 @@ def recuperer_et_clean_stocks(csv_bdd):
     for i in tickers_yahoo:
         try:
             ticker = yf.Ticker(i)
-            hist = ticker.history(period="max", interval="1wk")
+            hist = ticker.history(period="max", interval="1mo")
     
             if hist.empty:
                 print(f"⚠️ Historique vide pour {i}.")

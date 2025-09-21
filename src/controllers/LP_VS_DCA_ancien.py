@@ -47,20 +47,28 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     data_financiere['Rendement du mois'] = rendements_mois
 
 #=============================== On calcul le DCA et le LumpSum ===============================
+    # Calcul du rendement DCA
     rendements_dca = []
     portefeuille_dca = 0
-
+    
     # Investissement mensuel pendant la période DCA
-    for i in range(len(rendements_mois)):
-        if i < mois_dca:
-            portefeuille_dca += somme_par_mois  # Investissement d'abord
-        
-        # Croissance de tout le portefeuille
-        portefeuille_dca *= (1 + rendements_mois.iloc[i])  # Puis croissance
+    for i in range(min(mois_dca, len(rendements_mois))):
+        portefeuille_dca += somme_par_mois * (1 + rendements_mois.iloc[i])
+        rendements_dca.append(round(portefeuille_dca, 2))
+   
+    # Croissance après la période DCA
+    for i in range(mois_dca, len(rendements_mois)):
+        portefeuille_dca *= (1 + rendements_mois.iloc[i])
         rendements_dca.append(round(portefeuille_dca, 2))
 
     # Calcul du rendement LP
-    rendements_lumpsum = (somme_investie * (1 + rendements_mois).cumprod()).round(2).tolist()
+    rendements_lumpsum = []
+    portefeuille_lumpsum = somme_investie
+    for i in range(len(rendements_mois)):
+        portefeuille_lumpsum *= (1 + rendements_mois.iloc[i])
+        rendements_lumpsum.append(round(portefeuille_lumpsum, 1))
+    # Remplacer le bloc par :
+    # rendements_lumpsum = (somme_investie * (1 + rendements_mois).cumprod()).round(2).tolist()
     
     
     # On aligne la taille avec df_rendement, car pct_change() enlève le premier mois

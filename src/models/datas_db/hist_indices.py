@@ -17,7 +17,7 @@ def recuperer_et_clean_indices(csv_bdd):
             ticker = yf.Ticker(i)
 
             # Récupération des données historiques
-            hist = ticker.history(period="max", interval="1wk")
+            hist = ticker.history(period="max", interval="1mo")
         
             # Ajoute la colonne "Short_Name_Indice"
             hist['Short_Name_Indice'] = ticker.info.get("shortName", "N/A")

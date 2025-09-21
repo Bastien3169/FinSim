@@ -68,6 +68,8 @@ def scrape_selenium():
     # Initialisation de Selenium
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
+    options.add_argument("--no-sandbox")  # obligatoire sur Render
+    options.add_argument("--disable-dev-shm-usage")  # éviter les crashs
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     
     # Dictionnaire des indices avec leurs URLs
