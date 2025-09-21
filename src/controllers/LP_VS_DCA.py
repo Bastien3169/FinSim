@@ -12,66 +12,58 @@ from src.models.control_datas.connexion_db_datas import *
 
 
 
-def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "S&P 500"):
-    
-#=============================== On prépare les variables ===============================  
-    # Somme à investir par mois
-    somme_par_mois = somme_investie / mois_dca
+def calcul_rendement(duree_invest=1, somme_investie=100000, mois_dca=6, ticker="S&P 500"):
 
-    # Définir les dates de début et de fin pour le calcul du rendement
-    date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1)) # +1 pour s'assurer d'avoir un mois entier
+    #=============================== On prépare les variables ===============================
+    somme_par_mois = somme_investie / mois_dca
+    date_debut = datetime.now() - relativedelta(months=((duree_invest * 12) + 1))
     date_fin = datetime.now()
 
     # Création instance de l'objet
     datas_indices = FinanceDatabaseIndice(db_path="data.db")
-    
-    # Appel méthodes
-    liste_indices = datas_indices.get_list_indices()
-    infos_indices = datas_indices.get_infos_indices()
     data_financiere = datas_indices.get_prix_date(ticker)
-    
-    # Télécharger les données financières pour la période voulue
+
+    # Filtrer la période
     data_financiere = data_financiere[(data_financiere['Date'] >= date_debut) & (data_financiere['Date'] <= date_fin)]
- 
-#=============================== On clean et calcul le rendement par mois ===============================
-     # Remplace les cases vides par '0'
+
     if data_financiere.empty:
-        return 0, 0
-    # Remplace les cases NaN par '0'
+        return pd.DataFrame()
+
+    # Nettoyage des données
     data_financiere = data_financiere.fillna(0)
 
-    # Rendements mensuels en % (avec colonne 'Close' du df 'data_financiere')
-    rendements_mois = data_financiere['Close'].pct_change().dropna()
-
-    # Ajout colonne rendemenbt mensuel au df data_financiere
+    # Rendements mensuels - REMPLACER les NaN par 0
+    rendements_mois = data_financiere['Close'].pct_change().fillna(0)
     data_financiere['Rendement du mois'] = rendements_mois
 
-#=============================== On calcul le DCA et le LumpSum ===============================
+    #=============================== Calcul DCA ===============================
     rendements_dca = []
     portefeuille_dca = 0
 
-    # Investissement mensuel pendant la période DCA
     for i in range(len(rendements_mois)):
         if i < mois_dca:
-            portefeuille_dca += somme_par_mois  # Investissement d'abord
-        
-        # Croissance de tout le portefeuille
-        portefeuille_dca *= (1 + rendements_mois.iloc[i])  # Puis croissance
+            portefeuille_dca += somme_par_mois
+        # PLUS BESOIN de vérifier les NaN grâce au fillna(0)
+        portefeuille_dca *= (1 + rendements_mois.iloc[i])
         rendements_dca.append(round(portefeuille_dca, 2))
 
-    # Calcul du rendement LP
-    rendements_lumpsum = (somme_investie * (1 + rendements_mois).cumprod()).round(2).tolist()
-    
-    
-    # On aligne la taille avec df_rendement, car pct_change() enlève le premier mois
-    data_financiere = data_financiere.iloc[1:]  # on enlève le premier mois (NaN dans pct_change)
-    data_financiere['Rendement LS'] = rendements_lumpsum
-    data_financiere['Rendement DCA'] = rendements_dca
+    #=============================== Calcul LumpSum ===============================
+    rendements_lumpsum = []
+    portefeuille_lumpsum = somme_investie
+    for i in range(len(rendements_mois)):
+        portefeuille_lumpsum *= (1 + rendements_mois.iloc[i])
+        rendements_lumpsum.append(round(portefeuille_lumpsum, 2))
 
-    return data_financiere
+    #=============================== CORRECTION CRITIQUE : Alignement ===============================
+    # data_financiere a N lignes, rendements_mois a N lignes, mais les calculs ont N lignes
+    # On doit enlever la première ligne de data_financiere pour l'alignement
+    data_resultats = data_financiere.iloc[1:].copy()  # ⬅️ LIGNE CRITIQUE AJOUTÉE
+    data_resultats['Rendement LS'] = rendements_lumpsum
+    data_resultats['Rendement DCA'] = rendements_dca
+
+    return data_resultats
 
 df = calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, ticker = "^GSPC")
-
 
 ################################### DF POUR GRAPHIQUE BAR ###################################
 def calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24], somme_investie=100000, ticker="S&P 500"):
