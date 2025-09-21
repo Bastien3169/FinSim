@@ -84,6 +84,8 @@ def csv_indices(dossier_csv = "csv/"):
     
     # Appels avec jointure automatique du chemin
     df_cac40 = get_stock_data(tickers_yf["CAC40"], "CAC 40", "^FCHI", os.path.join(dossier_csv, "composition_france.csv"))
+    df_sp500 = get_stock_data(tickers_yf["SP500"], "S&P 500", "^GSPC", os.path.join(dossier_csv, "composition_sp500.csv"))
+
 '''    df_dax40 = get_stock_data(tickers_yf["DAX40"], "DAX", "^GDAXI", os.path.join(base_csv_path, "composition_dax.csv"))
     df_italie40 = get_stock_data(tickers_yf["Italie40"], "FTSE MIB Index", "FTSEMIB.MI", os.path.join(base_csv_path, "composition_italie.csv"))
     df_espagne35 = get_stock_data(tickers_yf["Espagne35"], "IBEX 35", "^IBEX", os.path.join(base_csv_path, "composition_espagne.csv"))
@@ -96,7 +98,6 @@ def csv_indices(dossier_csv = "csv/"):
     df_suede = get_stock_data(tickers_yf["Suède30"], "OMX Stockholm 30", "^OMXS30", os.path.join(base_csv_path, "composition_suede.csv"))
     df_danemark = get_stock_data(tickers_yf["Danemark25"], "OMX Copenhagen 25", "^OMXC25", os.path.join(base_csv_path, "composition_danemark.csv"))
     df_stoxx50 = get _stock_data(tickers_yf["STOXX50"], "STOXX 50", "^STOXX50E", os.path.join(base_csv_path, "composition_europe50.csv"))
-    df_sp500 = get_stock_data(tickers_yf["SP500"], "S&P 500", "^GSPC", os.path.join(base_csv_path, "composition_sp500.csv"))
     df_japon225 = get_stock_data(tickers_yf["Japon225"], "Nikkei 225", "^N225", os.path.join(base_csv_path, "composition_japon.csv"))
 
     '''
