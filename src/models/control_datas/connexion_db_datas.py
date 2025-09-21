@@ -71,7 +71,7 @@ class FinanceDatabaseIndice:
             df = pd.read_sql(query, conn, params=(selected_indice,))
         if not df.empty:
             df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
-            df = df.set_index("Date").resample("W").last().reset_index()
+            df = df.sort_values("Date").reset_index(drop=True)
         return df
 
     
