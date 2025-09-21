@@ -4,8 +4,8 @@ streamlit-authenticator==0.4.2
 streamlit-cookies-manager==0.2.0
 extra-streamlit-components==0.1.80
 
-pandas==2.1.2
-numpy==1.26.1
+pandas==2.2
+numpy==1.26.4
 plotly==6.1.2
 matplotlib==3.9.4
 seaborn==0.13.2
