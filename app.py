@@ -10,6 +10,9 @@ from base64 import b64encode # Convertir le chemin en une URL utilisable avec `s
 #import etf_app  # Si tu as du code pour les ETF
 #import lp_dca_app  # Si tu as du code pour DCA vs LumpSum
 #import con_user_app
+# Mettre venv : source .venv/bin/activate
+# Arreter venv : deactivate
+
 ############################################### MISE EN PLACE DU CSS + IMAGE ###############################################
 st.set_page_config(layout="wide", page_title="Accueil", page_icon="🏛️")
 

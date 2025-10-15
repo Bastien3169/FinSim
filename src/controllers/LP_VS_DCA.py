@@ -48,8 +48,8 @@ def calcul_rendement(duree_invest=1, somme_investie=100000, mois_dca=6, ticker="
         rendements_lumpsum.append(round(portefeuille_lumpsum, 2))
 
     #=============================== Alignement ===============================
-    data_financiere['Rendement LS'] = rendements_lumpsum
-    data_financiere['Rendement DCA'] = rendements_dca
+    data_financiere['LS'] = rendements_lumpsum
+    data_financiere['DCA'] = rendements_dca
 
     return data_financiere
 
@@ -78,14 +78,14 @@ def calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24
             if df.empty:
                 listes_dca[i].append(None)
             else:
-                listes_dca[i].append(round(df["Rendement DCA"].iloc[-1], 1))
+                listes_dca[i].append(round(df["DCA"].iloc[-1], 1))
         
         # Je calcule LumpSum (je prends le premier DCA)
         df = calcul_rendement(duree_invest=duree, somme_investie=somme_investie, mois_dca=mois_dca_list[0], ticker=ticker)
         if df.empty:
             lumpsum.append(None)
         else:
-            lumpsum.append(round(df["Rendement LS"].iloc[-1], 1))
+            lumpsum.append(round(df["LS"].iloc[-1], 1))
     
     # Je crée mon dictionnaire pour le DataFrame
     data = {'Année': annees}
@@ -220,7 +220,7 @@ def graphe_line(df, somme_investie=100000):
             # Ajout de la trace au graphique
             fig.add_trace(go.Scatter(
                 x=mois['Date'],
-                y=mois['Rendement DCA'],
+                y=mois['DCA'],
                  mode='lines',
                 name=nom_trace,
                 line=dict(width=1.5, dash='dash', color=couleurs_dca[i % len(couleurs_dca)]), # Couleur cyclique
@@ -243,7 +243,7 @@ def graphe_line(df, somme_investie=100000):
         # Ajout de la trace au graphique
         fig.add_trace(go.Scatter(
             x=df_filtered['Date'],
-            y=df_filtered['Rendement LS'],
+            y=df_filtered['LS'],
             mode='lines',
             name=nom_trace,
             line=dict(width=2, color=couleurs_lump[j % len(couleurs_lump)]), # Couleur cyclique

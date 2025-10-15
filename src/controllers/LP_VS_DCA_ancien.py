@@ -73,8 +73,8 @@ def calcul_rendement(duree_invest = 1 , somme_investie = 100000, mois_dca = 6, t
     
     # On aligne la taille avec df_rendement, car pct_change() enlève le premier mois
     data_financiere = data_financiere.iloc[1:]  # on enlève le premier mois (NaN dans pct_change)
-    data_financiere['Rendement LS'] = rendements_lumpsum
-    data_financiere['Rendement DCA'] = rendements_dca
+    data_financiere['LS'] = rendements_lumpsum
+    data_financiere['DCA'] = rendements_dca
 
     return data_financiere
 
@@ -103,14 +103,14 @@ def calcul_rendements_durations(durees=range(1, 26), mois_dca_list=[3, 6, 12, 24
             if df.empty:
                 listes_dca[i].append(None)
             else:
-                listes_dca[i].append(round(df["Rendement DCA"].iloc[-1], 1))
+                listes_dca[i].append(round(df["DCA"].iloc[-1], 1))
         
         # Je calcule LumpSum (je prends le premier DCA)
         df = calcul_rendement(duree_invest=duree, somme_investie=somme_investie, mois_dca=mois_dca_list[0], ticker=ticker)
         if df.empty:
             lumpsum.append(None)
         else:
-            lumpsum.append(round(df["Rendement LS"].iloc[-1], 1))
+            lumpsum.append(round(df["LS"].iloc[-1], 1))
     
     # Je crée mon dictionnaire pour le DataFrame
     data = {'Année': annees}
