@@ -25,8 +25,9 @@ with open("src/assets/css/streamlit.css") as css:
 st.markdown(f"""<div class="main-container"><h1>LES ETFs</h1></div>""", unsafe_allow_html=True)
 
 st.markdown(f"""<div class="main-container"><p>
-Comming soon...
+Coming soon...
 </p></div>""", unsafe_allow_html=True)
 
 # Footer en bas de page
 st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)
+
