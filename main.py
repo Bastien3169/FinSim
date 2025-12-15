@@ -1,45 +1,79 @@
 import streamlit as st
 
-# ✅ CONFIGURATION GLOBALE (UNE SEULE FOIS)
+# ---------------------------------------------------------
+# CONFIG GLOBALE
+# ---------------------------------------------------------
+st.set_page_config(
+    layout="wide",
+    page_title="FinSim",
+    page_icon="🏛️"
+)
 
-st.set_page_config(layout="wide", page_title="FinSim", page_icon="🏛️")
-
+# ---------------------------------------------------------
+# IMPORTS
+# ---------------------------------------------------------
 from auth import login_page
-from home import home_page
+from src.views.home import home_page
+from src.views.indices import indices_page
 from src.models.users_db.models_db_users_test import AuthManager
 
-# ---------------------------------------------------------
-# ✅ INITIALISATION AUTH MANAGER
-# ---------------------------------------------------------
-if "auth_manager" not in st.session_state:
-    st.session_state.auth_manager = AuthManager(db_path="users.db")
 
 # ---------------------------------------------------------
-# ✅ ÉTAT GLOBAL
+# 🔴 AUTH MANAGER — AVANT TOUT
 # ---------------------------------------------------------
-if "auth" not in st.session_state:
-    st.session_state.auth = False
+auth_manager = AuthManager(db_path="users.db")
 
-if "user_role" not in st.session_state:
-    st.session_state.user_role = None
+# ---------------------------------------------------------
+# AUTO-LOGIN (RESTER CONNECTÉ)
+# ---------------------------------------------------------
+user = auth_manager.get_current_user()
+
+if not user:
+    login_page(auth_manager)
+    st.stop()
+
+# ---------------------------------------------------------
+# SESSION STREAMLIT = REFLET DE L’AUTH (PAS SOURCE)
+# ---------------------------------------------------------
+st.session_state.auth = True
+st.session_state.user_role = user["role"]
+st.session_state.user_email = user["email"]
 
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-def go_to(page):
+
+# ---------------------------------------------------------
+# NAVIGATION
+# ---------------------------------------------------------
+def go_to(page: str):
     st.session_state.page = page
+    st.rerun()
+
 
 # ---------------------------------------------------------
-# ✅ ROUTAGE PRINCIPAL
+# ROUTER
 # ---------------------------------------------------------
-if not st.session_state.auth:
-    # ✅ Passe auth_manager à la page de login
-    login_page(st.session_state.auth_manager)
+def router():
+    page = st.session_state.page
 
-else:
-    # Affiche la bonne page
-    if st.session_state.page == "home":
-        home_page(go_to)
-    
-    # elif st.session_state.page == "indices":
-    #     indices_page(go_to)
+    routes = {
+        "home": lambda: home_page(go_to, auth_manager),
+        "indices": lambda: indices_page(go_to),
+    }
+
+    if page not in routes:
+        st.session_state.page = "home"
+        st.rerun()
+
+    if page == "admin" and st.session_state.user_role != "admin":
+        st.error("⛔ Accès interdit")
+        return
+
+    routes[page]()
+
+
+# ---------------------------------------------------------
+# APP
+# ---------------------------------------------------------
+router()
