@@ -1,6 +1,7 @@
 import streamlit as st
 from base64 import b64encode
 from src.models.users_db.models_db_users_test import AuthManager
+from src.components.components_views import *
 
 
 def home_page(go_to, auth_manager):
@@ -8,33 +9,18 @@ def home_page(go_to, auth_manager):
     # ---------------------------------------------------------
     # CSS et assets
     # ---------------------------------------------------------
-    with open("src/assets/css/streamlit.css") as css:
-        st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
+    load_css()
 
     image_path = "src/assets/images/indices.jpeg"
     with open(image_path, "rb") as img_file:
         encoded = b64encode(img_file.read()).decode()
 
-    st.markdown(
-        f"""
-        <div class="main-container">
-            <img src="data:image/jpeg;base64,{encoded}" class="center-image">
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    st.markdown(f""" <div class="main-container"><img src="data:image/jpeg;base64,{encoded}" class="center-image"> </div> """, unsafe_allow_html=True,)
 
     # ---------------------------------------------------------
     # TITRE
     # ---------------------------------------------------------
-    st.markdown(
-        """
-        <div class="main-container">
-            <h1>🏠 Bienvenue sur FinSim</h1>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    st.markdown( """<div class="main-container"><h1>🏠 Bienvenue sur FinSim</h1></div>""",unsafe_allow_html=True,)
 
     # ---------------------------------------------------------
     # TEXTE INTRO
@@ -122,11 +108,4 @@ def home_page(go_to, auth_manager):
     # ---------------------------------------------------------
     # FOOTER
     # ---------------------------------------------------------
-    st.markdown(
-        """
-        <div class="footer">
-            © 2025 Bastien M. - Projet finance — Tous droits réservés.
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    footer()

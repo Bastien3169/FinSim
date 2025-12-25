@@ -9,31 +9,22 @@ from pathlib import Path
 # ========================================
 def load_css(css_path="src/assets/css/streamlit.css"):
     # Charger le fichier CSS pour le style personnalisé
-    try:
-        css_file = Path(css_path)
-        if css_file.exists():
-            with open(css_file, "r", encoding="utf-8") as f:
-                st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        else:
-            st.warning(f"⚠️ CSS non trouvé : {css_path}")
-    except Exception as e:
-        st.error(f"❌ Erreur chargement CSS : {e}")
-
+    with open(css_path) as css:
+        st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
 # ========================================
 # 2. COMPOSANTS UI
 # ========================================
-def page_title(title, with_back_button=True, back_callback=None):
+def display_page_title(title):
     st.markdown(f"""<div class="main-container"><h1>{title}</h1></div>""", unsafe_allow_html=True)
-    
-    if with_back_button and back_callback:
-        if st.button("⬅️ Retour à l'accueil"):
-            back_callback("home")
-            return True
+
+def bout_accueil(back_callback, label="⬅️ Retour à l'accueil"):
+    if st.button(label):
+        back_callback("home")
+        return True
     return False
 
-
-def footer(text="© 2025 Bastien M. - Projet finance"):
+def footer(text="© 2025 Bastien M. - FinSim — Tous droits réservés."):
     st.markdown(f"""<div class="footer">{text}</div>""", unsafe_allow_html=True)
 
 
@@ -97,10 +88,10 @@ def display_rendement_section(datas_manager, infos_df, liste_actifs, actif_defau
 
     # Suppression des périodes
     for i in range(0, len(st.session_state.periods), 10):
-        cols = st.columns(min(10, len(st.session_state.periods) - i))
+        cols = st.columns(10, gap="small")
         for idx, p in enumerate(st.session_state.periods[i:i+10]):
             with cols[idx]:
-                if st.button(f"❌ {p}m", key=f"remove_{p}"):
+                if st.button(f"❌ {p}m", key=f"remove_{p}", use_container_width=True):
                     st.session_state.periods.remove(p)
                     st.session_state.rendement_data = pd.DataFrame()
                     st.rerun()
@@ -124,37 +115,51 @@ def display_rendement_section(datas_manager, infos_df, liste_actifs, actif_defau
 
         df_rend = calculate_rendement_func(df_prix, periods)
 
-        info = infos_df[infos_df["Short_Name_Indice"] == actif]
-        if not info.empty:
-            for col in ["Ticker_Indice_Yf", "Place_Boursiere_Indice","Nombres_Entreprises", "Devise"]:
-                if col in info.columns:
-                    df_rend[col] = info.iloc[0][col]
-
         st.session_state.rendement_data = st.session_state.rendement_data.drop(actif, errors="ignore")
 
         st.session_state.rendement_data = pd.concat([st.session_state.rendement_data, pd.DataFrame(df_rend, index=[actif])])
 
     # -------------------- AFFICHAGE --------------------
     if not st.session_state.rendement_data.empty and selected_actifs:
-        cols_order = [f"{p} mois" for p in periods] + ["Ticker_Indice_Yf", "Place_Boursiere_Indice", "Nombres_Entreprises", "Devise"]
+        cols_order = [f"{p} mois" for p in periods] 
         cols_order = [c for c in cols_order if c in st.session_state.rendement_data.columns]
 
         df_display = st.session_state.rendement_data[cols_order].loc[selected_actifs]
-        st.dataframe(style_rendement_func(df_display, periods), use_container_width=True)
+        
+        # Renommer l'index pour afficher "Indices" en en-tête
+        df_display.index.name = actif_type.capitalize() + "s"
+        
+        styled_df = style_rendement_func(df_display, periods) 
+        
+        # Configuration pour agrandir la colonne
+        column_config = {df_display.index.name: st.column_config.TextColumn(df_display.index.name, width="medium",)}
+        
+        # Ajout de column_config
+        st.dataframe(styled_df, use_container_width=True, column_config=column_config)
     else:
         st.info(f"📊 Sélectionnez des {actif_type}s pour afficher les rendements")
 
 
 # ========================================
-# 5. COMPOSITION
+# 5. INFOS ACTIF + COMPOSITION
 # ========================================
-def display_composition_section(datas_manager, liste_actifs, actif_default, actif_type="indice"):
+def infos_composition_actif(datas_manager, liste_actifs, actif_default, actif_type="indice"):
     
     selected_comp = st.selectbox(f"Choisissez un {actif_type}", liste_actifs, index=liste_actifs.index(actif_default) if actif_default in liste_actifs else 0)
+
+    st.markdown("---")
+
+    df_infos= datas_manager.get_infos_indices(selected_comp)
     
     df_comp = datas_manager.get_composition_indice(selected_comp)
     
     if not df_comp.empty:
+        st.subheader("ℹ️ Informations sur l’indice")
+        st.dataframe(df_infos, use_container_width=True)
+
+        st.markdown("---")
+        
+        st.subheader("🧩 Composition de l’indice")
         st.dataframe(df_comp, use_container_width=True)
     else:
         st.info("Aucune donnée disponible.")
