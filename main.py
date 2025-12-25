@@ -3,11 +3,7 @@ import streamlit as st
 # ---------------------------------------------------------
 # CONFIG GLOBALE
 # ---------------------------------------------------------
-st.set_page_config(
-    layout="wide",
-    page_title="FinSim",
-    page_icon="🏛️"
-)
+st.set_page_config(layout="wide", page_title="FinSim", page_icon="🏛️")
 
 # ---------------------------------------------------------
 # IMPORTS

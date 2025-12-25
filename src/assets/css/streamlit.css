@@ -5,6 +5,11 @@ html, body, #root, .main-container {
     width: 100%;
 }
 
+/* Supprime le padding top du container principal */
+div.stMainBlockContainer.block-container {
+    padding-top: 0rem !important;  /* ajuste à 0 ou 0.5rem si besoin */
+}
+
 /* Police */
 p {
     font-weight: 600;  /* Rendre le texte plus épais (plus gras) */
@@ -44,7 +49,8 @@ display: none !important;
 
 .main-container h2 {
     padding: 8px;
-    margin: 15px auto;
+    margin-top: 50px !important;
+    margin-bottom: 10px !important;
     font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid #00B388;
 }

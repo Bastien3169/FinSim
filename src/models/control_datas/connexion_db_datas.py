@@ -18,13 +18,19 @@ class FinanceDatabaseStocks:
     def get_list_stocks(self):
         #Récupérer la liste des entreprises
         with sqlite3.connect(self.db_path) as conn:
-            df = pd.read_sql("SELECT DISTINCT Short_Name_Stocks FROM stocks_infos_par_indice", conn)
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Stocks FROM stocks_infos", conn)
         return df["Short_Name_Stocks"].tolist()
     
   
-    def get_infos_stocks(self):
+    def get_infos_stocks(self, short_name=None):
         with sqlite3.connect(self.db_path) as conn:
-            df = pd.read_sql("SELECT * FROM stocks_infos_par_indice", conn)
+            query = "SELECT * FROM stocks_infos"
+            if short_name:
+                query += " WHERE Short_Name_Stocks = ?"
+                df = pd.read_sql(query, conn, params=(short_name,))
+            else:
+                df = pd.read_sql(query, conn)
+
         # Supprimer les doublons sur la colonne d'identification de l'entreprise
         df = df.drop_duplicates(subset=["Short_Name_Stocks"])
         return df
@@ -58,9 +64,9 @@ class FinanceDatabaseIndice:
         return df["Short_Name_Indice"].tolist()
     
   
-    def get_infos_indices(self):
+    def get_infos_indices(self, selected_indice):
         with sqlite3.connect(self.db_path) as conn:
-            df = pd.read_sql("SELECT * FROM indices_infos", conn)
+            df = pd.read_sql("SELECT * FROM indices_infos WHERE Short_Name_Indice = ?", conn, params=(selected_indice,))
         return df
 
 
@@ -82,7 +88,7 @@ class FinanceDatabaseIndice:
                 query = """
                SELECT 
                 	s.*
-                FROM stocks_infos_par_indice s
+                FROM stocks_infos s
                 JOIN indices_infos i ON s.Ticker_Indice_Yf = i.Ticker_Indice_Yf
                 WHERE i.Short_Name_Indice =  ?
                 ORDER BY s.Short_Name_Stocks
@@ -93,6 +99,48 @@ class FinanceDatabaseIndice:
             print(f"Erreur: {e}")
             return pd.DataFrame()
 
+
+################################## CONNEXION BD POUR DATAS ET HIST CRYPTOS  ##################################
+
+class FinanceDatabaseCryptos:
+#Classe pour gérer les interactions avec la base de données SQLite des actifs financiers.
+
+    # Chemin de la base de données (modifiable à un seul endroit)
+    def __init__(self, db_path="data.db"):
+        self.db_path = db_path
+
+    
+    def get_list_cryptos(self):
+        #Récupérer la liste des entreprises
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Cryptos FROM crypto_infos", conn)
+        return df["Short_Name_Cryptos"].tolist()
+    
+  
+    def get_infos_cryptos(self, short_name=None):
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT * FROM crypto_infos"
+            if short_name:
+                query += " WHERE Short_Name_Cryptos = ?"
+                df = pd.read_sql(query, conn, params=(short_name,))
+            else:
+                df = pd.read_sql(query, conn)
+
+        # Supprimer les doublons sur la colonne d'identification de l'entreprise
+        df = df.drop_duplicates(subset=["Short_Name_Cryptos"])
+        return df
+
+
+    def get_prix_date(self, actif):
+        #Récupérer les données de l'actif pour le graphique
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT Date, Close FROM historique_cryptos WHERE Short_Name_Cryptos = ? ORDER BY Date"
+            df = pd.read_sql(query, conn, params=(actif,))
+        if not df.empty:
+            df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
+            df = df.sort_values("Date").reset_index(drop=True)
+        return df
+    
 
 ####################################### CALCUL RENDEMENTS ACTIFS #######################################
 
