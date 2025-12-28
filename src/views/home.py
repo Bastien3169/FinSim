@@ -92,7 +92,7 @@ def home_page(go_to, auth_manager):
 
     with col6:
         if st.button("🪙 DCA vs LP", use_container_width=True):
-            go_to("dca_vs_lp")
+            go_to("dca_vs_ls")
             st.rerun()
 
     col7, col8, col9 = st.columns(3)

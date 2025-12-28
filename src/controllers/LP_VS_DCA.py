@@ -1,8 +1,6 @@
 import yfinance as yf
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.colors as pc
@@ -169,7 +167,7 @@ def graphe_barre(df_resultats):
     # Configuration graphique
     fig.update_layout(
         barmode='group',
-        title="Comparaison des rendements DCA vs Lump Sum sur différentes périodes",
+        #title="Comparaison des rendements DCA vs Lump Sum sur différentes périodes",
         xaxis_title="Durée de l'investissement (années)",
         yaxis_title="Valeur finale (€)",
         legend_title="Méthode d'investissement",
@@ -261,7 +259,7 @@ def graphe_line(df, somme_investie=100000):
         method="update",                        # Méthode Plotly pour mettre à jour
         args=[
             {"visible": [True] * len(trace_info)},  # Rendre toutes les traces visibles
-            {"title": f"Performance DCA vs LumpSum (Investissement: {somme_investie:,.0f}€)"}
+            #{"title": f"Performance DCA vs LumpSum (Investissement: {somme_investie:,.0f}€)"}
             ])]
 
     # Création d'un bouton pour chaque durée
@@ -274,7 +272,7 @@ def graphe_line(df, somme_investie=100000):
             method="update", # Méthode Plotly de maj
             args=[
                 {"visible": visible_traces}, # Masque de visibilité des traces
-                {"title": f"Performance DCA vs LumpSum - {duree} ans"} # Nouveau titre
+                #{"title": f"Performance DCA vs LumpSum - {duree} ans"} 
             ])) 
     
 # ================================== CONFIGURATION GRAPH ================================== #
@@ -282,7 +280,7 @@ def graphe_line(df, somme_investie=100000):
 
         # Configuration du titre
         title=dict(
-            text=f"Performance DCA vs LumpSum (Investissement: {somme_investie:,.0f}€)",
+            text=" ",
             x=0.5,
             y=0.95,  # Monte le titre
             xanchor='center',
