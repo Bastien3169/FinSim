@@ -218,7 +218,7 @@ def infos_actifs(datas_manager, liste_actifs, actif_default, actif_type="actif")
 # 7. TOUS LES ACTIFS RENDEMENTS COMPARATIFS V2
 # ========================================
 
-def display_multi_actifs_rendement_sectionV2(datas_indices,
+def display_multi_actifs_rendement_section(datas_indices,
                                              datas_stocks,
                                             datas_cryptos,
                                             liste_indices,
@@ -256,7 +256,7 @@ def display_multi_actifs_rendement_sectionV2(datas_indices,
         st.session_state[weights_key] = {indice_default: 33.33, stock_default: 33.33, crypto_default: 33.34}
 
     # -------------------- 3 DROPDOWNS --------------------
-    st.markdown("""<div class="main-container"><h2>💯 Rendements comparatifs des actifs (%)</h2></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="main-container"><h2>⚖️ Sélectionner les actifs à comparer</h2></div>""", unsafe_allow_html=True)
     st.write("**Sélectioner les actifs à comparer :**")
     
     col1, col2, col3 = st.columns(3)
@@ -286,8 +286,9 @@ def display_multi_actifs_rendement_sectionV2(datas_indices,
                 st.rerun()
 
     # -------------------- AFFICHAGE ACTIFS + PONDÉRATIONS --------------------
-    st.markdown("""<div class="main-container"><h2>👛 Fabrication du portefeuille (%)</h2></div>""", unsafe_allow_html=True)
-    st.write("**Sélectionner la pondérations des actifs sélectionnés pour votre portefeuille :**")
+    st.markdown("""<div class="main-container"><h2>👛 Séléctionner la composition du portefeuille (%)</h2></div>""", unsafe_allow_html=True)
+    st.write("**- Sélectionner la pondérations des actifs sélectionnés pour votre portefeuille.**  \n"
+            "**- Les pondération à 0% seront ignorées pour le calcul du rendement de votre portefeuille.**")
     
     # ✅ NOUVEAU : Inputs pour les pondérations
     if st.session_state[selected_key]:
@@ -331,7 +332,7 @@ def display_multi_actifs_rendement_sectionV2(datas_indices,
 
 
     # -------------------- GESTION DES PÉRIODES --------------------
-    st.markdown("""<div class="main-container"><h2>⏳ Périodes de rendement </h2></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="main-container"><h2>⏳ Sélectionner les périodes de rendement à analyser</h2></div>""", unsafe_allow_html=True)
     period_input = st.text_input("Ajouter des périodes de rendement (en mois), séparées par des virgules :", placeholder="Ex: 1,3,6,12", key=f"period_input_{actif_type}")
 
     if st.button("➕ Ajouter période", key=f"add_period_{actif_type}"):
@@ -422,7 +423,7 @@ def display_multi_actifs_rendement_sectionV2(datas_indices,
             st.session_state[rendement_key] = pd.concat([st.session_state[rendement_key], pd.DataFrame(portfolio_rendement, index=["👛 PORTEFEUILLE 👛"])])
 
     # -------------------- AFFICHAGE DATAFRAME--------------------
-    st.markdown("""<div class="main-container"><h2>📊📈 Rendements des actifs par période </h2></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="main-container"><h2>📋 Tableau récapitulatif des rendements par période </h2></div>""", unsafe_allow_html=True)
     st.write("**Tableau des rendements des actifs sélectionnés et de votre portefeuille :**")
     if not st.session_state[rendement_key].empty and selected_actifs:
         cols_order = [f"{p} mois" for p in periods]

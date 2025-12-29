@@ -6,24 +6,25 @@ from src.models.control_datas.connexion_db_datas import *
 from src.components.components_views import *
 
 def actifs_page(go_to):
-    """Page de comparaison multi-actifs"""
     
     # ================= CSS =================
     load_css()
     
     # ================= CONNEXIONS DB =================
+    db_path="data.db"
+
     # Indices
-    datas_indices = FinanceDatabaseIndice(db_path="data.db")
+    datas_indices = FinanceDatabaseIndice(db_path)
     liste_indices = datas_indices.get_list_indices()
     indice_default = "S&P 500"
     
     # Stocks
-    datas_stocks = FinanceDatabaseStocks(db_path="data.db")
+    datas_stocks = FinanceDatabaseStocks(db_path)
     liste_stocks = datas_stocks.get_list_stocks()
     stock_default = "Apple Inc."
     
     # Cryptos
-    datas_cryptos = FinanceDatabaseCryptos(db_path="data.db")
+    datas_cryptos = FinanceDatabaseCryptos(db_path)
     liste_cryptos = datas_cryptos.get_list_cryptos()
     crypto_default = "Bitcoin"
     
@@ -31,7 +32,7 @@ def actifs_page(go_to):
     display_page_title("COMPARAISON TOUS ACTIFS")
     
     # ================= RENDEMENTS MULTI-ACTIFS =================
-    display_multi_actifs_rendement_sectionV2(
+    display_multi_actifs_rendement_section(
         datas_indices=datas_indices,
         datas_stocks=datas_stocks,
         datas_cryptos=datas_cryptos,
