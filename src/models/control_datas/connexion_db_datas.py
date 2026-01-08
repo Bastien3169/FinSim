@@ -155,7 +155,7 @@ class FinanceDatabaseEtfs:
     def get_list_etfs(self):
         #Récupérer la liste des entreprises
         with sqlite3.connect(self.db_path) as conn:
-            df = pd.read_sql("SELECT DISTINCT Short_Name_Etf FROM etfs_infos", conn)
+            df = pd.read_sql("SELECT Short_Name_Etf FROM etfs_infos", conn)
         return df["Short_Name_Etf"].tolist()
     
   
@@ -168,8 +168,6 @@ class FinanceDatabaseEtfs:
             else:
                 df = pd.read_sql(query, conn)
 
-        # Supprimer les doublons sur la colonne d'identification de l'entreprise
-        df = df.drop_duplicates(subset=["Short_Name_Etf"])
         return df
 
 
