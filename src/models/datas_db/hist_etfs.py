@@ -48,6 +48,10 @@ def hist_etfs(csv_bdd):
         print("❌ Aucun historique récupéré.")
         df_hist = pd.DataFrame(columns=["Date", "Close", "Ticker_Etf_Yf", "Short_Name_Etf"])
 
+    # Filtrer le fichier infos pour ne garder que les tickers des ETFs avec historique
+    df_infos = pd.read_csv(os.path.join(csv_bdd, "etfs_infos.csv"), encoding="utf-8")
+    df_infos_filtre = df_infos.merge(df_hist[["Ticker_Etf_Yf"]].drop_duplicates(), on="Ticker_Etf_Yf", how="inner")
+    df_infos_filtre.to_csv(os.path.join(csv_bdd, "etfs_infos.csv"), index=False, encoding="utf-8")
 
 if __name__ == "__main__":
     hist_etfs(csv_bdd = "csv/csv_bdd/")

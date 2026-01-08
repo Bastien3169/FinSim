@@ -134,6 +134,9 @@ def infos_etfs(dossier_csv="csv", csv_bdd="csv/csv_bdd"):
     # Gaeder seulement les colonnes utiles
     df = df[["Short_Name_Etf", "Ticker_Etf_Yf", "Ticker_Etf", "Devise", "Place_Boursiere_Etf", "Volume_Moyen", "Frais_pct",]]
 
+    # Supprime les lignes avec "USD" dans la colonne Devise car c'est des doublons d'ETF déjà présents en EUR avec moins d'encours
+    df = df[df["Devise"] != "USD"]
+
     # Forcer types numériques si champs vide(important pour SQL)
     df["Volume_Moyen"] = pd.to_numeric(df["Volume_Moyen"], errors="coerce")
     df["Frais_pct"] = pd.to_numeric(df["Frais_pct"], errors="coerce")
