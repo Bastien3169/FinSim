@@ -309,6 +309,7 @@ def display_multi_actifs_rendement_section(datas_indices,
                     key=f"weight_{actif_type}_{actif}",
                     label_visibility="collapsed"
                 )
+                
                 st.session_state[weights_key][actif] = new_weight
             
             with col_remove:
@@ -334,8 +335,8 @@ def display_multi_actifs_rendement_section(datas_indices,
     # -------------------- GESTION DES PÉRIODES --------------------
     st.markdown("""<div class="main-container"><h2>⏳ Sélectionner les périodes de rendement à analyser</h2></div>""", unsafe_allow_html=True)
     period_input = st.text_input("Ajouter des périodes de rendement (en mois), séparées par des virgules :", placeholder="Ex: 1,3,6,12", key=f"period_input_{actif_type}")
-
-    if st.button("➕ Ajouter période", key=f"add_period_{actif_type}"):
+    # 
+    if st.button("➕ Ajouter", key=f"add_period_{actif_type}"):
         try:
             new_periods = [int(p.strip()) for p in period_input.split(",") if p.strip()]
             added = []
@@ -352,12 +353,17 @@ def display_multi_actifs_rendement_section(datas_indices,
             st.error("⚠️ Veuillez entrer uniquement des nombres")
 
     # Affichage et suppression des périodes
-    st.write("**Périodes actives :**")
-    if st.session_state[periods_key]:
-        cols = st.columns(len(st.session_state[periods_key]))
-        for idx, p in enumerate(st.session_state[periods_key]):
+    for i in range(0, len(st.session_state[periods_key]), 10):
+        batch = st.session_state[periods_key][i:i+10]
+        cols = st.columns(10, gap="small")  # colonnes fixes → alignement à gauche
+
+        for idx, p in enumerate(batch):
             with cols[idx]:
-                if st.button(f"❌ {p}m", key=f"remove_period_{actif_type}_{p}", type="secondary"):
+                if st.button(
+                    f"❌ {p}m",
+                    key=f"remove_period_{actif_type}_{p}",
+                    use_container_width=True
+                ):
                     st.session_state[periods_key].remove(p)
                     st.session_state[rendement_key] = pd.DataFrame()
                     st.rerun()
