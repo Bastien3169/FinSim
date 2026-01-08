@@ -13,8 +13,9 @@ from src.views.home import home_page
 from src.views.indices import indices_page
 from src.views.stocks import stocks_page
 from src.views.cryptos import cryptos_page
+from src.views.ETFs import etfs_page
 from src.views.dca_vs_ls import dca_vs_ls_page
-from src.views.tous_actifs import actifs_page
+from src.views.comparaison_actifs import actifs_page
 from src.models.users_db.models_db_users_test import AuthManager
 
 
@@ -62,8 +63,9 @@ def router():
         "indices": lambda: indices_page(go_to),
         "stocks": lambda: stocks_page(go_to),
         "cryptos": lambda: cryptos_page(go_to),
+        "etfs": lambda: etfs_page(go_to),
         "dca_vs_ls": lambda: dca_vs_ls_page(go_to),
-        "tous_actifs": lambda: actifs_page(go_to),
+        "comparaison_actifs": lambda: actifs_page(go_to),
     }
 
     if page not in routes:

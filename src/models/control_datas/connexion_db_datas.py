@@ -140,6 +140,48 @@ class FinanceDatabaseCryptos:
             df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
             df = df.sort_values("Date").reset_index(drop=True)
         return df
+
+
+################################## CONNEXION BD POUR DATAS ET HIST ETFs  ##################################
+
+class FinanceDatabaseEtfs:
+#Classe pour gérer les interactions avec la base de données SQLite des actifs financiers.
+
+    # Chemin de la base de données (modifiable à un seul endroit)
+    def __init__(self, db_path="data.db"):
+        self.db_path = db_path
+
+    
+    def get_list_etfs(self):
+        #Récupérer la liste des entreprises
+        with sqlite3.connect(self.db_path) as conn:
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Etf FROM etfs_infos", conn)
+        return df["Short_Name_Etf"].tolist()
+    
+  
+    def get_infos_etfs(self, short_name=None):
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT * FROM etfs_infos"
+            if short_name:
+                query += " WHERE Short_Name_Etf = ?"
+                df = pd.read_sql(query, conn, params=(short_name,))
+            else:
+                df = pd.read_sql(query, conn)
+
+        # Supprimer les doublons sur la colonne d'identification de l'entreprise
+        df = df.drop_duplicates(subset=["Short_Name_Etf"])
+        return df
+
+
+    def get_prix_date(self, actif):
+        #Récupérer les données de l'actif pour le graphique
+        with sqlite3.connect(self.db_path) as conn:
+            query = "SELECT Date, Close FROM historique_etfs WHERE Short_Name_Etf = ? ORDER BY Date"
+            df = pd.read_sql(query, conn, params=(actif,))
+        if not df.empty:
+            df["Date"] = pd.to_datetime(df["Date"], format="%d-%m-%Y")
+            df = df.sort_values("Date").reset_index(drop=True)
+        return df
     
 
 ####################################### CALCUL RENDEMENTS ACTIFS #######################################

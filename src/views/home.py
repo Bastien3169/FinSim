@@ -74,24 +74,24 @@ def home_page(go_to, auth_manager):
             st.rerun()
 
     with col3:
-        if st.button("📊 ETFs", use_container_width=True):
+        if st.button("💼 ETFs", use_container_width=True):
             go_to("etfs")
             st.rerun()
 
     col4, col5, col6 = st.columns(3)
 
     with col4:
-        if st.button("🪙 Cryptos", use_container_width=True):
+        if st.button("₿ Cryptos", use_container_width=True):
             go_to("cryptos")
             st.rerun()
 
     with col5:
-        if st.button("🪙 Tous actifs", use_container_width=True):
-            go_to("tous_actifs")
+        if st.button("🆚 Comparaison des actifs", use_container_width=True):
+            go_to("comparaison_actifs")
             st.rerun()
 
     with col6:
-        if st.button("🪙 DCA vs LP", use_container_width=True):
+        if st.button("🧪 DCA vs LS", use_container_width=True):
             go_to("dca_vs_ls")
             st.rerun()
 
