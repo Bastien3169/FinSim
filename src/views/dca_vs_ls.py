@@ -5,17 +5,14 @@ import pandas as pd
 import plotly.graph_objects as go
 from src.controllers.LP_VS_DCA import *
 from src.models.control_datas.connexion_db_datas import *
+from src.components.components_views import *
 
 
 def dca_vs_ls_page(go_to):
     ############################################ MISE EN PLACE DU CSS + IMAGE ############################################
-    # Chargement du fichier CSS
-    with open("src/assets/css/streamlit.css") as css:
-        st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
+    load_css()
 
-    # CSS titre principal
-    #st.title("📊 LES INDICES BOURSIERS")
-    st.markdown(f"""<div class="main-container"><h1>LUMP SUM VS DCA</h1></div>""", unsafe_allow_html=True)
+    display_page_title("LUMP SUM VS DCA")
         
     ################################## CONNEXION .db ET RECUPERATION DATAS ET VARIABLES STREAMLIT ##################################
         
@@ -94,6 +91,9 @@ def dca_vs_ls_page(go_to):
         st.dataframe(df.tail(100), use_container_width=True)
     
 
+        # =============== Bouton retour accueil ================
+        bout_accueil(back_callback=go_to)
 
-    ############################################### FOOTER ###############################################
-    st.markdown("""<div class="footer"> © 2025 Bastien M. - Projet finance — Tous droits réservés.</div>""", unsafe_allow_html=True)
+        
+        # =============== Footer ================
+        footer()

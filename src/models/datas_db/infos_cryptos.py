@@ -48,7 +48,7 @@ def infos_cryptos(dossier_csv="csv", csv_bdd="csv/csv_bdd"):
     #df = df[df["Short_Name_Cryptos"] != "Wrapped SOL"]
 
     # Sauvegarde du fichier
-    df.to_csv(("csv/csv_bdd/crypto_infos.csv"))
+    df.to_csv(("csv/csv_bdd/cryptos_infos.csv"), index=False, encoding="utf-8")
 
     return df
 
