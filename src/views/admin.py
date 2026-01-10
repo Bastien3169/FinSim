@@ -294,8 +294,7 @@ def admin_page(go_to):
                         # Changer rôle utilisateur
                         st.markdown(
                             f"""<div class="main-container"><h3>Modifier rôle utilisateur</h3></div>""", unsafe_allow_html=True)
-                        new_role = st.radio(
-                            "", ['admin', 'user'], index=0 if role == 'admin' else 1)
+                        new_role = st.radio("", ['admin', 'user'], index=0 if role == 'admin' else 1)
 
                         # Réinitialisation d'un mdp par '0000'
                         st.markdown(
