@@ -8,7 +8,7 @@ def etfs_page(go_to):
 
     # Variables de configuration
     ACTIF_TYPE = "etf"
-    ACTIF_DEFAULT = "BNP Paribas Easy MSCI World UCI"
+    ACTIF_DEFAULT = "Amundi NYSE Arca Gold"
     
     datas_actif = FinanceDatabaseEtfs(db_path="data.db")
     liste_actif = datas_actif.get_list_etfs()

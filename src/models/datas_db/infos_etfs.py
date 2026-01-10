@@ -141,6 +141,9 @@ def infos_etfs(dossier_csv="csv", csv_bdd="csv/csv_bdd"):
     df["Volume_Moyen"] = pd.to_numeric(df["Volume_Moyen"], errors="coerce")
     df["Frais_pct"] = pd.to_numeric(df["Frais_pct"], errors="coerce")
 
+    df = df.sort_values("Volume_Moyen", ascending=False)
+    df = df.drop_duplicates(subset="Short_Name_Etf", keep="first")
+
     # Sauvegarde du fichier csv
     df.to_csv(os.path.join(csv_bdd, "etfs_infos.csv"), index=False, encoding="utf-8")
 
