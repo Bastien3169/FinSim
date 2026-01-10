@@ -174,8 +174,6 @@ def infos_actifs(datas_manager, liste_actifs, actif_default, actif_type="actif")
     # Sélection de l'actif
     selected_comp = st.selectbox(f"Choisissez un {actif_type}", liste_actifs, index=liste_actifs.index(actif_default) if actif_default in liste_actifs else 0)
 
-    st.markdown("---")
-
     # Choix dynamique de la méthode à appeler selon le type d'actif
     if actif_type == "indice":
         if hasattr(datas_manager, "get_infos_indices"):
@@ -207,7 +205,6 @@ def infos_actifs(datas_manager, liste_actifs, actif_default, actif_type="actif")
 
     # Affichage
     if not df_infos.empty:
-        st.subheader(f"ℹ️ Informations sur le {actif_type}")
         st.dataframe(df_infos, use_container_width=True)
     else:
         st.info("Aucune donnée disponible.")
