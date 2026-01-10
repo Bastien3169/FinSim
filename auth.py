@@ -1,11 +1,12 @@
 import streamlit as st
+from src.components.components_views import *
 
 def login_page(auth_manager):
-    # CSS
-    with open("src/assets/css/streamlit.css") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    # ================= CSS =================
+    load_css()
 
-    st.markdown('<h1>🔐 AUTHENTIFICATION FinSim</h1>', unsafe_allow_html=True)
+    # =============== Titre de la page ================
+    display_page_title("🔐 AUTHENTIFICATION FinSim")
 
     email = st.text_input("📧 Email", key="login_email")
     password = st.text_input("🔒 Mot de passe", type="password", key="login_password")

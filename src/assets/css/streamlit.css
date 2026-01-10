@@ -7,7 +7,7 @@ html, body, #root, .main-container {
 
 /* Supprime le padding top du container principal */
 div.stMainBlockContainer.block-container {
-    padding-top: 0rem !important;  /* ajuste à 0 ou 0.5rem si besoin */
+    padding-top: 3rem !important;  /* ajuste à 0 ou 0.5rem si besoin */
 }
 
 /* Police */

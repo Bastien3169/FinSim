@@ -113,13 +113,13 @@ class FinanceDatabaseCryptos:
     def get_list_cryptos(self):
         #Récupérer la liste des entreprises
         with sqlite3.connect(self.db_path) as conn:
-            df = pd.read_sql("SELECT DISTINCT Short_Name_Cryptos FROM crypto_infos", conn)
+            df = pd.read_sql("SELECT DISTINCT Short_Name_Cryptos FROM cryptos_infos", conn)
         return df["Short_Name_Cryptos"].tolist()
     
   
     def get_infos_cryptos(self, short_name=None):
         with sqlite3.connect(self.db_path) as conn:
-            query = "SELECT * FROM crypto_infos"
+            query = "SELECT * FROM cryptos_infos"
             if short_name:
                 query += " WHERE Short_Name_Cryptos = ?"
                 df = pd.read_sql(query, conn, params=(short_name,))
