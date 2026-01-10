@@ -150,3 +150,74 @@ class AuthManager(BaseDBManager):
         with sqlite3.connect(self.db_path) as conn:
             conn.execute("DELETE FROM sessions WHERE expires_at <= ?", (date_now,))
             conn.commit()
+
+
+class AdminManager(BaseDBManager):
+#--------------------------- Initialisation et et lancement de "super().init_db()" ---------------------------#
+    def __init__(self, db_path="users.db"):
+        super().__init__(db_path) # appelle init_db via la classe parente
+
+   
+#--------------------------- Hachage du mot de passe ---------------------------#
+    def hash_password(self, password):
+        return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode('utf-8')
+
+
+#--------------------------- Afficher tous les utilisateurs ---------------------------#
+    def get_all_users(self):
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            c.execute("SELECT id, username, email, role, registration_date FROM users")
+            return c.fetchall()
+
+    
+#--------------------------- Trouver un utilisateur par email/username ---------------------------#
+    def get_user_by_email_username(self, search):
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            c.execute("SELECT id, username, email, role, registration_date FROM users WHERE email = ? OR username = ?", (search, search))
+            return c.fetchone()  # Récupère l'utilisateur par son email
+
+     
+#--------------------------- Modifier un utilisateur ---------------------------#
+    def update_user(self, email, username=None, password=None, role=None):
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            
+            # Requête de mise à jour pour un utilisateur en fonction de l'email
+            fields = []
+            values = []
+    
+            if username:
+                fields.append("username = ?")
+                values.append(username)
+            if password:
+                hashed = self.hash_password(password)
+                fields.append("password = ?")
+                values.append(hashed)
+            if role:
+                fields.append("role = ?")
+                values.append(role)
+    
+            # Vérification si au moins un champ a été modifié
+            if not fields:
+                return "Aucune modification à effectuer."
+    
+            # Ajout de l'email pour effectuer la mise à jour sur l'utilisateur trouvé par email
+            values.append(email)
+            query = f"UPDATE users SET {', '.join(fields)} WHERE email = ?"
+            c.execute(query, values)
+            conn.commit()
+            return f"✅ Utilisateur avec l'email '{email}' modifié avec succès."
+
+    
+#--------------------------- Supprimer un utilisateur ---------------------------#
+    def delete_user(self, email):
+        
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            
+            c.execute("DELETE FROM users WHERE email = ?", (email,))
+            
+            conn.commit()
+            return f"🗑️ Utilisateur avec email {email} supprimé."

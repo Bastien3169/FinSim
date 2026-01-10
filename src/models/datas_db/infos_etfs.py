@@ -95,7 +95,7 @@ tickers_etf = [
 
 
 #tickers_etf = ["500.PA", "CACC.PA"]
-print(len(set(tickers_etf)))
+#print(len(set(tickers_etf)))
 
 def infos_etfs(dossier_csv="csv", csv_bdd="csv/csv_bdd"):
     rows = []
