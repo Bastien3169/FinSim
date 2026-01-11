@@ -6,21 +6,21 @@ from src.components.components_views import *
 
 def home_page(go_to, auth_manager):
 
-    # ---------------------------------------------------------
-    # CSS et assets
-    # ---------------------------------------------------------
     load_css()
-
-    image_path = "src/assets/images/indices.jpeg"
-    with open(image_path, "rb") as img_file:
-        encoded = b64encode(img_file.read()).decode()
-
-    st.markdown(f""" <div class="main-container"><img src="data:image/jpeg;base64,{encoded}" class="center-image"> </div> """, unsafe_allow_html=True,)
 
     # ---------------------------------------------------------
     # TITRE
     # ---------------------------------------------------------
     st.markdown( """<div class="main-container"><h1>🏠 Bienvenue sur FinSim</h1></div>""",unsafe_allow_html=True,)
+
+    # ---------------------------------------------------------
+    # IMAGE
+    # ---------------------------------------------------------
+    image_path = "src/assets/images/finsim.png"
+    with open(image_path, "rb") as img_file:
+        encoded = b64encode(img_file.read()).decode()
+
+    st.markdown(f""" <div class="main-container"><img src="data:image/png;base64,{encoded}" class="center-image"> </div> """, unsafe_allow_html=True,)
 
     # ---------------------------------------------------------
     # TEXTE INTRO
@@ -52,7 +52,7 @@ def home_page(go_to, auth_manager):
             for key in ["auth", "user_role", "user_email"]:
                 if key in st.session_state:
                     del st.session_state[key]
-            go_to("login")  # redirige vers la page login
+            go_to("auth")  # redirige vers la page login
             st.stop()  # stoppe le script pour forcer reload
 
 
