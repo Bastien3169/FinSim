@@ -92,8 +92,8 @@ def dca_vs_ls_page(go_to):
     
 
         # =============== Bouton retour accueil ================
-        bout_accueil(back_callback=go_to)
+    bout_accueil(back_callback=go_to)
 
         
         # =============== Footer ================
-        footer()
+    footer()
