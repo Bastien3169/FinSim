@@ -18,6 +18,8 @@ from src.views.dca_vs_ls import dca_vs_ls_page
 from src.views.comparaison_actifs import actifs_page
 from src.views.admin import admin_page
 from src.models.users_db.models_db_users_test import AuthManager
+from src.views.forgot_password import forgot_password_page
+from src.views.reset_password import reset_password_page
 
 # ---------------------------------------------------------
 # AUTH MANAGER
@@ -31,6 +33,16 @@ if not auth_manager.cookies.ready():
     st.stop()
 
 # ---------------------------------------------------------
+# ⭐ RÉCUPÉRER LES QUERY PARAMS DEPUIS L'URL
+# ---------------------------------------------------------
+query_params = st.query_params
+url_page = query_params.get("page", None)
+
+# ⭐ Si la page est dans l'URL, l'utiliser en priorité
+if url_page:
+    st.session_state.page = url_page
+
+# ---------------------------------------------------------
 # ⭐ AUTO-LOGIN : Vérifier si l'utilisateur a déjà un cookie valide
 # ---------------------------------------------------------
 # On vérifie AVANT d'initialiser la page
@@ -42,15 +54,15 @@ if user:
     st.session_state.user_email = user["email"]
     st.session_state.user_role = user["role"]
     
-    # ⭐ Initialiser la page par défaut sur "home" si connecté
-    if "page" not in st.session_state:
+    # ⭐ Initialiser la page par défaut sur "home" si connecté (SEULEMENT si pas de page dans l'URL)
+    if "page" not in st.session_state and not url_page:
         st.session_state.page = "home"
 else:
     # ❌ Pas de cookie valide
     st.session_state.auth = False
     
-    # ⭐ Initialiser la page par défaut sur "auth" si non connecté
-    if "page" not in st.session_state:
+    # ⭐ Initialiser la page par défaut sur "auth" si non connecté (SEULEMENT si pas de page dans l'URL)
+    if "page" not in st.session_state and not url_page:
         st.session_state.page = "auth"
 
 # ---------------------------------------------------------
@@ -58,6 +70,8 @@ else:
 # ---------------------------------------------------------
 def go_to(page: str):
     st.session_state.page = page
+    # ⭐ Nettoyer les query params quand on navigue
+    st.query_params.clear()
     st.rerun()
 
 # ---------------------------------------------------------
@@ -68,7 +82,15 @@ def router():
 
     # ⭐ Pages publiques (accessible sans authentification)
     if page == "auth":
-        login_page(auth_manager)
+        login_page(auth_manager, go_to=go_to)
+        return
+
+    if page == "forgot_password":
+        forgot_password_page(auth_manager, go_to=go_to)
+        return
+    
+    if page == "reset_password":
+        reset_password_page(auth_manager, go_to=go_to)
         return
 
     # ⭐ Pages protégées (nécessitent authentification)

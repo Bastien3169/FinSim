@@ -1,32 +1,36 @@
 import streamlit as st
 from src.components.components_views import *
 
-def login_page(auth_manager):
+def login_page(auth_manager, go_to=None):
     load_css()
-    display_page_title("AUTHENTIFICATION FinSim")
+    display_page_title("🔐 AUTHENTIFICATION FinSim")
 
     menu = st.radio("Connexion ou Inscription ?", ["Connexion", "Inscription"], horizontal=True)
 
     if menu == "Connexion":
-        email = st.text_input("Votre email", key="login_email")
-        password = st.text_input("Mot de passe", type="password", key="login_password")
-        stay_connected = st.checkbox("Rester connecté", value=False)
+        email = st.text_input("📧 Votre email", key="login_email")
+        password = st.text_input("🔒 Mot de passe", type="password", key="login_password")
+        stay_connected = st.checkbox("Rester connecté", value=False) 
 
-        if st.button("Se connecter", use_container_width=True):
+        if st.button("👤 Se connecter", use_container_width=True):
             if not email or not password:
-                st.error("Veuillez remplir tous les champs")
+                st.error("❌ Veuillez remplir tous les champs")
             else:
                 success, message, role = auth_manager.login(email, password, stay_connected)
                 if success:
                     st.session_state.auth = True
                     st.session_state.user_email = email
                     st.session_state.user_role = role
-                    st.session_state.page = "home"  # Rediriger vers home après connexion
+                    st.session_state.page = "home"
                     st.success(message)
                     st.rerun()
                 else:
                     st.error(message)
-    
+
+        if st.button("🔑 Mot de passe oublié ?", key="forgot_password_link", use_container_width=True):
+            go_to("forgot_password")
+
+
 
     # ============================================ S'INSCRIRE ============================================
     elif menu == "Inscription":
@@ -37,7 +41,7 @@ def login_page(auth_manager):
 
         st.info("ℹ️ Le mot de passe doit contenir :\n- Au moins 5 caractères\n- Une majuscule\n- Une minuscule\n- Un chiffre\n- Un caractère spécial (!@#$%^&*?)")
         
-        if st.button("S'inscrire", use_container_width=True):
+        if st.button("📝 S'inscrire", use_container_width=True):
             if not username or not email or not password or not confirm_password:
                 st.error("❌ Veuillez remplir tous les champs")
             elif password != confirm_password:

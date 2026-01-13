@@ -4,6 +4,8 @@ import re
 import uuid
 from datetime import datetime, timedelta
 from streamlit_cookies_manager import EncryptedCookieManager
+from src.services.envoie_mails import *
+import secrets
 import streamlit as st
 
 
@@ -38,6 +40,7 @@ class BaseDBManager:
             conn.commit()
 
 
+######################################################## CLASSE ADMIN ########################################################
 class AuthManager(BaseDBManager):
     def __init__(self, db_path="users.db", cookie_name="session_id", cookie_secret="Toulouse31"):
         super().__init__(db_path)
@@ -151,6 +154,99 @@ class AuthManager(BaseDBManager):
             conn.execute("DELETE FROM sessions WHERE expires_at <= ?", (date_now,))
             conn.commit()
 
+# --------------------------- Mot de passe oublié --------------------------- #
+    def create_password_reset_token(self, email):
+        """Crée un token de réinitialisation pour un email donné"""
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            c.execute("SELECT id FROM users WHERE email = ?", (email,))
+            user = c.fetchone()
+            
+            if not user:
+                return False, "❌ Aucun utilisateur trouvé avec cet email"
+            
+            user_id = user[0]
+            
+            # Génère un token sécurisé
+            token = secrets.token_urlsafe(32)
+            expires_at = (datetime.utcnow() + timedelta(hours=1)).strftime("%Y-%m-%d %H:%M:%S")
+            created_at = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+            
+            # Créer la table si elle n'existe pas
+            c.execute('''
+                CREATE TABLE IF NOT EXISTS password_resets (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
+                    token TEXT UNIQUE NOT NULL,
+                    expires_at TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
+                )
+            ''')
+            
+            # Supprimer les anciens tokens pour cet utilisateur
+            c.execute("DELETE FROM password_resets WHERE user_id = ?", (user_id,))
+            
+            # Insérer le nouveau token
+            c.execute(
+                "INSERT INTO password_resets (user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?)",
+                (user_id, token, expires_at, created_at)
+            )
+            conn.commit()
+            
+            return True, token
+
+    def forgot_password(self, email):
+        """Envoie un email de réinitialisation de mot de passe"""
+        #from src.services.envoie_mails import envoie_password_reset_email
+        
+        success, result = self.create_password_reset_token(email)
+        if not success:
+            return False, result
+        
+        token = result
+        
+        try:
+            envoie_password_reset_email(email, token)
+            return True, "✅ Email de réinitialisation envoyé !"
+        except Exception as e:
+            return False, f"❌ Erreur lors de l'envoi de l'email : {str(e)}"
+
+    def reset_password_with_token(self, token, new_password):
+        """Réinitialise le mot de passe avec un token"""
+        # Vérifier le format du mot de passe
+        password_pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*?])[\S\s]{5,}$'
+        if not re.match(password_pattern, new_password):
+            return False, "❌ Mot de passe trop faible."
+        
+        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        
+        with sqlite3.connect(self.db_path) as conn:
+            c = conn.cursor()
+            
+            # Vérifier que le token existe et n'est pas expiré
+            c.execute("""SELECT pr.user_id FROM password_resets pr WHERE pr.token = ? AND pr.expires_at > ?""", (token, now))
+            
+            row = c.fetchone()
+            if not row:
+                return False, "❌ Lien de réinitialisation invalide ou expiré."
+            
+            user_id = row[0]
+            
+            # Mettre à jour le mot de passe
+            hashed = self.hash_password(new_password)
+            c.execute("UPDATE users SET password = ? WHERE id = ?", (hashed, user_id))
+            
+            # Supprimer tous les tokens pour cet utilisateur
+            c.execute("DELETE FROM password_resets WHERE user_id = ?", (user_id,))
+            
+            conn.commit()
+            
+            return True, "✅ Mot de passe réinitialisé avec succès."
+        
+
+
+######################################################## CLASSE ADMIN ########################################################
 
 class AdminManager(BaseDBManager):
 #--------------------------- Initialisation et et lancement de "super().init_db()" ---------------------------#
