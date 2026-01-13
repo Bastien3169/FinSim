@@ -216,80 +216,104 @@ def infos_actifs(datas_manager, liste_actifs, actif_default, actif_type="actif")
 # ========================================
 
 def display_multi_actifs_rendement_section(datas_indices,
-                                             datas_stocks,
-                                            datas_cryptos,
-                                            liste_indices,
-                                            liste_stocks,
-                                            liste_cryptos,
-                                            indice_default,
-                                            stock_default,
-                                            crypto_default,
-                                            calculate_rendement_func,
-                                            style_rendement_func,
-                                            default_periods=None):
+                                          datas_stocks,
+                                          datas_cryptos,
+                                          datas_etfs,  # ⭐ AJOUT
+                                          liste_indices,
+                                          liste_stocks,
+                                          liste_cryptos,
+                                          liste_etfs,  # ⭐ AJOUT
+                                          indice_default,
+                                          stock_default,
+                                          crypto_default,
+                                          etf_default,  # ⭐ AJOUT
+                                          calculate_rendement_func,
+                                          style_rendement_func,
+                                          default_periods=None):
     
     if default_periods is None:
         default_periods = [6, 12, 24, 60, 120, 180]
-
+    
     # ✅ Clé unique pour cette section
     actif_type = "multi_actifs"
     periods_key = f"periods_{actif_type}"
     rendement_key = f"rendement_data_{actif_type}"
     selected_key = f"selected_{actif_type}"
-    weights_key = f"weights_{actif_type}"  
-
+    weights_key = f"weights_{actif_type}"
+    
     # -------------------- INIT SESSION --------------------
     if periods_key not in st.session_state:
         st.session_state[periods_key] = default_periods.copy()
-
     if rendement_key not in st.session_state:
         st.session_state[rendement_key] = pd.DataFrame()
     
     if selected_key not in st.session_state:
-        st.session_state[selected_key] = [indice_default, stock_default, crypto_default]
+        st.session_state[selected_key] = [indice_default, stock_default, crypto_default, etf_default]  # ⭐ AJOUT etf_default
     
     if weights_key not in st.session_state:
-        # ✅ NOUVEAU : Dictionnaire {actif: poids}
-        st.session_state[weights_key] = {indice_default: 33.33, stock_default: 33.33, crypto_default: 33.34}
-
-    # -------------------- 3 DROPDOWNS --------------------
-    st.markdown("""<div class="main-container"><h2>⚖️ Sélectionner les actifs à comparer</h2></div>""", unsafe_allow_html=True)
-    st.write("**Sélectioner les actifs à comparer :**")
+        # ⭐ MODIFIÉ : 4 actifs par défaut au lieu de 3
+        st.session_state[weights_key] = {
+            indice_default: 25.0,
+            stock_default: 25.0,
+            crypto_default: 25.0,
+            etf_default: 25.0  # ⭐ AJOUT
+        }
     
-    col1, col2, col3 = st.columns(3)
+    # -------------------- 4 DROPDOWNS --------------------
+    st.markdown("""<div class="main-container"><h2>⚖️ Sélectionner les actifs à comparer</h2></div>""", unsafe_allow_html=True)
+    st.write("**Sélectionner les actifs à comparer :**")
+    
+    col1, col2, col3, col4 = st.columns(4)  # ⭐ MODIFIÉ : 4 colonnes
     
     with col1:
-        selected_indice = st.selectbox("📈 Indice", liste_indices, index=liste_indices.index(indice_default) if indice_default in liste_indices else 0, key=f"select_indice_{actif_type}")
+        selected_indice = st.selectbox("📈 Indice", liste_indices, 
+                                      index=liste_indices.index(indice_default) if indice_default in liste_indices else 0, 
+                                      key=f"select_indice_{actif_type}")
         if st.button("➕ Ajouter indice", key=f"add_indice_{actif_type}", use_container_width=True):
             if selected_indice not in st.session_state[selected_key]:
                 st.session_state[selected_key].append(selected_indice)
-                st.session_state[weights_key][selected_indice] = 0.0  # ✅ NOUVEAU
+                st.session_state[weights_key][selected_indice] = 0.0
                 st.rerun()
     
     with col2:
-        selected_stock = st.selectbox("🏢 Entreprise", liste_stocks, index=liste_stocks.index(stock_default) if stock_default in liste_stocks else 0, key=f"select_stock_{actif_type}")
+        selected_stock = st.selectbox("🏢 Entreprise", liste_stocks, 
+                                     index=liste_stocks.index(stock_default) if stock_default in liste_stocks else 0, 
+                                     key=f"select_stock_{actif_type}")
         if st.button("➕ Ajouter entreprise", key=f"add_stock_{actif_type}", use_container_width=True):
             if selected_stock not in st.session_state[selected_key]:
                 st.session_state[selected_key].append(selected_stock)
-                st.session_state[weights_key][selected_stock] = 0.0  # ✅ NOUVEAU
+                st.session_state[weights_key][selected_stock] = 0.0
                 st.rerun()
     
     with col3:
-        selected_crypto = st.selectbox("₿ Crypto", liste_cryptos, index=liste_cryptos.index(crypto_default) if crypto_default in liste_cryptos else 0, key=f"select_crypto_{actif_type}")
+        selected_crypto = st.selectbox("₿ Crypto", liste_cryptos, 
+                                      index=liste_cryptos.index(crypto_default) if crypto_default in liste_cryptos else 0, 
+                                      key=f"select_crypto_{actif_type}")
         if st.button("➕ Ajouter crypto", key=f"add_crypto_{actif_type}", use_container_width=True):
             if selected_crypto not in st.session_state[selected_key]:
                 st.session_state[selected_key].append(selected_crypto)
-                st.session_state[weights_key][selected_crypto] = 0.0  # ✅ NOUVEAU
+                st.session_state[weights_key][selected_crypto] = 0.0
                 st.rerun()
-
-    # -------------------- AFFICHAGE ACTIFS + PONDÉRATIONS --------------------
-    st.markdown("""<div class="main-container"><h2>👛 Séléctionner la composition du portefeuille (%)</h2></div>""", unsafe_allow_html=True)
-    st.write("**- Sélectionner la pondérations des actifs sélectionnés pour votre portefeuille.**  \n"
-            "**- Les pondération à 0% seront ignorées pour le calcul du rendement de votre portefeuille.**")
     
-    # ✅ NOUVEAU : Inputs pour les pondérations
+    # ⭐ AJOUT : Colonne 4 pour les ETFs
+    with col4:
+        selected_etf = st.selectbox("💼 ETF", liste_etfs, 
+                                   index=liste_etfs.index(etf_default) if etf_default in liste_etfs else 0, 
+                                   key=f"select_etf_{actif_type}")
+        if st.button("➕ Ajouter ETF", key=f"add_etf_{actif_type}", use_container_width=True):
+            if selected_etf not in st.session_state[selected_key]:
+                st.session_state[selected_key].append(selected_etf)
+                st.session_state[weights_key][selected_etf] = 0.0
+                st.rerun()
+    
+    # -------------------- AFFICHAGE ACTIFS + PONDÉRATIONS --------------------
+    st.markdown("""<div class="main-container"><h2>📊 Sélectionner la composition du portefeuille (%)</h2></div>""", unsafe_allow_html=True)
+    st.markdown(
+    "**- Sélectionner la pondération des actifs sélectionnés pour votre portefeuille.**  \n"
+    "**- Les pondérations à 0 % seront ignorées pour le calcul du rendement de votre portefeuille.**")
+
+    
     if st.session_state[selected_key]:
-        # Afficher les sliders pour chaque actif
         for actif in st.session_state[selected_key]:
             col_name, col_weight, col_remove = st.columns([3, 2, 1])
             
@@ -306,7 +330,6 @@ def display_multi_actifs_rendement_section(datas_indices,
                     key=f"weight_{actif_type}_{actif}",
                     label_visibility="collapsed"
                 )
-                
                 st.session_state[weights_key][actif] = new_weight
             
             with col_remove:
@@ -316,7 +339,7 @@ def display_multi_actifs_rendement_section(datas_indices,
                     st.session_state[rendement_key] = pd.DataFrame()
                     st.rerun()
         
-        # ✅ NOUVEAU : Vérification du total des poids
+        # Vérification du total des poids
         total_weight = sum(st.session_state[weights_key].values())
         
         if abs(total_weight - 100.0) < 0.01:
@@ -327,12 +350,16 @@ def display_multi_actifs_rendement_section(datas_indices,
             st.warning(f"⚠️ Total : {total_weight:.2f}% (inférieur à 100%)")
     else:
         st.info("Aucun actif sélectionné")
-
-
+    
     # -------------------- GESTION DES PÉRIODES --------------------
     st.markdown("""<div class="main-container"><h2>⏳ Sélectionner les périodes de rendement à analyser</h2></div>""", unsafe_allow_html=True)
-    period_input = st.text_input("Ajouter des périodes de rendement (en mois), séparées par des virgules :", placeholder="Ex: 1,3,6,12", key=f"period_input_{actif_type}")
-    # 
+    st.markdown( "Ajouter des périodes de rendement (en mois), séparées par des virgules :")
+
+    period_input = st.text_input("Ajouter des périodes de rendement (en mois), séparées par des virgules :", 
+                                 placeholder="Ex: 1,3,6,12", 
+                                 key=f"period_input_{actif_type}",
+                                 label_visibility="collapsed",) # Label masqué
+    
     if st.button("➕ Ajouter", key=f"add_period_{actif_type}"):
         try:
             new_periods = [int(p.strip()) for p in period_input.split(",") if p.strip()]
@@ -341,67 +368,61 @@ def display_multi_actifs_rendement_section(datas_indices,
                 if p > 0 and p not in st.session_state[periods_key]:
                     st.session_state[periods_key].append(p)
                     added.append(p)
-
             if added:
                 st.session_state[periods_key].sort()
                 st.session_state[rendement_key] = pd.DataFrame()
                 st.rerun()
         except ValueError:
             st.error("⚠️ Veuillez entrer uniquement des nombres")
-
+    
     # Affichage et suppression des périodes
     for i in range(0, len(st.session_state[periods_key]), 10):
         batch = st.session_state[periods_key][i:i+10]
-        cols = st.columns(10, gap="small")  # colonnes fixes → alignement à gauche
-
+        cols = st.columns(10, gap="small")
         for idx, p in enumerate(batch):
             with cols[idx]:
-                if st.button(
-                    f"❌ {p}m",
-                    key=f"remove_period_{actif_type}_{p}",
-                    use_container_width=True
-                ):
+                if st.button(f"❌ {p}m", key=f"remove_period_{actif_type}_{p}", use_container_width=True):
                     st.session_state[periods_key].remove(p)
                     st.session_state[rendement_key] = pd.DataFrame()
                     st.rerun()
-
+    
     periods = st.session_state[periods_key]
     selected_actifs = st.session_state[selected_key]
     
-
     # -------------------- CALCUL RENDEMENTS --------------------
-    # Nettoyage
-    st.session_state[rendement_key] = st.session_state[rendement_key].loc[st.session_state[rendement_key].index.intersection(selected_actifs) ]
-
+    st.session_state[rendement_key] = st.session_state[rendement_key].loc[
+        st.session_state[rendement_key].index.intersection(selected_actifs)
+    ]
+    
     for actif in selected_actifs:
         expected_cols = [f"{p} mois" for p in periods]
-        needs_recalc = (actif not in st.session_state[rendement_key].index or not all(col in st.session_state[rendement_key].columns for col in expected_cols))
-
+        needs_recalc = (actif not in st.session_state[rendement_key].index or 
+                       not all(col in st.session_state[rendement_key].columns for col in expected_cols))
+        
         if not needs_recalc:
             continue
-
-        # Déterminer quelle base de données utiliser
+        
+        # ⭐ MODIFIÉ : Déterminer quelle base de données utiliser (+ ETFs)
         if actif in liste_indices:
             df_prix = datas_indices.get_prix_date(actif)
         elif actif in liste_stocks:
             df_prix = datas_stocks.get_prix_date(actif)
         elif actif in liste_cryptos:
             df_prix = datas_cryptos.get_prix_date(actif)
+        elif actif in liste_etfs:  # ⭐ AJOUT
+            df_prix = datas_etfs.get_prix_date(actif)
         else:
             continue
-
+        
         if df_prix.empty:
             continue
-
+        
         df_rend = calculate_rendement_func(df_prix, periods)
-
         st.session_state[rendement_key] = st.session_state[rendement_key].drop(actif, errors="ignore")
-
         st.session_state[rendement_key] = pd.concat([st.session_state[rendement_key], pd.DataFrame(df_rend, index=[actif])])
-
-    # ✅ NOUVEAU : CALCUL DU PORTEFEUILLE PONDÉRÉ
+    
+    # ✅ CALCUL DU PORTEFEUILLE PONDÉRÉ
     if not st.session_state[rendement_key].empty and selected_actifs:
-        # Calculer le rendement du portefeuille
         portfolio_rendement = {}
         
         for period in periods:
@@ -422,26 +443,24 @@ def display_multi_actifs_rendement_section(datas_indices,
         
         # Ajouter le portefeuille au DataFrame
         if portfolio_rendement:
-            st.session_state[rendement_key] = st.session_state[rendement_key].drop("👛 PORTEFEUILLE 👛", errors="ignore")
-            st.session_state[rendement_key] = pd.concat([st.session_state[rendement_key], pd.DataFrame(portfolio_rendement, index=["👛 PORTEFEUILLE 👛"])])
-
-    # -------------------- AFFICHAGE DATAFRAME--------------------
-    st.markdown("""<div class="main-container"><h2>📋 Tableau récapitulatif des rendements par période </h2></div>""", unsafe_allow_html=True)
+            st.session_state[rendement_key] = st.session_state[rendement_key].drop("📊 PORTEFEUILLE 📊", errors="ignore")
+            st.session_state[rendement_key] = pd.concat([
+                st.session_state[rendement_key], 
+                pd.DataFrame(portfolio_rendement, index=["📊 PORTEFEUILLE 📊"])
+            ])
+    
+    # -------------------- AFFICHAGE DATAFRAME --------------------
+    st.markdown("""<div class="main-container"><h2>📈 Tableau récapitulatif des rendements par période</h2></div>""", unsafe_allow_html=True)
     st.write("**Tableau des rendements des actifs sélectionnés et de votre portefeuille :**")
+    
     if not st.session_state[rendement_key].empty and selected_actifs:
         cols_order = [f"{p} mois" for p in periods]
         cols_order = [c for c in cols_order if c in st.session_state[rendement_key].columns]
-
-        df_display = st.session_state[rendement_key][cols_order].loc[selected_actifs + ["👛 PORTEFEUILLE 👛"]]
+        df_display = st.session_state[rendement_key][cols_order].loc[selected_actifs + ["📊 PORTEFEUILLE 📊"]]
         
         df_display.index.name = "Actifs"
-        
         styled_df = style_rendement_func(df_display, periods)
-
         column_config = {df_display.index.name: st.column_config.TextColumn(df_display.index.name, width="medium")}
-
         st.dataframe(styled_df, use_container_width=True, column_config=column_config)
     else:
         st.info("📊 Sélectionnez des actifs pour afficher les rendements")
-
-
