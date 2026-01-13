@@ -443,3 +443,5 @@ def display_multi_actifs_rendement_section(datas_indices,
         st.dataframe(styled_df, use_container_width=True, column_config=column_config)
     else:
         st.info("📊 Sélectionnez des actifs pour afficher les rendements")
+
+
