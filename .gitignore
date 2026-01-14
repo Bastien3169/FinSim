@@ -1,4 +1,6 @@
 pyproject.toml
 poetry.lock
 Dockerfile
+twilio_2FA_recovery_code.txt
+API_sendgrid.txt
 
