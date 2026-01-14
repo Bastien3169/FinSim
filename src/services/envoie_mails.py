@@ -1,61 +1,27 @@
 import smtplib
 from email.message import EmailMessage
-
-# ---- Variables simples pour test ----
-SMTP_EMAIL = "jolie.mountain@gmail.com"
-SMTP_PASS = "oxwp quqm exbt bgjx"  # mot de passe spécifique application
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 465
-
-def envoie_password_reset_email(to_email, token):
-    # ⭐ Utiliser le bon port de votre app Streamlit
-    reset_link = f"http://localhost:8501/?token={token}&page=reset_password"
-    
-    msg = EmailMessage()
-    msg['Subject'] = "Réinitialisation de votre mot de passe - FinSim"
-    msg['From'] = SMTP_EMAIL
-    msg['To'] = to_email
-    
-    msg.set_content(
-        f"Bonjour,\n\n"
-        f"Vous avez demandé à réinitialiser votre mot de passe pour FinSim.\n\n"
-        f"Cliquez sur ce lien pour réinitialiser votre mot de passe :\n"
-        f"{reset_link}\n\n"
-        f"⚠️ Ce lien expire dans 1 heure.\n\n"
-        f"Si vous n'avez pas demandé cette réinitialisation, ignorez cet email.\n\n"
-        f"Cordialement,\nL'équipe FinSim"
-    )
-
-    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as smtp:
-        smtp.login(SMTP_EMAIL, SMTP_PASS)
-        smtp.send_message(msg)
-
-
-
-import smtplib
-from email.message import EmailMessage
 import os
 
-# ✅ MODIFICATION : Utilisation des variables d'environnement
+# Configuration SMTP
 SMTP_EMAIL = os.getenv("SMTP_EMAIL", "jolie.mountain@gmail.com")
 SMTP_PASS = os.getenv("SMTP_PASS", "oxwp quqm exbt bgjx")
 SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 465
+SMTP_PORT = 587  # ⭐ PORT 587 au lieu de 465
 
-# ✅ AJOUT : URL dynamique selon l'environnement
+# URL dynamique selon l'environnement
 BASE_URL = os.getenv("APP_URL", "http://localhost:8501")
 
 def envoie_password_reset_email(to_email, token):
-    # ✅ LOGS : Pour voir ce qui se passe dans Railway
     print(f"🔄 [EMAIL] Tentative d'envoi à {to_email}")
     print(f"📧 [EMAIL] SMTP utilisé: {SMTP_EMAIL}")
     print(f"🌐 [EMAIL] URL de base: {BASE_URL}")
-    print(f"🔑 [EMAIL] Token généré: {token[:10]}...")  # Affiche seulement le début
+    print(f"🔑 [EMAIL] Token: {token[:10]}...")
     
-    # ✅ MODIFICATION : Utilise BASE_URL au lieu de localhost en dur
+    # Génération du lien
     reset_link = f"{BASE_URL}/?token={token}&page=reset_password"
-    print(f"🔗 [EMAIL] Lien généré: {reset_link}")
+    print(f"🔗 [EMAIL] Lien: {reset_link}")
     
+    # Création du message
     msg = EmailMessage()
     msg['Subject'] = "Réinitialisation de votre mot de passe - FinSim"
     msg['From'] = SMTP_EMAIL
@@ -72,13 +38,11 @@ def envoie_password_reset_email(to_email, token):
     )
 
     try:
-        print("🔌 [EMAIL] Connexion au serveur SMTP...")
-        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as smtp:
-            try :
-                print("🔐 [EMAIL] Démarrage STARTTLS...")
-                smtp.starttls()
-            except smtplib.SMTPNotSupportedError as e:
-                print(f"⚠️ [EMAIL] STARTTLS non supporté: {e} - Continuation sans STARTTLS.")
+        print("🔌 [EMAIL] Connexion au serveur SMTP (port 587)...")
+        # ⭐ SMTP (pas SMTP_SSL) avec port 587
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10) as smtp:
+            print("🔐 [EMAIL] Activation STARTTLS...")
+            smtp.starttls()  # Active le chiffrement
             
             print("🔑 [EMAIL] Authentification...")
             smtp.login(SMTP_EMAIL, SMTP_PASS)
