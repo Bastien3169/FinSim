@@ -5,7 +5,7 @@ from email.message import EmailMessage
 SMTP_EMAIL = "jolie.mountain@gmail.com"
 SMTP_PASS = "oxwp quqm exbt bgjx"  # mot de passe spécifique application
 SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 465
+SMTP_PORT = 587
 
 def envoie_password_reset_email(to_email, token):
     # ⭐ Utiliser le bon port de votre app Streamlit

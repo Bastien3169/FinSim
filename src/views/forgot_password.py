@@ -2,14 +2,12 @@ import streamlit as st
 from src.components.components_views import *
 
 def forgot_password_page(auth_manager, go_to=None):
+
     load_css()
+    
     display_page_title("🔑 MOT DE PASSE OUBLIÉ")
 
-    st.markdown("""
-        <div class="main-container">
-            <p>Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown("""<div class="main-container"><p>Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.</p></div>""", unsafe_allow_html=True)
 
     email = st.text_input("📧 Votre email", key="forgot_email")
 
