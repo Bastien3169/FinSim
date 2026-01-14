@@ -196,6 +196,7 @@ class AuthManager(BaseDBManager):
             
             return True, token
 
+
     def forgot_password(self, email):
         """Envoie un email de réinitialisation de mot de passe"""
         #from src.services.envoie_mails import envoie_password_reset_email
@@ -211,6 +212,7 @@ class AuthManager(BaseDBManager):
             return True, "✅ Email de réinitialisation envoyé !"
         except Exception as e:
             return False, f"❌ Erreur lors de l'envoi de l'email : {str(e)}"
+
 
     def reset_password_with_token(self, token, new_password):
         """Réinitialise le mot de passe avec un token"""
