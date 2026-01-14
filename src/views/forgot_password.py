@@ -18,12 +18,20 @@ def forgot_password_page(auth_manager, go_to=None):
             if not email:
                 st.error("❌ Veuillez entrer votre email")
             else:
-                success, message = auth_manager.forgot_password(email)
-                if success:
-                    st.success(message)
-                    st.info("📧 Vérifiez votre boîte mail (pensez aux spams)")
-                else:
-                    st.error(message)
+                # ✅ AJOUT : Spinner pour montrer que ça travaille
+                with st.spinner("📤 Envoi en cours..."):
+                    try:
+                        success, message = auth_manager.forgot_password(email)
+                        if success:
+                            st.success(message)
+                            st.info("📧 Vérifiez votre boîte mail (pensez aux spams)")
+                        else:
+                            st.error(message)
+                    except Exception as e:
+                        # ✅ AJOUT : Capture les erreurs inattendues
+                        st.error(f"❌ Erreur inattendue : {str(e)}")
+                        # 🔍 Pour le débogage (à retirer en production)
+                        st.exception(e)
     
     with col2:
         if st.button("⬅️ Retour à la connexion", use_container_width=True):
