@@ -26,6 +26,7 @@ def envoie_password_reset_email(to_email, token):
         f"Cordialement,\nL'équipe FinSim"
     )
 
-    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as smtp:
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+        smtp.starttls() 
         smtp.login(SMTP_EMAIL, SMTP_PASS)
         smtp.send_message(msg)
