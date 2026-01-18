@@ -4,7 +4,7 @@ import re
 import uuid
 from datetime import datetime, timedelta
 from streamlit_cookies_manager import EncryptedCookieManager
-from src.services.envoie_mails import *
+from src.services.envoie_mails import envoie_password_reset_email
 import secrets
 import streamlit as st
 
@@ -37,6 +37,19 @@ class BaseDBManager:
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
+
+            # Table password_resets (ajoutée ici)
+            c.execute('''
+                CREATE TABLE IF NOT EXISTS password_resets (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
+                    token TEXT UNIQUE NOT NULL,
+                    expires_at TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
+                )
+            ''')
+
             conn.commit()
 
 
@@ -156,7 +169,6 @@ class AuthManager(BaseDBManager):
 
 # --------------------------- Mot de passe oublié --------------------------- #
     def create_password_reset_token(self, email):
-        """Crée un token de réinitialisation pour un email donné"""
         with sqlite3.connect(self.db_path) as conn:
             c = conn.cursor()
             c.execute("SELECT id FROM users WHERE email = ?", (email,))
@@ -171,27 +183,13 @@ class AuthManager(BaseDBManager):
             token = secrets.token_urlsafe(32)
             expires_at = (datetime.utcnow() + timedelta(hours=1)).strftime("%Y-%m-%d %H:%M:%S")
             created_at = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-            
-            # Créer la table si elle n'existe pas
-            c.execute('''
-                CREATE TABLE IF NOT EXISTS password_resets (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id INTEGER NOT NULL,
-                    token TEXT UNIQUE NOT NULL,
-                    expires_at TEXT NOT NULL,
-                    created_at TEXT NOT NULL,
-                    FOREIGN KEY(user_id) REFERENCES users(id)
-                )
-            ''')
-            
+
             # Supprimer les anciens tokens pour cet utilisateur
             c.execute("DELETE FROM password_resets WHERE user_id = ?", (user_id,))
             
             # Insérer le nouveau token
-            c.execute(
-                "INSERT INTO password_resets (user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?)",
-                (user_id, token, expires_at, created_at)
-            )
+            c.execute("INSERT INTO password_resets (user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?)", (user_id, token, expires_at, created_at))
+            
             conn.commit()
             
             return True, token

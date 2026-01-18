@@ -1,4 +1,4 @@
-#!/Users/bastoch/app_Finance_Project/ProjectFinance_Streamlit_new/.venv/bin/python3.12
+#!/Users/bastoch/app_Finance_Project/FinSim_Streamlit/ProjectFinance_Streamlit_new_clone/.venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
