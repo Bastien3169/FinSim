@@ -1,4 +1,4 @@
-#!/Users/bastoch/app_Finance_Project/FinSim_Streamlit/ProjectFinance_Streamlit_new_clone/.venv/bin/python3.12
+#!/Users/bastoch/app_FinSim_Streamlit/FinSim_Streamlit_V2_with_postgre_API/.venv/bin/python3.12
 import sys
 from jsonschema.cli import main
 if __name__ == '__main__':

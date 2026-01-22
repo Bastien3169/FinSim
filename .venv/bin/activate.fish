@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/bastoch/app_Finance_Project/FinSim_Streamlit/ProjectFinance_Streamlit_new_clone/.venv"
+set -gx VIRTUAL_ENV "/Users/bastoch/app_FinSim_Streamlit/FinSim_Streamlit_V2_with_postgre_API/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
